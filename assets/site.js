@@ -144,6 +144,15 @@
   }
   cycle();
 
+  /* the marks below the fold fade only while they are on screen: an opacity fade the compositor cannot run (an
+     off-screen mark, or one inside text that is still faded out) would tick the main thread every frame */
+  if ('IntersectionObserver' in window) {
+    var markSeen = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { en.target.classList.toggle('is-near', en.isIntersecting); });
+    }, { rootMargin: '8% 0px 8% 0px' });
+    each('.logo', function (m) { if (!m.closest('.nav')) markSeen.observe(m); });
+  }
+
   function glide(el) {  // smooth on an explicit click, instant under reduced motion
     var behavior = still && still.matches ? 'auto' : 'smooth';
     if (el) el.scrollIntoView({ behavior: behavior, block: 'start' });
@@ -179,7 +188,7 @@
   }
 
   /* ---------- a nav link to the page you are on glides back to its top (or to its section); other pages open at their top ---------- */
-  function bare(path) { return path.replace(/index\.html$/, ''); }
+  function bare(path) { return path.replace(/\.html$/, '').replace(/\/index$/, '/').replace(/\/+$/, '') || '/'; }  // /faq, /faq.html, / and /index.html alike
   if (nav) {
     each('a[href]', function (a) {
       a.addEventListener('click', function (e) {
@@ -235,23 +244,29 @@
       holder.setAttribute('class', 'sprite');
       holder.setAttribute('aria-hidden', 'true');
       holder.innerHTML = '<filter id="lg-lens" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">'
-        + '<feImage href="' + cv.toDataURL() + '" x="0" y="0" width="48" height="48" preserveAspectRatio="none" result="map"/>'
-        + '<feDisplacementMap in="SourceGraphic" in2="map" scale="16" xChannelSelector="R" yChannelSelector="G"/></filter>';
+        + '<feImage href="' + cv.toDataURL() + '" x="0" y="0" width="' + (up.offsetWidth || 40) + '" height="' + (up.offsetWidth || 40) + '" preserveAspectRatio="none" result="map"/>'
+        + '<feDisplacementMap in="SourceGraphic" in2="map" scale="13" xChannelSelector="R" yChannelSelector="G"/></filter>';
       doc.body.appendChild(holder);
       up.classList.add('lg-lens');
     } catch (err) { /* a plain glass button then */ }
   }
-  var upQueued = false;
+  var upQueued = false, upMax = 1, upShow = 640;
+  function upMeasure() {  // the page's height changes only with layout, so it is read then and not on every frame
+    upMax = Math.max(1, doc.documentElement.scrollHeight - window.innerHeight);
+    upShow = Math.min(640, window.innerHeight * 0.75);
+  }
   function upDraw() {
     upQueued = false;
-    var y = window.scrollY || doc.documentElement.scrollTop || 0;
-    var max = Math.max(1, doc.documentElement.scrollHeight - window.innerHeight);
+    var y = window.pageYOffset || 0;
+    var max = upMax;
     up.style.setProperty('--p', Math.min(1, y / max).toFixed(4));
-    up.classList.toggle('is-on', y > Math.min(640, window.innerHeight * 0.75));
+    up.classList.toggle('is-on', y > upShow);
   }
   function upQueue() { if (!upQueued) { upQueued = true; requestAnimationFrame(upDraw); } }
   window.addEventListener('scroll', upQueue, { passive: true });
-  window.addEventListener('resize', upQueue);
+  window.addEventListener('resize', function () { upMeasure(); upQueue(); });
+  if (window.ResizeObserver) new ResizeObserver(function () { upMeasure(); upQueue(); }).observe(doc.body);
+  upMeasure();
   upDraw();
   up.addEventListener('click', function () {
     glide(null);
