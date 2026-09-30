@@ -4,7 +4,7 @@ The site is static: five HTML pages, one stylesheet, two small scripts and `vers
 
 ```
 site/
-  index.html  fenrir.html  connect.html  download.html  faq.html
+  index.html  host.html  connect.html  download.html  faq.html  (fenrir.html only redirects to host)
   versions.json          file names, sizes, SHA-256, release date and notes, download base (the pages show no version numbers; the release tag uses the one kept here)
   assets/site.css        tokens, both themes, every component
   assets/site.js         theme toggle, menu, versions.json, FAQ, download chooser, copy buttons

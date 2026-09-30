@@ -108,7 +108,7 @@
 
   function stageState(it, e, x, s, pass) {
     var q = 1 - easeOut(e);
-    var o = clamp(e / 0.65, 0, 1);
+    var o = clamp(e / 0.45, 0, 1);                                 /* opaque early, so the tilt is seen, not hidden in a fade */
     if (reduce) { put(it, '', o); return; }
     var tx = 0, ty = 60 * q * kMove, tz = -160 * q, rx = 18 * q - 6 * x, ry = 0, sc = 1 - 0.03 * x;
     if (it.mid) ty += clamp(0.3 * s, -140, 140) * kMove;          /* the illustration itself: 0.7x of the scroll */
@@ -122,7 +122,7 @@
     put(it, 'translate3d(' + num(tx) + 'px,' + num(ty) + 'px,' + num(tz) + 'px) rotateX(' + num(rx) + 'deg) rotateY(' + num(ry) + 'deg) scale(' + num(sc) + ')', o);
   }
   function foreState(it, e, s) {                                     /* chips and pills: 1.2x of the scroll */
-    var o = clamp((e - 0.2) / 0.55, 0, 1);
+    var o = clamp((e - 0.12) / 0.45, 0, 1);
     if (reduce) { put(it, '', o); return; }
     put(it, 'translate3d(0,' + num(clamp(-0.2 * s, -90, 90) * kFore) + 'px,0)', o);
   }
@@ -135,7 +135,7 @@
     var bottom = top + h;
     var e = clamp((vh - top) / (vh * (1 - TEXT_FLAT)), 0, 1);       /* its top edge from the viewport bottom to 62% */
     var x = clamp((vh * 0.3 - bottom) / (vh * 0.3), 0, 1);          /* its bottom edge from 30% to the top */
-    var o = clamp(e / 0.75, 0, 1) * (1 - 0.6 * x);
+    var o = clamp(e / 0.6, 0, 1) * (1 - 0.6 * x);
     if (reduce) { it.ty = 0; put(it, '', o); return; }
     var ty = (36 * (1 - easeOut(e)) - 28 * x) * kMove;
     it.ty = ty;
@@ -146,9 +146,9 @@
     var hp = r.height ? scrolled / r.height : 0;
     var fanT = 0, sides = false;
     var main = null;
-    g.items.forEach(function (it) { if (it.role === 'fan' && it.side === 0) main = it; if (it.role === 'fan' && it.side !== 0 && shown(it.el)) sides = true; });
+    g.items.forEach(function (it) { if (it.role === 'fan' && it.side === 0) main = it; if (it.role === 'fan' && it.side !== 0 && it.shown) sides = true; });
     if (g.stage) {
-      var fc = r.top + g.stage.offsetTop + g.stage.offsetHeight / 2;
+      var fc = r.top + g.stageMid;
       fanT = smooth(clamp((vh * 0.62 - fc) / (vh * 0.52), 0, 1));
     }
     g.items.forEach(function (it) {
@@ -168,27 +168,48 @@
           else put(it, 'translate3d(0,' + num(0.45 * scrolled) + 'px,0)', o);
           break;
         case 'hero-frame':
-          if (!reduce) put(it, 'translate3d(0,0,' + num(-320 * hp) + 'px) rotateX(' + num(18 * hp) + 'deg) scale(' + num(1 - 0.06 * hp) + ')', 1 - 0.35 * hp);
+          if (!reduce) put(it, 'translate3d(0,0,' + num(-200 * hp) + 'px) rotateX(' + num(12 * hp) + 'deg) scale(' + num(1 - 0.04 * hp) + ')', 1 - 0.25 * hp);
           break;
         case 'fan':
           if (reduce) break;
           if (it === main && !sides) {                               /* phones: one window, so it recedes like the others */
-            put(it, 'translate3d(0,0,' + num(-320 * hp) + 'px) rotateX(' + num(18 * hp) + 'deg) scale(' + num(1 - 0.06 * hp) + ')', 1 - 0.35 * hp);
+            put(it, 'translate3d(0,0,' + num(-200 * hp) + 'px) rotateX(' + num(12 * hp) + 'deg) scale(' + num(1 - 0.04 * hp) + ')', 1 - 0.25 * hp);
           } else if (it.side === 0) {                                /* the fan closes into a row of three windows */
-            put(it, 'scale(' + num(1 - 0.5 * fanT) + ')', 1);
-          } else if (shown(it.el)) {
-            put(it, 'translateX(' + num(it.side * (34 + 18 * fanT)) + '%) translateZ(' + num(-180 * (1 - fanT)) + 'px) rotateY(' + num(-18 * it.side * (1 - fanT)) + 'deg) scale(' + num(1 - 0.5 * fanT) + ')', 1);
+            put(it, 'scale(' + num(1 - 0.34 * fanT) + ')', 1);
+          } else if (it.shown) {
+            put(it, 'translateX(' + num(it.side * (34 + 34 * fanT)) + '%) translateZ(' + num(-180 * (1 - fanT)) + 'px) rotateY(' + num(-18 * it.side * (1 - fanT)) + 'deg) scale(' + num(1 - 0.34 * fanT) + ')', 1);
           }
           break;
       }
     });
   }
 
+  /* Positions are measured once per layout change (load, resize, fonts, any change in the page's size) and every
+     frame works from the scroll offset alone: reading layout between writes forced the browser to restyle on every
+     frame, and that was most of the scroll's main-thread time. */
+  var sy = 0, dirty = true;
+  function measure() {
+    vh = win.innerHeight || root.clientHeight || 800;
+    vw = root.clientWidth || win.innerWidth || 1200;
+    kMove = vw < 600 ? 0.55 : (vw < 960 ? 0.8 : 1);
+    kFore = vw < 600 ? 0.35 : kMove;
+    var y = win.pageYOffset || 0;
+    for (var i = 0; i < groups.length; i++) {
+      var g = groups[i];
+      g.shown = shown(g.box);
+      for (var j = 0; j < g.items.length; j++) g.items[j].shown = shown(g.items[j].el);
+      if (!g.shown) continue;
+      var r = g.box.getBoundingClientRect();
+      g.h = r.height;
+      g.top = r.top + y - (g.kind === 'copy' ? (g.items[0].ty || 0) : 0);   /* a copy block measures itself: undo its own lift */
+      if (g.stage) g.stageMid = g.stage.offsetTop + g.stage.offsetHeight / 2;
+    }
+  }
   function update(g) {
-    if (!shown(g.box)) return;
-    var r = g.box.getBoundingClientRect();
+    if (!g.shown) return;
+    var r = { top: g.top - sy, height: g.h };
     if (g.kind === 'hero') { heroState(g, r); return; }
-    if (g.kind === 'copy') { var c0 = g.items[0]; copyState(c0, r.top - (c0.ty || 0), r.height); return; }
+    if (g.kind === 'copy') { copyState(g.items[0], r.top, r.height); return; }
     if (g.kind === 'rail') {
       if (!reduce) put(g.items[0], 'scaleY(' + num(clamp((vh * FLAT - r.top) / (r.height || 1), 0, 1)) + ')', 1);
       return;
@@ -212,10 +233,8 @@
   var ticking = false;
   function frame() {
     ticking = false;
-    vh = win.innerHeight || root.clientHeight || 800;
-    vw = root.clientWidth || win.innerWidth || 1200;
-    kMove = vw < 600 ? 0.55 : (vw < 960 ? 0.8 : 1);
-    kFore = vw < 600 ? 0.35 : kMove;
+    if (dirty) { dirty = false; measure(); }
+    sy = win.pageYOffset || 0;
     for (var i = 0; i < groups.length; i++) {
       var g = groups[i];
       if (g.live || g.flush) { g.flush = false; update(g); }
@@ -227,6 +246,7 @@
     win.requestAnimationFrame(frame);
   }
   function reset() {
+    dirty = true;
     groups.forEach(function (g) {
       g.flush = true;
       g.items.forEach(function (it) { it.t = null; it.o = null; it.ty = 0; it.el.style.transform = ''; it.el.style.opacity = ''; it.el.classList.remove('is-live'); });
@@ -252,9 +272,11 @@
     groups.forEach(function (g) { g.live = true; live(g, true); });
   }
   win.addEventListener('scroll', request, { passive: true });
-  win.addEventListener('resize', request);
-  win.addEventListener('load', request);
-  if (doc.fonts && doc.fonts.ready) doc.fonts.ready.then(request, function () {});
+  function relayout() { dirty = true; request(); }
+  win.addEventListener('resize', relayout);
+  win.addEventListener('load', relayout);
+  if (win.ResizeObserver) new ResizeObserver(relayout).observe(doc.body);
+  if (doc.fonts && doc.fonts.ready) doc.fonts.ready.then(relayout, function () {});
   if (reduceQuery) {
     var onReduce = function () { reduce = reduceQuery.matches; reset(); };
     if (reduceQuery.addEventListener) reduceQuery.addEventListener('change', onReduce);

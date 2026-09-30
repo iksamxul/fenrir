@@ -104,17 +104,17 @@
 
 <header class="nav" data-nav>
   <div class="nav__in">
-    <a class="nav__brand" href="index.html" aria-label="Fenrir, home"><svg class="logo" width="32" height="32" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#fenrir-mark-a"/><use class="lg-b" href="#fenrir-mark-b"/></svg><span>Fenrir</span></a>
+    <a class="nav__brand" href="./" aria-label="Fenrir, home"><span class="logo" aria-hidden="true"><svg width="32" height="32" viewBox="0 0 64 64" focusable="false"><use href="#fenrir-mark-a"/></svg><span class="lg-b"><svg width="32" height="32" viewBox="0 0 64 64" focusable="false"><use href="#fenrir-mark-b"/></svg></span></span><span>Fenrir</span></a>
     <nav class="nav__links" id="nav-links" aria-label="Main">
       <span class="nav__pill" aria-hidden="true"></span>
-      <a href="fenrir.html">Fenrir</a>
-      <a href="connect.html">Fenrir Connect</a>
+      <a href="host">Fenrir</a>
+      <a href="connect">Fenrir Connect</a>
       <a href="#one-link">How it works</a>
-      <a href="faq.html">FAQ</a>
+      <a href="faq">FAQ</a>
     </nav>
     <div class="nav__end">
       <button class="nav__icon" type="button" data-theme-toggle aria-label="Switch to light theme"><svg class="i t-sun" aria-hidden="true"><use href="#i-sun"/></svg><svg class="i t-moon" aria-hidden="true"><use href="#i-moon"/></svg></button>
-      <a class="btn btn--primary btn--sm" href="download.html">Download</a>
+      <a class="btn btn--primary btn--sm" href="download">Download</a>
       <button class="nav__icon nav__menu" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open the menu"><span class="burger" aria-hidden="true"><i></i><i></i></span></button>
     </div>
   </div>
@@ -131,7 +131,7 @@
       <h1 class="hero__title" id="hero-title"><span class="line"><span class="w" style="--i:0">Host</span> <span class="w" style="--i:1">your</span> <span class="w" style="--i:2">world.</span></span> <span class="line accent"><span class="w" style="--i:3">Send</span> <span class="w" style="--i:4">one</span> <span class="w" style="--i:5">link.</span></span></h1>
       <p class="hero__lead">Fenrir turns one Windows PC into a modded Minecraft server your friends can join from anywhere. It sets up the pack, keeps the world backed up and gives every friend a link that installs everything.</p>
       <div class="hero__cta">
-        <a class="btn btn--primary btn--lg" href="download.html#fenrir"><svg class="i" aria-hidden="true"><use href="#i-down"/></svg>Download Fenrir</a>
+        <a class="btn btn--primary btn--lg" href="download#fenrir"><svg class="i" aria-hidden="true"><use href="#i-down"/></svg>Download Fenrir</a>
         <a class="btn btn--ghost btn--lg" href="#one-link">See how it works</a>
       </div>
       <p class="hero__meta">Free for Windows 10 and 11</p>
@@ -305,7 +305,7 @@
         <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>The Dashboard</p>
         <h2 class="title" id="t-dashboard"><span class="line">Drag it. Size it.</span> <span class="line accent">Hide the rest.</span></h2>
         <p class="copy">Drag a card by its handle, give it half, a third or the full width, and hide what you never read. While the world runs, the top of the Dashboard follows the world’s own clock, sunrise to night.</p>
-        <a class="more" href="fenrir.html#dashboard">The Dashboard, card by card <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="more" href="host#dashboard">The Dashboard, card by card <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </div>
       <div class="scene__visual scene__visual--bleed arrange mock">
         <div class="glow" aria-hidden="true"></div>
@@ -336,20 +336,20 @@
         <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Fenrir Connect</p>
         <h2 class="title" id="t-friends"><span class="line">Friends install</span> <span class="line accent">nothing by hand.</span></h2>
         <p class="copy">Fenrir Connect puts the whole pack into TLauncher, sets the memory for their PC and updates in one click. About 20 MB comes from your PC. CurseForge and Mojang send the rest.</p>
-        <a class="more" href="connect.html">Meet Fenrir Connect <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="more" href="connect">Meet Fenrir Connect <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </div>
       <div class="scene__visual scene__visual--bleed duo">
         <div class="glow glow--teal" aria-hidden="true"></div>
         <figure class="frame duo__back">
           <div class="frame__bar" aria-hidden="true"><i></i><i></i><i></i><b>Fenrir · Players</b></div>
           <div class="frame__view" data-name="Players">
-            <img src="assets/shots/friends.png" width="2880" height="1800" alt="Fenrir's Players page: the whitelist holds Iksamxul, who arrived through Fenrir Connect, ChecoPecko and Mogwai, with the operators and bans below." loading="lazy" decoding="async">
+            <picture><source srcset="assets/shots/friends-light.png" media="(prefers-color-scheme: light)" data-when="light"><img src="assets/shots/friends.png" width="2880" height="1800" alt="Fenrir's Players page: the whitelist holds Iksamxul, who arrived through Fenrir Connect, ChecoPecko and Mogwai, with the operators and bans below." loading="lazy" decoding="async"></picture>
           </div>
         </figure>
         <figure class="frame duo__front">
           <div class="frame__bar" aria-hidden="true"><i></i><i></i><i></i><b>Fenrir Connect</b></div>
           <div class="frame__view" data-name="Fenrir Connect">
-            <img class="shot-play" src="assets/shots/connect.png" width="2160" height="1600" alt="Fenrir Connect on a friend's PC: All the Mods 10 is online with two players and a Play button, beside the game night and a note from the host." loading="lazy" decoding="async">
+            <picture><source srcset="assets/shots/connect-light.png" media="(prefers-color-scheme: light)" data-when="light"><img class="shot-play" src="assets/shots/connect.png" width="2160" height="1600" alt="Fenrir Connect on a friend's PC: All the Mods 10 is online with two players and a Play button, beside the game night and a note from the host." loading="lazy" decoding="async"></picture>
           </div>
         </figure>
         <div class="chip duo__chip"><svg class="i" aria-hidden="true"><use href="#i-link"/></svg><span><b>About 20 MB</b><small>from your PC for a new friend</small></span></div>
@@ -401,7 +401,7 @@
         <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>The Doctor</p>
         <h2 class="title" id="t-doctor"><span class="line">Something broke?</span> <span class="line accent">Fixed in a click.</span></h2>
         <p class="copy">The Doctor checks Java, memory, ports, duplicate mods, crash suspects, tunnels, friends on an old link, cloud uploads and sleep settings. Each finding says what to do, with a button that does it.</p>
-        <a class="more" href="faq.html">What it can tell you <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="more" href="faq">What it can tell you <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </div>
       <div class="scene__visual mock doctor" role="img" aria-label="The Doctor with four findings, each with a fix button: install Java 21, remove a duplicate mod, set the view distance to 8 and 6, try a restore. Everything else checks out.">
         <div class="glow" aria-hidden="true"></div>
@@ -438,7 +438,7 @@
           <div class="phone__screen">
             <div class="phone__status" aria-hidden="true"><span>21:04</span><span><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span></div>
             <div class="phone__notch" aria-hidden="true"></div>
-            <img src="assets/shots/remote.png" width="860" height="1800" alt="The phone remote: three players are online on All the Mods 10 with TPS 19.7, a note from the Doctor, Restart and Stop buttons, and a Kick button beside each player." loading="lazy" decoding="async">
+            <picture><source srcset="assets/shots/remote-light.png" media="(prefers-color-scheme: light)" data-when="light"><img src="assets/shots/remote.png" width="860" height="1800" alt="The phone remote: three players are online on All the Mods 10 with TPS 19.7, a note from the Doctor, Restart and Stop buttons, and a Kick button beside each player." loading="lazy" decoding="async"></picture>
           </div>
         </div>
         <div class="chip pocket__ask"><span class="m-av m-av--sm" aria-hidden="true">I</span><span><b>Iksamxul wants to play</b><small>Start the world · Not now</small></span></div>
@@ -507,12 +507,12 @@
     <div class="sky__stars" aria-hidden="true"></div>
     <div class="aurora aurora--low" aria-hidden="true"><div class="aurora__haze"></div><div class="aurora__band"></div></div>
     <div class="wrap cta__in">
-      <svg class="cta__mark logo" width="84" height="84" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#fenrir-mark-a"/><use class="lg-b" href="#fenrir-mark-b"/></svg>
+      <span class="cta__mark logo" aria-hidden="true"><svg width="84" height="84" viewBox="0 0 64 64" focusable="false"><use href="#fenrir-mark-a"/></svg><span class="lg-b"><svg width="84" height="84" viewBox="0 0 64 64" focusable="false"><use href="#fenrir-mark-b"/></svg></span></span>
       <h2 class="title title--xl" id="t-cta"><span class="line">Start the server tonight.</span> <span class="line accent">Send the links.</span></h2>
       <p class="lead">Fenrir is free for Windows 10 and 11. Your friends need only the link you send them.</p>
       <div class="cta__row">
-        <span class="magnet" data-magnet><a class="btn btn--primary btn--lg" href="download.html#fenrir"><svg class="i" aria-hidden="true"><use href="#i-down"/></svg>Download Fenrir</a></span>
-        <a class="btn btn--ghost btn--lg" href="connect.html">Fenrir Connect for friends</a>
+        <span class="magnet" data-magnet><a class="btn btn--primary btn--lg" href="download#fenrir"><svg class="i" aria-hidden="true"><use href="#i-down"/></svg>Download Fenrir</a></span>
+        <a class="btn btn--ghost btn--lg" href="connect">Fenrir Connect for friends</a>
       </div>
       <p class="fine" data-vt="Fenrir Setup · {fenrir.size} · Windows 10 and 11">Fenrir Setup for Windows 10 and 11</p>
     </div>
@@ -522,8 +522,8 @@
 
 <footer class="foot">
   <div class="wrap foot__grid">
-    <div class="foot__brand"><svg class="logo" width="40" height="40" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#fenrir-mark-a"/><use class="lg-b" href="#fenrir-mark-b"/></svg><div><b>Fenrir</b><span>Modded Minecraft for friends, hosted on your own PC.</span></div></div>
-    <nav class="foot__nav" aria-label="Footer"><a href="fenrir.html">Fenrir</a><a href="connect.html">Fenrir Connect</a><a href="download.html">Download</a><a href="faq.html">FAQ</a></nav>
+    <div class="foot__brand"><span class="logo" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 64 64" focusable="false"><use href="#fenrir-mark-a"/></svg><span class="lg-b"><svg width="40" height="40" viewBox="0 0 64 64" focusable="false"><use href="#fenrir-mark-b"/></svg></span></span><div><b>Fenrir</b><span>Modded Minecraft for friends, hosted on your own PC.</span></div></div>
+    <nav class="foot__nav" aria-label="Footer"><a href="host">Fenrir</a><a href="connect">Fenrir Connect</a><a href="download">Download</a><a href="faq">FAQ</a></nav>
     <p class="foot__builds"><span data-vt="Current build, released {released}">Current build</span></p>
   </div>
   <div class="wrap foot__fine">

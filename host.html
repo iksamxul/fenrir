@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fenrir for hosts</title>
+<meta name="description" content="Fenrir, page by page: the Dashboard, the console, players, checked backups, safe pack updates, the Doctor, tunnels, game nights and settings.">
+<meta name="theme-color" content="#0b0f17">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Fenrir">
+<meta property="og:title" content="Fenrir for hosts">
+<meta property="og:description" content="The app on the PC that hosts: it runs the world, watches it, shares the pack and fixes what breaks.">
+<meta property="og:image" content="https://iksamxul.github.io/fenrir/assets/wolf.png">
+<meta property="og:image:width" content="256">
+<meta property="og:image:height" content="256">
+<meta property="og:image:alt" content="The Fenrir wolf mark">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="assets/fenrir.svg" type="image/svg+xml">
+<link rel="icon" href="assets/wolf.png" type="image/png" sizes="256x256">
+<link rel="apple-touch-icon" href="assets/wolf.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Outfit:wght@700;800&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+<script>(function(r){r.classList.add('js');try{var t=localStorage.getItem('fenrir-theme');if(t==='light'||t==='dark')r.setAttribute('data-theme',t)}catch(e){}var m=window.matchMedia;if(!(m&&m('(prefers-reduced-motion: reduce)').matches)){var p=['fenrir','midnight','sakura','ember','yggdrasil','aurora','snow','graphite'][Math.floor(Date.now()/3140)%8];r.setAttribute('data-palette',p);r.setAttribute('data-pa',p);r.setAttribute('data-pb',p);r.setAttribute('data-slot','a')}})(document.documentElement)</script>
+<script src="assets/site.js" defer></script>
+<script src="assets/motion.js" defer></script>
+</head>
+<body>
+<div class="atmos" aria-hidden="true"><i class="atmos__a"></i><i class="atmos__b"></i></div>
+<div class="top-sentinel" aria-hidden="true"></div>
+<svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+<symbol id="rune" viewBox="0 0 24 24"><path d="M12 3v18M12 8l6-3.5M12 8L6 4.5M12 14l6 3.5M12 14l-6 3.5"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+<symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v11M7 10.5l5 5 5-5M5 19.5h14"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 8.5h16M4 15.5h16"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></symbol>
+<symbol id="i-zip" viewBox="0 0 24 24"><path d="M14 3.5H7.5A2.5 2.5 0 0 0 5 6v12a2.5 2.5 0 0 0 2.5 2.5h9A2.5 2.5 0 0 0 19 18V8.5z"/><path d="M14 3.5v5h5M11 4v2M11 8v2M11 12v2"/><rect x="9.5" y="15" width="3" height="3.5" rx="1"/></symbol>
+<symbol id="i-power" viewBox="0 0 24 24"><path d="M12 3.5v8M7.2 6.2a7.5 7.5 0 1 0 9.6 0"/></symbol>
+<symbol id="i-history" viewBox="0 0 24 24"><path d="M4.5 12a7.5 7.5 0 1 0 2.2-5.3L4.5 9"/><path d="M4.5 4.5V9H9M12 8v4.5l3 1.8"/></symbol>
+<symbol id="i-box" viewBox="0 0 24 24"><path d="M12 3.5l8 4.2v8.6l-8 4.2-8-4.2V7.7z"/><path d="M4 7.7l8 4.3 8-4.3M12 12v8.5"/></symbol>
+<symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 4l8.5 4.5L12 13 3.5 8.5z"/><path d="M3.5 12.5L12 17l8.5-4.5M3.5 16.5L12 21l8.5-4.5"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></symbol>
+<symbol id="i-term" viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="15" rx="2.5"/><path d="M7.5 10l3 2.5-3 2.5M12.5 15.5h4"/></symbol>
+<symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8.5" r="3.5"/><path d="M3 19.5a6 6 0 0 1 12 0M16 5.3a3.3 3.3 0 0 1 0 6.4M18 14.5a5.5 5.5 0 0 1 3 5"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 8v8M8 12h8"/></symbol>
+<symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.4 2.3 3.6 5.1 3.6 8.5s-1.2 6.2-3.6 8.5c-2.4-2.3-3.6-5.1-3.6-8.5s1.2-6.2 3.6-8.5z"/></symbol>
+<symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></symbol>
+<symbol id="i-palette" viewBox="0 0 24 24"><path d="M12 3.5a8.5 8.5 0 1 0 0 17c1.2 0 1.8-.8 1.8-1.7 0-1.3-1.2-1.6-1.2-2.8 0-1 .8-1.7 1.9-1.7h2A4 4 0 0 0 20.5 10c0-3.6-3.8-6.5-8.5-6.5z"/><path d="M8 11.5h.01M10.5 7.5h.01M15 7.5h.01" stroke-width="2.6"/></symbol>
+<symbol id="i-map" viewBox="0 0 24 24"><path d="M9 4.5l-5 2v13l5-2 6 2 5-2v-13l-5 2z"/><path d="M9 4.5v13M15 6.5v13"/></symbol>
+<symbol id="i-book" viewBox="0 0 24 24"><path d="M5 18.5V5.5a2 2 0 0 1 2-2h12v14H7a2 2 0 0 0-2 2 2 2 0 0 0 2 2h12"/></symbol>
+<symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3.5l1.8 5.2 5.2 1.8-5.2 1.8L12 17.5l-1.8-5.2L5 10.5l5.2-1.8zM18.5 16l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z"/></symbol>
+<symbol id="i-dash" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 12l3.5-3.5"/><path d="M7.5 15.5h.01M16.5 15.5h.01" stroke-width="2.4"/></symbol>
+<symbol id="i-cal" viewBox="0 0 24 24"><rect x="4" y="5.5" width="16" height="14.5" rx="2.5"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/></symbol>
+<symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3.5v2.5M12 18v2.5M3.5 12H6M18 12h2.5M6 6l1.8 1.8M16.2 16.2L18 18M6 18l1.8-1.8M16.2 7.8L18 6"/></symbol>
+<symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 18.5h10a4 4 0 0 0 .6-7.95A6 6 0 0 0 6.2 10.1 4.2 4.2 0 0 0 7 18.5z"/></symbol>
+<symbol id="i-wolf" viewBox="0 0 64 64"><path d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z"/><path d="M14 32.5L27.6 36.2L28.6 38.2L15 35ZM50 32.5L36.4 36.2L35.4 38.2L49 35ZM27 45.5H37L32 51.5Z" fill="currentColor" stroke="none"/></symbol>
+</svg>
+<svg class="sprite logo-defs" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="fma-tile" x1="0" y1="0" x2="1" y2="1"><stop offset="0" class="fma-tile-a"/><stop offset="1" class="fma-tile-b"/></linearGradient>
+<radialGradient id="fma-halo" cx=".5" cy=".46" r=".6"><stop offset="0" class="fma-halo-a"/><stop offset="1" class="fma-halo-b"/></radialGradient>
+<linearGradient id="fma-rim" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".42"/><stop offset=".55" stop-color="#ffffff" stop-opacity=".05"/><stop offset="1" class="fma-rim-c"/></linearGradient>
+<linearGradient id="fma-glass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" class="fma-glass-a"/><stop offset="1" class="fma-glass-b"/></linearGradient>
+<linearGradient id="fmb-tile" x1="0" y1="0" x2="1" y2="1"><stop offset="0" class="fmb-tile-a"/><stop offset="1" class="fmb-tile-b"/></linearGradient>
+<radialGradient id="fmb-halo" cx=".5" cy=".46" r=".6"><stop offset="0" class="fmb-halo-a"/><stop offset="1" class="fmb-halo-b"/></radialGradient>
+<linearGradient id="fmb-rim" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".42"/><stop offset=".55" stop-color="#ffffff" stop-opacity=".05"/><stop offset="1" class="fmb-rim-c"/></linearGradient>
+<linearGradient id="fmb-glass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" class="fmb-glass-a"/><stop offset="1" class="fmb-glass-b"/></linearGradient>
+<linearGradient id="fm-sheen" x1="0" y1="0" x2=".35" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".16"/><stop offset=".5" stop-color="#ffffff" stop-opacity="0"/></linearGradient>
+<linearGradient id="fm-top" x1="0" y1="0" x2="0" y2="1"><stop offset=".05" stop-color="#ffffff"/><stop offset=".75" stop-color="#000000"/></linearGradient>
+<linearGradient id="fm-bot" x1="0" y1="0" x2="0" y2="1"><stop offset=".35" stop-color="#000000"/><stop offset="1" stop-color="#ffffff"/></linearGradient>
+<mask id="fm-mtop"><rect width="64" height="64" fill="url(#fm-top)"/></mask>
+<mask id="fm-mbot"><rect width="64" height="64" fill="url(#fm-bot)"/></mask>
+<clipPath id="fm-head"><path d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z"/></clipPath>
+<mask id="fm-cut"><rect width="64" height="64" fill="#ffffff"/><path d="M14 32.5L27.6 36.2L28.6 38.2L15 35ZM50 32.5L36.4 36.2L35.4 38.2L49 35Z" fill="#000000"/><path d="M27 45.5H37L32 51.5Z" fill="#000000"/></mask>
+<filter id="fm-blurs" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2.4"/></filter>
+<filter id="fm-blurm" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="1.2"/></filter>
+<filter id="fm-blurt" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation=".55"/></filter>
+</defs>
+<symbol id="fenrir-mark-a" viewBox="0 0 64 64">
+<rect x="2" y="2" width="60" height="60" rx="16" fill="url(#fma-tile)"/><rect x="2" y="2" width="60" height="60" rx="16" fill="url(#fma-halo)"/><rect x="2" y="2" width="60" height="60" rx="16" fill="url(#fm-sheen)"/>
+<rect x="2.6" y="2.6" width="58.8" height="58.8" rx="15.4" fill="none" stroke="url(#fma-rim)" stroke-width="1.2"/>
+<g transform="translate(32 32) scale(.76) translate(-32 -32.5)">
+<path d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z" fill="#000000" opacity=".6" stroke="#000000" stroke-width="2" stroke-linejoin="round" transform="translate(0 3)" filter="url(#fm-blurs)"/>
+<g mask="url(#fm-cut)">
+<path d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z" fill="url(#fma-glass)" stroke="url(#fma-glass)" stroke-width="2" stroke-linejoin="round"/>
+<g clip-path="url(#fm-head)" mask="url(#fm-mbot)"><path class="fma-deep" d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z" fill="none" stroke-opacity=".5" stroke-width="4" stroke-linejoin="round" filter="url(#fm-blurt)"/></g>
+<g clip-path="url(#fm-head)" mask="url(#fm-mtop)"><path d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z" fill="none" stroke="#ffffff" stroke-width="1.6" stroke-linejoin="round" transform="translate(0 .7)"/></g>
+<ellipse cx="25" cy="21" rx="9" ry="4" fill="#ffffff" opacity=".55" filter="url(#fm-blurm)" transform="rotate(-28 25 21)"/>
+</g>
+</g>
+</symbol>
+<symbol id="fenrir-mark-b" viewBox="0 0 64 64">
+<rect x="2" y="2" width="60" height="60" rx="16" fill="url(#fmb-tile)"/><rect x="2" y="2" width="60" height="60" rx="16" fill="url(#fmb-halo)"/><rect x="2" y="2" width="60" height="60" rx="16" fill="url(#fm-sheen)"/>
+<rect x="2.6" y="2.6" width="58.8" height="58.8" rx="15.4" fill="none" stroke="url(#fmb-rim)" stroke-width="1.2"/>
+<g transform="translate(32 32) scale(.76) translate(-32 -32.5)">
+<path d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z" fill="#000000" opacity=".6" stroke="#000000" stroke-width="2" stroke-linejoin="round" transform="translate(0 3)" filter="url(#fm-blurs)"/>
+<g mask="url(#fm-cut)">
+<path d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z" fill="url(#fmb-glass)" stroke="url(#fmb-glass)" stroke-width="2" stroke-linejoin="round"/>
+<g clip-path="url(#fm-head)" mask="url(#fm-mbot)"><path class="fmb-deep" d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z" fill="none" stroke-opacity=".5" stroke-width="4" stroke-linejoin="round" filter="url(#fm-blurt)"/></g>
+<g clip-path="url(#fm-head)" mask="url(#fm-mtop)"><path d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z" fill="none" stroke="#ffffff" stroke-width="1.6" stroke-linejoin="round" transform="translate(0 .7)"/></g>
+<ellipse cx="25" cy="21" rx="9" ry="4" fill="#ffffff" opacity=".55" filter="url(#fm-blurm)" transform="rotate(-28 25 21)"/>
+</g>
+</g>
+</symbol>
+</svg>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" data-nav>
+  <div class="nav__in">
+    <a class="nav__brand" href="./" aria-label="Fenrir, home"><span class="logo" aria-hidden="true"><svg width="32" height="32" viewBox="0 0 64 64" focusable="false"><use href="#fenrir-mark-a"/></svg><span class="lg-b"><svg width="32" height="32" viewBox="0 0 64 64" focusable="false"><use href="#fenrir-mark-b"/></svg></span></span><span>Fenrir</span></a>
+    <nav class="nav__links" id="nav-links" aria-label="Main">
+      <span class="nav__pill" aria-hidden="true"></span>
+      <a href="host" aria-current="page">Fenrir</a>
+      <a href="connect">Fenrir Connect</a>
+      <a href="./#one-link">How it works</a>
+      <a href="faq">FAQ</a>
+    </nav>
+    <div class="nav__end">
+      <button class="nav__icon" type="button" data-theme-toggle aria-label="Switch to light theme"><svg class="i t-sun" aria-hidden="true"><use href="#i-sun"/></svg><svg class="i t-moon" aria-hidden="true"><use href="#i-moon"/></svg></button>
+      <a class="btn btn--primary btn--sm" href="download">Download</a>
+      <button class="nav__icon nav__menu" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open the menu"><span class="burger" aria-hidden="true"><i></i><i></i></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- Hero: three windows in a fan -->
+  <section class="phero sky" aria-labelledby="page-title" data-ambient>
+    <div class="sky__stars" aria-hidden="true"></div>
+    <div class="aurora" aria-hidden="true"><div class="aurora__haze"></div><div class="aurora__band"></div></div>
+    <div class="wrap">
+      <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>For the PC that hosts</p>
+      <h1 class="page-title" id="page-title"><span class="line">The whole server.</span> <span class="line accent">In one window.</span></h1>
+      <p class="lead">Fenrir installs the pack, runs and watches the server, puts it on the internet, shares the pack with friends, keeps backups off the PC and fixes what breaks. Here it is, page by page.</p>
+      <div class="phero__cta">
+        <a class="btn btn--primary btn--lg" href="download#fenrir"><svg class="i" aria-hidden="true"><use href="#i-down"/></svg>Download Fenrir</a>
+        <a class="btn btn--ghost btn--lg" href="#pages">All fourteen pages</a>
+      </div>
+    </div>
+    <div class="hero__stage">
+      <div class="hero__glow" aria-hidden="true" data-parallax-glow></div>
+      <div class="hero__float fan" data-parallax>
+        <figure class="frame fan__side fan__side--l" aria-hidden="true">
+          <div class="frame__bar"><i></i><i></i><i></i><b>Fenrir · Players</b></div>
+          <div class="frame__view" data-name="Players"><picture><source srcset="assets/shots/friends-light.png" media="(prefers-color-scheme: light)" data-when="light"><img src="assets/shots/friends.png" width="2880" height="1800" alt="" loading="lazy" decoding="async"></picture></div>
+        </figure>
+        <figure class="frame frame--adaptive frame--hero fan__main">
+          <div class="frame__bar" aria-hidden="true"><i></i><i></i><i></i><b>Fenrir · Dashboard</b></div>
+          <div class="frame__view" data-name="Dashboard">
+            <picture><source srcset="assets/shots/dashboard-light.png" media="(prefers-color-scheme: light)" data-when="light"><img src="assets/shots/dashboard.png" width="2880" height="1800" alt="The Fenrir Dashboard: the server card with Start server and Layout, three friends asking for a hand, and the Friends and Activity cards." fetchpriority="high" decoding="async"></picture>
+          </div>
+        </figure>
+        <figure class="frame fan__side fan__side--r" aria-hidden="true">
+          <div class="frame__bar"><i></i><i></i><i></i><b>Fenrir · Settings</b></div>
+          <div class="frame__view" data-name="Settings"><picture><source srcset="assets/shots/settings-light.png" media="(prefers-color-scheme: light)" data-when="light"><img src="assets/shots/settings.png" width="2880" height="1800" alt="" loading="lazy" decoding="async"></picture></div>
+        </figure>
+      </div>
+    </div>
+    <nav class="wrap jump" aria-label="Pages on this page">
+      <a href="#dashboard">Dashboard</a><a href="#console">Console</a><a href="#players">Players</a><a href="#backups">Backups</a><a href="#mods">Mods and packs</a><a href="#doctor">Doctor</a><a href="#network">Network</a><a href="#nights">Game nights</a><a href="#settings">Settings</a><a href="#keys">Keyboard</a>
+    </nav>
+  </section>
+
+  <!-- Dashboard -->
+  <section class="scene" id="dashboard" aria-labelledby="t-dashboard">
+    <div class="wrap scene__grid">
+      <div class="scene__copy">
+        <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Dashboard</p>
+        <h2 class="title" id="t-dashboard"><span class="line">Who is in.</span> <span class="line accent">What needs you.</span></h2>
+        <p class="copy">Server health with TPS, tick time and memory. Every friend from invited to in the world. Asks with the answer one click away. A timeline of everything, kept across restarts, and charts for a week.</p>
+      </div>
+      <div class="scene__visual mock pieces" role="img" aria-label="Two Dashboard cards. Performance: TPS over the last day near 20, with a gap while the world was off, a crash, a lag dip, an update and a restart marked. Friends: ChecoPecko is installing the pack at 64 percent, Iksamxul is in the world, Mogwai has opened the link.">
+        <div class="glow" aria-hidden="true"></div>
+        <div class="m-card pieces__perf">
+          <div class="m-head">
+            <div><p class="m-kick"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Health <span>· the last day</span></p><p class="m-h">Performance</p></div>
+            <span class="m-seg"><i class="is-on">24h</i><i>7d</i></span>
+          </div>
+          <div class="m-stats"><div><small>TPS</small><b>19.8</b></div><div><small>Tick</small><b>31 ms</b></div><div><small>Memory</small><b>9.6 GB</b></div></div>
+          <svg class="m-chart" viewBox="0 0 320 130" aria-hidden="true">
+            <rect class="off" x="75.7" y="12" width="48.6" height="90"/>
+            <path class="grid" d="M30 12H316M30 57H316M30 102H316"/>
+            <text class="axis" x="0" y="15">20</text><text class="axis" x="0" y="60">15</text><text class="axis" x="0" y="105">10</text>
+            <text class="axis" x="30" y="124">00:00</text><text class="axis" x="173" y="124" text-anchor="middle">12:00</text><text class="axis" x="316" y="124" text-anchor="end">now</text>
+            <text class="axis" x="100" y="60" text-anchor="middle">off</text>
+            <path class="area" d="M30.0 102 L30.0 13.7 L36.1 13.0 L42.2 13.4 L48.3 12.9 L54.3 12.8 L60.4 14.1 L66.5 14.2 L72.6 12.4 L72.6 102 Z M127.4 102 L127.4 19.2 L133.4 13.8 L139.5 66.0 L139.5 102 Z M151.7 102 L151.7 16.5 L157.8 14.1 L163.9 12.5 L170.0 12.9 L176.0 13.6 L182.1 14.2 L188.2 24.6 L194.3 46.2 L200.4 53.4 L206.5 33.6 L212.6 17.4 L218.6 12.2 L218.6 102 Z M230.8 102 L230.8 20.1 L236.9 13.2 L243.0 12.1 L249.1 12.3 L255.1 14.0 L261.2 13.9 L267.3 13.8 L273.4 12.1 L279.5 13.3 L285.6 21.9 L285.6 102 Z M297.7 102 L297.7 15.6 L303.8 13.4 L309.9 13.5 L316.0 12.9 L316.0 102 Z"/>
+            <path class="line" d="M30.0 13.7 L36.1 13.0 L42.2 13.4 L48.3 12.9 L54.3 12.8 L60.4 14.1 L66.5 14.2 L72.6 12.4 M127.4 19.2 L133.4 13.8 L139.5 66.0 M151.7 16.5 L157.8 14.1 L163.9 12.5 L170.0 12.9 L176.0 13.6 L182.1 14.2 L188.2 24.6 L194.3 46.2 L200.4 53.4 L206.5 33.6 L212.6 17.4 L218.6 12.2 M230.8 20.1 L236.9 13.2 L243.0 12.1 L249.1 12.3 L255.1 14.0 L261.2 13.9 L267.3 13.8 L273.4 12.1 L279.5 13.3 L285.6 21.9 M297.7 15.6 L303.8 13.4 L309.9 13.5 L316.0 12.9"/>
+            <path class="mk mk--bad" d="M143.2 12V102"/><circle class="pt--bad" cx="143.2" cy="8" r="3"/>
+            <path class="mk mk--ice" d="M224.7 12V102"/><circle class="pt--ice" cx="224.7" cy="8" r="3"/>
+            <path class="mk mk--warn" d="M291.7 12V102"/><circle class="pt--warn" cx="291.7" cy="8" r="3"/>
+          </svg>
+          <div class="m-legend"><span><i class="m-dot" style="color:var(--bad)"></i>Crash</span><span><i class="m-dot" style="color:var(--ice)"></i>Pack update</span><span><i class="m-dot" style="color:var(--warn)"></i>Restart</span></div>
+        </div>
+        <div class="m-card m-float pieces__friends">
+          <p class="m-kick"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Community</p>
+          <p class="m-h">Friends <small>1 installing</small></p>
+          <div class="m-row"><span class="m-av m-av--sm">C</span><div><b>ChecoPecko</b><span class="m-stage" aria-hidden="true"><i class="is-done"></i><i class="is-done"></i><i class="is-now"></i><i></i><i></i></span><span class="m-sub">installing the pack · 64%</span></div></div>
+          <div class="m-row"><span class="m-av m-av--sm">I</span><div><b>Iksamxul</b><span class="m-stage" aria-hidden="true"><i class="is-done"></i><i class="is-done"></i><i class="is-done"></i><i class="is-done"></i><i class="is-done"></i></span><span class="m-sub">in the world</span></div></div>
+          <div class="m-row"><span class="m-av m-av--sm">M</span><div><b>Mogwai</b><span class="m-stage" aria-hidden="true"><i class="is-done"></i><i></i><i></i><i></i><i></i></span><span class="m-sub">opened the link</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Console -->
+  <section class="scene scene--deep scene--flip" id="console" aria-labelledby="t-console">
+    <div class="wrap scene__grid">
+      <div class="scene__copy">
+        <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Console</p>
+        <h2 class="title" id="t-console"><span class="line">The log,</span> <span class="line accent">made readable.</span></h2>
+        <p class="copy">Filter by level, search with highlights, copy any line, and open spark and mclo.gs reports as links. Commands complete with the names of who is online, and a bar talks to everyone.</p>
+      </div>
+      <div class="scene__visual mock" role="img" aria-label="The console filtered by a search for Iksamxul: the join, a chat line sent from Fenrir Connect, an advancement, a lag warning and a spark report link, with a command being completed below.">
+        <div class="glow" aria-hidden="true"></div>
+        <div class="m-console">
+          <div class="m-console__bar"><span class="m-seg"><i class="is-on">All</i><i>Info</i><i>Warn</i><i>Error</i></span><span class="m-console__search"><svg class="i" aria-hidden="true"><use href="#i-search"/></svg>Iksamxul</span></div>
+          <ol>
+            <li><time>20:41:07</time><span>[Server thread/INFO] Done (38.412s)! For help, type "help"</span></li>
+            <li><time>20:44:15</time><span><mark>Iksamxul</mark> joined the game</span></li>
+            <li><time>20:44:52</time><span class="lv-warn">[Server thread/WARN] Can’t keep up! Running 2140ms or 42 ticks behind</span></li>
+            <li><time>20:45:03</time><span>[Connect] <mark>Iksamxul</mark>: on my way, five minutes</span></li>
+            <li><time>20:46:30</time><span class="lv-dim">Lag report from spark: <u>spark.lucko.me/Ab12Cd34</u></span></li>
+            <li><time>20:47:12</time><span><mark>Iksamxul</mark> has made the advancement [Diamonds!]</span></li>
+            <li><time>20:49:40</time><span class="lv-dim">[Server thread/INFO] Saved the game</span></li>
+          </ol>
+          <div class="m-console__prompt">whitelist add Ch<span class="m-caret" aria-hidden="true"></span></div>
+          <div class="m-console__sugg"><span>ChecoPecko</span><span>Chunky</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Players -->
+  <section class="scene" id="players" aria-labelledby="t-players">
+    <div class="wrap scene__grid">
+      <div class="scene__copy">
+        <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Players</p>
+        <h2 class="title" id="t-players"><span class="line">Names arrive</span> <span class="line accent">spelled right.</span></h2>
+        <p class="copy">When a friend opens Fenrir Connect, their TLauncher name arrives with a Whitelist button. Operators, bans, stats and where each player was last saved sit on the same page.</p>
+      </div>
+      <div class="scene__visual scene__visual--bleed stage">
+        <div class="glow" aria-hidden="true"></div>
+        <figure class="frame">
+          <div class="frame__bar" aria-hidden="true"><i></i><i></i><i></i><b>Fenrir · Players</b></div>
+          <div class="frame__view" data-name="Players"><picture><source srcset="assets/shots/friends-light.png" media="(prefers-color-scheme: light)" data-when="light"><img src="assets/shots/friends.png" width="2880" height="1800" alt="The Players page: nobody is in the world yet, the whitelist holds Iksamxul, who arrived through Fenrir Connect, ChecoPecko and Mogwai, and two operators are listed." loading="lazy" decoding="async"></picture></div>
+        </figure>
+        <div class="chip chip--col heat stage__a">
+          <b>When people play</b><small>The last eight weeks, Monday to Sunday</small>
+          <svg viewBox="0 0 153 88" aria-hidden="true"><path class="h0" d="M0 0h10v10h-10zM13 0h10v10h-10zM26 0h10v10h-10zM39 0h10v10h-10zM52 0h10v10h-10zM65 0h10v10h-10zM78 0h10v10h-10zM91 0h10v10h-10zM0 13h10v10h-10zM13 13h10v10h-10zM26 13h10v10h-10zM39 13h10v10h-10zM52 13h10v10h-10zM65 13h10v10h-10zM78 13h10v10h-10zM91 13h10v10h-10zM0 26h10v10h-10zM13 26h10v10h-10zM26 26h10v10h-10zM39 26h10v10h-10zM52 26h10v10h-10zM65 26h10v10h-10zM78 26h10v10h-10zM91 26h10v10h-10zM0 39h10v10h-10zM13 39h10v10h-10zM26 39h10v10h-10zM39 39h10v10h-10zM52 39h10v10h-10zM65 39h10v10h-10zM78 39h10v10h-10zM91 39h10v10h-10zM13 52h10v10h-10zM26 52h10v10h-10zM39 52h10v10h-10zM52 52h10v10h-10zM65 52h10v10h-10zM78 52h10v10h-10zM91 52h10v10h-10zM13 65h10v10h-10zM26 65h10v10h-10zM39 65h10v10h-10zM52 65h10v10h-10zM65 65h10v10h-10zM0 78h10v10h-10zM13 78h10v10h-10zM26 78h10v10h-10zM39 78h10v10h-10zM52 78h10v10h-10zM65 78h10v10h-10z"/><path class="h1" d="M104 0h10v10h-10zM104 13h10v10h-10zM104 26h10v10h-10zM104 39h10v10h-10zM0 52h10v10h-10zM104 52h10v10h-10zM0 65h10v10h-10z"/><path class="h2" d="M117 0h10v10h-10zM130 0h10v10h-10zM143 0h10v10h-10zM117 13h10v10h-10zM130 13h10v10h-10zM143 13h10v10h-10zM117 26h10v10h-10zM143 26h10v10h-10zM117 39h10v10h-10zM130 39h10v10h-10zM143 39h10v10h-10zM117 52h10v10h-10zM78 65h10v10h-10zM91 65h10v10h-10zM104 65h10v10h-10zM143 65h10v10h-10zM78 78h10v10h-10zM91 78h10v10h-10zM104 78h10v10h-10zM117 78h10v10h-10zM130 78h10v10h-10zM143 78h10v10h-10z"/><path class="h3" d="M130 26h10v10h-10zM130 52h10v10h-10zM143 52h10v10h-10zM117 65h10v10h-10zM130 65h10v10h-10z"/></svg>
+          <small>Busiest on Friday and Saturday evenings</small>
+        </div>
+        <div class="chip stage__b"><svg class="i" aria-hidden="true"><use href="#i-map"/></svg><span><b>Furthest travelled</b><small>Iksamxul, 31.2 km, in the hall of records</small></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Backups -->
+  <section class="scene scene--deep scene--flip" id="backups" aria-labelledby="t-backups">
+    <div class="wrap scene__grid">
+      <div class="scene__copy">
+        <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Backups</p>
+        <h2 class="title" id="t-backups"><span class="line">Undo a bad night.</span> <span class="line accent">Or one bad death.</span></h2>
+        <p class="copy">Archives are checked before an old one goes, and a restore swaps in only when every file is out. After a death, bring back one player’s inventory, ender chest and position.</p>
+      </div>
+      <div class="scene__visual mock pair" role="img" aria-label="Backups: four archives from the last week, each checked and tagged daily or weekly, a restore drill that passed three days ago, and a panel restoring Iksamxul's things from 20:00.">
+        <div class="glow" aria-hidden="true"></div>
+        <div class="m-win pair__main">
+          <div class="m-win__bar"><i></i><i></i><i></i><b>Fenrir · Backups</b></div>
+          <div class="m-win__body">
+            <p class="m-kick"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Safety <span>· a way back</span></p>
+            <p class="m-h">Archives <small>a month of history</small></p>
+            <div class="m-row"><span class="m-ic"><svg class="i" aria-hidden="true"><use href="#i-zip"/></svg></span><div><b>Today, 20:00</b><span class="m-sub">84.9 MB</span></div><span class="m-pill m-pill--ok">checked</span><span class="m-pill m-pill--quiet">daily</span></div>
+            <div class="m-row"><span class="m-ic"><svg class="i" aria-hidden="true"><use href="#i-zip"/></svg></span><div><b>Today, 19:00</b><span class="m-sub">84.8 MB</span></div><span class="m-pill m-pill--ok">checked</span></div>
+            <div class="m-row"><span class="m-ic"><svg class="i" aria-hidden="true"><use href="#i-zip"/></svg></span><div><b>Yesterday, 20:00</b><span class="m-sub">84.1 MB</span></div><span class="m-pill m-pill--ok">checked</span><span class="m-pill m-pill--quiet">daily</span></div>
+            <div class="m-row"><span class="m-ic"><svg class="i" aria-hidden="true"><use href="#i-zip"/></svg></span><div><b>Tuesday, 20:00</b><span class="m-sub">81.7 MB</span></div><span class="m-pill m-pill--ok">checked</span><span class="m-pill m-pill--quiet">weekly</span></div>
+            <p class="m-pass"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>The restore drill three days ago brought the world back whole</p>
+          </div>
+        </div>
+        <div class="m-card m-float pair__side">
+          <p class="m-kick"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Restore one player</p>
+          <div class="m-you"><span class="m-av">I</span><div><b>Iksamxul</b><span class="m-sub">Saved at 20:00, before the lava</span></div></div>
+          <ul class="m-checks"><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Inventory and ender chest</li><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Position and XP</li></ul>
+          <div class="m-actions"><span class="m-btn m-btn--p">Restore Iksamxul</span><span class="m-btn">Undo</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mods and Server Pack -->
+  <section class="scene" id="mods" aria-labelledby="t-mods">
+    <div class="wrap scene__grid">
+      <div class="scene__copy">
+        <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Mods, Library and Server Pack</p>
+        <h2 class="title" id="t-mods"><span class="line">Updates that test</span> <span class="line accent">themselves first.</span></h2>
+        <p class="copy">Compare mods shows what comes, goes and changes. The update backs up, installs, and starts the new version once to check it. Every mod change is written down and can go back.</p>
+      </div>
+      <div class="scene__visual mock pair" role="img" aria-label="An update of All the Mods 10 from 8.2 to 8.3: six mods come, two go, 41 change version. The backup checked out, the server files are in, and the new version is starting once to check it. Beside it, recent mod changes each have a Put back button.">
+        <div class="glow" aria-hidden="true"></div>
+        <div class="m-win pair__wide">
+          <div class="m-win__bar"><i></i><i></i><i></i><b>Fenrir · Server Pack</b></div>
+          <div class="m-win__body">
+            <p class="m-kick"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Server pack <span>· updates from CurseForge</span></p>
+            <p class="m-h">All the Mods 10 <small>8.2 to 8.3</small></p>
+            <div class="m-tags"><span><b>6</b> mods come</span><span><b>2</b> go</span><span><b>41</b> change version</span></div>
+            <dl class="m-time">
+              <dt>21:02</dt><dd>Backup checked, 84.9 MB</dd>
+              <dt>21:04</dt><dd>Server files installed</dd>
+              <dt>21:05</dt><dd class="is-hi">Starting 8.3 once to check it</dd>
+              <dt>next</dt><dd>Friends’ pack moves to 8.3</dd>
+            </dl>
+            <p class="m-note-line"><svg class="i" aria-hidden="true"><use href="#i-history"/></svg>If it crashes, stops or hangs, 8.2 comes back by itself, with the world.</p>
+          </div>
+        </div>
+        <div class="m-card m-float pair__top">
+          <p class="m-kick"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Recent changes</p>
+          <div class="m-row"><div><b>Updated Create</b><span class="m-sub">6.0.4 to 6.0.6</span></div><span class="m-btn">Put back</span></div>
+          <div class="m-row"><div><b>Removed a mod</b><span class="m-sub">integratedscripting</span></div><span class="m-btn">Put back</span></div>
+          <div class="m-row"><div><b>Added spark</b><span class="m-sub">from the Library</span></div><span class="m-btn">Put back</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Doctor -->
+  <section class="scene scene--deep scene--flip" id="doctor" aria-labelledby="t-doctor">
+    <div class="wrap scene__grid">
+      <div class="scene__copy">
+        <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Doctor</p>
+        <h2 class="title" id="t-doctor"><span class="line">It knows what</span> <span class="line accent">breaks a pack.</span></h2>
+        <p class="copy">Java, loader, memory fit, ports, stale locks, duplicate mods, crash suspects, tunnels, friends on an old link, failing uploads, restore drills, silent stops and disk. Each finding comes with its fix.</p>
+      </div>
+      <div class="scene__visual mock" role="img" aria-label="What the Doctor checks, as a cloud of seventeen checks: fifteen pass, two need you. The open finding says two friends are still on the old link, with a button to copy their new links.">
+        <div class="glow" aria-hidden="true"></div>
+        <div class="m-card">
+          <p class="m-kick"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Health <span>· what the Doctor checks</span></p>
+          <p class="m-h">Doctor <small>2 need you</small></p>
+          <ul class="m-cloud">
+            <li>Java</li><li>Loader</li><li>Offline-mode locks</li><li>Memory fit</li><li>Port conflicts</li><li>Stale locks</li><li class="is-warn">Duplicate mods</li><li>Crash suspects</li><li>Login mod</li><li>Client pack</li><li>Tunnels</li><li>Fenrir Connect</li><li class="is-warn">Friends on an old link</li><li>Cloud uploads</li><li>Restore drills</li><li>Silent stops</li><li>Disk</li>
+          </ul>
+          <div class="m-find m-find--warn"><div><b>2 friends still on the old link</b><span class="m-sub">Their links changed when the quick tunnel restarted.</span></div><span class="m-btn">Copy their links</span></div>
+          <div class="m-find m-find--warn"><div><b>Two copies of JEI</b><span class="m-sub">19.21.0 and 19.8.4 are both in mods.</span></div><span class="m-btn">Remove the older</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Network and Cloud -->
+  <section class="scene" id="network" data-ambient aria-labelledby="t-network">
+    <div class="wrap scene__grid">
+      <div class="scene__copy">
+        <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Network and Cloud</p>
+        <h2 class="title" id="t-network"><span class="line">A fixed address.</span> <span class="line accent">No router setup.</span></h2>
+        <p class="copy">A free playit tunnel gives the game a fixed address. Friends’ downloads go through a Cloudflare quick tunnel or a fixed Tailscale address. Backups copy to a cloud folder, MEGA or Koofr.</p>
+      </div>
+      <div class="scene__visual">
+        <div class="glow" aria-hidden="true"></div>
+        <svg class="ill" viewBox="0 0 720 380" role="img" aria-labelledby="ill-route-t">
+          <title id="ill-route-t">Your PC inside your home sends the game out through a tunnel to the internet and on to three friends, with no change to the router. A second line carries the friends’ link.</title>
+          <g class="f-star"><circle cx="30" cy="40" r="1.3"/><circle cx="262" cy="30" r="1.1"/><circle cx="456" cy="60" r="1.2"/><circle cx="700" cy="36" r="1.4"/><circle cx="640" cy="360" r="1.1"/></g>
+          <circle class="f-ice blink" cx="600" cy="96" r="1.8"/>
+          <path class="s s-teal s-dash" d="M170 146 Q 350 30 522 194"/>
+          <circle class="f-teal" cx="522" cy="194" r="3.5"/>
+          <text class="ill-tag" x="350" y="70" text-anchor="middle">the friends’ link</text>
+          <path class="s" d="M40 320V190L140 110L240 190V246M240 278V320H40"/>
+          <rect class="s f-panel" x="92" y="229" width="96" height="64" rx="8"/>
+          <rect class="s s-q f-deep" x="100" y="237" width="80" height="48" rx="4"/>
+          <g transform="translate(125.9 245.3) scale(.44)"><path class="s s-ice" d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z"/></g>
+          <path class="s" d="M132 293v10M148 293v10M120 305h40"/>
+          <text class="ill-label ill-label--hi" x="140" y="350" text-anchor="middle">Your PC</text>
+          <path class="s s-2 s-dash" d="M188 262H470"/>
+          <path class="s" d="M292 290V236a48 48 0 0 1 96 0V290M308 290V238a32 32 0 0 1 64 0V290M276 290H404"/>
+          <text class="ill-label" x="340" y="320" text-anchor="middle">playit tunnel</text>
+          <g transform="translate(188 262)"><g class="pkt" style="--len:268px"><circle class="f-ice-glow" r="9"/><circle class="f-ice" r="3.5"/></g></g>
+          <g transform="translate(188 262)"><g class="pkt pkt--3" style="--len:268px"><circle class="f-ice-glow" r="9"/><circle class="f-ice" r="3.5"/></g></g>
+          <circle class="s f-panel" cx="540" cy="262" r="70"/>
+          <ellipse class="s s-2" cx="540" cy="262" rx="30" ry="70"/>
+          <path class="s s-2" d="M470 262H610M482 226H598M482 298H598"/>
+          <text class="ill-label" x="540" y="364" text-anchor="middle">the internet</text>
+          <path class="s s-2 s-dash" d="M598 226L652 200M610 262H664M598 298L652 324"/>
+          <circle class="s f-panel" cx="672" cy="192" r="18"/><text class="ill-tag" x="672" y="197" text-anchor="middle">I</text>
+          <circle class="s f-panel" cx="684" cy="262" r="18"/><text class="ill-tag" x="684" y="267" text-anchor="middle">C</text>
+          <circle class="s f-panel" cx="672" cy="332" r="18"/><text class="ill-tag" x="672" y="337" text-anchor="middle">M</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- Game nights -->
+  <section class="scene scene--deep scene--flip" id="nights" aria-labelledby="t-nights">
+    <div class="wrap scene__grid">
+      <div class="scene__copy">
+        <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Automation</p>
+        <h2 class="title" id="t-nights"><span class="line">Plan the night.</span> <span class="line accent">It starts itself.</span></h2>
+        <p class="copy">Plan a night once or every week. The world starts ten minutes early, Discord hears an hour before, friends answer I’m in, and an empty world stops 30 minutes after the last one leaves.</p>
+      </div>
+      <div class="scene__visual mock" role="img" aria-label="Friday game night at 21:00 every week: two friends are in, one cannot make it. The evening runs from the reminder at 20:00 and the world starting at 20:50 to the empty world stopping at 00:10.">
+        <div class="glow" aria-hidden="true"></div>
+        <div class="m-win">
+          <div class="m-win__bar"><i></i><i></i><i></i><b>Fenrir · Automation</b></div>
+          <div class="m-win__body">
+            <p class="m-kick"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Automation <span>· game nights</span></p>
+            <p class="m-h">Friday game night <small>every week, 21:00</small></p>
+            <div class="m-people"><span><i>I</i>Iksamxul, I’m in</span><span><i>C</i>ChecoPecko, I’m in</span><span><i style="background:var(--ink-3)">M</i>Mogwai, can’t make it</span></div>
+            <dl class="m-time">
+              <dt>20:00</dt><dd>Discord hears about it, and friends get a reminder</dd>
+              <dt>20:00</dt><dd>Packs update by themselves for everyone who is in</dd>
+              <dt>20:50</dt><dd class="is-hi">The world starts, ten minutes early</dd>
+              <dt>21:00</dt><dd>Game night</dd>
+              <dt>23:40</dt><dd>The last player leaves</dd>
+              <dt>00:10</dt><dd>The empty world stops</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Settings and Appearance -->
+  <section class="scene" id="settings" aria-labelledby="t-settings">
+    <div class="wrap scene__grid">
+      <div class="scene__copy">
+        <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Settings and Appearance</p>
+        <h2 class="title" id="t-settings"><span class="line">Find any setting</span> <span class="line accent">by typing.</span></h2>
+        <p class="copy">Find a setting filters every row as you type. Eight themes read at WCAG AA in light and dark, and the wolf mark takes your accent colour.</p>
+      </div>
+      <div class="scene__visual stage">
+        <div class="glow" aria-hidden="true"></div>
+        <figure class="frame">
+          <div class="frame__bar" aria-hidden="true"><i></i><i></i><i></i><b>Fenrir · Settings · Behaviour</b></div>
+          <div class="frame__view frame__crop" data-name="Settings"><picture><source srcset="assets/shots/settings-light.png" media="(prefers-color-scheme: light)" data-when="light"><img src="assets/shots/settings.png" width="2880" height="1800" alt="Settings, Behaviour: switches to restart the server after a crash, restart a frozen server and back up before scheduled restarts, with the restart delay, a daily restart time and live TPS polling." loading="lazy" decoding="async"></picture></div>
+        </figure>
+        <div class="chip stage__a stage__a--corner"><svg class="i" aria-hidden="true"><use href="#i-search"/></svg><span><b>friends</b><small>6 of 50 settings match</small></span></div>
+        <div class="chip chip--col stage__b"><b>Eight themes</b><small>Each one at WCAG AA, light and dark</small><span class="swatches" aria-hidden="true"><i class="sw is-on" style="--c:var(--sw-fenrir)"></i><i class="sw" style="--c:var(--sw-snow)"></i><i class="sw" style="--c:var(--sw-aurora)"></i><i class="sw" style="--c:var(--sw-ember)"></i><i class="sw" style="--c:var(--sw-midnight)"></i><i class="sw" style="--c:var(--sw-graphite)"></i><i class="sw" style="--c:var(--sw-sakura)"></i><i class="sw" style="--c:var(--sw-bronze)"></i></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Keyboard -->
+  <section class="scene scene--deep scene--flip" id="keys" aria-labelledby="t-keys">
+    <div class="wrap scene__grid">
+      <div class="scene__copy">
+        <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Keyboard</p>
+        <h2 class="title" id="t-keys"><span class="line">Press Ctrl K.</span> <span class="line accent">Then type.</span></h2>
+        <p class="copy">The command palette finds pages and actions, and it can invite a friend. Ctrl and a number jump between pages, and the slash key goes to the console.</p>
+        <p class="keys"><span><kbd>Ctrl</kbd>+<kbd>K</kbd> palette</span><span><kbd>Ctrl</kbd>+<kbd>1</kbd>to<kbd>9</kbd> pages</span><span><kbd>/</kbd> console</span></p>
+      </div>
+      <div class="scene__visual mock" role="img" aria-label="The command palette with inv typed: Invite a friend is the first action, then Start server, then the pages Players and Console with their shortcuts.">
+        <div class="glow" aria-hidden="true"></div>
+        <div class="m-card">
+          <div class="m-field"><svg class="i" aria-hidden="true"><use href="#i-search"/></svg>inv<span class="m-caret" aria-hidden="true"></span></div>
+          <span class="m-label">Actions</span>
+          <div class="m-row is-hi"><svg class="i" aria-hidden="true"><use href="#i-users"/></svg><div><b><mark>Inv</mark>ite a friend</b><span class="m-sub">A key, a link and a message to paste</span></div><span class="m-kbd">Enter</span></div>
+          <div class="m-row"><svg class="i" aria-hidden="true"><use href="#i-power"/></svg><div><b>Start server</b><span class="m-sub">All the Mods 10 8.2</span></div></div>
+          <span class="m-label">Pages</span>
+          <div class="m-row"><svg class="i" aria-hidden="true"><use href="#i-users"/></svg><div><b>Players</b></div><span class="m-kbd">Ctrl 3</span></div>
+          <div class="m-row"><svg class="i" aria-hidden="true"><use href="#i-term"/></svg><div><b>Console</b></div><span class="m-kbd">Ctrl 2</span></div>
+          <p class="m-foot">Start with &gt; to run a console command, or with say to talk to everyone.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Every page -->
+  <section class="section" id="pages" aria-labelledby="t-pages">
+    <div class="wrap">
+      <div class="section__head">
+        <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Every page</p>
+        <h2 class="title" id="t-pages"><span class="line">Fourteen pages.</span> <span class="line accent">One job each.</span></h2>
+      </div>
+      <ul class="pages">
+        <li><svg class="i" aria-hidden="true"><use href="#i-dash"/></svg><div><b>Dashboard</b><span>Status, friends, asks, the timeline, charts, automation, in the layout you choose.</span></div></li>
+        <li><svg class="i" aria-hidden="true"><use href="#i-term"/></svg><div><b>Console</b><span>The live log with filters, search, report links and commands.</span></div></li>
+        <li><svg class="i" aria-hidden="true"><use href="#i-users"/></svg><div><b>Players</b><span>Whitelist, operators, bans, stats, records and when people play.</span></div></li>
+        <li><svg class="i" aria-hidden="true"><use href="#i-sliders"/></svg><div><b>Server settings</b><span>37 server.properties keys by topic, game rules applied live.</span></div></li>
+        <li><svg class="i" aria-hidden="true"><use href="#i-history"/></svg><div><b>Backups</b><span>Checked archives, restore, one player back, cloud copies, disk use.</span></div></li>
+        <li><svg class="i" aria-hidden="true"><use href="#i-globe"/></svg><div><b>World</b><span>World border, Chunky pre-generation, spark, a map of the world.</span></div></li>
+        <li><svg class="i" aria-hidden="true"><use href="#i-box"/></svg><div><b>Mods</b><span>Switch mods on and off, drag in jars, update checks, recent changes.</span></div></li>
+        <li><svg class="i" aria-hidden="true"><use href="#i-book"/></svg><div><b>Library</b><span>Modrinth and CurseForge search, installed with their dependencies.</span></div></li>
+        <li><svg class="i" aria-hidden="true"><use href="#i-layers"/></svg><div><b>Server Pack</b><span>Install or update a pack, compare mods, rehearse an update.</span></div></li>
+        <li><svg class="i" aria-hidden="true"><use href="#i-plus"/></svg><div><b>Doctor</b><span>Finds what is wrong and fixes it with one click.</span></div></li>
+        <li><svg class="i" aria-hidden="true"><use href="#i-cloud"/></svg><div><b>Network and Cloud</b><span>Tunnels, Fenrir Connect sharing, keys and cloud backups.</span></div></li>
+        <li><svg class="i" aria-hidden="true"><use href="#i-spark"/></svg><div><b>Guide</b><span>A live setup checklist with a button on every step.</span></div></li>
+        <li><svg class="i" aria-hidden="true"><use href="#i-palette"/></svg><div><b>Appearance</b><span>Eight themes, light and dark, accent, density, motion, text size.</span></div></li>
+        <li><svg class="i" aria-hidden="true"><use href="#i-gear"/></svg><div><b>Settings</b><span>Worlds, paths, behaviour, Discord, the phone remote and About.</span></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Download -->
+  <section class="cta sky" id="get" data-ambient aria-labelledby="t-cta">
+    <div class="sky__stars" aria-hidden="true"></div>
+    <div class="aurora aurora--low" aria-hidden="true"><div class="aurora__haze"></div><div class="aurora__band"></div></div>
+    <div class="wrap cta__in">
+      <span class="cta__mark logo" aria-hidden="true"><svg width="84" height="84" viewBox="0 0 64 64" focusable="false"><use href="#fenrir-mark-a"/></svg><span class="lg-b"><svg width="84" height="84" viewBox="0 0 64 64" focusable="false"><use href="#fenrir-mark-b"/></svg></span></span>
+      <h2 class="title title--xl" id="t-cta"><span class="line">One PC is enough.</span> <span class="line accent">Start tonight.</span></h2>
+      <p class="lead">Fenrir is free for Windows 10 and 11. The Guide page walks you from the pack to the first friend.</p>
+      <div class="cta__row">
+        <span class="magnet" data-magnet><a class="btn btn--primary btn--lg" href="download#fenrir"><svg class="i" aria-hidden="true"><use href="#i-down"/></svg>Download Fenrir</a></span>
+        <a class="btn btn--ghost btn--lg" href="faq">Questions and fixes</a>
+      </div>
+      <p class="fine" data-vt="Fenrir Setup · {fenrir.size} · Windows 10 and 11">Fenrir Setup for Windows 10 and 11</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__grid">
+    <div class="foot__brand"><span class="logo" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 64 64" focusable="false"><use href="#fenrir-mark-a"/></svg><span class="lg-b"><svg width="40" height="40" viewBox="0 0 64 64" focusable="false"><use href="#fenrir-mark-b"/></svg></span></span><div><b>Fenrir</b><span>Modded Minecraft for friends, hosted on your own PC.</span></div></div>
+    <nav class="foot__nav" aria-label="Footer"><a href="host">Fenrir</a><a href="connect">Fenrir Connect</a><a href="download">Download</a><a href="faq">FAQ</a></nav>
+    <p class="foot__builds"><span data-vt="Current build, released {released}">Current build</span></p>
+  </div>
+  <div class="wrap foot__fine">
+    <p>Fenrir is an independent project. It is not affiliated with Mojang or Microsoft, and Minecraft is a trademark of Mojang AB.</p>
+  </div>
+</footer>
+</body>
+</html>

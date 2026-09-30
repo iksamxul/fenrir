@@ -60,6 +60,7 @@
   --shadow-float: 0 30px 70px -26px rgb(0 0 0 / .9), 0 2px 8px -2px rgb(0 0 0 / .4);
   --sheen: rgb(255 255 255 / .07);
   --grain: .055;
+  --grain-img: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.055'/%3E%3C/svg%3E");
   --stars: 1;
   --star: rgb(238 242 247 / .9);
   --aurora-a: rgb(121 192 255 / .5);
@@ -106,7 +107,7 @@
 
   /* space and shape */
   --gutter: clamp(16px, 4.6vw, 48px);
-  --scene-pad: clamp(88px, 10vw, 152px);
+  --scene-pad: clamp(64px, 7vw, 108px);
   --max: 1200px;
   --max-wide: 1320px;
   --nav-h: 60px;
@@ -136,11 +137,12 @@
     --bad: #cf222e; --bad-text: #b42318; --bad-rgb: 207 34 46;
     --line: rgb(11 15 23 / .1); --line-2: rgb(11 15 23 / .16); --hover: rgb(11 15 23 / .05); --primary-hover: rgb(0 0 0 / .14);
     --nav-glass: rgb(246 248 251 / .74); --glass: rgb(255 255 255 / .95); --veil: rgb(16 32 64 / .045);
+    --remote-top: #e5ecf4; --phone-ink: #1a2230;   /* the phone's status bar over the light remote */
     --glow-a: .2; --accent-glow: none;
     --shadow-frame: 0 60px 110px -50px rgb(24 48 90 / .45), 0 20px 44px -26px rgb(24 48 90 / .32);
     --shadow-card: 0 1px 2px rgb(24 48 90 / .06), 0 24px 56px -30px rgb(24 48 90 / .34);
     --shadow-float: 0 26px 60px -24px rgb(24 48 90 / .4), 0 2px 6px -2px rgb(24 48 90 / .12);
-    --grain: .03; --stars: 0; --star: rgb(11 15 23 / .35);
+    --grain: .03; --grain-img: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E"); --stars: 0; --star: rgb(11 15 23 / .35);
     --aurora-a: rgb(10 111 219 / .2); --aurora-b: rgb(16 160 110 / .12); --aurora-c: rgb(110 90 230 / .12);
     --show-sun: none; --show-moon: block; --sun-on: 0; --tint: #0a6fdb;
     --lg-fill: radial-gradient(120% 90% at 50% 0%, rgb(255 255 255 / .85), rgb(255 255 255 / .28) 62%), rgb(226 233 243 / .38); --lg-ring: rgb(11 15 23 / .46);
@@ -164,11 +166,12 @@
   --bad: #cf222e; --bad-text: #b42318; --bad-rgb: 207 34 46;
   --line: rgb(11 15 23 / .1); --line-2: rgb(11 15 23 / .16); --hover: rgb(11 15 23 / .05); --primary-hover: rgb(0 0 0 / .14);
   --nav-glass: rgb(246 248 251 / .74); --glass: rgb(255 255 255 / .95); --veil: rgb(16 32 64 / .045);
+  --remote-top: #e5ecf4; --phone-ink: #1a2230;
   --glow-a: .2; --accent-glow: none;
   --shadow-frame: 0 60px 110px -50px rgb(24 48 90 / .45), 0 20px 44px -26px rgb(24 48 90 / .32);
   --shadow-card: 0 1px 2px rgb(24 48 90 / .06), 0 24px 56px -30px rgb(24 48 90 / .34);
   --shadow-float: 0 26px 60px -24px rgb(24 48 90 / .4), 0 2px 6px -2px rgb(24 48 90 / .12);
-  --grain: .03; --stars: 0; --star: rgb(11 15 23 / .35);
+  --grain: .03; --grain-img: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E"); --stars: 0; --star: rgb(11 15 23 / .35);
   --aurora-a: rgb(10 111 219 / .2); --aurora-b: rgb(16 160 110 / .12); --aurora-c: rgb(110 90 230 / .12);
   --show-sun: none; --show-moon: block; --sun-on: 0; --tint: #0a6fdb;
     --lg-fill: radial-gradient(120% 90% at 50% 0%, rgb(255 255 255 / .85), rgb(255 255 255 / .28) 62%), rgb(226 233 243 / .38); --lg-ring: rgb(11 15 23 / .46);
@@ -189,7 +192,8 @@
    Reduced motion and no script: Fenrir's own colours, still. */
 :root { --fade: 2.8s; --ease-fade: cubic-bezier(.45, 0, .55, 1); }
 .atmos { position: fixed; inset: 0; z-index: -1; pointer-events: none; contain: strict; }
-.atmos__a, .atmos__b { position: absolute; inset: 0; background-color: var(--ground); }
+/* the film grain lives in the backdrop itself (it used to be a full-screen layer over everything) */
+.atmos__a, .atmos__b { position: absolute; inset: 0; background-color: var(--ground); background-image: var(--grain-img); background-size: 240px 240px; }
 .atmos__b { opacity: 0; will-change: opacity; transition: opacity var(--fade) var(--ease-fade); }
 html[data-slot="b"] .atmos__b { opacity: 1; }
 :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::before, :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::after { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; }
@@ -276,17 +280,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-}
-/* film grain over everything, fixed, never catches the pointer */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 90;
-  pointer-events: none;
-  opacity: var(--grain);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size: 240px 240px;
 }
 img, svg, video { display: block; max-width: 100%; }
 img { height: auto; }
@@ -406,8 +399,8 @@ kbd {
   content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
   border: 1px solid var(--line-2); border-radius: var(--r-pill);
   background: var(--nav-glass);
-  -webkit-backdrop-filter: saturate(1.6) blur(20px);
-  backdrop-filter: saturate(1.6) blur(20px);
+  -webkit-backdrop-filter: saturate(1.6) blur(14px);
+  backdrop-filter: saturate(1.6) blur(14px);
   box-shadow: var(--shadow-nav);
   opacity: 0; transform: scale(.97);
   transition: opacity 320ms var(--ease-out), transform 560ms var(--ease-out);
@@ -478,8 +471,8 @@ kbd {
     padding: 10px;
     border: 1px solid var(--line-2); border-radius: 26px;
     background: var(--nav-glass);
-    -webkit-backdrop-filter: saturate(1.6) blur(20px);
-    backdrop-filter: saturate(1.6) blur(20px);
+    -webkit-backdrop-filter: saturate(1.6) blur(16px);
+    backdrop-filter: saturate(1.6) blur(16px);
     box-shadow: var(--shadow-nav);
     opacity: 0; visibility: hidden; transform: translateY(-10px) scale(.97); transform-origin: 100% 0;
     transition: opacity 240ms var(--ease-out), transform 460ms var(--ease-out), visibility 0s linear 460ms;
@@ -559,7 +552,7 @@ kbd {
 [data-idle] .aurora__band, [data-idle] .aurora__haze, [data-idle] .sky__stars::after { animation-play-state: paused; }
 
 /* ---------- 7. Hero ------------------------------------------------------ */
-.hero { padding-top: clamp(36px, 7vh, 104px); padding-bottom: clamp(64px, 9vw, 136px); text-align: center; }
+.hero { padding-top: clamp(36px, 7vh, 104px); padding-bottom: clamp(48px, 7vw, 104px); text-align: center; }
 .hero__copy { width: min(100% - 2 * var(--gutter), 1120px); margin-inline: auto; display: flex; flex-direction: column; align-items: center; }
 .hero__title .w { display: inline-block; }
 .hero__lead { margin-top: 26px; max-width: 39rem; font-size: var(--fs-lead); color: var(--ink-2); }
@@ -571,9 +564,9 @@ kbd {
 }
 .hero__glow::before, .hero__glow::after { background: radial-gradient(50% 50% at 50% 40%, color-mix(in srgb, var(--glow-fix, var(--gc, var(--tint))) calc(var(--glow-a) * 100%), transparent), transparent 72%); }
 .hero__float { position: relative; }
-.frame--hero { transform-origin: 50% 40%; }
+.frame--hero { transform-origin: 50% 100%; }   /* it recedes about its bottom edge, so nothing opens below it */
 /* subpage hero */
-.phero { padding-top: clamp(36px, 7vh, 96px); padding-bottom: clamp(56px, 8vw, 112px); text-align: center; }
+.phero { padding-top: clamp(36px, 7vh, 96px); padding-bottom: clamp(44px, 6vw, 88px); text-align: center; }
 .phero .lead { margin: 24px auto 0; }
 .phero__cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 32px; }
 
@@ -585,7 +578,6 @@ kbd {
 .scene__visual { position: relative; isolation: isolate; }
 .connect-moment, .page-connect { --accent-text: var(--teal-text); --glow-rgb: var(--teal-rgb); --glow-fix: var(--teal); }
 @media (min-width: 960px) {
-  .scene { min-height: 70vh; display: flex; flex-direction: column; justify-content: center; }
   .scene__grid { grid-template-columns: minmax(0, 11fr) minmax(0, 13fr); }
   .scene--flip .scene__grid { grid-template-columns: minmax(0, 13fr) minmax(0, 11fr); }
   .scene--flip .scene__copy { order: 2; }
@@ -635,7 +627,7 @@ kbd {
 .frame.is-empty .frame__view img { display: none; }
 .frame.is-empty .frame__view::after { content: attr(data-name); position: absolute; inset: 0; display: grid; place-items: center; font: 700 1.25rem/1 var(--font-display); color: var(--win-ink); }
 /* the friends' app cropped to its Play strip: everything below the What's new card (y 920 to 1600 of the shot) */
-.shot-play { aspect-ratio: 2160 / 680; object-fit: cover; object-position: 50% 100%; }
+.shot-play { aspect-ratio: 2160 / 680; object-fit: cover; object-position: 50% 18%; }   /* the world card and Play */
 /* Settings, cropped to the Behaviour card: x 1666 to 2826 and y 708 to 1770 of the 2880 x 1800 shot */
 .frame__crop { aspect-ratio: 1160 / 1062; overflow: hidden; }
 .frame__crop img { position: absolute; left: -143.62%; top: -66.67%; width: 248.28%; max-width: none; height: auto; }
@@ -951,9 +943,9 @@ kbd {
 
 /* fan of three windows on the Fenrir page */
 .fan { position: relative; isolation: isolate; perspective: var(--stage-perspective); }
-.fan__main { position: relative; z-index: 2; width: min(100%, 1000px); margin-inline: auto; }
+.fan__main { position: relative; z-index: 2; width: min(100%, 1000px); margin-inline: auto; transform-origin: 50% 100%; }
 /* the side windows sit right behind the main one; the transforms fan them out (and motion.js lines them up) */
-.fan__side { position: absolute; top: 0; left: 50%; z-index: 1; width: min(100%, 1000px); margin-left: calc(min(100%, 1000px) / -2); transform-origin: 50% 50%; }
+.fan__side { position: absolute; top: 0; left: 50%; z-index: 1; width: min(100%, 1000px); margin-left: calc(min(100%, 1000px) / -2); transform-origin: 50% 100%; }
 .fan__side--l { transform: translateX(-34%) translateZ(-180px) rotateY(18deg); }
 .fan__side--r { transform: translateX(34%) translateZ(-180px) rotateY(-18deg); }
 @media (max-width: 959px) { .fan__side { display: none; } }
@@ -973,6 +965,7 @@ kbd {
 /* one stage for a single mock or frame with chips */
 .stage { position: relative; }
 .stage__a { left: -4%; top: 10%; }
+.stage__a--corner { left: -5%; top: -6%; }
 .stage__b { right: 2%; bottom: -7%; }
 .stage__c { right: 4%; top: -5%; }
 @media (max-width: 599px) {
@@ -1015,7 +1008,7 @@ kbd {
 }
 
 /* ---------- 16. Call to action ------------------------------------------- */
-.cta { padding-block: clamp(112px, 14vw, 200px); text-align: center; background: var(--veil); }
+.cta { padding-block: clamp(88px, 10vw, 148px); text-align: center; background: linear-gradient(to bottom, transparent 0, var(--veil) clamp(80px, 12vw, 180px)); }   /* the veil fades in, no seam */
 .cta__in { display: flex; flex-direction: column; align-items: center; }
 .cta__mark { width: 84px; height: 84px; margin-bottom: 30px; filter: drop-shadow(0 18px 36px rgb(4 8 16 / .45)); }
 .cta .lead { margin: 0 auto; }
@@ -1227,7 +1220,7 @@ kbd {
   .nav__end .btn--primary::after { display: none; }
   .totop, .totop.is-on, .totop:hover, .totop:active { transform: none; }
   .totop { transition: opacity 200ms ease, visibility 0s linear 200ms; }
-  .totop::before, .totop__arrow, .logo .lg-b { transition: none; }
+  .totop::before, .totop__arrow, .nav .logo .lg-b, .logo.is-near .lg-b { transition: none; }
   .atmos__b, :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::before, :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::after { transition: none; }
   .totop.is-on { transition-delay: 0s; }
   .qa[open] .qa__a { animation-name: fade; }
@@ -1235,7 +1228,8 @@ kbd {
 }
 
 /* ---------- 19. The wolf mark, drawn inline so its colours follow the palette (--logo on .logo-defs) ---------- */
-.logo { display: block; flex: none; overflow: visible; }
+.logo { display: block; flex: none; position: relative; }
+.logo svg { display: block; width: 100%; height: 100%; overflow: visible; }
 .fma-tile-a { stop-color: color-mix(in srgb, var(--la, var(--logo)) 18%, #140e1b); } .fma-tile-b { stop-color: color-mix(in srgb, var(--la, var(--logo)) 3%, #040610); }
 .fma-halo-a { stop-color: var(--la, var(--logo)); stop-opacity: .42; } .fma-halo-b { stop-color: var(--la, var(--logo)); stop-opacity: 0; } .fma-rim-c { stop-color: var(--la, var(--logo)); stop-opacity: .35; }
 .fma-glass-a { stop-color: color-mix(in srgb, var(--la, var(--logo)) 3%, #f9fbff); stop-opacity: .98; } .fma-glass-b { stop-color: color-mix(in srgb, var(--la, var(--logo)) 42%, #ffffff); stop-opacity: .88; }
@@ -1244,7 +1238,10 @@ kbd {
 .fmb-halo-a { stop-color: var(--lb, var(--logo)); stop-opacity: .42; } .fmb-halo-b { stop-color: var(--lb, var(--logo)); stop-opacity: 0; } .fmb-rim-c { stop-color: var(--lb, var(--logo)); stop-opacity: .35; }
 .fmb-glass-a { stop-color: color-mix(in srgb, var(--lb, var(--logo)) 3%, #f9fbff); stop-opacity: .98; } .fmb-glass-b { stop-color: color-mix(in srgb, var(--lb, var(--logo)) 42%, #ffffff); stop-opacity: .88; }
 .fmb-deep { stroke: color-mix(in srgb, var(--lb, var(--logo)) 62%, #0a0f40); }
-.logo .lg-b { opacity: 0; transition: opacity var(--fade) var(--ease-fade); }
+.logo .lg-b { position: absolute; inset: 0; opacity: 0; }
+/* an HTML box, so the compositor runs the fade (an SVG <use> fades on the main thread, every frame); the nav's mark always
+   fades, the others only while on screen (site.js), and an off-screen mark simply switches */
+.nav .logo .lg-b, .logo.is-near .lg-b { transition: opacity var(--fade) var(--ease-fade); }
 html[data-slot="b"] .logo .lg-b { opacity: 1; }
 
 /* ---------- 20. Back to the top: liquid glass, bottom right, once the page has moved ---------------------------
@@ -1253,9 +1250,9 @@ html[data-slot="b"] .logo .lg-b { opacity: 1; }
    also bends at the rim (an SVG displacement map, site.js). The thin ring fills as you read. */
 .totop {
   position: fixed; z-index: 70;
-  right: calc(env(safe-area-inset-right, 0px) + clamp(16px, 2.4vw, 28px));
-  bottom: calc(env(safe-area-inset-bottom, 0px) + clamp(16px, 2.4vw, 28px));
-  display: grid; place-items: center; width: 48px; height: 48px; padding: 0;
+  right: calc(env(safe-area-inset-right, 0px) + clamp(14px, 2vw, 24px));
+  bottom: calc(env(safe-area-inset-bottom, 0px) + clamp(14px, 2vw, 24px));
+  display: grid; place-items: center; width: 40px; height: 40px; padding: 0;
   border: 0; border-radius: 50%;
   color: var(--ink);
   background: var(--lg-fill);
@@ -1281,6 +1278,6 @@ html[data-slot="b"] .logo .lg-b { opacity: 1; }
 .totop:focus-visible { outline-offset: 4px; border-radius: 50%; }
 .totop__ring { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); pointer-events: none; overflow: visible; }
 .totop__ring circle { fill: none; stroke: var(--lg-ring); stroke-linecap: round; stroke-dasharray: 100; stroke-dashoffset: calc(100 - var(--p, 0) * 100); }
-.totop__halo { stroke-width: 5; opacity: .08; }
-.totop__bar { stroke-width: 1.5; opacity: .92; }
-.totop__arrow { position: relative; z-index: 1; width: 17px; height: 17px; stroke-width: 2; filter: drop-shadow(0 1px 1.5px rgb(0 0 0 / .35)); transition: transform 360ms var(--ease-out); }
+.totop__halo { stroke-width: 4; opacity: .08; }
+.totop__bar { stroke-width: 1.6; opacity: .92; }
+.totop__arrow { position: relative; z-index: 1; width: 15px; height: 15px; stroke-width: 2; filter: drop-shadow(0 1px 1.5px rgb(0 0 0 / .35)); transition: transform 360ms var(--ease-out); }
