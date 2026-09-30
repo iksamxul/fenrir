@@ -12,24 +12,14 @@
    ============================================================================= */
 
 /* ---------- 1. Tokens ---------------------------------------------------- */
-/* The colours that take turns with the app's themes are registered, so every change fades instead of jumping. */
-@property --ground { syntax: "<color>"; inherits: true; initial-value: #0b0f17; }
-@property --ground-deep { syntax: "<color>"; inherits: true; initial-value: #070a10; }
-@property --raise { syntax: "<color>"; inherits: true; initial-value: #121826; }
-@property --raise-2 { syntax: "<color>"; inherits: true; initial-value: #19212f; }
-@property --aurora-a { syntax: "<color>"; inherits: true; initial-value: rgb(121 192 255 / .5); }
-@property --aurora-b { syntax: "<color>"; inherits: true; initial-value: rgb(72 214 160 / .26); }
-@property --aurora-c { syntax: "<color>"; inherits: true; initial-value: rgb(146 124 255 / .24); }
-@property --tint { syntax: "<color>"; inherits: true; initial-value: #79c0ff; }
-@property --logo { syntax: "<color>"; inherits: true; initial-value: #4f8dff; }
 :root {
   color-scheme: dark;
 
   /* grounds and surfaces */
   --ground: #0b0f17;
   --ground-deep: #070a10;
-  --raise: #121826;
-  --raise-2: #19212f;
+  --raise: #13161c;
+  --raise-2: #1a1e25;
   /* text */
   --ink: #eef2f7;
   --ink-2: #a9b4c4;
@@ -54,8 +44,15 @@
   --line-2: rgb(255 255 255 / .14);
   --hover: rgb(255 255 255 / .07);
   --primary-hover: rgb(255 255 255 / .2);
-  --nav-glass: color-mix(in srgb, var(--ground) 72%, transparent);
-  --glass: color-mix(in srgb, color-mix(in srgb, var(--raise) 55%, var(--raise-2)) 94%, transparent);
+  --nav-glass: rgb(10 12 18 / .62);
+  --glass: rgb(22 26 34 / .94);
+  --veil: rgb(0 0 0 / .34);   /* deeper bands and the footer: a veil over the ground, so they follow any palette */
+  /* liquid glass (the back-to-top button) */
+  --lg-fill: radial-gradient(120% 90% at 50% 0%, rgb(255 255 255 / .13), rgb(255 255 255 / .03) 62%), rgb(255 255 255 / .035);
+  --lg-rim: inset 0 1px 0 rgb(255 255 255 / .4), inset 0 -1px 0 rgb(255 255 255 / .1), inset 0 0 0 1px rgb(255 255 255 / .09);
+  --lg-drop: 0 16px 32px -16px rgb(0 0 0 / .75), 0 3px 8px -3px rgb(0 0 0 / .45);
+  --ease-glass: cubic-bezier(.3, 1.25, .5, 1);
+  --lg-ring: rgb(255 255 255 / .86);
   --glow-a: .34;
   --accent-glow: 0 0 46px rgb(121 192 255 / .26);
   --shadow-frame: 0 60px 120px -48px rgb(0 0 0 / .9), 0 24px 48px -28px rgb(0 0 0 / .75);
@@ -75,7 +72,6 @@
   /* the palette (section 1b): the tint lights glows, the nav's thread and the reading ring; --logo colours the wolf */
   --tint: #79c0ff;
   --logo: #4f8dff;
-  --glow-c: var(--tint);
   /* window materials: --win for dark app shots (the same in both themes on purpose),
      --awin follows the page, --iwin is the page's opposite */
   --win-bg: #101217; --win-bar: #161b24; --win-line: rgb(255 255 255 / .1); --win-dot: rgb(255 255 255 / .18); --win-ink: #9aa4b2;
@@ -139,7 +135,7 @@
     --warn: #9a6700; --warn-text: #7d5300; --warn-rgb: 154 103 0;
     --bad: #cf222e; --bad-text: #b42318; --bad-rgb: 207 34 46;
     --line: rgb(11 15 23 / .1); --line-2: rgb(11 15 23 / .16); --hover: rgb(11 15 23 / .05); --primary-hover: rgb(0 0 0 / .14);
-    --nav-glass: color-mix(in srgb, var(--ground) 80%, transparent); --glass: color-mix(in srgb, var(--raise) 95%, transparent);
+    --nav-glass: rgb(246 248 251 / .74); --glass: rgb(255 255 255 / .95); --veil: rgb(16 32 64 / .045);
     --glow-a: .2; --accent-glow: none;
     --shadow-frame: 0 60px 110px -50px rgb(24 48 90 / .45), 0 20px 44px -26px rgb(24 48 90 / .32);
     --shadow-card: 0 1px 2px rgb(24 48 90 / .06), 0 24px 56px -30px rgb(24 48 90 / .34);
@@ -147,6 +143,9 @@
     --grain: .03; --stars: 0; --star: rgb(11 15 23 / .35);
     --aurora-a: rgb(10 111 219 / .2); --aurora-b: rgb(16 160 110 / .12); --aurora-c: rgb(110 90 230 / .12);
     --show-sun: none; --show-moon: block; --sun-on: 0; --tint: #0a6fdb;
+    --lg-fill: radial-gradient(120% 90% at 50% 0%, rgb(255 255 255 / .85), rgb(255 255 255 / .28) 62%), rgb(226 233 243 / .38); --lg-ring: rgb(11 15 23 / .46);
+    --lg-rim: inset 0 1px 0 rgb(255 255 255 / .95), inset 0 -1px 0 rgb(255 255 255 / .55), inset 0 0 0 1px rgb(11 15 23 / .07);
+    --lg-drop: 0 14px 30px -16px rgb(24 48 90 / .38), 0 2px 6px -2px rgb(24 48 90 / .16);
     --shadow-nav: 0 16px 40px -24px rgb(24 48 90 / .38), inset 0 1px 0 rgb(255 255 255 / .75);
     --awin-bg: #eceff3; --awin-bar: #f8fafc; --awin-line: rgb(11 15 23 / .12); --awin-dot: rgb(11 15 23 / .18); --awin-ink: #566174;
     --iwin-bg: #101217; --iwin-bar: #161b24; --iwin-line: rgb(255 255 255 / .1); --iwin-dot: rgb(255 255 255 / .18); --iwin-ink: #9aa4b2;
@@ -164,7 +163,7 @@
   --warn: #9a6700; --warn-text: #7d5300; --warn-rgb: 154 103 0;
   --bad: #cf222e; --bad-text: #b42318; --bad-rgb: 207 34 46;
   --line: rgb(11 15 23 / .1); --line-2: rgb(11 15 23 / .16); --hover: rgb(11 15 23 / .05); --primary-hover: rgb(0 0 0 / .14);
-  --nav-glass: color-mix(in srgb, var(--ground) 80%, transparent); --glass: color-mix(in srgb, var(--raise) 95%, transparent);
+  --nav-glass: rgb(246 248 251 / .74); --glass: rgb(255 255 255 / .95); --veil: rgb(16 32 64 / .045);
   --glow-a: .2; --accent-glow: none;
   --shadow-frame: 0 60px 110px -50px rgb(24 48 90 / .45), 0 20px 44px -26px rgb(24 48 90 / .32);
   --shadow-card: 0 1px 2px rgb(24 48 90 / .06), 0 24px 56px -30px rgb(24 48 90 / .34);
@@ -172,6 +171,9 @@
   --grain: .03; --stars: 0; --star: rgb(11 15 23 / .35);
   --aurora-a: rgb(10 111 219 / .2); --aurora-b: rgb(16 160 110 / .12); --aurora-c: rgb(110 90 230 / .12);
   --show-sun: none; --show-moon: block; --sun-on: 0; --tint: #0a6fdb;
+    --lg-fill: radial-gradient(120% 90% at 50% 0%, rgb(255 255 255 / .85), rgb(255 255 255 / .28) 62%), rgb(226 233 243 / .38); --lg-ring: rgb(11 15 23 / .46);
+    --lg-rim: inset 0 1px 0 rgb(255 255 255 / .95), inset 0 -1px 0 rgb(255 255 255 / .55), inset 0 0 0 1px rgb(11 15 23 / .07);
+    --lg-drop: 0 14px 30px -16px rgb(24 48 90 / .38), 0 2px 6px -2px rgb(24 48 90 / .16);
     --shadow-nav: 0 16px 40px -24px rgb(24 48 90 / .38), inset 0 1px 0 rgb(255 255 255 / .75);
   --awin-bg: #eceff3; --awin-bar: #f8fafc; --awin-line: rgb(11 15 23 / .12); --awin-dot: rgb(11 15 23 / .18); --awin-ink: #566174;
   --iwin-bg: #101217; --iwin-bar: #161b24; --iwin-line: rgb(255 255 255 / .1); --iwin-dot: rgb(255 255 255 / .18); --iwin-ink: #9aa4b2;
@@ -179,50 +181,93 @@
 }
 
 /* ---------- 1b. The palette: the app's eight themes, one every 3.14 s ------------------------------
-   site.js sets data-palette from the clock (so every page shares the same turn) and the registered colours fade
-   over 2.8 s. A light/dark switch snaps (html.theme-snap) because the text changes at once. Reduced motion and
-   browsers without registered properties stay on Fenrir's own colours. */
-:root {
-  --fade: 2.8s;
-  --ease-fade: cubic-bezier(.45, 0, .55, 1);
-  transition: --ground var(--fade) var(--ease-fade), --ground-deep var(--fade) var(--ease-fade), --raise var(--fade) var(--ease-fade), --raise-2 var(--fade) var(--ease-fade), --aurora-a var(--fade) var(--ease-fade), --aurora-b var(--fade) var(--ease-fade), --aurora-c var(--fade) var(--ease-fade), --tint var(--fade) var(--ease-fade), --logo var(--fade) var(--ease-fade);
-}
-html.theme-snap { transition: none; }
-:root[data-palette="fenrir"] { --ground: #0b0f17; --ground-deep: #070a10; --raise: #121826; --raise-2: #19212f; --aurora-a: rgb(121 192 255 / .5); --aurora-b: rgb(72 214 160 / .26); --aurora-c: rgb(146 124 255 / .24); --tint: #79c0ff; --logo: #4f8dff; }
-:root[data-palette="midnight"] { --ground: #090d1c; --ground-deep: #060913; --raise: #111831; --raise-2: #172040; --aurora-a: rgb(139 139 255 / .5); --aurora-b: rgb(56 189 248 / .28); --aurora-c: rgb(236 72 153 / .22); --tint: #8b8bff; --logo: #7b7bff; }
-:root[data-palette="sakura"] { --ground: #120d11; --ground-deep: #0b070a; --raise: #1b1219; --raise-2: #241922; --aurora-a: rgb(255 107 157 / .42); --aurora-b: rgb(168 85 247 / .28); --aurora-c: rgb(255 190 90 / .14); --tint: #ff6b9d; --logo: #ff5f96; }
-:root[data-palette="ember"] { --ground: #120d0a; --ground-deep: #0b0806; --raise: #1c1510; --raise-2: #251c16; --aurora-a: rgb(255 159 10 / .4); --aurora-b: rgb(255 69 58 / .26); --aurora-c: rgb(255 214 10 / .16); --tint: #ff9f0a; --logo: #ff9a1a; }
-:root[data-palette="yggdrasil"] { --ground: #0b0e14; --ground-deep: #07090d; --raise: #141a24; --raise-2: #1b2230; --aurora-a: rgb(217 167 74 / .42); --aurora-b: rgb(52 211 153 / .22); --aurora-c: rgb(217 167 74 / .2); --tint: #d9a74a; --logo: #d9a74a; }
-:root[data-palette="aurora"] { --ground: #0a1215; --ground-deep: #060b0d; --raise: #0f1a20; --raise-2: #142028; --aurora-a: rgb(52 211 153 / .46); --aurora-b: rgb(139 92 246 / .32); --aurora-c: rgb(56 189 248 / .24); --tint: #34d399; --logo: #30d39a; }
-:root[data-palette="snow"] { --ground: #101012; --ground-deep: #09090a; --raise: #1a1a1d; --raise-2: #232326; --aurora-a: rgb(10 132 255 / .46); --aurora-b: rgb(48 209 88 / .24); --aurora-c: rgb(10 132 255 / .2); --tint: #0a84ff; --logo: #1a88ff; }
-:root[data-palette="graphite"] { --ground: #0e0e0f; --ground-deep: #080808; --raise: #171717; --raise-2: #202020; --aurora-a: rgb(229 229 229 / .2); --aurora-b: rgb(160 160 170 / .14); --aurora-c: rgb(255 255 255 / .1); --tint: #e5e5e5; --logo: #b8b8bf; }
+   Nothing big fades colour in place. Each palette is painted once onto one of two stacked layers and the change is
+   an opacity crossfade the compositor runs alone: a fixed ground pair (.atmos: the lower layer stays opaque, the
+   upper one fades), and twin pseudo-elements on the aurora, the haze and the glows (one fades out as the other
+   fades in). site.js paints the hidden slot (data-pa / data-pb), then flips data-slot. The nav's thread, the
+   reading ring and the wolf mark are small, so their registered colours fade in place, scoped to them (data-palette).
+   Reduced motion and no script: Fenrir's own colours, still. */
+:root { --fade: 2.8s; --ease-fade: cubic-bezier(.45, 0, .55, 1); }
+.atmos { position: fixed; inset: 0; z-index: -1; pointer-events: none; contain: strict; }
+.atmos__a, .atmos__b { position: absolute; inset: 0; background-color: var(--ground); }
+.atmos__b { opacity: 0; will-change: opacity; transition: opacity var(--fade) var(--ease-fade); }
+html[data-slot="b"] .atmos__b { opacity: 1; }
+:is(.aurora__band, .aurora__haze, .hero__glow, .glow)::before, :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::after { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; }
+/* only what is near the viewport fades (motion.js marks it .is-live); the rest switches unseen */
+.is-live:is(.hero__glow, .glow)::before, .is-live:is(.hero__glow, .glow)::after,
+.is-live :is(.aurora__band, .aurora__haze)::before, .is-live :is(.aurora__band, .aurora__haze)::after { transition: opacity var(--fade) var(--ease-fade); }
+:is(.aurora__band, .aurora__haze, .hero__glow, .glow)::after { opacity: 0; }
+html[data-slot="b"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::before { opacity: 0; }
+html[data-slot="b"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::after { opacity: 1; }
+html[data-pa="fenrir"] .atmos__a, html[data-pb="fenrir"] .atmos__b { background-color: #0b0f17; }
+html[data-pa="fenrir"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::before, html[data-pb="fenrir"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::after { --c1: rgb(121 192 255 / .5); --c2: rgb(72 214 160 / .26); --c3: rgb(146 124 255 / .24); --gc: #79c0ff; }
+html[data-pa="midnight"] .atmos__a, html[data-pb="midnight"] .atmos__b { background-color: #090d1c; }
+html[data-pa="midnight"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::before, html[data-pb="midnight"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::after { --c1: rgb(139 139 255 / .5); --c2: rgb(56 189 248 / .28); --c3: rgb(236 72 153 / .22); --gc: #8b8bff; }
+html[data-pa="sakura"] .atmos__a, html[data-pb="sakura"] .atmos__b { background-color: #120d11; }
+html[data-pa="sakura"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::before, html[data-pb="sakura"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::after { --c1: rgb(255 107 157 / .42); --c2: rgb(168 85 247 / .28); --c3: rgb(255 190 90 / .14); --gc: #ff6b9d; }
+html[data-pa="ember"] .atmos__a, html[data-pb="ember"] .atmos__b { background-color: #120d0a; }
+html[data-pa="ember"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::before, html[data-pb="ember"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::after { --c1: rgb(255 159 10 / .4); --c2: rgb(255 69 58 / .26); --c3: rgb(255 214 10 / .16); --gc: #ff9f0a; }
+html[data-pa="yggdrasil"] .atmos__a, html[data-pb="yggdrasil"] .atmos__b { background-color: #0b0e14; }
+html[data-pa="yggdrasil"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::before, html[data-pb="yggdrasil"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::after { --c1: rgb(217 167 74 / .42); --c2: rgb(52 211 153 / .22); --c3: rgb(217 167 74 / .2); --gc: #d9a74a; }
+html[data-pa="aurora"] .atmos__a, html[data-pb="aurora"] .atmos__b { background-color: #0a1215; }
+html[data-pa="aurora"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::before, html[data-pb="aurora"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::after { --c1: rgb(52 211 153 / .46); --c2: rgb(139 92 246 / .32); --c3: rgb(56 189 248 / .24); --gc: #34d399; }
+html[data-pa="snow"] .atmos__a, html[data-pb="snow"] .atmos__b { background-color: #101012; }
+html[data-pa="snow"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::before, html[data-pb="snow"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::after { --c1: rgb(10 132 255 / .46); --c2: rgb(48 209 88 / .24); --c3: rgb(10 132 255 / .2); --gc: #0a84ff; }
+html[data-pa="graphite"] .atmos__a, html[data-pb="graphite"] .atmos__b { background-color: #0e0e0f; }
+html[data-pa="graphite"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::before, html[data-pb="graphite"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::after { --c1: rgb(229 229 229 / .2); --c2: rgb(160 160 170 / .14); --c3: rgb(255 255 255 / .1); --gc: #e5e5e5; }
 @media (prefers-color-scheme: light) {
-  :root:not([data-theme="dark"])[data-palette="fenrir"] { --ground: #f4f7fb; --ground-deep: #e9eef5; --raise: #ffffff; --raise-2: #f1f5fa; --aurora-a: rgb(10 111 219 / .2); --aurora-b: rgb(16 160 110 / .12); --aurora-c: rgb(110 90 230 / .12); --tint: #0a6fdb; }
-  :root:not([data-theme="dark"])[data-palette="midnight"] { --ground: #f3f4fc; --ground-deep: #e9ebf8; --raise: #ffffff; --raise-2: #f0f1fb; --aurora-a: rgb(90 90 230 / .2); --aurora-b: rgb(56 189 248 / .14); --aurora-c: rgb(236 72 153 / .1); --tint: #5a5ae6; }
-  :root:not([data-theme="dark"])[data-palette="sakura"] { --ground: #fcf4f7; --ground-deep: #f6e8ee; --raise: #ffffff; --raise-2: #fbf0f5; --aurora-a: rgb(224 64 122 / .18); --aurora-b: rgb(168 85 247 / .12); --aurora-c: rgb(255 170 60 / .1); --tint: #ce3b70; }
-  :root:not([data-theme="dark"])[data-palette="ember"] { --ground: #faf5ef; --ground-deep: #f4ece1; --raise: #fffdfa; --raise-2: #faf2e8; --aurora-a: rgb(217 122 0 / .2); --aurora-b: rgb(255 69 58 / .1); --aurora-c: rgb(255 190 10 / .12); --tint: #ae6200; }
-  :root:not([data-theme="dark"])[data-palette="yggdrasil"] { --ground: #f6f2ea; --ground-deep: #f0eadf; --raise: #fffdf8; --raise-2: #f7f1e6; --aurora-a: rgb(138 90 18 / .18); --aurora-b: rgb(40 140 110 / .12); --aurora-c: rgb(138 90 18 / .1); --tint: #8a5a12; }
-  :root:not([data-theme="dark"])[data-palette="aurora"] { --ground: #f1f8f5; --ground-deep: #e4f0ea; --raise: #ffffff; --raise-2: #eef7f3; --aurora-a: rgb(15 159 110 / .18); --aurora-b: rgb(139 92 246 / .14); --aurora-c: rgb(56 189 248 / .1); --tint: #0c845b; }
-  :root:not([data-theme="dark"])[data-palette="snow"] { --ground: #f5f5f9; --ground-deep: #ececf2; --raise: #ffffff; --raise-2: #f2f2f7; --aurora-a: rgb(10 132 255 / .18); --aurora-b: rgb(48 209 88 / .12); --aurora-c: rgb(10 132 255 / .1); --tint: #0973de; }
-  :root:not([data-theme="dark"])[data-palette="graphite"] { --ground: #f3f3f3; --ground-deep: #eaeaea; --raise: #ffffff; --raise-2: #f2f2f2; --aurora-a: rgb(0 0 0 / .08); --aurora-b: rgb(0 0 0 / .05); --aurora-c: rgb(0 0 0 / .04); --tint: #333333; }
+  html:not([data-theme="dark"])[data-pa="fenrir"] .atmos__a, html:not([data-theme="dark"])[data-pb="fenrir"] .atmos__b { background-color: #f4f7fb; }
+  html:not([data-theme="dark"])[data-pa="fenrir"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::before, html:not([data-theme="dark"])[data-pb="fenrir"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::after { --c1: rgb(10 111 219 / .2); --c2: rgb(16 160 110 / .12); --c3: rgb(110 90 230 / .12); --gc: #0a6fdb; }
+  html:not([data-theme="dark"])[data-pa="midnight"] .atmos__a, html:not([data-theme="dark"])[data-pb="midnight"] .atmos__b { background-color: #f3f4fc; }
+  html:not([data-theme="dark"])[data-pa="midnight"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::before, html:not([data-theme="dark"])[data-pb="midnight"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::after { --c1: rgb(90 90 230 / .2); --c2: rgb(56 189 248 / .14); --c3: rgb(236 72 153 / .1); --gc: #5a5ae6; }
+  html:not([data-theme="dark"])[data-pa="sakura"] .atmos__a, html:not([data-theme="dark"])[data-pb="sakura"] .atmos__b { background-color: #fcf4f7; }
+  html:not([data-theme="dark"])[data-pa="sakura"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::before, html:not([data-theme="dark"])[data-pb="sakura"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::after { --c1: rgb(224 64 122 / .18); --c2: rgb(168 85 247 / .12); --c3: rgb(255 170 60 / .1); --gc: #ce3b70; }
+  html:not([data-theme="dark"])[data-pa="ember"] .atmos__a, html:not([data-theme="dark"])[data-pb="ember"] .atmos__b { background-color: #faf5ef; }
+  html:not([data-theme="dark"])[data-pa="ember"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::before, html:not([data-theme="dark"])[data-pb="ember"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::after { --c1: rgb(217 122 0 / .2); --c2: rgb(255 69 58 / .1); --c3: rgb(255 190 10 / .12); --gc: #ae6200; }
+  html:not([data-theme="dark"])[data-pa="yggdrasil"] .atmos__a, html:not([data-theme="dark"])[data-pb="yggdrasil"] .atmos__b { background-color: #f6f2ea; }
+  html:not([data-theme="dark"])[data-pa="yggdrasil"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::before, html:not([data-theme="dark"])[data-pb="yggdrasil"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::after { --c1: rgb(138 90 18 / .18); --c2: rgb(40 140 110 / .12); --c3: rgb(138 90 18 / .1); --gc: #8a5a12; }
+  html:not([data-theme="dark"])[data-pa="aurora"] .atmos__a, html:not([data-theme="dark"])[data-pb="aurora"] .atmos__b { background-color: #f1f8f5; }
+  html:not([data-theme="dark"])[data-pa="aurora"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::before, html:not([data-theme="dark"])[data-pb="aurora"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::after { --c1: rgb(15 159 110 / .18); --c2: rgb(139 92 246 / .14); --c3: rgb(56 189 248 / .1); --gc: #0c845b; }
+  html:not([data-theme="dark"])[data-pa="snow"] .atmos__a, html:not([data-theme="dark"])[data-pb="snow"] .atmos__b { background-color: #f5f5f9; }
+  html:not([data-theme="dark"])[data-pa="snow"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::before, html:not([data-theme="dark"])[data-pb="snow"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::after { --c1: rgb(10 132 255 / .18); --c2: rgb(48 209 88 / .12); --c3: rgb(10 132 255 / .1); --gc: #0973de; }
+  html:not([data-theme="dark"])[data-pa="graphite"] .atmos__a, html:not([data-theme="dark"])[data-pb="graphite"] .atmos__b { background-color: #f3f3f3; }
+  html:not([data-theme="dark"])[data-pa="graphite"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::before, html:not([data-theme="dark"])[data-pb="graphite"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::after { --c1: rgb(0 0 0 / .08); --c2: rgb(0 0 0 / .05); --c3: rgb(0 0 0 / .04); --gc: #333333; }
 }
-:root[data-theme="light"][data-palette="fenrir"] { --ground: #f4f7fb; --ground-deep: #e9eef5; --raise: #ffffff; --raise-2: #f1f5fa; --aurora-a: rgb(10 111 219 / .2); --aurora-b: rgb(16 160 110 / .12); --aurora-c: rgb(110 90 230 / .12); --tint: #0a6fdb; }
-:root[data-theme="light"][data-palette="midnight"] { --ground: #f3f4fc; --ground-deep: #e9ebf8; --raise: #ffffff; --raise-2: #f0f1fb; --aurora-a: rgb(90 90 230 / .2); --aurora-b: rgb(56 189 248 / .14); --aurora-c: rgb(236 72 153 / .1); --tint: #5a5ae6; }
-:root[data-theme="light"][data-palette="sakura"] { --ground: #fcf4f7; --ground-deep: #f6e8ee; --raise: #ffffff; --raise-2: #fbf0f5; --aurora-a: rgb(224 64 122 / .18); --aurora-b: rgb(168 85 247 / .12); --aurora-c: rgb(255 170 60 / .1); --tint: #ce3b70; }
-:root[data-theme="light"][data-palette="ember"] { --ground: #faf5ef; --ground-deep: #f4ece1; --raise: #fffdfa; --raise-2: #faf2e8; --aurora-a: rgb(217 122 0 / .2); --aurora-b: rgb(255 69 58 / .1); --aurora-c: rgb(255 190 10 / .12); --tint: #ae6200; }
-:root[data-theme="light"][data-palette="yggdrasil"] { --ground: #f6f2ea; --ground-deep: #f0eadf; --raise: #fffdf8; --raise-2: #f7f1e6; --aurora-a: rgb(138 90 18 / .18); --aurora-b: rgb(40 140 110 / .12); --aurora-c: rgb(138 90 18 / .1); --tint: #8a5a12; }
-:root[data-theme="light"][data-palette="aurora"] { --ground: #f1f8f5; --ground-deep: #e4f0ea; --raise: #ffffff; --raise-2: #eef7f3; --aurora-a: rgb(15 159 110 / .18); --aurora-b: rgb(139 92 246 / .14); --aurora-c: rgb(56 189 248 / .1); --tint: #0c845b; }
-:root[data-theme="light"][data-palette="snow"] { --ground: #f5f5f9; --ground-deep: #ececf2; --raise: #ffffff; --raise-2: #f2f2f7; --aurora-a: rgb(10 132 255 / .18); --aurora-b: rgb(48 209 88 / .12); --aurora-c: rgb(10 132 255 / .1); --tint: #0973de; }
-:root[data-theme="light"][data-palette="graphite"] { --ground: #f3f3f3; --ground-deep: #eaeaea; --raise: #ffffff; --raise-2: #f2f2f2; --aurora-a: rgb(0 0 0 / .08); --aurora-b: rgb(0 0 0 / .05); --aurora-c: rgb(0 0 0 / .04); --tint: #333333; }
+html[data-theme="light"][data-pa="fenrir"] .atmos__a, html[data-theme="light"][data-pb="fenrir"] .atmos__b { background-color: #f4f7fb; }
+html[data-theme="light"][data-pa="fenrir"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::before, html[data-theme="light"][data-pb="fenrir"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::after { --c1: rgb(10 111 219 / .2); --c2: rgb(16 160 110 / .12); --c3: rgb(110 90 230 / .12); --gc: #0a6fdb; }
+html[data-theme="light"][data-pa="midnight"] .atmos__a, html[data-theme="light"][data-pb="midnight"] .atmos__b { background-color: #f3f4fc; }
+html[data-theme="light"][data-pa="midnight"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::before, html[data-theme="light"][data-pb="midnight"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::after { --c1: rgb(90 90 230 / .2); --c2: rgb(56 189 248 / .14); --c3: rgb(236 72 153 / .1); --gc: #5a5ae6; }
+html[data-theme="light"][data-pa="sakura"] .atmos__a, html[data-theme="light"][data-pb="sakura"] .atmos__b { background-color: #fcf4f7; }
+html[data-theme="light"][data-pa="sakura"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::before, html[data-theme="light"][data-pb="sakura"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::after { --c1: rgb(224 64 122 / .18); --c2: rgb(168 85 247 / .12); --c3: rgb(255 170 60 / .1); --gc: #ce3b70; }
+html[data-theme="light"][data-pa="ember"] .atmos__a, html[data-theme="light"][data-pb="ember"] .atmos__b { background-color: #faf5ef; }
+html[data-theme="light"][data-pa="ember"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::before, html[data-theme="light"][data-pb="ember"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::after { --c1: rgb(217 122 0 / .2); --c2: rgb(255 69 58 / .1); --c3: rgb(255 190 10 / .12); --gc: #ae6200; }
+html[data-theme="light"][data-pa="yggdrasil"] .atmos__a, html[data-theme="light"][data-pb="yggdrasil"] .atmos__b { background-color: #f6f2ea; }
+html[data-theme="light"][data-pa="yggdrasil"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::before, html[data-theme="light"][data-pb="yggdrasil"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::after { --c1: rgb(138 90 18 / .18); --c2: rgb(40 140 110 / .12); --c3: rgb(138 90 18 / .1); --gc: #8a5a12; }
+html[data-theme="light"][data-pa="aurora"] .atmos__a, html[data-theme="light"][data-pb="aurora"] .atmos__b { background-color: #f1f8f5; }
+html[data-theme="light"][data-pa="aurora"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::before, html[data-theme="light"][data-pb="aurora"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::after { --c1: rgb(15 159 110 / .18); --c2: rgb(139 92 246 / .14); --c3: rgb(56 189 248 / .1); --gc: #0c845b; }
+html[data-theme="light"][data-pa="snow"] .atmos__a, html[data-theme="light"][data-pb="snow"] .atmos__b { background-color: #f5f5f9; }
+html[data-theme="light"][data-pa="snow"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::before, html[data-theme="light"][data-pb="snow"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::after { --c1: rgb(10 132 255 / .18); --c2: rgb(48 209 88 / .12); --c3: rgb(10 132 255 / .1); --gc: #0973de; }
+html[data-theme="light"][data-pa="graphite"] .atmos__a, html[data-theme="light"][data-pb="graphite"] .atmos__b { background-color: #f3f3f3; }
+html[data-theme="light"][data-pa="graphite"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::before, html[data-theme="light"][data-pb="graphite"] :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::after { --c1: rgb(0 0 0 / .08); --c2: rgb(0 0 0 / .05); --c3: rgb(0 0 0 / .04); --gc: #333333; }
+
+/* the wolf mark: copy A is always opaque, copy B fades over it (section 19) */
+html[data-pa="fenrir"] .logo-defs { --la: #4f8dff; } html[data-pb="fenrir"] .logo-defs { --lb: #4f8dff; }
+html[data-pa="midnight"] .logo-defs { --la: #7b7bff; } html[data-pb="midnight"] .logo-defs { --lb: #7b7bff; }
+html[data-pa="sakura"] .logo-defs { --la: #ff5f96; } html[data-pb="sakura"] .logo-defs { --lb: #ff5f96; }
+html[data-pa="ember"] .logo-defs { --la: #ff9a1a; } html[data-pb="ember"] .logo-defs { --lb: #ff9a1a; }
+html[data-pa="yggdrasil"] .logo-defs { --la: #d9a74a; } html[data-pb="yggdrasil"] .logo-defs { --lb: #d9a74a; }
+html[data-pa="aurora"] .logo-defs { --la: #30d39a; } html[data-pb="aurora"] .logo-defs { --lb: #30d39a; }
+html[data-pa="snow"] .logo-defs { --la: #1a88ff; } html[data-pb="snow"] .logo-defs { --lb: #1a88ff; }
+html[data-pa="graphite"] .logo-defs { --la: #b8b8bf; } html[data-pb="graphite"] .logo-defs { --lb: #b8b8bf; }
 
 /* ---------- 2. Base ------------------------------------------------------ */
 *, *::before, *::after { box-sizing: border-box; }
 [hidden] { display: none !important; }
-html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-padding-top: calc(env(safe-area-inset-top, 0px) + var(--nav-h) + 34px); }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-padding-top: calc(env(safe-area-inset-top, 0px) + var(--nav-h) + 34px); background: var(--ground); }
 body {
   margin: 0;
   min-height: 100vh;
-  background: var(--ground);
+  background: transparent;   /* the ground is .atmos (1b) */
   color: var(--ink);
   font-family: var(--font-body);
   font-size: var(--fs-body);
@@ -369,7 +414,7 @@ kbd {
 }
 .nav__in::after {
   content: ""; position: absolute; left: 14%; right: 14%; bottom: 0; height: 1px; z-index: -1; pointer-events: none;
-  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--tint) 80%, transparent) 50%, transparent);
+  background: linear-gradient(90deg, transparent, rgb(var(--ink-rgb) / .34) 50%, transparent);
   opacity: 0; transform: scaleX(.3);
   transition: opacity 420ms var(--ease-out), transform 760ms var(--ease-out);
 }
@@ -491,22 +536,24 @@ kbd {
 .aurora { position: absolute; left: -20%; right: -20%; top: -14%; height: 88%; z-index: -1; pointer-events: none; }
 .aurora__haze {
   position: absolute; inset: 12% 10% 0;
-  background: radial-gradient(50% 46% at 50% 52%, color-mix(in srgb, var(--glow-c) 16%, transparent), transparent 72%);
   animation: haze 19s ease-in-out infinite alternate;
 }
+.aurora__haze::before, .aurora__haze::after { background: radial-gradient(50% 46% at 50% 52%, color-mix(in srgb, var(--glow-fix, var(--gc, var(--tint))) 16%, transparent), transparent 72%); }
 .aurora__band {
   position: absolute; inset: 0;
-  background:
-    radial-gradient(34% 22% at 24% 46%, var(--aurora-a), transparent 72%),
-    radial-gradient(30% 18% at 47% 34%, var(--aurora-b), transparent 70%),
-    radial-gradient(26% 20% at 70% 44%, var(--aurora-a), transparent 72%),
-    radial-gradient(24% 16% at 86% 30%, var(--aurora-c), transparent 70%);
   -webkit-mask-image: linear-gradient(to bottom, transparent 8%, #000 30%, #000 52%, transparent 78%), repeating-linear-gradient(91deg, #000 0, rgb(0 0 0 / .74) 15px, #000 31px, rgb(0 0 0 / .86) 47px, #000 61px, rgb(0 0 0 / .7) 70px, #000 88px);
   -webkit-mask-composite: source-in;
   mask-image: linear-gradient(to bottom, transparent 8%, #000 30%, #000 52%, transparent 78%), repeating-linear-gradient(91deg, #000 0, rgb(0 0 0 / .74) 15px, #000 31px, rgb(0 0 0 / .86) 47px, #000 61px, rgb(0 0 0 / .7) 70px, #000 88px);
   mask-composite: intersect;
   transform-origin: 50% 40%;
   animation: aurora var(--aurora-dur) var(--ease-in-out) infinite alternate;
+}
+.aurora__band::before, .aurora__band::after {
+  background:
+    radial-gradient(34% 22% at 24% 46%, var(--c1, var(--aurora-a)), transparent 72%),
+    radial-gradient(30% 18% at 47% 34%, var(--c2, var(--aurora-b)), transparent 70%),
+    radial-gradient(26% 20% at 70% 44%, var(--c1, var(--aurora-a)), transparent 72%),
+    radial-gradient(24% 16% at 86% 30%, var(--c3, var(--aurora-c)), transparent 70%);
 }
 .aurora--low { top: auto; bottom: -18%; height: 96%; }
 [data-idle] .aurora__band, [data-idle] .aurora__haze, [data-idle] .sky__stars::after { animation-play-state: paused; }
@@ -521,8 +568,8 @@ kbd {
 .hero__stage { position: relative; isolation: isolate; width: min(100% - 2 * var(--gutter), 1240px); margin: clamp(40px, 7vh, 92px) auto 0; }
 .hero__glow {
   position: absolute; inset: -16% -10% 4%; z-index: -1; pointer-events: none;
-  background: radial-gradient(50% 50% at 50% 40%, color-mix(in srgb, var(--glow-c) calc(var(--glow-a) * 100%), transparent), transparent 72%);
 }
+.hero__glow::before, .hero__glow::after { background: radial-gradient(50% 50% at 50% 40%, color-mix(in srgb, var(--glow-fix, var(--gc, var(--tint))) calc(var(--glow-a) * 100%), transparent), transparent 72%); }
 .hero__float { position: relative; }
 .frame--hero { transform-origin: 50% 40%; }
 /* subpage hero */
@@ -532,11 +579,11 @@ kbd {
 
 /* ---------- 8. Scenes ---------------------------------------------------- */
 .scene { position: relative; isolation: isolate; overflow-x: clip; padding-block: var(--scene-pad); }
-.scene--deep { background: linear-gradient(to bottom, var(--ground) 0, var(--ground-deep) 16%, var(--ground-deep) 84%, var(--ground) 100%); }
+.scene--deep { background: linear-gradient(to bottom, transparent 0, var(--veil) 16%, var(--veil) 84%, transparent 100%); }
 .scene__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(44px, 6vw, 96px); align-items: center; }
 .scene__copy, .scene__visual { min-width: 0; }
 .scene__visual { position: relative; isolation: isolate; }
-.connect-moment, .page-connect { --accent-text: var(--teal-text); --glow-rgb: var(--teal-rgb); --glow-c: var(--teal); }
+.connect-moment, .page-connect { --accent-text: var(--teal-text); --glow-rgb: var(--teal-rgb); --glow-fix: var(--teal); }
 @media (min-width: 960px) {
   .scene { min-height: 70vh; display: flex; flex-direction: column; justify-content: center; }
   .scene__grid { grid-template-columns: minmax(0, 11fr) minmax(0, 13fr); }
@@ -547,9 +594,9 @@ kbd {
 }
 .glow {
   position: absolute; inset: -18% -14%; z-index: -1; pointer-events: none;
-  background: radial-gradient(closest-side, color-mix(in srgb, var(--glow-c) calc(var(--glow-a) * 100%), transparent), transparent 78%);
 }
-.glow--teal { --glow-rgb: var(--teal-rgb); --glow-c: var(--teal); }
+.glow::before, .glow::after { background: radial-gradient(closest-side, color-mix(in srgb, var(--glow-fix, var(--gc, var(--tint))) calc(var(--glow-a) * 100%), transparent), transparent 78%); }
+.glow--teal { --glow-rgb: var(--teal-rgb); --glow-fix: var(--teal); }
 
 /* ---------- 9. Frames: app windows around the real screenshots ----------- */
 .frame {
@@ -968,15 +1015,15 @@ kbd {
 }
 
 /* ---------- 16. Call to action ------------------------------------------- */
-.cta { padding-block: clamp(112px, 14vw, 200px); text-align: center; background: var(--ground-deep); }
+.cta { padding-block: clamp(112px, 14vw, 200px); text-align: center; background: var(--veil); }
 .cta__in { display: flex; flex-direction: column; align-items: center; }
-.cta__mark { width: 84px; height: 84px; margin-bottom: 30px; filter: drop-shadow(0 18px 40px color-mix(in srgb, var(--glow-c) 45%, transparent)); }
+.cta__mark { width: 84px; height: 84px; margin-bottom: 30px; filter: drop-shadow(0 18px 36px rgb(4 8 16 / .45)); }
 .cta .lead { margin: 0 auto; }
 .cta__row { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 36px; }
 .cta .fine { margin-top: 20px; }
 
 /* ---------- 17. Footer --------------------------------------------------- */
-.foot { position: relative; border-top: 1px solid var(--line); padding-block: 56px 40px; background: var(--ground-deep); font-size: var(--fs-sm); color: var(--ink-2); }
+.foot { position: relative; border-top: 1px solid var(--line); padding-block: 56px 40px; background: var(--veil); font-size: var(--fs-sm); color: var(--ink-2); }
 .foot__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; }
 .foot__brand { display: flex; align-items: flex-start; gap: 14px; }
 .foot__brand img, .foot__brand .logo { width: 40px; height: 40px; flex: none; }
@@ -1150,9 +1197,10 @@ kbd {
   .nav__links a:hover, .nav__icon:hover { color: var(--ink); }
   .nav__brand:hover .logo { transform: rotate(-8deg) scale(1.06); }
   .nav__end .btn--primary:hover::after { transform: translateX(120%); transition: transform 820ms var(--ease-out); }
-  .totop:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--tint) 40%, var(--line-2)); }
-  .totop:hover .totop__arrow { transform: translateY(-2px); }
-  .totop:active { transform: scale(.94); }
+  .totop:hover { transform: translateY(-2px) scale(1.05); }
+  .totop:hover::before { transform: translateY(-1px); opacity: 1; }
+  .totop:hover .totop__arrow { transform: translateY(-1.5px); }
+  .totop:active { transform: scale(.93); }
   .foot__nav a:hover { color: var(--ink); }
   .choose__btn:hover { transform: translateY(-2px); }
   .qa summary:hover .i { color: var(--ink); }
@@ -1179,42 +1227,60 @@ kbd {
   .nav__end .btn--primary::after { display: none; }
   .totop, .totop.is-on, .totop:hover, .totop:active { transform: none; }
   .totop { transition: opacity 200ms ease, visibility 0s linear 200ms; }
+  .totop::before, .totop__arrow, .logo .lg-b { transition: none; }
+  .atmos__b, :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::before, :is(.aurora__band, .aurora__haze, .hero__glow, .glow)::after { transition: none; }
   .totop.is-on { transition-delay: 0s; }
   .qa[open] .qa__a { animation-name: fade; }
   .qa summary .i, .more .i { transition: none; }
 }
 
-/* ---------- 17. The wolf mark, drawn inline so its colours follow the palette (--logo) ---------- */
+/* ---------- 19. The wolf mark, drawn inline so its colours follow the palette (--logo on .logo-defs) ---------- */
 .logo { display: block; flex: none; overflow: visible; }
-.fm-tile-a { stop-color: color-mix(in srgb, var(--logo) 18%, #140e1b); }
-.fm-tile-b { stop-color: color-mix(in srgb, var(--logo) 3%, #040610); }
-.fm-halo-a { stop-color: var(--logo); stop-opacity: .42; }
-.fm-halo-b { stop-color: var(--logo); stop-opacity: 0; }
-.fm-rim-c { stop-color: var(--logo); stop-opacity: .35; }
-.fm-glass-a { stop-color: color-mix(in srgb, var(--logo) 3%, #f9fbff); stop-opacity: .98; }
-.fm-glass-b { stop-color: color-mix(in srgb, var(--logo) 42%, #ffffff); stop-opacity: .88; }
-.fm-deep { stroke: color-mix(in srgb, var(--logo) 62%, #0a0f40); }
+.fma-tile-a { stop-color: color-mix(in srgb, var(--la, var(--logo)) 18%, #140e1b); } .fma-tile-b { stop-color: color-mix(in srgb, var(--la, var(--logo)) 3%, #040610); }
+.fma-halo-a { stop-color: var(--la, var(--logo)); stop-opacity: .42; } .fma-halo-b { stop-color: var(--la, var(--logo)); stop-opacity: 0; } .fma-rim-c { stop-color: var(--la, var(--logo)); stop-opacity: .35; }
+.fma-glass-a { stop-color: color-mix(in srgb, var(--la, var(--logo)) 3%, #f9fbff); stop-opacity: .98; } .fma-glass-b { stop-color: color-mix(in srgb, var(--la, var(--logo)) 42%, #ffffff); stop-opacity: .88; }
+.fma-deep { stroke: color-mix(in srgb, var(--la, var(--logo)) 62%, #0a0f40); }
+.fmb-tile-a { stop-color: color-mix(in srgb, var(--lb, var(--logo)) 18%, #140e1b); } .fmb-tile-b { stop-color: color-mix(in srgb, var(--lb, var(--logo)) 3%, #040610); }
+.fmb-halo-a { stop-color: var(--lb, var(--logo)); stop-opacity: .42; } .fmb-halo-b { stop-color: var(--lb, var(--logo)); stop-opacity: 0; } .fmb-rim-c { stop-color: var(--lb, var(--logo)); stop-opacity: .35; }
+.fmb-glass-a { stop-color: color-mix(in srgb, var(--lb, var(--logo)) 3%, #f9fbff); stop-opacity: .98; } .fmb-glass-b { stop-color: color-mix(in srgb, var(--lb, var(--logo)) 42%, #ffffff); stop-opacity: .88; }
+.fmb-deep { stroke: color-mix(in srgb, var(--lb, var(--logo)) 62%, #0a0f40); }
+.logo .lg-b { opacity: 0; transition: opacity var(--fade) var(--ease-fade); }
+html[data-slot="b"] .logo .lg-b { opacity: 1; }
 
-/* ---------- 18. Back to the top: glass, bottom right, once the page has moved; its ring fills as you read ---------- */
+/* ---------- 20. Back to the top: liquid glass, bottom right, once the page has moved ---------------------------
+   A clear lens rather than frost: a light blur and a lift in saturation behind it, a bright rim along the top and a
+   softer one below, light caught on the upper curve and a faint caustic where it leaves. In Chromium the backdrop
+   also bends at the rim (an SVG displacement map, site.js). The thin ring fills as you read. */
 .totop {
   position: fixed; z-index: 70;
   right: calc(env(safe-area-inset-right, 0px) + clamp(16px, 2.4vw, 28px));
   bottom: calc(env(safe-area-inset-bottom, 0px) + clamp(16px, 2.4vw, 28px));
-  display: grid; place-items: center; width: 52px; height: 52px; padding: 0;
-  border: 1px solid var(--line-2); border-radius: 50%;
-  background: var(--nav-glass);
-  -webkit-backdrop-filter: saturate(1.6) blur(16px);
-  backdrop-filter: saturate(1.6) blur(16px);
-  color: var(--ink); box-shadow: var(--shadow-nav); cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-  opacity: 0; visibility: hidden; transform: translateY(16px) scale(.9);
-  transition: opacity 260ms var(--ease-out), transform 520ms var(--ease-out), visibility 0s linear 520ms, border-color 200ms ease;
+  display: grid; place-items: center; width: 48px; height: 48px; padding: 0;
+  border: 0; border-radius: 50%;
+  color: var(--ink);
+  background: var(--lg-fill);
+  -webkit-backdrop-filter: blur(8px) saturate(1.9) brightness(1.08);
+  backdrop-filter: blur(8px) saturate(1.9) brightness(1.08);
+  box-shadow: var(--lg-rim), var(--lg-drop);
+  cursor: pointer; -webkit-tap-highlight-color: transparent;
+  opacity: 0; visibility: hidden; transform: translateY(14px) scale(.86);
+  transition: opacity 280ms var(--ease-out), transform 560ms var(--ease-glass), visibility 0s linear 560ms;
+}
+.totop.lg-lens { backdrop-filter: url(#lg-lens) blur(1.5px) saturate(1.9) brightness(1.08); }
+.totop::before {
+  content: ""; position: absolute; inset: 1px; border-radius: 50%; pointer-events: none;
+  background: radial-gradient(72% 48% at 50% 4%, rgb(255 255 255 / .5), rgb(255 255 255 / 0) 72%);
+  opacity: .75; transition: transform 420ms var(--ease-out), opacity 420ms var(--ease-out);
+}
+.totop::after {
+  content: ""; position: absolute; inset: 0; border-radius: 50%; pointer-events: none;
+  background: radial-gradient(62% 36% at 50% 100%, rgb(255 255 255 / .16), rgb(255 255 255 / 0) 72%);
 }
 .totop.is-on { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
-.totop:active { transform: scale(.94); }
+.totop:active { transform: scale(.93); }
 .totop:focus-visible { outline-offset: 4px; border-radius: 50%; }
 .totop__ring { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); pointer-events: none; overflow: visible; }
-.totop__ring circle { fill: none; stroke-width: 2; }
-.totop__track { stroke: var(--line); }
-.totop__bar { stroke: var(--tint); stroke-linecap: round; stroke-dasharray: 100; stroke-dashoffset: calc(100 - var(--p, 0) * 100); }
-.totop__arrow { width: 20px; height: 20px; transition: transform 320ms var(--ease-out); }
+.totop__ring circle { fill: none; stroke: var(--lg-ring); stroke-linecap: round; stroke-dasharray: 100; stroke-dashoffset: calc(100 - var(--p, 0) * 100); }
+.totop__halo { stroke-width: 5; opacity: .08; }
+.totop__bar { stroke-width: 1.5; opacity: .92; }
+.totop__arrow { position: relative; z-index: 1; width: 17px; height: 17px; stroke-width: 2; filter: drop-shadow(0 1px 1.5px rgb(0 0 0 / .35)); transition: transform 360ms var(--ease-out); }
