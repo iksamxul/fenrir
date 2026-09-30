@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="256" height="256">
+  <defs>
+    <linearGradient id="tile" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1c2544"/><stop offset="1" stop-color="#05070f"/></linearGradient>
+    <radialGradient id="halo" cx=".5" cy=".46" r=".6"><stop offset="0" stop-color="#4f8dff" stop-opacity=".42"/><stop offset="1" stop-color="#4f8dff" stop-opacity="0"/></radialGradient>
+    <linearGradient id="sheen" x1="0" y1="0" x2=".35" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".16"/><stop offset=".5" stop-color="#ffffff" stop-opacity="0"/></linearGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".42"/><stop offset=".55" stop-color="#ffffff" stop-opacity=".05"/><stop offset="1" stop-color="#4f8dff" stop-opacity=".35"/></linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6f9ff" stop-opacity=".98"/><stop offset="1" stop-color="#b6c8ff" stop-opacity=".88"/></linearGradient>
+    <linearGradient id="topMask" x1="0" y1="0" x2="0" y2="1"><stop offset=".05" stop-color="#ffffff"/><stop offset=".75" stop-color="#000000"/></linearGradient>
+    <linearGradient id="botMask" x1="0" y1="0" x2="0" y2="1"><stop offset=".35" stop-color="#000000"/><stop offset="1" stop-color="#ffffff"/></linearGradient>
+    <mask id="mTop"><rect width="64" height="64" fill="url(#topMask)"/></mask>
+    <mask id="mBot"><rect width="64" height="64" fill="url(#botMask)"/></mask>
+    <clipPath id="head"><path d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z"/></clipPath>
+    <mask id="cut">
+      <rect width="64" height="64" fill="#ffffff"/>
+      <path d="M14 32.5L27.6 36.2L28.6 38.2L15 35ZM50 32.5L36.4 36.2L35.4 38.2L49 35Z" fill="#000000"/>
+      <path d="M27 45.5H37L32 51.5Z" fill="#000000"/>
+    </mask>
+    <filter id="blurS" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2.4"/></filter>
+    <filter id="blurM" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="1.2"/></filter>
+    <filter id="blurT" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation=".55"/></filter>
+  </defs>
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="url(#tile)"/>
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="url(#halo)"/>
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="url(#sheen)"/>
+  <rect x="2.6" y="2.6" width="58.8" height="58.8" rx="15.4" fill="none" stroke="url(#rim)" stroke-width="1.2"/>
+  <g transform="translate(32 32) scale(.76) translate(-32 -32.5)">
+    <path d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z" fill="#000000" opacity=".6" stroke="#000000" stroke-width="2" stroke-linejoin="round" transform="translate(0 3)" filter="url(#blurS)"/>
+    <g mask="url(#cut)">
+      <path d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z" fill="url(#glass)" stroke="url(#glass)" stroke-width="2" stroke-linejoin="round"/>
+      <g clip-path="url(#head)" mask="url(#mBot)"><path d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z" fill="none" stroke="#2a4bd6" stroke-opacity=".5" stroke-width="4" stroke-linejoin="round" filter="url(#blurT)"/></g>
+      <g clip-path="url(#head)" mask="url(#mTop)"><path d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z" fill="none" stroke="#ffffff" stroke-width="1.6" stroke-linejoin="round" transform="translate(0 .7)"/></g>
+      <ellipse cx="25" cy="21" rx="9" ry="4" fill="#ffffff" opacity=".55" filter="url(#blurM)" transform="rotate(-28 25 21)"/>
+    </g>
+  </g>
+</svg>

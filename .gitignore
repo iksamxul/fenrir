@@ -1,0 +1,2 @@
+# deploy.ps1 builds the portable zip and the release notes here, then removes the folder
+.release/

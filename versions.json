@@ -1,0 +1,32 @@
+{
+  "releaseBase": "https://github.com/iksamxul/fenrir/releases/latest/download/",
+  "releasesPage": "https://github.com/iksamxul/fenrir/releases",
+  "released": "2026-09-30",
+  "fenrir": {
+    "version": "1.34.0",
+    "file": "FenrirSetup.exe",
+    "size": 62415170,
+    "sha256": "248c64fce0ceac87134fe37b393e9fd8ee61a63f47747a0b52f78b2333f679ca"
+  },
+  "connect": {
+    "version": "1.32.0",
+    "file": "FenrirConnect.exe",
+    "size": 20604310,
+    "sha256": "bbe75e889336c6b81919b9d2d3f0492d0e4a9a6e611104e35972a6de8a8a83d9"
+  },
+  "portable": {
+    "file": "Fenrir-portable.zip",
+    "size": 21322423,
+    "sha256": "fd19b0f541830ecae55e47e51f22c948ad1ddaf7e7503f0f4602bd46b02b77bb"
+  },
+  "notes": [
+    "Dashboard cards fill their row: lists, chat and checks take the room they are given.",
+    "Server settings, redesigned: a rail of groups, a search across all of them, presets, and edits that wait until you press Save.",
+    "The titlebar says what the world is doing from every page, copies the join address, and keeps every notice behind a bell.",
+    "Press ? for the keyboard sheet, Ctrl+B for the sidebar as a rail; the palette remembers what you ran and finds every setting.",
+    "Doctor findings can wait a week and copy as text; a backup can carry a note; the console pins lines and filters by player.",
+    "The MOTD previews its colours, presets fill the quick properties, the mod list orders and copies, and the World appearance follows the world's own daylight.",
+    "Fenrir Connect copies the world's address, sends a test notification, opens the screenshots folder and shows an install's progress in the taskbar.",
+    "No build or version numbers anywhere you read; the support bundle still carries them."
+  ]
+}

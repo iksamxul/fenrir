@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fenrir</title>
+<meta name="description" content="Fenrir turns one Windows PC into a modded Minecraft server your friends can join from anywhere. Install the pack, press Start, send each friend one link.">
+<meta name="theme-color" content="#0b0f17">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Fenrir">
+<meta property="og:title" content="Fenrir">
+<meta property="og:description" content="Host a modded Minecraft world for your friends from one Windows PC. One link per friend, free, no router changes.">
+<meta property="og:image" content="https://iksamxul.github.io/fenrir/assets/wolf.png">
+<meta property="og:image:width" content="256">
+<meta property="og:image:height" content="256">
+<meta property="og:image:alt" content="The Fenrir wolf mark">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="assets/fenrir.svg" type="image/svg+xml">
+<link rel="icon" href="assets/wolf.png" type="image/png" sizes="256x256">
+<link rel="apple-touch-icon" href="assets/wolf.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Outfit:wght@700;800&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+<script>(function(r){r.classList.add('js');try{var t=localStorage.getItem('fenrir-theme');if(t==='light'||t==='dark')r.setAttribute('data-theme',t)}catch(e){}})(document.documentElement)</script>
+<script src="assets/site.js" defer></script>
+<script src="assets/motion.js" defer></script>
+</head>
+<body>
+<div class="top-sentinel" aria-hidden="true"></div>
+<svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+<symbol id="rune" viewBox="0 0 24 24"><path d="M12 3v18M12 8l6-3.5M12 8L6 4.5M12 14l6 3.5M12 14l-6 3.5"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+<symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v11M7 10.5l5 5 5-5M5 19.5h14"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 8.5h16M4 15.5h16"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></symbol>
+<symbol id="i-copy" viewBox="0 0 24 24"><rect x="8.5" y="8.5" width="11" height="11" rx="2.5"/><path d="M15.5 8.5V7A2.5 2.5 0 0 0 13 4.5H7A2.5 2.5 0 0 0 4.5 7v6A2.5 2.5 0 0 0 7 15.5h1.5"/></symbol>
+<symbol id="i-zip" viewBox="0 0 24 24"><path d="M14 3.5H7.5A2.5 2.5 0 0 0 5 6v12a2.5 2.5 0 0 0 2.5 2.5h9A2.5 2.5 0 0 0 19 18V8.5z"/><path d="M14 3.5v5h5M11 4v2M11 8v2M11 12v2"/><rect x="9.5" y="15" width="3" height="3.5" rx="1"/></symbol>
+<symbol id="i-power" viewBox="0 0 24 24"><path d="M12 3.5v8M7.2 6.2a7.5 7.5 0 1 0 9.6 0"/></symbol>
+<symbol id="i-link" viewBox="0 0 24 24"><path d="M10.5 13.5a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66L12.4 5.9M13.5 10.5a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1.1-1.06"/></symbol>
+<symbol id="i-grip" viewBox="0 0 24 24"><path d="M9 6h.01M15 6h.01M9 12h.01M15 12h.01M9 18h.01M15 18h.01" stroke-width="3.2"/></symbol>
+<symbol id="i-layout" viewBox="0 0 24 24"><rect x="3.5" y="4" width="17" height="16" rx="2.5"/><path d="M3.5 10h17M12 10v10"/></symbol>
+<symbol id="i-history" viewBox="0 0 24 24"><path d="M4.5 12a7.5 7.5 0 1 0 2.2-5.3L4.5 9"/><path d="M4.5 4.5V9H9M12 8v4.5l3 1.8"/></symbol>
+<symbol id="i-box" viewBox="0 0 24 24"><path d="M12 3.5l8 4.2v8.6l-8 4.2-8-4.2V7.7z"/><path d="M4 7.7l8 4.3 8-4.3M12 12v8.5"/></symbol>
+<symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 4l8.5 4.5L12 13 3.5 8.5z"/><path d="M3.5 12.5L12 17l8.5-4.5M3.5 16.5L12 21l8.5-4.5"/></symbol>
+<symbol id="i-cube" viewBox="0 0 24 24"><rect x="4.5" y="4.5" width="15" height="15" rx="2"/><path d="M4.5 9.5h15M9.5 9.5v10"/></symbol>
+<symbol id="i-page" viewBox="0 0 24 24"><path d="M7 3.5h7l4.5 4.5v10.5a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-13a2 2 0 0 1 2-2z"/><path d="M14 3.5V8h4.5M8.5 12.5h7M8.5 16h5"/></symbol>
+<symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.8v12.4a.8.8 0 0 0 1.2.7l9.9-6.2a.8.8 0 0 0 0-1.4L9.2 5.1A.8.8 0 0 0 8 5.8z"/></symbol>
+<symbol id="i-wolf" viewBox="0 0 64 64"><path d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z"/><path d="M14 32.5L27.6 36.2L28.6 38.2L15 35ZM50 32.5L36.4 36.2L35.4 38.2L49 35ZM27 45.5H37L32 51.5Z" fill="currentColor" stroke="none"/></symbol>
+</svg>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" data-nav>
+  <div class="nav__in">
+    <a class="nav__brand" href="index.html" aria-label="Fenrir, home"><img src="assets/fenrir.svg" width="30" height="30" alt=""><span>Fenrir</span></a>
+    <nav class="nav__links" id="nav-links" aria-label="Main">
+      <a href="fenrir.html">Fenrir</a>
+      <a href="connect.html">Fenrir Connect</a>
+      <a href="#one-link">How it works</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+    <div class="nav__end">
+      <button class="nav__icon" type="button" data-theme-toggle aria-label="Switch to light theme"><svg class="i t-sun" aria-hidden="true"><use href="#i-sun"/></svg><svg class="i t-moon" aria-hidden="true"><use href="#i-moon"/></svg></button>
+      <a class="btn btn--primary btn--sm" href="download.html">Download</a>
+      <button class="nav__icon nav__menu" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open the menu"><svg class="i t-open" aria-hidden="true"><use href="#i-menu"/></svg><svg class="i t-close" aria-hidden="true"><use href="#i-x"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- Hero -->
+  <section class="hero sky" aria-labelledby="hero-title" data-ambient>
+    <div class="sky__stars" aria-hidden="true"></div>
+    <div class="aurora" aria-hidden="true"><div class="aurora__haze"></div><div class="aurora__band"></div></div>
+    <div class="hero__copy">
+      <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Modded Minecraft, hosted at home</p>
+      <h1 class="hero__title" id="hero-title"><span class="line"><span class="w" style="--i:0">Host</span> <span class="w" style="--i:1">your</span> <span class="w" style="--i:2">world.</span></span> <span class="line accent"><span class="w" style="--i:3">Send</span> <span class="w" style="--i:4">one</span> <span class="w" style="--i:5">link.</span></span></h1>
+      <p class="hero__lead">Fenrir turns one Windows PC into a modded Minecraft server your friends can join from anywhere. It sets up the pack, keeps the world backed up and gives every friend a link that installs everything.</p>
+      <div class="hero__cta">
+        <a class="btn btn--primary btn--lg" href="download.html#fenrir"><svg class="i" aria-hidden="true"><use href="#i-down"/></svg>Download Fenrir</a>
+        <a class="btn btn--ghost btn--lg" href="#one-link">See how it works</a>
+      </div>
+      <p class="hero__meta">Free for Windows 10 and 11</p>
+    </div>
+    <div class="hero__stage">
+      <div class="hero__glow" aria-hidden="true" data-parallax-glow></div>
+      <div class="hero__float" data-parallax>
+        <figure class="frame frame--adaptive frame--hero">
+          <div class="frame__bar" aria-hidden="true"><i></i><i></i><i></i><b>Fenrir</b></div>
+          <div class="frame__view" data-name="Dashboard">
+            <picture><source srcset="assets/shots/dashboard-light.png" media="(prefers-color-scheme: light)" data-when="light"><img src="assets/shots/dashboard.png" width="2880" height="1800" alt="The Fenrir Dashboard. The All the Mods 10 server is stopped and ready on port 25597, three friends are asking for a hand, and the Friends and Activity cards sit below." fetchpriority="high" decoding="async"></picture>
+          </div>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- One PC, everyone's world -->
+  <section class="scene" id="together" data-ambient aria-labelledby="t-together">
+    <div class="wrap scene__grid">
+      <div class="scene__copy">
+        <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>How it fits together</p>
+        <h2 class="title" id="t-together"><span class="line">One PC.</span> <span class="line accent">Everyone’s world.</span></h2>
+        <p class="copy">The server runs on your PC, and a free tunnel gives it an address your friends can reach from anywhere. Each friend gets a link of their own, so you always know who is in.</p>
+        <ul class="facts">
+          <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>No router changes</li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>A key per friend</li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>NeoForge, Forge, Fabric or Quilt</li>
+        </ul>
+      </div>
+      <div class="scene__visual">
+        <div class="glow" aria-hidden="true"></div>
+        <svg class="ill" viewBox="0 0 640 460" role="img" aria-labelledby="ill-links-t">
+          <title id="ill-links-t">Your PC in a night sky, sending one link each to three friends’ PCs: one is playing, one is installing the pack, one is downloading the Setup.</title>
+          <circle class="s s-q" cx="171" cy="222" r="120"/>
+          <circle class="s s-q s-dash" cx="171" cy="222" r="178"/>
+          <g class="f-star"><circle cx="44" cy="58" r="1.6"/><circle cx="276" cy="112" r="1.1"/><circle cx="410" cy="196" r="1"/><circle cx="372" cy="424" r="1.3"/><circle cx="626" cy="440" r="1.2"/><circle cx="582" cy="174" r="1"/><circle cx="24" cy="300" r="1.2"/></g>
+          <circle class="f-ice blink" cx="318" cy="38" r="2.2"/>
+          <circle class="f-ice blink blink--2" cx="604" cy="34" r="2"/>
+          <circle class="f-ice blink blink--3" cx="62" cy="410" r="1.8"/>
+          <path class="s s-2 s-dash" d="M246 212L452 118"/>
+          <path class="s s-2 s-dash" d="M246 232L500 250"/>
+          <path class="s s-2 s-dash" d="M246 252L452 382"/>
+          <g transform="translate(246 212) rotate(-24.53)"><g class="pkt" style="--len:212px"><circle class="f-ice-glow" r="9"/><circle class="f-ice" r="3.5"/></g></g>
+          <g transform="translate(246 232) rotate(4.05)"><g class="pkt pkt--2" style="--len:240px"><circle class="f-ice-glow" r="9"/><circle class="f-ice" r="3.5"/></g></g>
+          <g transform="translate(246 252) rotate(32.25)"><g class="pkt pkt--3" style="--len:229px"><circle class="f-ice-glow" r="9"/><circle class="f-ice" r="3.5"/></g></g>
+          <rect class="s f-panel" x="96" y="170" width="150" height="104" rx="12"/>
+          <rect class="s s-q f-deep" x="106" y="180" width="130" height="84" rx="6"/>
+          <g transform="translate(148.6 198.9) scale(.7)"><path class="s s-ice" d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z"/></g>
+          <path class="s" d="M160 274v16M182 274v16M140 292h62"/>
+          <text class="ill-label ill-label--hi" x="171" y="324" text-anchor="middle">Your PC</text>
+          <rect class="s f-panel" x="452" y="84" width="100" height="68" rx="10"/>
+          <rect class="s s-q f-deep" x="460" y="92" width="84" height="52" rx="5"/>
+          <path class="s s-ice" d="M495 108l16 10-16 10z"/>
+          <path class="s" d="M494 152v10M510 152v10M482 164h40"/>
+          <text class="ill-label" x="502" y="190" text-anchor="middle">Iksamxul</text>
+          <rect class="s f-panel" x="500" y="216" width="100" height="68" rx="10"/>
+          <rect class="s s-q f-deep" x="508" y="224" width="84" height="52" rx="5"/>
+          <rect class="s s-q" x="520" y="247" width="60" height="6" rx="3"/>
+          <rect class="f-ice" x="520" y="247" width="39" height="6" rx="3"/>
+          <path class="s" d="M542 284v10M558 284v10M530 296h40"/>
+          <text class="ill-label" x="550" y="322" text-anchor="middle">ChecoPecko</text>
+          <rect class="s f-panel" x="452" y="348" width="100" height="68" rx="10"/>
+          <rect class="s s-q f-deep" x="460" y="356" width="84" height="52" rx="5"/>
+          <path class="s s-ice" d="M502 368v17M495 378l7 7 7-7M492 392h20"/>
+          <path class="s" d="M494 416v10M510 416v10M482 428h40"/>
+          <text class="ill-label" x="502" y="454" text-anchor="middle">Mogwai</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- Three steps, one link -->
+  <section class="scene scene--deep steps" id="one-link" aria-labelledby="t-steps">
+    <div class="wrap">
+      <div class="steps__head">
+        <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>One link</p>
+        <h2 class="title" id="t-steps"><span class="line">You do two things.</span> <span class="line accent">They press Play.</span></h2>
+      </div>
+      <ol class="steps__list">
+        <li class="steps__rail" aria-hidden="true"><i></i></li>
+        <li class="step">
+          <span class="step__n" aria-hidden="true">1</span>
+          <div class="step__copy">
+            <span class="step__who">You</span>
+            <h3 class="h3">Install the pack.</h3>
+            <p class="copy">Pick the pack’s server files, or find one on Modrinth or CurseForge from inside Fenrir. The Doctor installs the right Java. Press Start and accept the EULA once.</p>
+          </div>
+          <div class="step__visual mock" role="img" aria-label="Fenrir's Server Pack page: the All the Mods 10 server files are installed with 464 mods, Java 21 came from the Doctor, the EULA is accepted, and Start server is ready.">
+            <div class="glow" aria-hidden="true"></div>
+            <div class="m-win">
+              <div class="m-win__bar"><i></i><i></i><i></i><b>Fenrir · Server Pack</b></div>
+              <div class="m-win__body">
+                <p class="m-kick"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Server pack <span>· what your world runs</span></p>
+                <p class="m-h">Install a pack</p>
+                <div class="m-file">
+                  <span class="m-ic"><svg class="i" aria-hidden="true"><use href="#i-zip"/></svg></span>
+                  <div><b>ServerFiles-8.2.zip</b><span class="m-sub">All the Mods 10 · NeoForge 21.1.251 · 464 mods</span></div>
+                  <span class="m-pill m-pill--ok">Installed</span>
+                </div>
+                <div class="m-bar" style="margin-top:.9em"><i style="--p:1"></i></div>
+                <ul class="m-checks">
+                  <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Java 21, installed by the Doctor</li>
+                  <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>EULA accepted</li>
+                  <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Ready on port 25597</li>
+                </ul>
+                <div class="m-actions"><span class="m-btn m-btn--p m-btn--lg"><svg class="i" aria-hidden="true"><use href="#i-power"/></svg>Start server</span><span class="m-sub">A big pack takes a few minutes the first time.</span></div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step__n" aria-hidden="true">2</span>
+          <div class="step__copy">
+            <span class="step__who">You</span>
+            <h3 class="h3">Send each friend a link.</h3>
+            <p class="copy">Type a name. Fenrir makes a key, a link and a message you can paste anywhere. The link greets your friend by name and shows who is playing.</p>
+          </div>
+          <div class="step__visual mock" role="img" aria-label="Invite a friend: Fenrir made a key and a link for Iksamxul, with Copy link and Copy message buttons, and the link sent in a chat message.">
+            <div class="glow" aria-hidden="true"></div>
+            <div class="m-win">
+              <div class="m-win__bar"><i></i><i></i><i></i><b>Fenrir · Invite a friend</b></div>
+              <div class="m-win__body">
+                <p class="m-kick"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Community <span>· the people you host</span></p>
+                <p class="m-h">Invite a friend</p>
+                <span class="m-label">Their name</span>
+                <div class="m-field">Iksamxul<span class="m-caret" aria-hidden="true"></span></div>
+                <div class="m-link"><span class="m-sub">Iksamxul’s link, with key 7QX2M9PA</span><span class="m-mono">https://your-pc.ts.net:8443/7QX2M9PA/</span></div>
+                <div class="m-actions"><span class="m-btn m-btn--p"><svg class="i" aria-hidden="true"><use href="#i-copy"/></svg>Copy link</span><span class="m-btn">Copy message</span></div>
+              </div>
+            </div>
+            <div class="m-float m-bubble" style="right:-2%;bottom:-9%"><span class="m-av m-av--sm">Y</span><div><b>You</b><p>Server’s up. Your link: <span class="m-mono">your-pc.ts.net:8443/7QX2M9PA</span></p></div></div>
+          </div>
+        </li>
+        <li class="step step--connect connect-moment">
+          <span class="step__n" aria-hidden="true">3</span>
+          <div class="step__copy">
+            <span class="step__who">Your friend</span>
+            <h3 class="h3">They press Play.</h3>
+            <p class="copy">Fenrir Setup installs Fenrir Connect, which puts the whole pack into TLauncher and sets the memory for their PC. The game joins your world as soon as it loads.</p>
+          </div>
+          <div class="step__visual mock" role="img" aria-label="Fenrir Connect on Iksamxul's PC: the key and the install are done, All the Mods 10 is online with two players, and a large Play button waits.">
+            <div class="glow" aria-hidden="true"></div>
+            <div class="m-win">
+              <div class="m-win__bar"><i></i><i></i><i></i><b>Fenrir Connect</b></div>
+              <div class="m-win__body">
+                <div class="m-cx-head">
+                  <img src="assets/connect.svg" width="40" height="40" alt="">
+                  <div><b>Fenrir Connect</b><span class="m-sub">Connected to Icarus’s Fenrir</span></div>
+                  <ol class="m-steps"><li class="is-done" data-n="1">Key</li><li class="is-done" data-n="2">Install</li><li class="is-now" data-n="3">Play</li></ol>
+                </div>
+                <div class="m-world">
+                  <span class="m-av m-av--lg">A</span>
+                  <div><b>All the Mods 10 8.2</b><span class="m-sub">Minecraft 1.21.1 · NeoForge · 452 mods</span></div>
+                  <span class="m-pill m-pill--ok"><span class="m-dot"></span>online · 2 playing</span>
+                </div>
+                <div class="m-people"><span><i>C</i>ChecoPecko</span><span><i>M</i>Mogwai</span></div>
+                <div class="m-actions"><span class="m-btn m-btn--p m-btn--play"><svg class="i" aria-hidden="true"><use href="#i-play"/></svg>Play</span><span class="m-btn">Repair</span><span class="m-sub">Joins the world as soon as the game loads.</span></div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Dashboard, your way -->
+  <section class="scene" id="dashboard" aria-labelledby="t-dashboard">
+    <div class="wrap scene__grid">
+      <div class="scene__copy">
+        <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>The Dashboard</p>
+        <h2 class="title" id="t-dashboard"><span class="line">Drag it. Size it.</span> <span class="line accent">Hide the rest.</span></h2>
+        <p class="copy">Drag a card by its handle, give it half, a third or the full width, and hide what you never read. While the world runs, the top of the Dashboard follows the world’s own clock, sunrise to night.</p>
+        <a class="more" href="fenrir.html#dashboard">The Dashboard, card by card <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="scene__visual scene__visual--bleed arrange mock">
+        <div class="glow" aria-hidden="true"></div>
+        <figure class="frame frame--invert">
+          <div class="frame__bar" aria-hidden="true"><i></i><i></i><i></i><b>Fenrir · Layout</b></div>
+          <div class="frame__view" data-name="Dashboard">
+            <picture><source srcset="assets/shots/dashboard-light.png" media="(prefers-color-scheme: dark)" data-when="dark"><img src="assets/shots/dashboard.png" width="2880" height="1800" alt="The Fenrir Dashboard in the other colour mode, with its Layout button at the top right of the server card." loading="lazy" decoding="async"></picture>
+          </div>
+        </figure>
+        <div class="arrange__lift"  role="img" aria-label="A Friends card lifted by its handle in Layout mode, set to half width: Iksamxul is in the world, ChecoPecko is installing the pack, Mogwai has the link.">
+          <div class="m-card">
+            <div class="m-lift-head"><svg class="i" aria-hidden="true"><use href="#i-grip"/></svg><b>Friends</b><span class="m-seg"><i class="is-on">Half</i><i>Third</i><i>Full</i></span></div>
+            <div class="m-row"><span class="m-av m-av--sm">I</span><div><b>Iksamxul</b><span class="m-sub">in the world</span></div><span class="m-pill m-pill--ok">playing</span></div>
+            <div class="m-row"><span class="m-av m-av--sm">C</span><div><b>ChecoPecko</b><span class="m-sub">installing the pack</span></div><span class="m-pill">64%</span></div>
+            <div class="m-row"><span class="m-av m-av--sm">M</span><div><b>Mogwai</b><span class="m-sub">link sent</span></div><span class="m-pill m-pill--quiet">invited</span></div>
+          </div>
+        </div>
+        <div class="chip arrange__presets"><svg class="i" aria-hidden="true"><use href="#i-layout"/></svg><span><b>Layout</b><small>Overview · Game night · Health</small></span></div>
+        <div class="chip arrange__clock"><svg class="i" aria-hidden="true"><use href="#i-sun"/></svg><span><b>Day 42 · 18:40</b><small>Sunset, from the world’s own clock</small></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Friends and Fenrir Connect -->
+  <section class="scene scene--deep scene--flip connect-moment" id="friends" aria-labelledby="t-friends">
+    <div class="wrap scene__grid">
+      <div class="scene__copy">
+        <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Fenrir Connect</p>
+        <h2 class="title" id="t-friends"><span class="line">Friends install</span> <span class="line accent">nothing by hand.</span></h2>
+        <p class="copy">Fenrir Connect puts the whole pack into TLauncher, sets the memory for their PC and updates in one click. About 20 MB comes from your PC. CurseForge and Mojang send the rest.</p>
+        <a class="more" href="connect.html">Meet Fenrir Connect <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="scene__visual scene__visual--bleed duo">
+        <div class="glow glow--teal" aria-hidden="true"></div>
+        <figure class="frame duo__back">
+          <div class="frame__bar" aria-hidden="true"><i></i><i></i><i></i><b>Fenrir · Players</b></div>
+          <div class="frame__view" data-name="Players">
+            <img src="assets/shots/friends.png" width="2880" height="1800" alt="Fenrir's Players page: the whitelist holds Iksamxul, who arrived through Fenrir Connect, ChecoPecko and Mogwai, with the operators and bans below." loading="lazy" decoding="async">
+          </div>
+        </figure>
+        <figure class="frame duo__front">
+          <div class="frame__bar" aria-hidden="true"><i></i><i></i><i></i><b>Fenrir Connect</b></div>
+          <div class="frame__view" data-name="Fenrir Connect">
+            <img class="shot-play" src="assets/shots/connect.png" width="2160" height="1600" alt="Fenrir Connect on a friend's PC: All the Mods 10 is online with two players and a Play button, beside the game night and a note from the host." loading="lazy" decoding="async">
+          </div>
+        </figure>
+        <div class="chip duo__chip"><svg class="i" aria-hidden="true"><use href="#i-link"/></svg><span><b>About 20 MB</b><small>from your PC for a new friend</small></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Safety -->
+  <section class="scene" id="safety" data-ambient aria-labelledby="t-safety">
+    <div class="wrap scene__grid">
+      <div class="scene__copy">
+        <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Safety</p>
+        <h2 class="title" id="t-safety"><span class="line">There is always</span> <span class="line accent">a way back.</span></h2>
+        <p class="copy">Set backups to every hour and Fenrir keeps a month of history. Every archive is checked, and a restore is rehearsed each month. If an updated pack will not start, the old version comes back.</p>
+      </div>
+      <div class="scene__visual safe">
+        <div class="glow" aria-hidden="true"></div>
+        <svg class="ill" viewBox="0 0 520 520" role="img" aria-labelledby="ill-vault-t">
+          <title id="ill-vault-t">A backup archive with a check mark, inside a ring of 24 hour marks with a light moving around it.</title>
+          <circle class="s s-q" cx="260" cy="260" r="232"/>
+          <circle cx="260" cy="260" r="206" fill="none" stroke="var(--ink-3)" stroke-width="14" stroke-dasharray="1.75 52.18" stroke-dashoffset=".87" transform="rotate(-90 260 260)"/>
+          <circle cx="260" cy="260" r="206" fill="none" stroke="var(--ink-2)" stroke-width="24" stroke-dasharray="2.5 321.09" stroke-dashoffset="1.25" transform="rotate(-90 260 260)"/>
+          <g class="orbit"><circle class="f-ice-glow" cx="260" cy="54" r="15"/><circle class="f-ice" cx="260" cy="54" r="5"/></g>
+          <rect class="s s-q" x="198" y="150" width="124" height="24" rx="8"/>
+          <rect class="s s-2" x="180" y="168" width="160" height="30" rx="10"/>
+          <rect class="s f-panel" x="172" y="226" width="176" height="126" rx="14"/>
+          <rect class="s f-panel" x="158" y="190" width="204" height="44" rx="12"/>
+          <path class="s s-q" d="M198 212h124"/>
+          <rect class="s" x="228" y="262" width="64" height="18" rx="9"/>
+          <circle class="s s-ice" cx="354" cy="196" r="44" opacity=".4"/>
+          <circle class="f-ice" cx="354" cy="196" r="34"/>
+          <path class="s s-ink" d="M339 197l10 10 20-22"/>
+          <text class="ill-tag" x="260" y="14" text-anchor="middle">every hour</text>
+        </svg>
+        <ol class="safe__log" aria-label="What Fenrir did on its own">
+          <li class="chip chip--static"><span class="dot dot--ok"></span><span><b>Backup checked</b><small class="mono">20:00 · 84.9 MB · kept as daily</small></span></li>
+          <li class="chip chip--static"><span class="dot dot--ok"></span><span><b>Restore drill passed</b><small>The newest archive came back whole</small></span></li>
+          <li class="chip chip--static"><span class="dot dot--warn"></span><span><b>An update did not start</b><small>The previous version is back, with the world</small></span></li>
+          <li class="chip chip--static"><span class="dot"></span><span><b>Fenrir came back by itself</b><small>Five seconds after it stopped</small></span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- Doctor -->
+  <section class="scene scene--deep scene--flip" id="doctor" aria-labelledby="t-doctor">
+    <div class="wrap scene__grid">
+      <div class="scene__copy">
+        <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>The Doctor</p>
+        <h2 class="title" id="t-doctor"><span class="line">Something broke?</span> <span class="line accent">Fixed in a click.</span></h2>
+        <p class="copy">The Doctor checks Java, memory, ports, duplicate mods, crash suspects, tunnels, friends on an old link, cloud uploads and sleep settings. Each finding says what to do, with a button that does it.</p>
+        <a class="more" href="faq.html">What it can tell you <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="scene__visual mock doctor" role="img" aria-label="The Doctor with four findings, each with a fix button: install Java 21, remove a duplicate mod, set the view distance to 8 and 6, try a restore. Everything else checks out.">
+        <div class="glow" aria-hidden="true"></div>
+        <div class="m-win">
+          <div class="m-win__bar"><i></i><i></i><i></i><b>Fenrir · Doctor</b></div>
+          <div class="m-win__body">
+            <div class="m-head">
+              <div><p class="m-kick"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Health <span>· what needs you</span></p><p class="m-h">Doctor <small>4 findings</small></p></div>
+              <span class="m-btn m-btn--p">Fix all</span>
+            </div>
+            <div class="m-find m-find--bad"><div><b>Java 21 is missing</b><span class="m-sub">All the Mods 10 needs it to start.</span></div><span class="m-btn">Install Java 21</span></div>
+            <div class="m-find m-find--warn"><div><b>Two copies of JEI</b><span class="m-sub">19.21.0 and 19.8.4 are both in mods.</span></div><span class="m-btn">Remove the older</span></div>
+            <div class="m-find m-find--warn"><div><b>View distance 12 is a lot</b><span class="m-sub">for five friends on a pack this size.</span></div><span class="m-btn">Set 8 and 6</span></div>
+            <div class="m-find m-find--info"><div><b>No restore rehearsed yet</b><span class="m-sub">Try one while nobody plays.</span></div><span class="m-btn">Try a restore</span></div>
+            <p class="m-pass"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Everything else checks out</p>
+          </div>
+        </div>
+        <div class="chip doctor__toast"><span class="dot dot--ok"></span><span><b>Java 21 installed</b><small>The server can start</small></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Phone remote -->
+  <section class="scene" id="phone" aria-labelledby="t-phone">
+    <div class="wrap scene__grid">
+      <div class="scene__copy">
+        <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Phone remote</p>
+        <h2 class="title" id="t-phone"><span class="line">Start the world</span> <span class="line accent">from the sofa.</span></h2>
+        <p class="copy">Scan a code and add the page to your home screen. Start, stop and restart, message everyone, back up and run commands. It has its own key and stays off until you turn it on.</p>
+      </div>
+      <div class="scene__visual pocket">
+        <div class="glow" aria-hidden="true"></div>
+        <div class="phone">
+          <div class="phone__screen">
+            <div class="phone__status" aria-hidden="true"><span>21:04</span><span><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span></div>
+            <div class="phone__notch" aria-hidden="true"></div>
+            <img src="assets/shots/remote.png" width="860" height="1800" alt="The phone remote: three players are online on All the Mods 10 with TPS 19.7, a note from the Doctor, Restart and Stop buttons, and a Kick button beside each player." loading="lazy" decoding="async">
+          </div>
+        </div>
+        <div class="chip pocket__ask"><span class="m-av m-av--sm" aria-hidden="true">I</span><span><b>Iksamxul wants to play</b><small>Start the world · Not now</small></span></div>
+        <div class="chip pocket__alert"><svg class="i" aria-hidden="true"><use href="#i-history"/></svg><span><b>On the timeline</b><small>Phone: backed up the world</small></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Worlds -->
+  <section class="scene scene--deep scene--flip" id="worlds" aria-labelledby="t-worlds">
+    <div class="wrap scene__grid">
+      <div class="scene__copy">
+        <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Worlds</p>
+        <h2 class="title" id="t-worlds"><span class="line">More worlds.</span> <span class="line accent">The same friends.</span></h2>
+        <p class="copy">Start a server from a Modrinth or CurseForge pack, a server zip, plain Minecraft or Paper. Each world keeps its own pack, players and backups, and friends see every shared world in Fenrir Connect.</p>
+      </div>
+      <div class="scene__visual mock worlds" role="img" aria-label="New world: pick a Modrinth pack, a CurseForge pack, a Server Files zip, plain Minecraft or Paper, then a play style. Beside it, the world switcher lists three worlds, one running.">
+        <div class="glow" aria-hidden="true"></div>
+        <div class="m-win">
+          <div class="m-win__bar"><i></i><i></i><i></i><b>Fenrir · New world</b></div>
+          <div class="m-win__body">
+            <p class="m-kick"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Worlds <span>· where it comes from</span></p>
+            <p class="m-h">New world</p>
+            <div class="m-src-grid">
+              <span class="m-src is-on"><svg class="i" aria-hidden="true"><use href="#i-box"/></svg><b>Modrinth pack</b><small>Search, pick a version</small></span>
+              <span class="m-src"><svg class="i" aria-hidden="true"><use href="#i-layers"/></svg><b>CurseForge pack</b><small>Project ID or link</small></span>
+              <span class="m-src"><svg class="i" aria-hidden="true"><use href="#i-zip"/></svg><b>Server Files zip</b><small>From this PC</small></span>
+              <span class="m-src"><svg class="i" aria-hidden="true"><use href="#i-cube"/></svg><b>Plain Minecraft</b><small>Nothing to download</small></span>
+              <span class="m-src"><svg class="i" aria-hidden="true"><use href="#i-page"/></svg><b>Paper</b><small>Nothing to download</small></span>
+            </div>
+            <span class="m-label">Play style</span>
+            <span class="m-seg"><i class="is-on">Survival</i><i>Peaceful</i><i>Creative</i><i>Hardcore</i></span>
+            <ul class="m-checks">
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Whitelist on, your players come along</li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Build the pack friends download</li>
+            </ul>
+          </div>
+        </div>
+        <div class="m-card m-float worlds__switch">
+          <p class="m-kick"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Your worlds</p>
+          <div class="m-row"><span class="m-dot m-dot--ok"></span><div><b>All the Mods 10 8.2</b><span class="m-sub">NeoForge · running</span></div></div>
+          <div class="m-row"><span class="m-dot m-dot--off"></span><div><b>Plain 1.21.1</b><span class="m-sub">Minecraft · stopped</span></div></div>
+          <div class="m-row"><span class="m-dot m-dot--off"></span><div><b>Paper 1.21.1</b><span class="m-sub">Paper · stopped</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Numbers -->
+  <section class="numbers" id="numbers" aria-labelledby="t-numbers">
+    <div class="wrap">
+      <div class="numbers__head">
+        <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>In numbers</p>
+        <h2 class="title" id="t-numbers"><span class="line">A big pack.</span> <span class="line accent">A small upload.</span></h2>
+      </div>
+      <div class="numbers__grid">
+        <div class="stat"><p class="stat__n"><span data-count="1.7" data-dec="1">1.7</span><span class="stat__u">GB</span></p><p class="stat__l">lands on a friend’s PC the first time, for All the Mods 10.</p></div>
+        <div class="stat"><p class="stat__n"><span data-count="20" data-dec="0">20</span><span class="stat__u">MB</span></p><p class="stat__l">of it comes from your PC. CurseForge and Mojang send the rest.</p></div>
+        <div class="stat"><p class="stat__n"><span>0</span><span class="stat__u">changes</span></p><p class="stat__l">to your router. A free playit tunnel gives the game a fixed address.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download -->
+  <section class="cta sky" id="get" data-ambient aria-labelledby="t-cta">
+    <div class="sky__stars" aria-hidden="true"></div>
+    <div class="aurora aurora--low" aria-hidden="true"><div class="aurora__haze"></div><div class="aurora__band"></div></div>
+    <div class="wrap cta__in">
+      <img class="cta__mark" src="assets/fenrir.svg" width="84" height="84" alt="">
+      <h2 class="title title--xl" id="t-cta"><span class="line">Start the server tonight.</span> <span class="line accent">Send the links.</span></h2>
+      <p class="lead">Fenrir is free for Windows 10 and 11. Your friends need only the link you send them.</p>
+      <div class="cta__row">
+        <span class="magnet" data-magnet><a class="btn btn--primary btn--lg" href="download.html#fenrir"><svg class="i" aria-hidden="true"><use href="#i-down"/></svg>Download Fenrir</a></span>
+        <a class="btn btn--ghost btn--lg" href="connect.html">Fenrir Connect for friends</a>
+      </div>
+      <p class="fine" data-vt="Fenrir Setup · {fenrir.size} · Windows 10 and 11">Fenrir Setup for Windows 10 and 11</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__grid">
+    <div class="foot__brand"><img src="assets/fenrir.svg" width="40" height="40" alt=""><div><b>Fenrir</b><span>Modded Minecraft for friends, hosted on your own PC.</span></div></div>
+    <nav class="foot__nav" aria-label="Footer"><a href="fenrir.html">Fenrir</a><a href="connect.html">Fenrir Connect</a><a href="download.html">Download</a><a href="faq.html">FAQ</a></nav>
+    <p class="foot__builds"><span data-vt="Current build, released {released}">Current build</span></p>
+  </div>
+  <div class="wrap foot__fine">
+    <p>Fenrir is an independent project. It is not affiliated with Mojang or Microsoft, and Minecraft is a trademark of Mojang AB.</p>
+    <p>This site is static. It never talks to the host’s PC, so it stays up while that PC is off.</p>
+  </div>
+</footer>
+</body>
+</html>

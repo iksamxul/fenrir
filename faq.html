@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fenrir FAQ</title>
+<meta name="description" content="Questions and fixes for Fenrir and Fenrir Connect: friends' links, the whitelist, crashes, backups, tunnels and what each message means.">
+<meta name="theme-color" content="#0b0f17">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Fenrir">
+<meta property="og:title" content="Fenrir FAQ">
+<meta property="og:description" content="What each message means and what to press. Run the Doctor first; the rest is here.">
+<meta property="og:image" content="https://iksamxul.github.io/fenrir/assets/wolf.png">
+<meta property="og:image:width" content="256">
+<meta property="og:image:height" content="256">
+<meta property="og:image:alt" content="The Fenrir wolf mark">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="assets/fenrir.svg" type="image/svg+xml">
+<link rel="icon" href="assets/wolf.png" type="image/png" sizes="256x256">
+<link rel="apple-touch-icon" href="assets/wolf.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Outfit:wght@700;800&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+<script>(function(r){r.classList.add('js');try{var t=localStorage.getItem('fenrir-theme');if(t==='light'||t==='dark')r.setAttribute('data-theme',t)}catch(e){}})(document.documentElement)</script>
+<script src="assets/site.js" defer></script>
+<script src="assets/motion.js" defer></script>
+</head>
+<body>
+<div class="top-sentinel" aria-hidden="true"></div>
+<svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+<symbol id="rune" viewBox="0 0 24 24"><path d="M12 3v18M12 8l6-3.5M12 8L6 4.5M12 14l6 3.5M12 14l-6 3.5"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+<symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v11M7 10.5l5 5 5-5M5 19.5h14"/></symbol>
+<symbol id="i-chev" viewBox="0 0 24 24"><path d="M6 9.5l6 6 6-6"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 8.5h16M4 15.5h16"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 8v8M8 12h8"/></symbol>
+<symbol id="i-zip" viewBox="0 0 24 24"><path d="M14 3.5H7.5A2.5 2.5 0 0 0 5 6v12a2.5 2.5 0 0 0 2.5 2.5h9A2.5 2.5 0 0 0 19 18V8.5z"/><path d="M14 3.5v5h5M11 4v2M11 8v2M11 12v2"/><rect x="9.5" y="15" width="3" height="3.5" rx="1"/></symbol>
+</svg>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" data-nav>
+  <div class="nav__in">
+    <a class="nav__brand" href="index.html" aria-label="Fenrir, home"><img src="assets/fenrir.svg" width="30" height="30" alt=""><span>Fenrir</span></a>
+    <nav class="nav__links" id="nav-links" aria-label="Main">
+      <a href="fenrir.html">Fenrir</a>
+      <a href="connect.html">Fenrir Connect</a>
+      <a href="index.html#one-link">How it works</a>
+      <a href="faq.html" aria-current="page">FAQ</a>
+    </nav>
+    <div class="nav__end">
+      <button class="nav__icon" type="button" data-theme-toggle aria-label="Switch to light theme"><svg class="i t-sun" aria-hidden="true"><use href="#i-sun"/></svg><svg class="i t-moon" aria-hidden="true"><use href="#i-moon"/></svg></button>
+      <a class="btn btn--primary btn--sm" href="download.html">Download</a>
+      <button class="nav__icon nav__menu" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open the menu"><svg class="i t-open" aria-hidden="true"><use href="#i-menu"/></svg><svg class="i t-close" aria-hidden="true"><use href="#i-x"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="phero sky" aria-labelledby="page-title" data-ambient>
+    <div class="sky__stars" aria-hidden="true"></div>
+    <div class="aurora" aria-hidden="true"><div class="aurora__haze"></div><div class="aurora__band"></div></div>
+    <div class="wrap">
+      <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Help</p>
+      <h1 class="page-title" id="page-title"><span class="line">Questions</span> <span class="line accent">and fixes.</span></h1>
+      <p class="lead">Run the Doctor first. It finds most problems and fixes them in one click. The rest are here, in the words Fenrir uses on screen.</p>
+    </div>
+  </section>
+
+  <section class="section" aria-label="Questions">
+    <div class="wrap faq">
+      <div class="faq__tools">
+        <label class="faq__field" for="faq-q"><span class="sr">Find a question</span><svg class="i" aria-hidden="true"><use href="#i-search"/></svg><input id="faq-q" type="search" placeholder="Find a question: whitelist, link, crash, backup" autocomplete="off"></label>
+        <span class="faq__count" id="faq-count" aria-live="polite">25 questions</span>
+      </div>
+
+      <div class="faq__group" id="start">
+        <h2>Getting started</h2>
+        <div class="faq__list">
+          <details class="qa" id="friends-need"><summary>What do my friends need?<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>Windows 10 or 11 and TLauncher. They open the link you send, run Fenrir Setup and press <b>Install &amp; Play</b>. About 1.7 GB downloads the first time for All the Mods 10, most of it straight from CurseForge.</p></div></details>
+          <details class="qa" id="packs"><summary>Which modpacks work?<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>Any NeoForge, Forge, Fabric or Quilt pack, or a plain server jar. <b>New world</b> also starts a server from a Modrinth or CurseForge pack, a Server Files zip, plain Minecraft or Paper.</p></div></details>
+          <details class="qa" id="router"><summary>Do I have to change my router?<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>No. The free playit tunnel gives the game a fixed address. Friends’ downloads go through a Cloudflare quick tunnel, or a fixed Tailscale address that stays the same after a restart.</p></div></details>
+          <details class="qa" id="cost"><summary>What does it cost?<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>Nothing. Fenrir and Fenrir Connect are free, and so are the playit tunnel for the game and the Cloudflare quick tunnel for friends’ downloads. A paid playit TCP tunnel is an option, never a need.</p></div></details>
+          <details class="qa" id="close"><summary>Can I close Fenrir without stopping the world?<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>Yes. <b>Quit</b> asks whether to stop the server or keep it running. A kept world, the playit agent and the Cloudflare tunnel carry on, and the next Fenrir takes all three over. Players stay connected.</p></div></details>
+          <details class="qa" id="help"><summary>Where do I start when something is wrong?<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>Open the <b>Doctor</b>. It checks Java, memory, ports, mods, tunnels, friends’ links, backups and more, and most findings have a one-click fix.</p><p>To ask someone for help, <b>Settings → About → Create support bundle</b> writes one zip with the logs, the Doctor’s findings and your settings, with every key, password, webhook and friend key removed.</p></div></details>
+        </div>
+      </div>
+
+      <div class="faq__group" id="links">
+        <h2>Friends and links</h2>
+        <div class="faq__list">
+          <details class="qa" id="files-behind"><summary>A friend’s card says “”.<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>They press <b>Update &amp; Play</b> in Fenrir Connect. Only the files that changed download.</p></div></details>
+          <details class="qa" id="whitelist"><summary>The game says a friend is “”.<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>Press <b>Whitelist</b> on their row in the Friends card, or add the name on the Players page. It has to be the exact TLauncher name, and case matters.</p></div></details>
+          <details class="qa" id="out-of-reach"><summary>A friend’s app says “”.<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>Your Fenrir or your tunnel is down, or the Cloudflare address changed. Send the new link, or turn on the <b>address relay</b> so their apps follow a new address by themselves.</p></div></details>
+          <details class="qa" id="old-link"><summary>The Dashboard says friends are still on the old link.<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>Open the Friends card, press <b>Copy link</b> on each friend and send it. A fixed Tailscale address stops the link from changing after a restart.</p></div></details>
+          <details class="qa" id="keys-missing"><summary>Fenrir says friend keys are missing from the settings.<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>Press <b>Restore the keys</b>. Before any change that leaves fewer keys, Fenrir keeps the list in its key ledger. Skip it if you removed those keys on purpose.</p></div></details>
+          <details class="qa" id="asks"><summary>A friend asked for a hand and has no answer yet.<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>Open the asks card on the Dashboard and choose <b>Restore their things</b>, <b>Whitelist</b> or <b>Answer</b>. They hear back in their app, and the Doctor reminds you after half an hour.</p></div></details>
+          <details class="qa" id="playit-type"><summary>The Doctor says a Minecraft-typed playit tunnel points at the Fenrir Connect port.<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>playit cannot carry the friends’ link on a Minecraft-typed tunnel. Delete that tunnel in the playit dashboard, or make it a TCP tunnel (a Premium option). Friends use the fixed address or the quick tunnel meanwhile.</p></div></details>
+          <details class="qa" id="smartscreen"><summary>Windows SmartScreen blocks the Setup.<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>Choose <b>More info</b>, then <b>Run anyway</b>. Fenrir is not signed by a big publisher, so Windows asks the first time.</p></div></details>
+        </div>
+      </div>
+
+      <div class="faq__group" id="server">
+        <h2>The server</h2>
+        <div class="faq__list">
+          <details class="qa" id="crash-loop"><summary>The server crashed three times.<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>Three crashes in ten minutes stop the automatic restarts, and the banner names the mod the last crash report points at. Open the Doctor, switch that mod off and press <b>Start</b>.</p></div></details>
+          <details class="qa" id="view-distance"><summary>The Doctor says the view distance is a lot for my friends.<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>Press <b>Set 8 and 6</b> while the server is stopped. The next start uses a view distance of 8 and a simulation distance of 6, which a heavy pack carries better.</p></div></details>
+          <details class="qa" id="empty-regions"><summary>The Doctor found empty region files in the world.<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>Press <b>Remove the empty files</b> while the server is stopped. Minecraft writes a region file again when a chunk needs it, and backups get smaller.</p></div></details>
+          <details class="qa" id="taken-over"><summary>The Dashboard shows a server “”.<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>Nothing to do. That is the world that kept running while Fenrir restarted or updated.</p></div></details>
+          <details class="qa" id="sleep"><summary>The Doctor says this PC goes to sleep.<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>If this PC hosts while nobody sits at it, set Sleep to <b>Never</b> on power in Windows Settings → System → Power. Fenrir keeps the PC awake while it matters, and the power plan decides the rest.</p></div></details>
+        </div>
+      </div>
+
+      <div class="faq__group" id="backups">
+        <h2>Backups and updates</h2>
+        <div class="faq__list">
+          <details class="qa" id="cloud-failing"><summary>Fenrir says “”.<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>Open <b>Network &amp; Cloud</b>, pick your provider and press <b>Reconnect</b>.</p></div></details>
+          <details class="qa" id="cloud-empty"><summary>Fenrir says “”.<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>Press <b>Upload latest now</b>, or wait for the next backup.</p></div></details>
+          <details class="qa" id="drill"><summary>The last restore drill failed, or none has run yet.<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>Go to <b>Backups → A way back → Try a restore</b>. Fenrir unpacks the newest checked archive beside the backups, reads the world in it and removes the copy again, so you know it comes back.</p></div></details>
+          <details class="qa" id="rehearse"><summary>The Doctor says “”.<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>Go to <b>Server Pack → Rehearse an update</b> while nobody plays. It runs the whole update path with the version you already run, so your first real update is not its first run.</p></div></details>
+        </div>
+      </div>
+
+      <div class="faq__group" id="itself">
+        <h2>Fenrir itself</h2>
+        <div class="faq__list">
+          <details class="qa" id="no-goodbye"><summary>The timeline says “”.<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>Nothing to do if its watcher started it again, which it does within seconds. The Doctor’s note carries the fault log’s last words. If it keeps happening, send a support bundle.</p></div></details>
+          <details class="qa" id="timed-work"><summary>The Doctor says “”.<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>Fenrir starts a fresh loop by itself. If the Doctor still says it, quit Fenrir and open it again. The world keeps running meanwhile.</p></div></details>
+        </div>
+      </div>
+
+      <p class="faq__empty" id="faq-empty" hidden>No question matches that. Try a shorter word, or open the Doctor in Fenrir.</p>
+
+      <div class="panel">
+        <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Still stuck?</p>
+        <h2>Send a support bundle.</h2>
+        <p class="copy"><b>Settings → About → Create support bundle</b> writes one zip with the logs, the Doctor’s findings and your settings. Every key, password, webhook and friend key is taken out first, so it is safe to share.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__grid">
+    <div class="foot__brand"><img src="assets/fenrir.svg" width="40" height="40" alt=""><div><b>Fenrir</b><span>Modded Minecraft for friends, hosted on your own PC.</span></div></div>
+    <nav class="foot__nav" aria-label="Footer"><a href="fenrir.html">Fenrir</a><a href="connect.html">Fenrir Connect</a><a href="download.html">Download</a><a href="faq.html">FAQ</a></nav>
+    <p class="foot__builds"><span data-vt="Current build, released {released}">Current build</span></p>
+  </div>
+  <div class="wrap foot__fine">
+    <p>Fenrir is an independent project. It is not affiliated with Mojang or Microsoft, and Minecraft is a trademark of Mojang AB.</p>
+    <p>This site is static. It never talks to the host’s PC, so it stays up while that PC is off.</p>
+  </div>
+</footer>
+</body>
+</html>
