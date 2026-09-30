@@ -1,6 +1,6 @@
 # Putting the Fenrir website online
 
-The site is static: five HTML pages, one stylesheet, two small scripts and `versions.json`. There is no build step and no server code, and nothing on it ever calls the host's PC, so it keeps working while that PC is off.
+The site is static: five HTML pages, one stylesheet, two small scripts and `versions.json`. There is no build step and no server code.
 
 ```
 site/
@@ -13,6 +13,10 @@ site/
   assets/shots/          your screenshots go here (see below)
   deploy.ps1             optional: publish everything with the gh CLI
 ```
+
+The pages link to each other without `.html` (`host`, `faq`, and `./` for the home page). GitHub Pages, and most static hosts, serve
+`faq.html` at `/faq`, so the addresses stay clean. Opened straight from disk those links find no file: preview through a
+local server that maps `/faq` to `faq.html` the same way.
 
 ## versions.json is the only place with versions and links
 
