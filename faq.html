@@ -22,42 +22,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Outfit:wght@700;800&display=swap">
 <link rel="stylesheet" href="assets/site.css">
-<script>(function(r){r.classList.add('js');try{var t=localStorage.getItem('fenrir-theme');if(t==='light'||t==='dark')r.setAttribute('data-theme',t)}catch(e){}var m=window.matchMedia;if(window.CSS&&CSS.registerProperty&&!(m&&m('(prefers-reduced-motion: reduce)').matches))r.setAttribute('data-palette',['fenrir','midnight','sakura','ember','yggdrasil','aurora','snow','graphite'][Math.floor(Date.now()/3140)%8])})(document.documentElement)</script>
+<script>(function(r){r.classList.add('js');try{var t=localStorage.getItem('fenrir-theme');if(t==='light'||t==='dark')r.setAttribute('data-theme',t)}catch(e){}var m=window.matchMedia;if(!(m&&m('(prefers-reduced-motion: reduce)').matches)){var p=['fenrir','midnight','sakura','ember','yggdrasil','aurora','snow','graphite'][Math.floor(Date.now()/3140)%8];r.setAttribute('data-palette',p);r.setAttribute('data-pa',p);r.setAttribute('data-pb',p);r.setAttribute('data-slot','a')}})(document.documentElement)</script>
 <script src="assets/site.js" defer></script>
 <script src="assets/motion.js" defer></script>
 </head>
 <body>
+<div class="atmos" aria-hidden="true"><i class="atmos__a"></i><i class="atmos__b"></i></div>
 <div class="top-sentinel" aria-hidden="true"></div>
 <svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<linearGradient id="fm-tile" x1="0" y1="0" x2="1" y2="1"><stop offset="0" class="fm-tile-a"/><stop offset="1" class="fm-tile-b"/></linearGradient>
-<radialGradient id="fm-halo" cx=".5" cy=".46" r=".6"><stop offset="0" class="fm-halo-a"/><stop offset="1" class="fm-halo-b"/></radialGradient>
-<linearGradient id="fm-sheen" x1="0" y1="0" x2=".35" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".16"/><stop offset=".5" stop-color="#ffffff" stop-opacity="0"/></linearGradient>
-<linearGradient id="fm-rim" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".42"/><stop offset=".55" stop-color="#ffffff" stop-opacity=".05"/><stop offset="1" class="fm-rim-c"/></linearGradient>
-<linearGradient id="fm-glass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" class="fm-glass-a"/><stop offset="1" class="fm-glass-b"/></linearGradient>
-<linearGradient id="fm-top" x1="0" y1="0" x2="0" y2="1"><stop offset=".05" stop-color="#ffffff"/><stop offset=".75" stop-color="#000000"/></linearGradient>
-<linearGradient id="fm-bot" x1="0" y1="0" x2="0" y2="1"><stop offset=".35" stop-color="#000000"/><stop offset="1" stop-color="#ffffff"/></linearGradient>
-<mask id="fm-mtop"><rect width="64" height="64" fill="url(#fm-top)"/></mask>
-<mask id="fm-mbot"><rect width="64" height="64" fill="url(#fm-bot)"/></mask>
-<clipPath id="fm-head"><path d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z"/></clipPath>
-<mask id="fm-cut"><rect width="64" height="64" fill="#ffffff"/><path d="M14 32.5L27.6 36.2L28.6 38.2L15 35ZM50 32.5L36.4 36.2L35.4 38.2L49 35Z" fill="#000000"/><path d="M27 45.5H37L32 51.5Z" fill="#000000"/></mask>
-<filter id="fm-blurs" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2.4"/></filter>
-<filter id="fm-blurm" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="1.2"/></filter>
-<filter id="fm-blurt" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation=".55"/></filter>
-</defs>
-<symbol id="fenrir-mark" viewBox="0 0 64 64">
-<rect x="2" y="2" width="60" height="60" rx="16" fill="url(#fm-tile)"/><rect x="2" y="2" width="60" height="60" rx="16" fill="url(#fm-halo)"/><rect x="2" y="2" width="60" height="60" rx="16" fill="url(#fm-sheen)"/>
-<rect x="2.6" y="2.6" width="58.8" height="58.8" rx="15.4" fill="none" stroke="url(#fm-rim)" stroke-width="1.2"/>
-<g transform="translate(32 32) scale(.76) translate(-32 -32.5)">
-<path d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z" fill="#000000" opacity=".6" stroke="#000000" stroke-width="2" stroke-linejoin="round" transform="translate(0 3)" filter="url(#fm-blurs)"/>
-<g mask="url(#fm-cut)">
-<path d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z" fill="url(#fm-glass)" stroke="url(#fm-glass)" stroke-width="2" stroke-linejoin="round"/>
-<g clip-path="url(#fm-head)" mask="url(#fm-mbot)"><path class="fm-deep" d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z" fill="none" stroke-opacity=".5" stroke-width="4" stroke-linejoin="round" filter="url(#fm-blurt)"/></g>
-<g clip-path="url(#fm-head)" mask="url(#fm-mtop)"><path d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z" fill="none" stroke="#ffffff" stroke-width="1.6" stroke-linejoin="round" transform="translate(0 .7)"/></g>
-<ellipse cx="25" cy="21" rx="9" ry="4" fill="#ffffff" opacity=".55" filter="url(#fm-blurm)" transform="rotate(-28 25 21)"/>
-</g>
-</g>
-</symbol>
 <symbol id="rune" viewBox="0 0 24 24"><path d="M12 3v18M12 8l6-3.5M12 8L6 4.5M12 14l6 3.5M12 14l-6 3.5"/></symbol>
 <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
 <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v11M7 10.5l5 5 5-5M5 19.5h14"/></symbol>
@@ -70,11 +42,59 @@
 <symbol id="i-plus" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 8v8M8 12h8"/></symbol>
 <symbol id="i-zip" viewBox="0 0 24 24"><path d="M14 3.5H7.5A2.5 2.5 0 0 0 5 6v12a2.5 2.5 0 0 0 2.5 2.5h9A2.5 2.5 0 0 0 19 18V8.5z"/><path d="M14 3.5v5h5M11 4v2M11 8v2M11 12v2"/><rect x="9.5" y="15" width="3" height="3.5" rx="1"/></symbol>
 </svg>
+<svg class="sprite logo-defs" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="fma-tile" x1="0" y1="0" x2="1" y2="1"><stop offset="0" class="fma-tile-a"/><stop offset="1" class="fma-tile-b"/></linearGradient>
+<radialGradient id="fma-halo" cx=".5" cy=".46" r=".6"><stop offset="0" class="fma-halo-a"/><stop offset="1" class="fma-halo-b"/></radialGradient>
+<linearGradient id="fma-rim" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".42"/><stop offset=".55" stop-color="#ffffff" stop-opacity=".05"/><stop offset="1" class="fma-rim-c"/></linearGradient>
+<linearGradient id="fma-glass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" class="fma-glass-a"/><stop offset="1" class="fma-glass-b"/></linearGradient>
+<linearGradient id="fmb-tile" x1="0" y1="0" x2="1" y2="1"><stop offset="0" class="fmb-tile-a"/><stop offset="1" class="fmb-tile-b"/></linearGradient>
+<radialGradient id="fmb-halo" cx=".5" cy=".46" r=".6"><stop offset="0" class="fmb-halo-a"/><stop offset="1" class="fmb-halo-b"/></radialGradient>
+<linearGradient id="fmb-rim" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".42"/><stop offset=".55" stop-color="#ffffff" stop-opacity=".05"/><stop offset="1" class="fmb-rim-c"/></linearGradient>
+<linearGradient id="fmb-glass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" class="fmb-glass-a"/><stop offset="1" class="fmb-glass-b"/></linearGradient>
+<linearGradient id="fm-sheen" x1="0" y1="0" x2=".35" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".16"/><stop offset=".5" stop-color="#ffffff" stop-opacity="0"/></linearGradient>
+<linearGradient id="fm-top" x1="0" y1="0" x2="0" y2="1"><stop offset=".05" stop-color="#ffffff"/><stop offset=".75" stop-color="#000000"/></linearGradient>
+<linearGradient id="fm-bot" x1="0" y1="0" x2="0" y2="1"><stop offset=".35" stop-color="#000000"/><stop offset="1" stop-color="#ffffff"/></linearGradient>
+<mask id="fm-mtop"><rect width="64" height="64" fill="url(#fm-top)"/></mask>
+<mask id="fm-mbot"><rect width="64" height="64" fill="url(#fm-bot)"/></mask>
+<clipPath id="fm-head"><path d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z"/></clipPath>
+<mask id="fm-cut"><rect width="64" height="64" fill="#ffffff"/><path d="M14 32.5L27.6 36.2L28.6 38.2L15 35ZM50 32.5L36.4 36.2L35.4 38.2L49 35Z" fill="#000000"/><path d="M27 45.5H37L32 51.5Z" fill="#000000"/></mask>
+<filter id="fm-blurs" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2.4"/></filter>
+<filter id="fm-blurm" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="1.2"/></filter>
+<filter id="fm-blurt" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation=".55"/></filter>
+</defs>
+<symbol id="fenrir-mark-a" viewBox="0 0 64 64">
+<rect x="2" y="2" width="60" height="60" rx="16" fill="url(#fma-tile)"/><rect x="2" y="2" width="60" height="60" rx="16" fill="url(#fma-halo)"/><rect x="2" y="2" width="60" height="60" rx="16" fill="url(#fm-sheen)"/>
+<rect x="2.6" y="2.6" width="58.8" height="58.8" rx="15.4" fill="none" stroke="url(#fma-rim)" stroke-width="1.2"/>
+<g transform="translate(32 32) scale(.76) translate(-32 -32.5)">
+<path d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z" fill="#000000" opacity=".6" stroke="#000000" stroke-width="2" stroke-linejoin="round" transform="translate(0 3)" filter="url(#fm-blurs)"/>
+<g mask="url(#fm-cut)">
+<path d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z" fill="url(#fma-glass)" stroke="url(#fma-glass)" stroke-width="2" stroke-linejoin="round"/>
+<g clip-path="url(#fm-head)" mask="url(#fm-mbot)"><path class="fma-deep" d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z" fill="none" stroke-opacity=".5" stroke-width="4" stroke-linejoin="round" filter="url(#fm-blurt)"/></g>
+<g clip-path="url(#fm-head)" mask="url(#fm-mtop)"><path d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z" fill="none" stroke="#ffffff" stroke-width="1.6" stroke-linejoin="round" transform="translate(0 .7)"/></g>
+<ellipse cx="25" cy="21" rx="9" ry="4" fill="#ffffff" opacity=".55" filter="url(#fm-blurm)" transform="rotate(-28 25 21)"/>
+</g>
+</g>
+</symbol>
+<symbol id="fenrir-mark-b" viewBox="0 0 64 64">
+<rect x="2" y="2" width="60" height="60" rx="16" fill="url(#fmb-tile)"/><rect x="2" y="2" width="60" height="60" rx="16" fill="url(#fmb-halo)"/><rect x="2" y="2" width="60" height="60" rx="16" fill="url(#fm-sheen)"/>
+<rect x="2.6" y="2.6" width="58.8" height="58.8" rx="15.4" fill="none" stroke="url(#fmb-rim)" stroke-width="1.2"/>
+<g transform="translate(32 32) scale(.76) translate(-32 -32.5)">
+<path d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z" fill="#000000" opacity=".6" stroke="#000000" stroke-width="2" stroke-linejoin="round" transform="translate(0 3)" filter="url(#fm-blurs)"/>
+<g mask="url(#fm-cut)">
+<path d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z" fill="url(#fmb-glass)" stroke="url(#fmb-glass)" stroke-width="2" stroke-linejoin="round"/>
+<g clip-path="url(#fm-head)" mask="url(#fm-mbot)"><path class="fmb-deep" d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z" fill="none" stroke-opacity=".5" stroke-width="4" stroke-linejoin="round" filter="url(#fm-blurt)"/></g>
+<g clip-path="url(#fm-head)" mask="url(#fm-mtop)"><path d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z" fill="none" stroke="#ffffff" stroke-width="1.6" stroke-linejoin="round" transform="translate(0 .7)"/></g>
+<ellipse cx="25" cy="21" rx="9" ry="4" fill="#ffffff" opacity=".55" filter="url(#fm-blurm)" transform="rotate(-28 25 21)"/>
+</g>
+</g>
+</symbol>
+</svg>
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="nav" data-nav>
   <div class="nav__in">
-    <a class="nav__brand" href="index.html" aria-label="Fenrir, home"><svg class="logo" width="32" height="32" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#fenrir-mark"/></svg><span>Fenrir</span></a>
+    <a class="nav__brand" href="index.html" aria-label="Fenrir, home"><svg class="logo" width="32" height="32" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#fenrir-mark-a"/><use class="lg-b" href="#fenrir-mark-b"/></svg><span>Fenrir</span></a>
     <nav class="nav__links" id="nav-links" aria-label="Main">
       <span class="nav__pill" aria-hidden="true"></span>
       <a href="fenrir.html">Fenrir</a>
@@ -124,9 +144,9 @@
       <div class="faq__group" id="links">
         <h2>Friends and links</h2>
         <div class="faq__list">
-          <details class="qa" id="files-behind"><summary>A friend’s card says “”.<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>They press <b>Update &amp; Play</b> in Fenrir Connect. Only the files that changed download.</p></div></details>
-          <details class="qa" id="whitelist"><summary>The game says a friend is “”.<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>Press <b>Whitelist</b> on their row in the Friends card, or add the name on the Players page. It has to be the exact TLauncher name, and case matters.</p></div></details>
-          <details class="qa" id="out-of-reach"><summary>A friend’s app says “”.<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>Your Fenrir or your tunnel is down, or the Cloudflare address changed. Send the new link, or turn on the <b>address relay</b> so their apps follow a new address by themselves.</p></div></details>
+          <details class="qa" id="files-behind"><summary>A friend’s card says “files behind”.<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>They press <b>Update &amp; Play</b> in Fenrir Connect. Only the files that changed download.</p></div></details>
+          <details class="qa" id="whitelist"><summary>The game says a friend is “not white-listed”.<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>Press <b>Whitelist</b> on their row in the Friends card, or add the name on the Players page. It has to be the exact TLauncher name, and case matters.</p></div></details>
+          <details class="qa" id="out-of-reach"><summary>A friend’s app says “Your host is out of reach”.<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>Your Fenrir or your tunnel is down, or the Cloudflare address changed. Send the new link, or turn on the <b>address relay</b> so their apps follow a new address by themselves.</p></div></details>
           <details class="qa" id="old-link"><summary>The Dashboard says friends are still on the old link.<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>Open the Friends card, press <b>Copy link</b> on each friend and send it. A fixed Tailscale address stops the link from changing after a restart.</p></div></details>
           <details class="qa" id="keys-missing"><summary>Fenrir says friend keys are missing from the settings.<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>Press <b>Restore the keys</b>. Before any change that leaves fewer keys, Fenrir keeps the list in its key ledger. Skip it if you removed those keys on purpose.</p></div></details>
           <details class="qa" id="asks"><summary>A friend asked for a hand and has no answer yet.<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>Open the asks card on the Dashboard and choose <b>Restore their things</b>, <b>Whitelist</b> or <b>Answer</b>. They hear back in their app, and the Doctor reminds you after half an hour.</p></div></details>
@@ -141,7 +161,7 @@
           <details class="qa" id="crash-loop"><summary>The server crashed three times.<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>Three crashes in ten minutes stop the automatic restarts, and the banner names the mod the last crash report points at. Open the Doctor, switch that mod off and press <b>Start</b>.</p></div></details>
           <details class="qa" id="view-distance"><summary>The Doctor says the view distance is a lot for my friends.<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>Press <b>Set 8 and 6</b> while the server is stopped. The next start uses a view distance of 8 and a simulation distance of 6, which a heavy pack carries better.</p></div></details>
           <details class="qa" id="empty-regions"><summary>The Doctor found empty region files in the world.<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>Press <b>Remove the empty files</b> while the server is stopped. Minecraft writes a region file again when a chunk needs it, and backups get smaller.</p></div></details>
-          <details class="qa" id="taken-over"><summary>The Dashboard shows a server “”.<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>Nothing to do. That is the world that kept running while Fenrir restarted or updated.</p></div></details>
+          <details class="qa" id="taken-over"><summary>The Dashboard shows a server “taken over from the previous Fenrir”.<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>Nothing to do. That is the world that kept running while Fenrir restarted or updated.</p></div></details>
           <details class="qa" id="sleep"><summary>The Doctor says this PC goes to sleep.<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>If this PC hosts while nobody sits at it, set Sleep to <b>Never</b> on power in Windows Settings → System → Power. Fenrir keeps the PC awake while it matters, and the power plan decides the rest.</p></div></details>
         </div>
       </div>
@@ -149,18 +169,18 @@
       <div class="faq__group" id="backups">
         <h2>Backups and updates</h2>
         <div class="faq__list">
-          <details class="qa" id="cloud-failing"><summary>Fenrir says “”.<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>Open <b>Network &amp; Cloud</b>, pick your provider and press <b>Reconnect</b>.</p></div></details>
-          <details class="qa" id="cloud-empty"><summary>Fenrir says “”.<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>Press <b>Upload latest now</b>, or wait for the next backup.</p></div></details>
+          <details class="qa" id="cloud-failing"><summary>Fenrir says “Cloud backups are not uploading”.<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>Open <b>Network &amp; Cloud</b>, pick your provider and press <b>Reconnect</b>.</p></div></details>
+          <details class="qa" id="cloud-empty"><summary>Fenrir says “The cloud has no copy of the world yet”.<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>Press <b>Upload latest now</b>, or wait for the next backup.</p></div></details>
           <details class="qa" id="drill"><summary>The last restore drill failed, or none has run yet.<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>Go to <b>Backups → A way back → Try a restore</b>. Fenrir unpacks the newest checked archive beside the backups, reads the world in it and removes the copy again, so you know it comes back.</p></div></details>
-          <details class="qa" id="rehearse"><summary>The Doctor says “”.<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>Go to <b>Server Pack → Rehearse an update</b> while nobody plays. It runs the whole update path with the version you already run, so your first real update is not its first run.</p></div></details>
+          <details class="qa" id="rehearse"><summary>The Doctor says “The safe pack update has never run on this PC”.<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>Go to <b>Server Pack → Rehearse an update</b> while nobody plays. It runs the whole update path with the version you already run, so your first real update is not its first run.</p></div></details>
         </div>
       </div>
 
       <div class="faq__group" id="itself">
         <h2>Fenrir itself</h2>
         <div class="faq__list">
-          <details class="qa" id="no-goodbye"><summary>The timeline says “”.<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>Nothing to do if its watcher started it again, which it does within seconds. The Doctor’s note carries the fault log’s last words. If it keeps happening, send a support bundle.</p></div></details>
-          <details class="qa" id="timed-work"><summary>The Doctor says “”.<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>Fenrir starts a fresh loop by itself. If the Doctor still says it, quit Fenrir and open it again. The world keeps running meanwhile.</p></div></details>
+          <details class="qa" id="no-goodbye"><summary>The timeline says “Fenrir stopped without a goodbye at …”.<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>Nothing to do if its watcher started it again, which it does within seconds. The Doctor’s note carries the fault log’s last words. If it keeps happening, send a support bundle.</p></div></details>
+          <details class="qa" id="timed-work"><summary>The Doctor says “Fenrir’s timed work stopped at …”.<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>Fenrir starts a fresh loop by itself. If the Doctor still says it, quit Fenrir and open it again. The world keeps running meanwhile.</p></div></details>
         </div>
       </div>
 
@@ -178,13 +198,12 @@
 
 <footer class="foot">
   <div class="wrap foot__grid">
-    <div class="foot__brand"><svg class="logo" width="40" height="40" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#fenrir-mark"/></svg><div><b>Fenrir</b><span>Modded Minecraft for friends, hosted on your own PC.</span></div></div>
+    <div class="foot__brand"><svg class="logo" width="40" height="40" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#fenrir-mark-a"/><use class="lg-b" href="#fenrir-mark-b"/></svg><div><b>Fenrir</b><span>Modded Minecraft for friends, hosted on your own PC.</span></div></div>
     <nav class="foot__nav" aria-label="Footer"><a href="fenrir.html">Fenrir</a><a href="connect.html">Fenrir Connect</a><a href="download.html">Download</a><a href="faq.html">FAQ</a></nav>
     <p class="foot__builds"><span data-vt="Current build, released {released}">Current build</span></p>
   </div>
   <div class="wrap foot__fine">
     <p>Fenrir is an independent project. It is not affiliated with Mojang or Microsoft, and Minecraft is a trademark of Mojang AB.</p>
-    <p>This site is static. It never talks to the host’s PC, so it stays up while that PC is off.</p>
   </div>
 </footer>
 </body>

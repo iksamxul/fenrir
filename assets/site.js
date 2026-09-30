@@ -111,18 +111,30 @@
     nav.setAttribute('data-scrolled', '');
   }
 
-  /* ---------- the palette: the app's eight themes take turns every 3.14 s; site.css fades each change ----------
-     The turn comes from the clock, so every page (and the next one you open) shows the same palette. */
+  /* ---------- the palette: the app's eight themes take turns every 3.14 s --------------------------------
+     The turn comes from the clock, so every page (and the next one you open) shows the same palette. The hidden layer
+     is painted with the new palette first; one frame later data-slot flips and the compositor crossfades (site.css 1b). */
   var PALETTES = ['fenrir', 'midnight', 'sakura', 'ember', 'yggdrasil', 'aurora', 'snow', 'graphite'];
   var STEP = 3140;
   var still = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
-  var canFade = !!(window.CSS && CSS.registerProperty);
   var cycleTimer = 0;
+  function paletteAt(t) { return PALETTES[Math.floor(t / STEP) % PALETTES.length]; }
   function cycle() {
     clearTimeout(cycleTimer);
-    if (!canFade || (still && still.matches)) { root.removeAttribute('data-palette'); return; }
+    if (still && still.matches) {
+      ['data-palette', 'data-pa', 'data-pb', 'data-slot'].forEach(function (a) { root.removeAttribute(a); });
+      return;
+    }
     if (doc.hidden) return;
-    root.setAttribute('data-palette', PALETTES[Math.floor(Date.now() / STEP) % PALETTES.length]);
+    var want = paletteAt(Date.now());
+    if (!root.hasAttribute('data-slot')) {
+      root.setAttribute('data-pa', want); root.setAttribute('data-pb', want);
+      root.setAttribute('data-slot', 'a'); root.setAttribute('data-palette', want);
+    } else if (root.getAttribute('data-palette') !== want) {
+      var next = root.getAttribute('data-slot') === 'a' ? 'b' : 'a';
+      root.setAttribute('data-p' + next, want);
+      requestAnimationFrame(function () { root.setAttribute('data-slot', next); root.setAttribute('data-palette', want); });
+    }
     cycleTimer = setTimeout(cycle, STEP - (Date.now() % STEP) + 12);
   }
   doc.addEventListener('visibilitychange', cycle);
@@ -198,9 +210,37 @@
   up.type = 'button';
   up.className = 'totop';
   up.setAttribute('aria-label', 'Back to the top');
-  up.innerHTML = '<svg class="totop__ring" viewBox="0 0 52 52" aria-hidden="true" focusable="false"><circle class="totop__track" cx="26" cy="26" r="25"/><circle class="totop__bar" cx="26" cy="26" r="25" pathLength="100"/></svg>'
-    + '<svg class="i totop__arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 19V5.5M5.5 11.5L12 5l6.5 6.5"/></svg>';
+  up.innerHTML = '<svg class="totop__ring" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle class="totop__halo" cx="24" cy="24" r="22.25" pathLength="100"/><circle class="totop__bar" cx="24" cy="24" r="22.25" pathLength="100"/></svg>'
+    + '<svg class="i totop__arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 18.5V6M6.5 11.5L12 6l5.5 5.5"/></svg>';
   doc.body.appendChild(up);
+  /* liquid glass: in Chromium the backdrop bends at the rim through a displacement map drawn once on a canvas.
+     Red and green hold how far each point looks inward; the centre stays still and the pull grows toward the edge. */
+  var brands = navigator.userAgentData && navigator.userAgentData.brands;
+  if (brands && brands.some(function (b) { return /Chromium/.test(b.brand); })) {
+    try {
+      var size = 96, cv = doc.createElement('canvas');
+      cv.width = cv.height = size;
+      var cx = cv.getContext('2d'), img = cx.createImageData(size, size), px = img.data;
+      for (var j = 0; j < size; j++) {
+        for (var i = 0; i < size; i++) {
+          var nx = (i + 0.5) / size * 2 - 1, ny = (j + 0.5) / size * 2 - 1, r = Math.sqrt(nx * nx + ny * ny), k = (j * size + i) * 4;
+          var pull = r <= 1 && r > 0.5 ? Math.pow((r - 0.5) / 0.5, 2) : 0;
+          px[k] = Math.round(127.5 - 127.5 * (r ? nx / r : 0) * pull);
+          px[k + 1] = Math.round(127.5 - 127.5 * (r ? ny / r : 0) * pull);
+          px[k + 2] = 128; px[k + 3] = 255;
+        }
+      }
+      cx.putImageData(img, 0, 0);
+      var holder = doc.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      holder.setAttribute('class', 'sprite');
+      holder.setAttribute('aria-hidden', 'true');
+      holder.innerHTML = '<filter id="lg-lens" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">'
+        + '<feImage href="' + cv.toDataURL() + '" x="0" y="0" width="48" height="48" preserveAspectRatio="none" result="map"/>'
+        + '<feDisplacementMap in="SourceGraphic" in2="map" scale="16" xChannelSelector="R" yChannelSelector="G"/></filter>';
+      doc.body.appendChild(holder);
+      up.classList.add('lg-lens');
+    } catch (err) { /* a plain glass button then */ }
+  }
   var upQueued = false;
   function upDraw() {
     upQueued = false;
