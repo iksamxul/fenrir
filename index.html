@@ -22,13 +22,42 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Outfit:wght@700;800&display=swap">
 <link rel="stylesheet" href="assets/site.css">
-<script>(function(r){r.classList.add('js');try{var t=localStorage.getItem('fenrir-theme');if(t==='light'||t==='dark')r.setAttribute('data-theme',t)}catch(e){}})(document.documentElement)</script>
+<script>(function(r){r.classList.add('js');try{var t=localStorage.getItem('fenrir-theme');if(t==='light'||t==='dark')r.setAttribute('data-theme',t)}catch(e){}var m=window.matchMedia;if(window.CSS&&CSS.registerProperty&&!(m&&m('(prefers-reduced-motion: reduce)').matches))r.setAttribute('data-palette',['fenrir','midnight','sakura','ember','yggdrasil','aurora','snow','graphite'][Math.floor(Date.now()/3140)%8])})(document.documentElement)</script>
 <script src="assets/site.js" defer></script>
 <script src="assets/motion.js" defer></script>
 </head>
 <body>
 <div class="top-sentinel" aria-hidden="true"></div>
 <svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="fm-tile" x1="0" y1="0" x2="1" y2="1"><stop offset="0" class="fm-tile-a"/><stop offset="1" class="fm-tile-b"/></linearGradient>
+<radialGradient id="fm-halo" cx=".5" cy=".46" r=".6"><stop offset="0" class="fm-halo-a"/><stop offset="1" class="fm-halo-b"/></radialGradient>
+<linearGradient id="fm-sheen" x1="0" y1="0" x2=".35" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".16"/><stop offset=".5" stop-color="#ffffff" stop-opacity="0"/></linearGradient>
+<linearGradient id="fm-rim" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".42"/><stop offset=".55" stop-color="#ffffff" stop-opacity=".05"/><stop offset="1" class="fm-rim-c"/></linearGradient>
+<linearGradient id="fm-glass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" class="fm-glass-a"/><stop offset="1" class="fm-glass-b"/></linearGradient>
+<linearGradient id="fm-top" x1="0" y1="0" x2="0" y2="1"><stop offset=".05" stop-color="#ffffff"/><stop offset=".75" stop-color="#000000"/></linearGradient>
+<linearGradient id="fm-bot" x1="0" y1="0" x2="0" y2="1"><stop offset=".35" stop-color="#000000"/><stop offset="1" stop-color="#ffffff"/></linearGradient>
+<mask id="fm-mtop"><rect width="64" height="64" fill="url(#fm-top)"/></mask>
+<mask id="fm-mbot"><rect width="64" height="64" fill="url(#fm-bot)"/></mask>
+<clipPath id="fm-head"><path d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z"/></clipPath>
+<mask id="fm-cut"><rect width="64" height="64" fill="#ffffff"/><path d="M14 32.5L27.6 36.2L28.6 38.2L15 35ZM50 32.5L36.4 36.2L35.4 38.2L49 35Z" fill="#000000"/><path d="M27 45.5H37L32 51.5Z" fill="#000000"/></mask>
+<filter id="fm-blurs" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2.4"/></filter>
+<filter id="fm-blurm" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="1.2"/></filter>
+<filter id="fm-blurt" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation=".55"/></filter>
+</defs>
+<symbol id="fenrir-mark" viewBox="0 0 64 64">
+<rect x="2" y="2" width="60" height="60" rx="16" fill="url(#fm-tile)"/><rect x="2" y="2" width="60" height="60" rx="16" fill="url(#fm-halo)"/><rect x="2" y="2" width="60" height="60" rx="16" fill="url(#fm-sheen)"/>
+<rect x="2.6" y="2.6" width="58.8" height="58.8" rx="15.4" fill="none" stroke="url(#fm-rim)" stroke-width="1.2"/>
+<g transform="translate(32 32) scale(.76) translate(-32 -32.5)">
+<path d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z" fill="#000000" opacity=".6" stroke="#000000" stroke-width="2" stroke-linejoin="round" transform="translate(0 3)" filter="url(#fm-blurs)"/>
+<g mask="url(#fm-cut)">
+<path d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z" fill="url(#fm-glass)" stroke="url(#fm-glass)" stroke-width="2" stroke-linejoin="round"/>
+<g clip-path="url(#fm-head)" mask="url(#fm-mbot)"><path class="fm-deep" d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z" fill="none" stroke-opacity=".5" stroke-width="4" stroke-linejoin="round" filter="url(#fm-blurt)"/></g>
+<g clip-path="url(#fm-head)" mask="url(#fm-mtop)"><path d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z" fill="none" stroke="#ffffff" stroke-width="1.6" stroke-linejoin="round" transform="translate(0 .7)"/></g>
+<ellipse cx="25" cy="21" rx="9" ry="4" fill="#ffffff" opacity=".55" filter="url(#fm-blurm)" transform="rotate(-28 25 21)"/>
+</g>
+</g>
+</symbol>
 <symbol id="rune" viewBox="0 0 24 24"><path d="M12 3v18M12 8l6-3.5M12 8L6 4.5M12 14l6 3.5M12 14l-6 3.5"/></symbol>
 <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
 <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v11M7 10.5l5 5 5-5M5 19.5h14"/></symbol>
@@ -55,8 +84,9 @@
 
 <header class="nav" data-nav>
   <div class="nav__in">
-    <a class="nav__brand" href="index.html" aria-label="Fenrir, home"><img src="assets/fenrir.svg" width="30" height="30" alt=""><span>Fenrir</span></a>
+    <a class="nav__brand" href="index.html" aria-label="Fenrir, home"><svg class="logo" width="32" height="32" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#fenrir-mark"/></svg><span>Fenrir</span></a>
     <nav class="nav__links" id="nav-links" aria-label="Main">
+      <span class="nav__pill" aria-hidden="true"></span>
       <a href="fenrir.html">Fenrir</a>
       <a href="connect.html">Fenrir Connect</a>
       <a href="#one-link">How it works</a>
@@ -65,7 +95,7 @@
     <div class="nav__end">
       <button class="nav__icon" type="button" data-theme-toggle aria-label="Switch to light theme"><svg class="i t-sun" aria-hidden="true"><use href="#i-sun"/></svg><svg class="i t-moon" aria-hidden="true"><use href="#i-moon"/></svg></button>
       <a class="btn btn--primary btn--sm" href="download.html">Download</a>
-      <button class="nav__icon nav__menu" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open the menu"><svg class="i t-open" aria-hidden="true"><use href="#i-menu"/></svg><svg class="i t-close" aria-hidden="true"><use href="#i-x"/></svg></button>
+      <button class="nav__icon nav__menu" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open the menu"><span class="burger" aria-hidden="true"><i></i><i></i></span></button>
     </div>
   </div>
 </header>
@@ -457,7 +487,7 @@
     <div class="sky__stars" aria-hidden="true"></div>
     <div class="aurora aurora--low" aria-hidden="true"><div class="aurora__haze"></div><div class="aurora__band"></div></div>
     <div class="wrap cta__in">
-      <img class="cta__mark" src="assets/fenrir.svg" width="84" height="84" alt="">
+      <svg class="cta__mark logo" width="84" height="84" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#fenrir-mark"/></svg>
       <h2 class="title title--xl" id="t-cta"><span class="line">Start the server tonight.</span> <span class="line accent">Send the links.</span></h2>
       <p class="lead">Fenrir is free for Windows 10 and 11. Your friends need only the link you send them.</p>
       <div class="cta__row">
@@ -472,7 +502,7 @@
 
 <footer class="foot">
   <div class="wrap foot__grid">
-    <div class="foot__brand"><img src="assets/fenrir.svg" width="40" height="40" alt=""><div><b>Fenrir</b><span>Modded Minecraft for friends, hosted on your own PC.</span></div></div>
+    <div class="foot__brand"><svg class="logo" width="40" height="40" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><use href="#fenrir-mark"/></svg><div><b>Fenrir</b><span>Modded Minecraft for friends, hosted on your own PC.</span></div></div>
     <nav class="foot__nav" aria-label="Footer"><a href="fenrir.html">Fenrir</a><a href="connect.html">Fenrir Connect</a><a href="download.html">Download</a><a href="faq.html">FAQ</a></nav>
     <p class="foot__builds"><span data-vt="Current build, released {released}">Current build</span></p>
   </div>

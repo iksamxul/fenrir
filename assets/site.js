@@ -48,6 +48,12 @@
   });
 
   /* ---------- theme ---------- */
+  /* a light/dark switch changes the text at once, so the grounds snap with it instead of fading (site.css 1b) */
+  function snap() {
+    root.classList.add('theme-snap');
+    requestAnimationFrame(function () { requestAnimationFrame(function () { root.classList.remove('theme-snap'); }); });
+  }
+  function onScheme() { snap(); syncTheme(); }
   var themeMeta = doc.querySelector('meta[name="theme-color"]');
   function syncTheme() {
     var m = mode();
@@ -59,14 +65,15 @@
   each('[data-theme-toggle]', function (b) {
     b.addEventListener('click', function () {
       var next = mode() === 'light' ? 'dark' : 'light';
+      snap();
       root.setAttribute('data-theme', next);
       remember(next);
       syncTheme();
     });
   });
   if (mqLight) {
-    if (mqLight.addEventListener) mqLight.addEventListener('change', syncTheme);
-    else if (mqLight.addListener) mqLight.addListener(syncTheme);
+    if (mqLight.addEventListener) mqLight.addEventListener('change', onScheme);
+    else if (mqLight.addListener) mqLight.addListener(onScheme);
   }
   if (window.MutationObserver) {
     new MutationObserver(syncTheme).observe(root, { attributes: true, attributeFilter: ['data-theme'] });
@@ -103,6 +110,114 @@
   } else if (nav) {
     nav.setAttribute('data-scrolled', '');
   }
+
+  /* ---------- the palette: the app's eight themes take turns every 3.14 s; site.css fades each change ----------
+     The turn comes from the clock, so every page (and the next one you open) shows the same palette. */
+  var PALETTES = ['fenrir', 'midnight', 'sakura', 'ember', 'yggdrasil', 'aurora', 'snow', 'graphite'];
+  var STEP = 3140;
+  var still = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
+  var canFade = !!(window.CSS && CSS.registerProperty);
+  var cycleTimer = 0;
+  function cycle() {
+    clearTimeout(cycleTimer);
+    if (!canFade || (still && still.matches)) { root.removeAttribute('data-palette'); return; }
+    if (doc.hidden) return;
+    root.setAttribute('data-palette', PALETTES[Math.floor(Date.now() / STEP) % PALETTES.length]);
+    cycleTimer = setTimeout(cycle, STEP - (Date.now() % STEP) + 12);
+  }
+  doc.addEventListener('visibilitychange', cycle);
+  if (still) {
+    if (still.addEventListener) still.addEventListener('change', cycle);
+    else if (still.addListener) still.addListener(cycle);
+  }
+  cycle();
+
+  function glide(el) {  // smooth on an explicit click, instant under reduced motion
+    var behavior = still && still.matches ? 'auto' : 'smooth';
+    if (el) el.scrollIntoView({ behavior: behavior, block: 'start' });
+    else window.scrollTo({ top: 0, behavior: behavior });
+  }
+
+  /* ---------- the nav's pill glides to the link under the pointer or the keyboard and rests on this page's link ---------- */
+  var links = nav ? nav.querySelector('.nav__links') : null;
+  var pill = links ? links.querySelector('.nav__pill') : null;
+  var wide = window.matchMedia ? window.matchMedia('(min-width: 860px)') : null;
+  if (links && pill) {
+    var here = links.querySelector('a[aria-current="page"]');
+    var place = function (a, instant) {
+      if (!a || (wide && !wide.matches)) { pill.classList.remove('is-on'); return; }
+      var jump = instant || !pill.classList.contains('is-on');
+      if (jump) pill.classList.add('no-glide');
+      pill.style.setProperty('--x', a.offsetLeft + 'px');
+      pill.style.setProperty('--w', a.offsetWidth + 'px');
+      pill.classList.add('is-on');
+      if (jump) { void pill.offsetWidth; pill.classList.remove('no-glide'); }
+    };
+    each('a', function (a, i) {
+      a.style.setProperty('--i', i);  // the phone menu's stagger
+      a.addEventListener('pointerenter', function () { place(a); });
+      a.addEventListener('focus', function () { place(a); });
+    }, links);
+    links.addEventListener('pointerleave', function () { place(here); });
+    links.addEventListener('focusout', function (e) { if (!links.contains(e.relatedTarget)) place(here); });
+    var rest = function () { place(here, true); };
+    window.addEventListener('resize', rest);
+    if (doc.fonts && doc.fonts.ready) doc.fonts.ready.then(rest);
+    rest();
+  }
+
+  /* ---------- a nav link to the page you are on glides back to its top (or to its section); other pages open at their top ---------- */
+  function bare(path) { return path.replace(/index\.html$/, ''); }
+  if (nav) {
+    each('a[href]', function (a) {
+      a.addEventListener('click', function (e) {
+        if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        var u;
+        try { u = new URL(a.getAttribute('href'), location.href); } catch (err) { return; }
+        if (u.origin !== location.origin || bare(u.pathname) !== bare(location.pathname)) return;
+        var target = u.hash.length > 1 ? doc.getElementById(decodeURIComponent(u.hash.slice(1))) : null;
+        e.preventDefault();
+        setMenu(false);
+        if (target) {
+          glide(target);
+          if (location.hash !== u.hash) history.pushState(null, '', u.hash);
+          if (e.detail === 0) {  // from the keyboard: the next Tab continues from the section
+            if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+            target.focus({ preventScroll: true });
+          }
+        } else {
+          glide(null);
+          if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+        }
+      });
+    }, nav);
+  }
+
+  /* ---------- back to the top: bottom right, once the page has moved; the ring shows how far you have read ---------- */
+  var up = doc.createElement('button');
+  up.type = 'button';
+  up.className = 'totop';
+  up.setAttribute('aria-label', 'Back to the top');
+  up.innerHTML = '<svg class="totop__ring" viewBox="0 0 52 52" aria-hidden="true" focusable="false"><circle class="totop__track" cx="26" cy="26" r="25"/><circle class="totop__bar" cx="26" cy="26" r="25" pathLength="100"/></svg>'
+    + '<svg class="i totop__arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 19V5.5M5.5 11.5L12 5l6.5 6.5"/></svg>';
+  doc.body.appendChild(up);
+  var upQueued = false;
+  function upDraw() {
+    upQueued = false;
+    var y = window.scrollY || doc.documentElement.scrollTop || 0;
+    var max = Math.max(1, doc.documentElement.scrollHeight - window.innerHeight);
+    up.style.setProperty('--p', Math.min(1, y / max).toFixed(4));
+    up.classList.toggle('is-on', y > Math.min(640, window.innerHeight * 0.75));
+  }
+  function upQueue() { if (!upQueued) { upQueued = true; requestAnimationFrame(upDraw); } }
+  window.addEventListener('scroll', upQueue, { passive: true });
+  window.addEventListener('resize', upQueue);
+  upDraw();
+  up.addEventListener('click', function () {
+    glide(null);
+    var brand = nav ? nav.querySelector('.nav__brand') : null;
+    if (brand && brand.focus) brand.focus({ preventScroll: true });
+  });
 
   /* ---------- versions.json ---------- */
   var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
