@@ -10,11 +10,13 @@
 <meta property="og:site_name" content="Fenrir">
 <meta property="og:title" content="Fenrir FAQ">
 <meta property="og:description" content="What each message means and what to press. Run the Doctor first; the rest is here.">
-<meta property="og:image" content="https://iksamxul.github.io/fenrir/assets/wolf.png">
-<meta property="og:image:width" content="256">
-<meta property="og:image:height" content="256">
-<meta property="og:image:alt" content="The Fenrir wolf mark">
-<meta name="twitter:card" content="summary">
+<meta property="og:url" content="https://iksamxul.github.io/fenrir/faq">
+<meta property="og:image" content="https://iksamxul.github.io/fenrir/assets/social.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Fenrir: host your world, send one link. Beside it, the Fenrir Dashboard.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://iksamxul.github.io/fenrir/faq">
 <link rel="icon" href="assets/fenrir.svg" type="image/svg+xml">
 <link rel="icon" href="assets/wolf.png" type="image/png" sizes="256x256">
 <link rel="apple-touch-icon" href="assets/wolf.png">
@@ -99,6 +101,7 @@
       <span class="nav__pill" aria-hidden="true"></span>
       <a href="host">Fenrir</a>
       <a href="connect">Fenrir Connect</a>
+      <a href="link">Fenrir Link</a>
       <a href="./#one-link">How it works</a>
       <a href="faq" aria-current="page">FAQ</a>
     </nav>
@@ -126,7 +129,7 @@
     <div class="wrap faq">
       <div class="faq__tools">
         <label class="faq__field" for="faq-q"><span class="sr">Find a question</span><svg class="i" aria-hidden="true"><use href="#i-search"/></svg><input id="faq-q" type="search" placeholder="Find a question: whitelist, link, crash, backup" autocomplete="off"></label>
-        <span class="faq__count" id="faq-count" aria-live="polite">25 questions</span>
+        <span class="faq__count" id="faq-count" aria-live="polite">30 questions</span>
       </div>
 
       <div class="faq__group" id="start">
@@ -184,6 +187,17 @@
         </div>
       </div>
 
+      <div class="faq__group" id="link">
+        <h2>Fenrir Link</h2>
+        <div class="faq__list">
+          <details class="qa" id="link-what"><summary>What is Fenrir Link?<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>The phone app for Fenrir and Fenrir Connect. Hosts run their server from the phone: start, stop, who is on, friends who want to play. Friends see whether the world is up, answer game nights and chat. It is on the <a href="link">Fenrir Link page</a>.</p></div></details>
+          <details class="qa" id="link-code"><summary>Where is my code?<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>On the PC that hosts, open Fenrir: the Fenrir Link card on the Dashboard shows it. Friends open Fenrir Connect: their code is on the You card. In the app, press +, then Scan a code.</p></div></details>
+          <details class="qa" id="link-store"><summary>Why is it not in the App Store or Google Play?<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>Fenrir is free and has no store accounts. Android installs the APK straight from the download. iPhone installs it through AltStore or Sideloadly on a computer, which sign it with your own Apple ID.</p></div></details>
+          <details class="qa" id="link-secure"><summary>The Fenrir Link card says the code needs a secure address.<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>Your server’s code only works over https. Turn on Cloudflare or Tailscale under Network &amp; Cloud, then the card shows the code.</p></div></details>
+          <details class="qa" id="link-stopped"><summary>My code stopped working.<svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></summary><div class="qa__a"><p>Its key was replaced, or the phone remote was turned off. Show the code again in Fenrir or Fenrir Connect and scan it. The app says so when a code no longer works.</p></div></details>
+        </div>
+      </div>
+
       <p class="faq__empty" id="faq-empty" hidden>No question matches that. Try a shorter word, or open the Doctor in Fenrir.</p>
 
       <div class="panel">
@@ -199,7 +213,7 @@
 <footer class="foot">
   <div class="wrap foot__grid">
     <div class="foot__brand"><span class="logo" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 64 64" focusable="false"><use href="#fenrir-mark-a"/></svg><span class="lg-b"><svg width="40" height="40" viewBox="0 0 64 64" focusable="false"><use href="#fenrir-mark-b"/></svg></span></span><div><b>Fenrir</b><span>Modded Minecraft for friends, hosted on your own PC.</span></div></div>
-    <nav class="foot__nav" aria-label="Footer"><a href="host">Fenrir</a><a href="connect">Fenrir Connect</a><a href="download">Download</a><a href="faq">FAQ</a></nav>
+    <nav class="foot__nav" aria-label="Footer"><a href="host">Fenrir</a><a href="connect">Fenrir Connect</a><a href="link">Fenrir Link</a><a href="download">Download</a><a href="faq">FAQ</a></nav>
     <p class="foot__builds"><span data-vt="Current build, released {released}">Current build</span></p>
   </div>
   <div class="wrap foot__fine">

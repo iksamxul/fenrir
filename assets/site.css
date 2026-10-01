@@ -491,7 +491,7 @@ kbd {
 @media (max-width: 380px) { .nav__end { gap: 4px; } .nav__end .btn--sm { padding: 0 13px; } .nav__brand span { display: none; } }
 
 /* ---------- 6. Night sky: stars and aurora ------------------------------- */
-.sky { position: relative; isolation: isolate; overflow: clip; }
+.sky { position: relative; isolation: isolate; overflow-x: clip; }   /* sideways only: the aurora and glows fade out on their own, never on a cut line */
 .sky__stars { position: absolute; inset: 0; z-index: -2; pointer-events: none; opacity: var(--stars);
   background-image:
     radial-gradient(circle 0.8px at 335px 81px, var(--star) 55%, transparent 100%),
@@ -569,6 +569,7 @@ kbd {
 .phero { padding-top: clamp(36px, 7vh, 96px); padding-bottom: clamp(44px, 6vw, 88px); text-align: center; }
 .phero .lead { margin: 24px auto 0; }
 .phero__cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 32px; }
+.phero--lost { min-height: calc(100svh - 260px); display: grid; align-content: center; }   /* the 404 page: the message sits mid-screen, the footer at the bottom */
 
 /* ---------- 8. Scenes ---------------------------------------------------- */
 .scene { position: relative; isolation: isolate; overflow-x: clip; padding-block: var(--scene-pad); }
@@ -1016,7 +1017,9 @@ kbd {
 .cta .fine { margin-top: 20px; }
 
 /* ---------- 17. Footer --------------------------------------------------- */
-.foot { position: relative; border-top: 1px solid var(--line); padding-block: 56px 40px; background: var(--veil); font-size: var(--fs-sm); color: var(--ink-2); }
+.foot { position: relative; padding-block: 56px 40px; background: linear-gradient(to bottom, transparent, var(--veil) 72px); font-size: var(--fs-sm); color: var(--ink-2); }
+main:has(> .cta:last-child) + .foot { background: var(--veil); }   /* after the closing banner its veil simply goes on */
+.foot::before { content: ""; position: absolute; inset: 0 0 auto; height: 1px; pointer-events: none; background: linear-gradient(90deg, transparent, var(--line) 24%, var(--line) 76%, transparent); }   /* a hairline that fades at both ends */
 .foot__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; }
 .foot__brand { display: flex; align-items: flex-start; gap: 14px; }
 .foot__brand img, .foot__brand .logo { width: 40px; height: 40px; flex: none; }
@@ -1078,6 +1081,8 @@ kbd {
 .dl.is-chosen::after { opacity: 1; }
 .dl--connect { --accent-text: var(--teal-text); }
 .dl--connect::after { border-color: var(--teal); }
+.dl--wide { margin-top: 20px; }
+.dl--wide .dl__actions { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 12px 18px; }
 .dl__head { display: flex; align-items: center; gap: 16px; }
 .dl__head img { width: 56px; height: 56px; flex: none; }
 .dl__head h2 { font-size: clamp(1.625rem, 1.3rem + 1.2vw, 2.125rem); line-height: 1.1; }
@@ -1281,3 +1286,34 @@ html[data-slot="b"] .logo .lg-b { opacity: 1; }
 .totop__halo { stroke-width: 4; opacity: .08; }
 .totop__bar { stroke-width: 1.6; opacity: .92; }
 .totop__arrow { position: relative; z-index: 1; width: 15px; height: 15px; stroke-width: 2; filter: drop-shadow(0 1px 1.5px rgb(0 0 0 / .35)); transition: transform 360ms var(--ease-out); }
+
+/* ---------- 22. Fenrir Link, the phone app's page ---------- */
+.phero__meta { margin-top: 16px; }
+.phones { position: relative; display: flex; justify-content: center; align-items: flex-end; padding-top: 2%; }
+.phones .phone { width: min(30vw, 300px); flex: none; }
+.phones__main { position: relative; z-index: 2; }
+.phones .phone.phones__side { position: absolute; bottom: 0; left: 50%; z-index: 1; width: min(25vw, 258px); opacity: .9; }
+.phones__side--l { transform: translateX(-120%) translateY(-5%) rotate(-7deg); }
+.phones__side--r { transform: translateX(20%) translateY(-5%) rotate(7deg); }
+@media (max-width: 720px) { .phones .phone { width: min(62vw, 280px); } .phones .phone.phones__side { display: none; } }
+.pair-steps { list-style: none; counter-reset: pair; margin: 24px 0 0; padding: 0; display: grid; gap: 14px; }
+.pair-steps li { counter-increment: pair; position: relative; padding-left: 46px; color: var(--ink-2); }
+.pair-steps li::before { content: counter(pair); position: absolute; left: 0; top: -3px; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%;
+  font: 700 .95rem/1 var(--font-display); color: var(--ice-ink); background: var(--ice); }
+.pair-steps b { color: var(--ink); }
+.pair-card { width: min(100%, 480px); margin-inline: auto; padding: 22px 24px; }
+.pair-card__head { display: flex; align-items: center; gap: 12px; }
+.pair-card__head b { display: block; font: 700 1.1rem/1.2 var(--font-display); color: var(--ink); }
+.pair-card__head small { color: var(--ink-3); }
+.pair-card__body { display: grid; grid-template-columns: 132px minmax(0, 1fr); gap: 20px; align-items: center; margin-top: 20px; }
+.pair-card__qr { display: block; width: 132px; height: 132px; border-radius: 14px; box-shadow: var(--shadow-card); }  /* the code keeps its own white ground: scanners want dark on light */
+.pair-card__body b { color: var(--ink); }
+.pair-card__body p { margin: 6px 0 12px; color: var(--ink-2); font-size: .95rem; }
+.m-chip { display: inline-flex; align-items: center; min-height: 28px; padding: 0 12px; border-radius: var(--r-pill); font-size: .8rem; font-weight: 600; color: var(--accent-text); background: color-mix(in srgb, var(--accent-text) 12%, transparent); }
+@media (max-width: 480px) { .pair-card__body { grid-template-columns: 1fr; justify-items: start; } }
+.safe-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 16px; }
+.safe-grid .panel .i { width: 28px; height: 28px; color: var(--accent-text); }
+.safe-grid .panel h3 { margin: 14px 0 8px; font: 700 1.2rem/1.25 var(--font-display); color: var(--ink); }
+.safe-grid .panel p { margin: 0; color: var(--ink-2); }
+.steps-mini { margin: 18px 0 6px; padding-left: 1.25em; display: grid; gap: 7px; color: var(--ink-2); font-size: .95rem; }
+.steps-mini b { color: var(--ink); }
