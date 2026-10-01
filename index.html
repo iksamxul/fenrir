@@ -10,11 +10,13 @@
 <meta property="og:site_name" content="Fenrir">
 <meta property="og:title" content="Fenrir">
 <meta property="og:description" content="Host a modded Minecraft world for your friends from one Windows PC. One link per friend, free, no router changes.">
-<meta property="og:image" content="https://iksamxul.github.io/fenrir/assets/wolf.png">
-<meta property="og:image:width" content="256">
-<meta property="og:image:height" content="256">
-<meta property="og:image:alt" content="The Fenrir wolf mark">
-<meta name="twitter:card" content="summary">
+<meta property="og:url" content="https://iksamxul.github.io/fenrir/">
+<meta property="og:image" content="https://iksamxul.github.io/fenrir/assets/social.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Fenrir: host your world, send one link. Beside it, the Fenrir Dashboard.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://iksamxul.github.io/fenrir/">
 <link rel="icon" href="assets/fenrir.svg" type="image/svg+xml">
 <link rel="icon" href="assets/wolf.png" type="image/png" sizes="256x256">
 <link rel="apple-touch-icon" href="assets/wolf.png">
@@ -109,6 +111,7 @@
       <span class="nav__pill" aria-hidden="true"></span>
       <a href="host">Fenrir</a>
       <a href="connect">Fenrir Connect</a>
+      <a href="link">Fenrir Link</a>
       <a href="#one-link">How it works</a>
       <a href="faq">FAQ</a>
     </nav>
@@ -309,10 +312,10 @@
       </div>
       <div class="scene__visual scene__visual--bleed arrange mock">
         <div class="glow" aria-hidden="true"></div>
-        <figure class="frame frame--invert">
+        <figure class="frame">
           <div class="frame__bar" aria-hidden="true"><i></i><i></i><i></i><b>Fenrir · Layout</b></div>
           <div class="frame__view" data-name="Dashboard">
-            <picture><source srcset="assets/shots/dashboard-light.png" media="(prefers-color-scheme: dark)" data-when="dark"><img src="assets/shots/dashboard.png" width="2880" height="1800" alt="The Fenrir Dashboard in the other colour mode, with its Layout button at the top right of the server card." loading="lazy" decoding="async"></picture>
+            <picture><source srcset="assets/shots/dashboard-light.png" media="(prefers-color-scheme: light)" data-when="light"><img src="assets/shots/dashboard.png" width="2880" height="1800" alt="The Fenrir Dashboard, with its Layout button at the top right of the server card." loading="lazy" decoding="async"></picture>
           </div>
         </figure>
         <div class="arrange__lift"  role="img" aria-label="A Friends card lifted by its handle in Layout mode, set to half width: Iksamxul is in the world, ChecoPecko is installing the pack, Mogwai has the link.">
@@ -428,9 +431,10 @@
   <section class="scene" id="phone" aria-labelledby="t-phone">
     <div class="wrap scene__grid">
       <div class="scene__copy">
-        <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Phone remote</p>
+        <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Fenrir Link</p>
         <h2 class="title" id="t-phone"><span class="line">Start the world</span> <span class="line accent">from the sofa.</span></h2>
-        <p class="copy">Scan a code and add the page to your home screen. Start, stop and restart, message everyone, back up and run commands. It has its own key and stays off until you turn it on.</p>
+        <p class="copy">Fenrir Link puts your server on your phone. Scan your code from the Dashboard once, then start, stop and restart, see who is on, answer friends who want to play and message everyone. Friends scan their own code in Fenrir Connect.</p>
+        <a class="more" href="link">Meet Fenrir Link <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </div>
       <div class="scene__visual pocket">
         <div class="glow" aria-hidden="true"></div>
@@ -438,7 +442,7 @@
           <div class="phone__screen">
             <div class="phone__status" aria-hidden="true"><span>21:04</span><span><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span></div>
             <div class="phone__notch" aria-hidden="true"></div>
-            <picture><source srcset="assets/shots/remote-light.png" media="(prefers-color-scheme: light)" data-when="light"><img src="assets/shots/remote.png" width="860" height="1800" alt="The phone remote: three players are online on All the Mods 10 with TPS 19.7, a note from the Doctor, Restart and Stop buttons, and a Kick button beside each player." loading="lazy" decoding="async"></picture>
+            <picture><source srcset="assets/shots/link-host-light.png" media="(prefers-color-scheme: light)" data-when="light"><img src="assets/shots/link-host.png" width="860" height="1800" alt="Fenrir Link on a phone: your server online with three players, Restart and Stop, the players with Kick buttons and a box to message everyone." loading="lazy" decoding="async"></picture>
           </div>
         </div>
         <div class="chip pocket__ask"><span class="m-av m-av--sm" aria-hidden="true">I</span><span><b>Iksamxul wants to play</b><small>Start the world · Not now</small></span></div>
@@ -523,7 +527,7 @@
 <footer class="foot">
   <div class="wrap foot__grid">
     <div class="foot__brand"><span class="logo" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 64 64" focusable="false"><use href="#fenrir-mark-a"/></svg><span class="lg-b"><svg width="40" height="40" viewBox="0 0 64 64" focusable="false"><use href="#fenrir-mark-b"/></svg></span></span><div><b>Fenrir</b><span>Modded Minecraft for friends, hosted on your own PC.</span></div></div>
-    <nav class="foot__nav" aria-label="Footer"><a href="host">Fenrir</a><a href="connect">Fenrir Connect</a><a href="download">Download</a><a href="faq">FAQ</a></nav>
+    <nav class="foot__nav" aria-label="Footer"><a href="host">Fenrir</a><a href="connect">Fenrir Connect</a><a href="link">Fenrir Link</a><a href="download">Download</a><a href="faq">FAQ</a></nav>
     <p class="foot__builds"><span data-vt="Current build, released {released}">Current build</span></p>
   </div>
   <div class="wrap foot__fine">

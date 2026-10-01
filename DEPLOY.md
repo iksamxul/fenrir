@@ -4,12 +4,16 @@ The site is static: five HTML pages, one stylesheet, two small scripts and `vers
 
 ```
 site/
-  index.html  host.html  connect.html  download.html  faq.html  (fenrir.html only redirects to host)
+  index.html  host.html  connect.html  link.html  download.html  faq.html  (fenrir.html only redirects to host)
+  404.html               the page for a missing address (GitHub Pages serves it with a 404)
+  sitemap.xml  robots.txt  the five pages for search engines (robots.txt only counts at a domain's root)
   versions.json          file names, sizes, SHA-256, release date and notes, download base (the pages show no version numbers; the release tag uses the one kept here)
   assets/site.css        tokens, both themes, every component
   assets/site.js         theme toggle, menu, versions.json, FAQ, download chooser, copy buttons
   assets/motion.js       scroll reveals, counters, the magnetic button, frame tilt
   assets/fenrir.svg      assets/connect.svg      assets/wolf.png      assets/wolf-connect.png
+  assets/social.jpg  assets/social-connect.jpg  assets/social-link.jpg   the 1200x630 link previews (Open Graph and Twitter cards)
+  assets/link.svg  assets/link-qr.svg   Fenrir Link's mark, and a real QR code that opens the Link page
   assets/shots/          your screenshots go here (see below)
   deploy.ps1             optional: publish everything with the gh CLI
 ```

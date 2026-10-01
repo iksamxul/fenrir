@@ -159,11 +159,13 @@
           if (reduce) put(it, '', o);
           else put(it, 'translate3d(0,' + num(-0.35 * scrolled) + 'px,0)', o);
           break;
-        case 'aurora':
-          if (!reduce) put(it, 'translate3d(0,' + num(0.7 * scrolled) + 'px,0)', 1);
+        case 'aurora':                                             /* it trails the page and fades out before it could leave the hero */
+          o = 1 - clamp((scrolled - vh * 0.15) / (vh * 0.7), 0, 1);
+          if (reduce) put(it, '', o);
+          else put(it, 'translate3d(0,' + num(0.7 * scrolled) + 'px,0)', o);
           break;
         case 'hero-glow':
-          o = 1 - 0.6 * hp;
+          o = 1 - clamp(hp / 0.7, 0, 1);                           /* gone by the time it reaches the next section */
           if (reduce) put(it, '', o);
           else put(it, 'translate3d(0,' + num(0.45 * scrolled) + 'px,0)', o);
           break;
@@ -224,7 +226,7 @@
       var it = g.items[i];
       if (it.role === 'glow') glowState(it, e, x, s);
       else if (it.role === 'fore') foreState(it, e, s);
-      else if (it.role === 'aurora-scene') { if (!reduce) put(it, 'translate3d(0,' + num(clamp(0.5 * s, -220, 220)) + 'px,0)', 1); }
+      else if (it.role === 'aurora-scene') { if (!reduce) put(it, 'translate3d(0,' + num(clamp(0.5 * s, -220, 40)) + 'px,0)', 1); }   /* never down into the footer */
       else stageState(it, e, x, s, pass);
     }
   }

@@ -23,6 +23,8 @@
   The folder with FenrirSetup.exe, FenrirConnect.exe, Fenrir.exe and _internal. Default: the app folder next to this site folder.
 .PARAMETER Yes
   Go ahead without asking.
+.PARAMETER Trailer
+  A line added at the end of the site's commit message, for example a Co-Authored-By line.
 
 .EXAMPLE
   powershell -ExecutionPolicy Bypass -File .\site\deploy.ps1 -Owner your-name -Repo fenrir
@@ -32,7 +34,8 @@ param(
   [Parameter(Mandatory = $true)][ValidatePattern('^[A-Za-z0-9-]+$')][string] $Owner,
   [Parameter(Mandatory = $true)][ValidatePattern('^[A-Za-z0-9._-]+$')][string] $Repo,
   [string] $AppDir = '',
-  [switch] $Yes
+  [switch] $Yes,
+  [string] $Trailer = ''
 )
 
 $ErrorActionPreference = 'Stop'
@@ -91,6 +94,8 @@ if (-not $gitName -or -not $gitMail) {
 $setup = Join-Path $AppDir 'FenrirSetup.exe'
 $connect = Join-Path $AppDir 'FenrirConnect.exe'
 $hostExe = Join-Path $AppDir 'Fenrir.exe'
+$linkApk = Join-Path $AppDir 'FenrirLink.apk'  # the phone app, when its build is in the app folder (from the fenrir-link repository)
+$linkIpa = Join-Path $AppDir 'FenrirLink.ipa'
 $internal = Join-Path $AppDir '_internal'
 foreach ($f in @($setup, $connect, $hostExe, $internal)) {
   if (-not (Test-Path -LiteralPath $f)) { Fail "Missing $f. Build the apps first (python fenrir\build\build.py) or pass -AppDir." }
@@ -116,6 +121,7 @@ Write-Host "  App folder:   $AppDir"
 Write-Host "  Repository:   https://github.com/$Slug (public)"
 Write-Host "  Website:      $pagesUrl"
 Write-Host "  Release:      $tag with FenrirSetup.exe, FenrirConnect.exe and Fenrir-portable.zip"
+if ((Test-Path -LiteralPath $linkApk) -or (Test-Path -LiteralPath $linkIpa)) { Write-Host '                and Fenrir Link for phones (FenrirLink.apk, FenrirLink.ipa)' }
 Write-Host ''
 Write-Host 'It zips the portable Fenrir, fills in versions.json and the link-preview address in the pages,'
 Write-Host 'commits and pushes the site folder, turns on GitHub Pages and uploads the release files.'
@@ -148,6 +154,8 @@ $files = @(
   @{ Key = 'connect'; Path = $connect },
   @{ Key = 'portable'; Path = $zip }
 )
+if (Test-Path -LiteralPath $linkApk) { $files += @{ Key = 'linkAndroid'; Path = $linkApk } }
+if (Test-Path -LiteralPath $linkIpa) { $files += @{ Key = 'linkIphone'; Path = $linkIpa } }
 foreach ($f in $files) {
   $size = (Get-Item -LiteralPath $f.Path).Length
   $sha = (Get-FileHash -LiteralPath $f.Path -Algorithm SHA256).Hash.ToLowerInvariant()
@@ -172,7 +180,9 @@ try {
   if (-not (Test-Path -LiteralPath (Join-Path $Site '.git'))) { Run 'git' @('init', '-b', 'main') }
   Run 'git' @('add', '-A')
   $pending = & git status --porcelain
-  if ($pending) { Run 'git' @('commit', '-m', "Fenrir site for build $version") } else { Write-Host '  Nothing new to commit.' }
+  $message = "Fenrir site for build $version"
+  if ($Trailer) { $message += "`n`n$Trailer" }
+  if ($pending) { Run 'git' @('commit', '-m', $message) } else { Write-Host '  Nothing new to commit.' }
   $branch = (& git rev-parse --abbrev-ref HEAD | Out-String).Trim()
 
   $remotes = @(& git remote)
@@ -194,6 +204,7 @@ try {
   foreach ($n in @($v.notes)) { $lines += "- $n" }
   [System.IO.File]::WriteAllText($notesFile, ($lines -join "`n"), $Utf8)
   $assets = @($setup, $connect, $zip)
+  foreach ($phone in @($linkApk, $linkIpa)) { if (Test-Path -LiteralPath $phone) { $assets += $phone } }
   if ((Invoke-Tool 'gh' @('release', 'view', $tag, '--repo', $Slug) -Quiet) -eq 0) {
     Run 'gh' (@('release', 'upload', $tag) + $assets + @('--repo', $Slug, '--clobber'))
   } else {

@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fenrir Link</title>
+<meta name="description" content="Fenrir Link is the phone app for Fenrir and Fenrir Connect. Scan your code once and your phone keeps it like a passkey: start the world, see who is on, answer game nights and chat.">
+<meta name="theme-color" content="#0b0f17">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Fenrir">
+<meta property="og:title" content="Fenrir Link">
+<meta property="og:description" content="Your world, in your pocket. Scan your code from Fenrir or Fenrir Connect once, for Android and iPhone.">
+<meta property="og:url" content="https://iksamxul.github.io/fenrir/link">
+<meta property="og:image" content="https://iksamxul.github.io/fenrir/assets/social-link.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Fenrir Link: your world, in your pocket. Beside it, the app on a phone.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://iksamxul.github.io/fenrir/link">
+<link rel="icon" href="assets/link.svg" type="image/svg+xml">
+<link rel="icon" href="assets/wolf-connect.png" type="image/png" sizes="256x256">
+<link rel="apple-touch-icon" href="assets/wolf-connect.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Outfit:wght@700;800&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+<script>(function(r){r.classList.add('js');try{var t=localStorage.getItem('fenrir-theme');if(t==='light'||t==='dark')r.setAttribute('data-theme',t)}catch(e){}var m=window.matchMedia;if(!(m&&m('(prefers-reduced-motion: reduce)').matches)){var p=['fenrir','midnight','sakura','ember','yggdrasil','aurora','snow','graphite'][Math.floor(Date.now()/3140)%8];r.setAttribute('data-palette',p);r.setAttribute('data-pa',p);r.setAttribute('data-pb',p);r.setAttribute('data-slot','a')}})(document.documentElement)</script>
+<script src="assets/site.js" defer></script>
+<script src="assets/motion.js" defer></script>
+</head>
+<body>
+<div class="atmos" aria-hidden="true"><i class="atmos__a"></i><i class="atmos__b"></i></div>
+<div class="top-sentinel" aria-hidden="true"></div>
+<svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+<symbol id="rune" viewBox="0 0 24 24"><path d="M12 3v18M12 8l6-3.5M12 8L6 4.5M12 14l6 3.5M12 14l-6 3.5"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+<symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v11M7 10.5l5 5 5-5M5 19.5h14"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+<symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></symbol>
+<symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 8.5h16M4 15.5h16"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></symbol>
+<symbol id="i-link" viewBox="0 0 24 24"><path d="M10.5 13.5a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66L12.4 5.9M13.5 10.5a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1.1-1.06"/></symbol>
+<symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.8v12.4a.8.8 0 0 0 1.2.7l9.9-6.2a.8.8 0 0 0 0-1.4L9.2 5.1A.8.8 0 0 0 8 5.8z"/></symbol>
+<symbol id="i-phone" viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="18" rx="2.5"/><path d="M11 17.5h2"/></symbol>
+<symbol id="i-pc" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="12" rx="2"/><path d="M9 20h6M12 16.5V20"/></symbol>
+<symbol id="i-disk" viewBox="0 0 24 24"><rect x="3.5" y="6" width="17" height="12" rx="2.5"/><path d="M10.5 14.5h6M7 14.5h.01"/></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="9.5" rx="2.5"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/></symbol><symbol id="i-refresh" viewBox="0 0 24 24"><path d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3L19.5 9"/><path d="M19.5 4.5V9H15"/></symbol><symbol id="i-calendar" viewBox="0 0 24 24"><rect x="4.5" y="5.5" width="15" height="14" rx="2.5"/><path d="M4.5 10h15M9 3.5v4M15 3.5v4"/></symbol><symbol id="i-chat" viewBox="0 0 24 24"><path d="M6 18.5l-1.5 2.5 4-1.5h8a3 3 0 0 0 3-3v-8a3 3 0 0 0-3-3h-9a3 3 0 0 0-3 3v7.5a3 3 0 0 0 1.5 2.5z"/></symbol><symbol id="i-copy" viewBox="0 0 24 24"><rect x="8.5" y="8.5" width="11" height="11" rx="2.5"/><path d="M15.5 8.5V7A2.5 2.5 0 0 0 13 4.5H7A2.5 2.5 0 0 0 4.5 7v6A2.5 2.5 0 0 0 7 15.5h1.5"/></symbol><symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3.5l7 2.8v5.2c0 4.3-2.9 7.6-7 9-4.1-1.4-7-4.7-7-9V6.3z"/><path d="M8.8 12l2.2 2.2 4.2-4.4"/></symbol>
+<symbol id="i-pulse" viewBox="0 0 24 24"><path d="M3 12h4l2.5-5.5 4 11 2.5-5.5H21"/></symbol>
+<symbol id="i-history" viewBox="0 0 24 24"><path d="M4.5 12a7.5 7.5 0 1 0 2.2-5.3L4.5 9"/><path d="M4.5 4.5V9H9M12 8v4.5l3 1.8"/></symbol>
+<symbol id="i-wolf" viewBox="0 0 64 64"><path d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z"/><path d="M14 32.5L27.6 36.2L28.6 38.2L15 35ZM50 32.5L36.4 36.2L35.4 38.2L49 35ZM27 45.5H37L32 51.5Z" fill="currentColor" stroke="none"/></symbol>
+</svg>
+<svg class="sprite logo-defs" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="fma-tile" x1="0" y1="0" x2="1" y2="1"><stop offset="0" class="fma-tile-a"/><stop offset="1" class="fma-tile-b"/></linearGradient>
+<radialGradient id="fma-halo" cx=".5" cy=".46" r=".6"><stop offset="0" class="fma-halo-a"/><stop offset="1" class="fma-halo-b"/></radialGradient>
+<linearGradient id="fma-rim" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".42"/><stop offset=".55" stop-color="#ffffff" stop-opacity=".05"/><stop offset="1" class="fma-rim-c"/></linearGradient>
+<linearGradient id="fma-glass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" class="fma-glass-a"/><stop offset="1" class="fma-glass-b"/></linearGradient>
+<linearGradient id="fmb-tile" x1="0" y1="0" x2="1" y2="1"><stop offset="0" class="fmb-tile-a"/><stop offset="1" class="fmb-tile-b"/></linearGradient>
+<radialGradient id="fmb-halo" cx=".5" cy=".46" r=".6"><stop offset="0" class="fmb-halo-a"/><stop offset="1" class="fmb-halo-b"/></radialGradient>
+<linearGradient id="fmb-rim" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".42"/><stop offset=".55" stop-color="#ffffff" stop-opacity=".05"/><stop offset="1" class="fmb-rim-c"/></linearGradient>
+<linearGradient id="fmb-glass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" class="fmb-glass-a"/><stop offset="1" class="fmb-glass-b"/></linearGradient>
+<linearGradient id="fm-sheen" x1="0" y1="0" x2=".35" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".16"/><stop offset=".5" stop-color="#ffffff" stop-opacity="0"/></linearGradient>
+<linearGradient id="fm-top" x1="0" y1="0" x2="0" y2="1"><stop offset=".05" stop-color="#ffffff"/><stop offset=".75" stop-color="#000000"/></linearGradient>
+<linearGradient id="fm-bot" x1="0" y1="0" x2="0" y2="1"><stop offset=".35" stop-color="#000000"/><stop offset="1" stop-color="#ffffff"/></linearGradient>
+<mask id="fm-mtop"><rect width="64" height="64" fill="url(#fm-top)"/></mask>
+<mask id="fm-mbot"><rect width="64" height="64" fill="url(#fm-bot)"/></mask>
+<clipPath id="fm-head"><path d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z"/></clipPath>
+<mask id="fm-cut"><rect width="64" height="64" fill="#ffffff"/><path d="M14 32.5L27.6 36.2L28.6 38.2L15 35ZM50 32.5L36.4 36.2L35.4 38.2L49 35Z" fill="#000000"/><path d="M27 45.5H37L32 51.5Z" fill="#000000"/></mask>
+<filter id="fm-blurs" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2.4"/></filter>
+<filter id="fm-blurm" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="1.2"/></filter>
+<filter id="fm-blurt" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation=".55"/></filter>
+</defs>
+<symbol id="fenrir-mark-a" viewBox="0 0 64 64">
+<rect x="2" y="2" width="60" height="60" rx="16" fill="url(#fma-tile)"/><rect x="2" y="2" width="60" height="60" rx="16" fill="url(#fma-halo)"/><rect x="2" y="2" width="60" height="60" rx="16" fill="url(#fm-sheen)"/>
+<rect x="2.6" y="2.6" width="58.8" height="58.8" rx="15.4" fill="none" stroke="url(#fma-rim)" stroke-width="1.2"/>
+<g transform="translate(32 32) scale(.76) translate(-32 -32.5)">
+<path d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z" fill="#000000" opacity=".6" stroke="#000000" stroke-width="2" stroke-linejoin="round" transform="translate(0 3)" filter="url(#fm-blurs)"/>
+<g mask="url(#fm-cut)">
+<path d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z" fill="url(#fma-glass)" stroke="url(#fma-glass)" stroke-width="2" stroke-linejoin="round"/>
+<g clip-path="url(#fm-head)" mask="url(#fm-mbot)"><path class="fma-deep" d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z" fill="none" stroke-opacity=".5" stroke-width="4" stroke-linejoin="round" filter="url(#fm-blurt)"/></g>
+<g clip-path="url(#fm-head)" mask="url(#fm-mtop)"><path d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z" fill="none" stroke="#ffffff" stroke-width="1.6" stroke-linejoin="round" transform="translate(0 .7)"/></g>
+<ellipse cx="25" cy="21" rx="9" ry="4" fill="#ffffff" opacity=".55" filter="url(#fm-blurm)" transform="rotate(-28 25 21)"/>
+</g>
+</g>
+</symbol>
+<symbol id="fenrir-mark-b" viewBox="0 0 64 64">
+<rect x="2" y="2" width="60" height="60" rx="16" fill="url(#fmb-tile)"/><rect x="2" y="2" width="60" height="60" rx="16" fill="url(#fmb-halo)"/><rect x="2" y="2" width="60" height="60" rx="16" fill="url(#fm-sheen)"/>
+<rect x="2.6" y="2.6" width="58.8" height="58.8" rx="15.4" fill="none" stroke="url(#fmb-rim)" stroke-width="1.2"/>
+<g transform="translate(32 32) scale(.76) translate(-32 -32.5)">
+<path d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z" fill="#000000" opacity=".6" stroke="#000000" stroke-width="2" stroke-linejoin="round" transform="translate(0 3)" filter="url(#fm-blurs)"/>
+<g mask="url(#fm-cut)">
+<path d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z" fill="url(#fmb-glass)" stroke="url(#fmb-glass)" stroke-width="2" stroke-linejoin="round"/>
+<g clip-path="url(#fm-head)" mask="url(#fm-mbot)"><path class="fmb-deep" d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z" fill="none" stroke-opacity=".5" stroke-width="4" stroke-linejoin="round" filter="url(#fm-blurt)"/></g>
+<g clip-path="url(#fm-head)" mask="url(#fm-mtop)"><path d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z" fill="none" stroke="#ffffff" stroke-width="1.6" stroke-linejoin="round" transform="translate(0 .7)"/></g>
+<ellipse cx="25" cy="21" rx="9" ry="4" fill="#ffffff" opacity=".55" filter="url(#fm-blurm)" transform="rotate(-28 25 21)"/>
+</g>
+</g>
+</symbol>
+</svg>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" data-nav>
+  <div class="nav__in">
+    <a class="nav__brand" href="./" aria-label="Fenrir, home"><span class="logo" aria-hidden="true"><svg width="32" height="32" viewBox="0 0 64 64" focusable="false"><use href="#fenrir-mark-a"/></svg><span class="lg-b"><svg width="32" height="32" viewBox="0 0 64 64" focusable="false"><use href="#fenrir-mark-b"/></svg></span></span><span>Fenrir</span></a>
+    <nav class="nav__links" id="nav-links" aria-label="Main">
+      <span class="nav__pill" aria-hidden="true"></span>
+      <a href="host">Fenrir</a>
+      <a href="connect">Fenrir Connect</a>
+      <a href="link" aria-current="page">Fenrir Link</a>
+      <a href="./#one-link">How it works</a>
+      <a href="faq">FAQ</a>
+    </nav>
+    <div class="nav__end">
+      <button class="nav__icon" type="button" data-theme-toggle aria-label="Switch to light theme"><svg class="i t-sun" aria-hidden="true"><use href="#i-sun"/></svg><svg class="i t-moon" aria-hidden="true"><use href="#i-moon"/></svg></button>
+      <a class="btn btn--primary btn--sm" href="download">Download</a>
+      <button class="nav__icon nav__menu" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open the menu"><span class="burger" aria-hidden="true"><i></i><i></i></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="page-link">
+
+  <!-- Hero: three phones -->
+  <section class="phero sky" aria-labelledby="page-title" data-ambient>
+    <div class="sky__stars" aria-hidden="true"></div>
+    <div class="aurora" aria-hidden="true"><div class="aurora__haze"></div><div class="aurora__band"></div></div>
+    <div class="wrap">
+      <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Fenrir Link, for your phone</p>
+      <h1 class="page-title" id="page-title"><span class="line">Your world.</span> <span class="line accent">In your pocket.</span></h1>
+      <p class="lead">Scan your code from Fenrir or Fenrir Connect once, and your phone keeps it like a passkey. Start the world from the sofa, see who is on, answer game nights and chat with everyone in the world.</p>
+      <div class="phero__cta">
+        <a class="btn btn--primary btn--lg" data-v-href="linkAndroid" role="link" aria-disabled="true"><svg class="i" aria-hidden="true"><use href="#i-down"/></svg>Get it for Android</a>
+        <a class="btn btn--ghost btn--lg" href="#iphone">Get it for iPhone</a>
+      </div>
+      <p class="fine phero__meta">Free. Android 8 and later, or iPhone through AltStore or Sideloadly.</p>
+    </div>
+    <div class="hero__stage phones-stage">
+      <div class="hero__glow" aria-hidden="true" data-parallax-glow></div>
+      <div class="hero__float phones" data-parallax>
+        <div class="phone phones__side phones__side--l" aria-hidden="true">
+          <div class="phone__screen">
+            <div class="phone__status"><span>21:04</span><span><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span></div>
+            <div class="phone__notch"></div>
+            <picture><source srcset="assets/shots/link-home-light.png" media="(prefers-color-scheme: light)" data-when="light"><img src="assets/shots/link-home.png" width="860" height="1800" alt="" loading="lazy" decoding="async"></picture>
+          </div>
+        </div>
+        <div class="phone phones__main">
+          <div class="phone__screen">
+            <div class="phone__status" aria-hidden="true"><span>21:04</span><span><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span></div>
+            <div class="phone__notch" aria-hidden="true"></div>
+            <picture><source srcset="assets/shots/link-host-light.png" media="(prefers-color-scheme: light)" data-when="light"><img src="assets/shots/link-host.png" width="860" height="1800" alt="Fenrir Link on a phone, showing Icarus's server online with three players, its TPS and tick time, Restart and Stop buttons, the players with Kick buttons, and a box to message everyone." fetchpriority="high" decoding="async"></picture>
+          </div>
+        </div>
+        <div class="phone phones__side phones__side--r" aria-hidden="true">
+          <div class="phone__screen">
+            <div class="phone__status"><span>21:04</span><span><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span></div>
+            <div class="phone__notch"></div>
+            <picture><source srcset="assets/shots/link-friend-light.png" media="(prefers-color-scheme: light)" data-when="light"><img src="assets/shots/link-friend.png" width="860" height="1800" alt="" loading="lazy" decoding="async"></picture>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pairing -->
+  <section class="scene" id="pair" aria-labelledby="t-pair">
+    <div class="wrap scene__grid">
+      <div class="scene__copy">
+        <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Linking a world</p>
+        <h2 class="title" id="t-pair"><span class="line">Two codes.</span> <span class="line accent">One app.</span></h2>
+        <p class="copy">Every person has a code of their own, and the code is the key. Scan it once and the phone keeps it in its keychain, so there is no account and no password.</p>
+        <ol class="pair-steps">
+          <li><b>Your own server.</b> Open Fenrir on the PC that hosts. The Fenrir Link card on the Dashboard shows your code.</li>
+          <li><b>A friend's world.</b> Open Fenrir Connect. Your code is on the You card.</li>
+          <li><b>Your phone.</b> Open Fenrir Link, press +, then Scan a code. That is the whole setup.</li>
+        </ol>
+      </div>
+      <div class="scene__visual">
+        <div class="glow" aria-hidden="true"></div>
+        <div class="m-card pair-card">
+          <div class="pair-card__head"><img src="assets/link.svg" width="44" height="44" alt=""><div><b>Fenrir Link</b><small>your server on your phone</small></div></div>
+          <div class="pair-card__body">
+            <img class="pair-card__qr" src="assets/link-qr.svg" width="132" height="132" alt="A QR code. Scan it with your phone to open this page.">
+            <div><b>Scan it with Fenrir Link</b><p>Open the app, press +, then Scan a code. Friends scan their own code in Fenrir Connect.</p><span class="m-chip">This code opens this page</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Your server -->
+  <section class="scene scene--deep scene--flip" id="host" aria-labelledby="t-host">
+    <div class="wrap scene__grid">
+      <div class="scene__copy">
+        <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Your server</p>
+        <h2 class="title" id="t-host"><span class="line">Start the world</span> <span class="line accent">from the sofa.</span></h2>
+        <p class="copy">Start, stop and restart. Stopping while friends are on asks twice and names who is playing. See who is in, kick someone, answer friends who asked to play, message everyone and start a backup. The Doctor's most urgent finding sits at the top.</p>
+      </div>
+      <div class="scene__visual pocket">
+        <div class="glow" aria-hidden="true"></div>
+        <div class="phone">
+          <div class="phone__screen">
+            <div class="phone__status" aria-hidden="true"><span>21:04</span><span><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span></div>
+            <div class="phone__notch" aria-hidden="true"></div>
+            <picture><source srcset="assets/shots/link-host-light.png" media="(prefers-color-scheme: light)" data-when="light"><img src="assets/shots/link-host.png" width="860" height="1800" alt="Your server in Fenrir Link: online with three players, Restart and Stop, players with Kick buttons, a message box and the friends' states." loading="lazy" decoding="async"></picture>
+          </div>
+        </div>
+        <div class="chip pocket__ask"><span class="m-av m-av--sm" aria-hidden="true">M</span><span><b>Mogwai wants to play</b><small>Start the world · Not now</small></span></div>
+        <div class="chip pocket__alert"><svg class="i" aria-hidden="true"><use href="#i-shield"/></svg><span><b>3 friends are playing</b><small>Stop anyway?</small></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- A friend's world -->
+  <section class="scene" id="friend" aria-labelledby="t-friend">
+    <div class="wrap scene__grid">
+      <div class="scene__copy">
+        <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>A friend's world</p>
+        <h2 class="title" id="t-friend"><span class="line">Is everyone on?</span> <span class="line accent">Look before you go.</span></h2>
+        <p class="copy">See whether the world is up and who is playing. Ask your host to start it, answer the next game night and chat with everyone in the world, from wherever you are.</p>
+      </div>
+      <div class="scene__visual pocket">
+        <div class="glow glow--teal" aria-hidden="true"></div>
+        <div class="phone">
+          <div class="phone__screen">
+            <div class="phone__status" aria-hidden="true"><span>21:04</span><span><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span></div>
+            <div class="phone__notch" aria-hidden="true"></div>
+            <picture><source srcset="assets/shots/link-friend-light.png" media="(prefers-color-scheme: light)" data-when="light"><img src="assets/shots/link-friend.png" width="860" height="1800" alt="A friend's world in Fenrir Link: online with two players, the next game night with I'm in and Can't make it, and the world chat." loading="lazy" decoding="async"></picture>
+          </div>
+        </div>
+        <div class="chip pocket__ask"><svg class="i" aria-hidden="true"><use href="#i-calendar"/></svg><span><b>Friday game night</b><small>I'm in · Can't make it</small></span></div>
+        <div class="chip pocket__alert"><svg class="i" aria-hidden="true"><use href="#i-chat"/></svg><span><b>World chat</b><small>Everyone in the world sees it</small></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- A passkey -->
+  <section class="section" id="safe" aria-labelledby="t-safe">
+    <div class="wrap">
+      <div class="section__head">
+        <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Safety</p>
+        <h2 class="title" id="t-safe"><span class="line">A passkey,</span> <span class="line accent">not a password.</span></h2>
+      </div>
+      <div class="safe-grid">
+        <div class="panel"><svg class="i" aria-hidden="true"><use href="#i-shield"/></svg><h3>Kept in the keychain</h3><p>Each link lives in the phone's own keychain: the Android Keystore or the iPhone Keychain. There is no account to sign in to.</p></div>
+        <div class="panel"><svg class="i" aria-hidden="true"><use href="#i-lock"/></svg><h3>Only over a secure address</h3><p>Fenrir answers your server's code only over https, through Cloudflare or Tailscale. A plain address never carries it.</p></div>
+        <div class="panel"><svg class="i" aria-hidden="true"><use href="#i-refresh"/></svg><h3>Yours to replace</h3><p>Replace the key in Fenrir and the old code stops working at once. The phone says so and asks for the new one.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Downloads -->
+  <section class="section" id="get" aria-labelledby="t-get">
+    <div class="wrap">
+      <div class="section__head">
+        <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Get Fenrir Link</p>
+        <h2 class="title" id="t-get"><span class="line">Free on Android</span> <span class="line accent">and on iPhone.</span></h2>
+      </div>
+      <div class="dl-grid">
+        <article class="dl" id="android" aria-labelledby="t-android">
+          <div class="dl__head"><img src="assets/link.svg" width="56" height="56" alt=""><div><h3 id="t-android">For Android</h3><p>Android 8 and later. Install it straight from the download.</p></div></div>
+          <ol class="steps-mini">
+            <li>Download <span class="mono" data-vt="{linkAndroid.file}">FenrirLink.apk</span> on the phone.</li>
+            <li>When Android asks, allow your browser to install apps.</li>
+            <li>Open the file and press Install.</li>
+          </ol>
+          <dl class="dl__facts">
+            <div><dt>Size</dt><dd data-vt="{linkAndroid.size}">See versions.json</dd></div>
+            <div><dt>Released</dt><dd data-vt="{released}">The current build</dd></div>
+          </dl>
+          <div class="dl__sha">
+            <div class="dl__row"><span class="fine">SHA-256</span><button class="copy-btn" type="button" data-copy="#sha-android"><svg class="i" aria-hidden="true"><use href="#i-copy"/></svg><span data-label aria-live="polite">Copy</span></button></div>
+            <code id="sha-android" data-v-sha="linkAndroid">Loads from versions.json</code>
+          </div>
+          <div class="dl__actions"><a class="btn btn--primary btn--lg" data-v-href="linkAndroid" role="link" aria-disabled="true"><svg class="i" aria-hidden="true"><use href="#i-down"/></svg>Download for Android</a></div>
+        </article>
+        <article class="dl dl--connect" id="iphone" aria-labelledby="t-iphone">
+          <div class="dl__head"><img src="assets/link.svg" width="56" height="56" alt=""><div><h3 id="t-iphone">For iPhone</h3><p>Apple only installs App Store apps directly, so this takes a computer once.</p></div></div>
+          <ol class="steps-mini">
+            <li>On a computer, install <b>AltStore</b> (altstore.io) or <b>Sideloadly</b> (sideloadly.io).</li>
+            <li>Download <span class="mono" data-vt="{linkIphone.file}">FenrirLink.ipa</span> and open it with either one. They sign it with your own Apple ID.</li>
+            <li>On a free Apple ID the app needs a refresh every 7 days. AltStore does that by itself.</li>
+          </ol>
+          <dl class="dl__facts">
+            <div><dt>Size</dt><dd data-vt="{linkIphone.size}">See versions.json</dd></div>
+            <div><dt>Released</dt><dd data-vt="{released}">The current build</dd></div>
+          </dl>
+          <div class="dl__sha">
+            <div class="dl__row"><span class="fine">SHA-256</span><button class="copy-btn" type="button" data-copy="#sha-iphone"><svg class="i" aria-hidden="true"><use href="#i-copy"/></svg><span data-label aria-live="polite">Copy</span></button></div>
+            <code id="sha-iphone" data-v-sha="linkIphone">Loads from versions.json</code>
+          </div>
+          <div class="dl__actions"><a class="btn btn--teal btn--lg" data-v-href="linkIphone" role="link" aria-disabled="true"><svg class="i" aria-hidden="true"><use href="#i-down"/></svg>Download for iPhone</a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta sky" aria-labelledby="t-cta" data-ambient>
+    <div class="sky__stars" aria-hidden="true"></div>
+    <div class="aurora aurora--low" aria-hidden="true"><div class="aurora__haze"></div><div class="aurora__band"></div></div>
+    <div class="wrap cta__in">
+      <img class="cta__mark" src="assets/link.svg" width="84" height="84" alt="">
+      <h2 class="title" id="t-cta"><span class="line">Scan once.</span> <span class="line accent">Keep it close.</span></h2>
+      <p class="lead">Fenrir Link works with Fenrir on the PC that hosts, and with Fenrir Connect on every friend's PC.</p>
+      <div class="cta__row">
+        <a class="btn btn--primary btn--lg" data-v-href="linkAndroid" role="link" aria-disabled="true"><svg class="i" aria-hidden="true"><use href="#i-down"/></svg>Get it for Android</a>
+        <a class="btn btn--ghost btn--lg" href="host">Fenrir for hosts</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__grid">
+    <div class="foot__brand"><span class="logo" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 64 64" focusable="false"><use href="#fenrir-mark-a"/></svg><span class="lg-b"><svg width="40" height="40" viewBox="0 0 64 64" focusable="false"><use href="#fenrir-mark-b"/></svg></span></span><div><b>Fenrir</b><span>Modded Minecraft for friends, hosted on your own PC.</span></div></div>
+    <nav class="foot__nav" aria-label="Footer"><a href="host">Fenrir</a><a href="connect">Fenrir Connect</a><a href="link">Fenrir Link</a><a href="download">Download</a><a href="faq">FAQ</a></nav>
+    <p class="foot__builds"><span data-vt="Current build, released {released}">Current build</span></p>
+  </div>
+  <div class="wrap foot__fine">
+    <p>Fenrir is an independent project. It is not affiliated with Mojang or Microsoft, and Minecraft is a trademark of Mojang AB.</p>
+  </div>
+</footer>
+</body>
+</html>

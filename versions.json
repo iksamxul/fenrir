@@ -1,32 +1,40 @@
 {
   "releaseBase": "https://github.com/iksamxul/fenrir/releases/latest/download/",
   "releasesPage": "https://github.com/iksamxul/fenrir/releases",
-  "released": "2026-09-30",
+  "released": "2026-10-01",
   "fenrir": {
-    "version": "1.34.0",
+    "version": "1.35.0",
     "file": "FenrirSetup.exe",
-    "size": 62415170,
-    "sha256": "248c64fce0ceac87134fe37b393e9fd8ee61a63f47747a0b52f78b2333f679ca"
+    "size": 62480353,
+    "sha256": "6355666a764c8c208d180b6815085f2576f576c50e117dabf59414a095bff581"
   },
   "connect": {
-    "version": "1.32.0",
+    "version": "1.35.0",
     "file": "FenrirConnect.exe",
-    "size": 20604310,
-    "sha256": "bbe75e889336c6b81919b9d2d3f0492d0e4a9a6e611104e35972a6de8a8a83d9"
+    "size": 20622289,
+    "sha256": "7bdf1494a755ae90f863d1a110c9864eb151c60c1fd65d7e973fd6ddf0dc88ad"
   },
   "portable": {
     "file": "Fenrir-portable.zip",
-    "size": 21322423,
-    "sha256": "fd19b0f541830ecae55e47e51f22c948ad1ddaf7e7503f0f4602bd46b02b77bb"
+    "size": 21352591,
+    "sha256": "98c3da630c6abd3e6065e500d94df96b33e23b109e69a084ee1506f7e318ec63"
   },
   "notes": [
-    "Dashboard cards fill their row: lists, chat and checks take the room they are given.",
-    "Server settings, redesigned: a rail of groups, a search across all of them, presets, and edits that wait until you press Save.",
-    "The titlebar says what the world is doing from every page, copies the join address, and keeps every notice behind a bell.",
-    "Press ? for the keyboard sheet, Ctrl+B for the sidebar as a rail; the palette remembers what you ran and finds every setting.",
-    "Doctor findings can wait a week and copy as text; a backup can carry a note; the console pins lines and filters by player.",
-    "The MOTD previews its colours, presets fill the quick properties, the mod list orders and copies, and the World appearance follows the world's own daylight.",
-    "Fenrir Connect copies the world's address, sends a test notification, opens the screenshots folder and shows an install's progress in the taskbar.",
-    "No build or version numbers anywhere you read; the support bundle still carries them."
-  ]
+    "Fenrir Link puts your server on your phone: scan the code in the Fenrir Link card on the Dashboard. Friends scan theirs in Fenrir Connect.",
+    "Fenrir Setup no longer freezes on a new PC, and says plainly what went wrong if a step fails.",
+    "Friends keep their own mods and game settings, and an unfinished file list can never empty an installed pack.",
+    "Backups of Paper worlds include the Nether and the End, a failed backup waits before it tries again, and only one copy of the server can start.",
+    "Saved settings stay saved, Server settings keeps your edits until you press Save, and every page follows a world switch.",
+    "Harder to fool: look-alike web pages, hostile pack zips and guessed keys get nowhere."
+  ],
+  "linkAndroid": {
+    "file": "FenrirLink.apk",
+    "size": 33545080,
+    "sha256": "23e2479e1686fd6213c2b9f36d84d171afc105c688c575c935cc7d5461930126"
+  },
+  "linkIphone": {
+    "file": "FenrirLink.ipa",
+    "size": 3845685,
+    "sha256": "16b7c81194e64ccbbe3a59d39c86129d42d2aaed5cc0ca15d5e600d42343ab67"
+  }
 }
