@@ -133,7 +133,7 @@
         <a class="btn btn--primary btn--lg" data-v-href="linkAndroid" role="link" aria-disabled="true"><svg class="i" aria-hidden="true"><use href="#i-down"/></svg>Get it for Android</a>
         <a class="btn btn--ghost btn--lg" href="#iphone">Get it for iPhone</a>
       </div>
-      <p class="fine phero__meta">Free. Android 8 and later, or iPhone through AltStore or Sideloadly.</p>
+      <p class="fine phero__meta">Free. Android 8 and later, or any iPhone straight from Safari: no App Store.</p>
     </div>
     <div class="hero__stage phones-stage">
       <div class="hero__glow" aria-hidden="true" data-parallax-glow></div>
@@ -173,7 +173,7 @@
         <ol class="pair-steps">
           <li><b>Your own server.</b> Open Fenrir on the PC that hosts. The Fenrir Link card on the Dashboard shows your code.</li>
           <li><b>A friend's world.</b> Open Fenrir Connect. Your code is on the You page.</li>
-          <li><b>Your phone.</b> Open Fenrir Link, press +, then Scan a code. That is the whole setup.</li>
+          <li><b>Your phone.</b> Open Fenrir Link, press +, then Scan a code. On an iPhone the Camera does it: scan, then Share → Add to Home Screen. That is the whole setup.</li>
         </ol>
       </div>
       <div class="scene__visual">
@@ -277,7 +277,7 @@
         <h2 class="title" id="t-safe"><span class="line">A passkey,</span> <span class="line accent">not a password.</span></h2>
       </div>
       <div class="safe-grid">
-        <div class="panel"><svg class="i" aria-hidden="true"><use href="#i-shield"/></svg><h3>Kept in the keychain</h3><p>Each link lives in the phone's own keychain: the Android Keystore or the iPhone Keychain. There is no account to sign in to.</p></div>
+        <div class="panel"><svg class="i" aria-hidden="true"><use href="#i-shield"/></svg><h3>Kept to yourself</h3><p>In the app, each link lives in the phone's own keychain: the Android Keystore or the iPhone Keychain. On the home screen, the page's address is the key. There is no account to sign in to.</p></div>
         <div class="panel"><svg class="i" aria-hidden="true"><use href="#i-lock"/></svg><h3>Only over a secure address</h3><p>Fenrir answers your server's code only over https, through Cloudflare or Tailscale. A plain address never carries it.</p></div>
         <div class="panel"><svg class="i" aria-hidden="true"><use href="#i-refresh"/></svg><h3>Yours to replace</h3><p>Replace the key in Fenrir and the old code stops working at once. The phone says so and asks for the new one.</p></div>
       </div>
@@ -310,12 +310,13 @@
           <div class="dl__actions"><a class="btn btn--primary btn--lg" data-v-href="linkAndroid" role="link" aria-disabled="true"><svg class="i" aria-hidden="true"><use href="#i-down"/></svg>Download for Android</a></div>
         </article>
         <article class="dl dl--connect" id="iphone" aria-labelledby="t-iphone">
-          <div class="dl__head"><img src="assets/link.svg" width="56" height="56" alt=""><div><h3 id="t-iphone">For iPhone</h3><p>Apple only installs App Store apps directly, so this takes a computer once.</p></div></div>
+          <div class="dl__head"><img src="assets/link.svg" width="56" height="56" alt=""><div><h3 id="t-iphone">For iPhone</h3><p>Straight from Safari: no App Store, no computer, nothing to sign.</p></div></div>
           <ol class="steps-mini">
-            <li>On a computer, install <b>AltStore</b> (altstore.io) or <b>Sideloadly</b> (sideloadly.io).</li>
-            <li>Download <span class="mono" data-vt="{linkIphone.file}">FenrirLink.ipa</span> and open it with either one. They sign it with your own Apple ID.</li>
-            <li>On a free Apple ID the app needs a refresh every 7 days. AltStore does that by itself.</li>
+            <li>Point the iPhone’s <b>Camera</b> at your code (Fenrir’s Dashboard, or the You page in Fenrir Connect) and tap the link.</li>
+            <li>In Safari, tap <b>Share</b>, then <b>Add to Home Screen</b>.</li>
+            <li>Fenrir Link sits on your home screen and opens full screen, straight to your world. Your host’s Fenrir keeps it up to date.</li>
           </ol>
+          <p class="fine" style="margin:14px 0 6px">Prefer the full app, with every world in one place? <span class="mono" data-vt="{linkIphone.file}">FenrirLink.ipa</span> installs through <b>AltStore</b> (altstore.io) or <b>Sideloadly</b> (sideloadly.io) on a computer, signed with your own Apple ID.</p>
           <dl class="dl__facts">
             <div><dt>Size</dt><dd data-vt="{linkIphone.size}">See versions.json</dd></div>
             <div><dt>Released</dt><dd data-vt="{released}">The current build</dd></div>
@@ -324,7 +325,7 @@
             <div class="dl__row"><span class="fine">SHA-256</span><button class="copy-btn" type="button" data-copy="#sha-iphone"><svg class="i" aria-hidden="true"><use href="#i-copy"/></svg><span data-label aria-live="polite">Copy</span></button></div>
             <code id="sha-iphone" data-v-sha="linkIphone">Loads from versions.json</code>
           </div>
-          <div class="dl__actions"><a class="btn btn--teal btn--lg" data-v-href="linkIphone" role="link" aria-disabled="true"><svg class="i" aria-hidden="true"><use href="#i-down"/></svg>Download for iPhone</a></div>
+          <div class="dl__actions"><a class="btn btn--ghost btn--lg" data-v-href="linkIphone" role="link" aria-disabled="true"><svg class="i" aria-hidden="true"><use href="#i-down"/></svg>The full app for AltStore</a></div>
         </article>
       </div>
     </div>
