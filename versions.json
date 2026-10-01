@@ -29,12 +29,12 @@
   ],
   "linkAndroid": {
     "file": "FenrirLink.apk",
-    "size": 33545080,
-    "sha256": "23e2479e1686fd6213c2b9f36d84d171afc105c688c575c935cc7d5461930126"
+    "size": 33562760,
+    "sha256": "7b1c5008acd5917c9a044c7dad2a5e965c2344797cd0e41fc07a857678239839"
   },
   "linkIphone": {
     "file": "FenrirLink.ipa",
-    "size": 3845685,
-    "sha256": "16b7c81194e64ccbbe3a59d39c86129d42d2aaed5cc0ca15d5e600d42343ab67"
+    "size": 3863315,
+    "sha256": "711007afec0c6f5101295073975cee4554e06cb789536f2216e7f96a73781389"
   }
 }
