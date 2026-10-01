@@ -627,7 +627,7 @@ kbd {
 .frame.is-empty .frame__view { aspect-ratio: 16 / 10; background: linear-gradient(var(--win-line) 1px, transparent 1px) 0 0 / 32px 32px, linear-gradient(90deg, var(--win-line) 1px, transparent 1px) 0 0 / 32px 32px, var(--win-bg); }
 .frame.is-empty .frame__view img { display: none; }
 .frame.is-empty .frame__view::after { content: attr(data-name); position: absolute; inset: 0; display: grid; place-items: center; font: 700 1.25rem/1 var(--font-display); color: var(--win-ink); }
-/* the friends' app cropped to its Play strip: everything below the What's new card (y 920 to 1600 of the shot) */
+/* the friends' app cropped to its Dashboard's world card and Play (y about 165 to 845 of the 1600 px shot) */
 .shot-play { aspect-ratio: 2160 / 680; object-fit: cover; object-position: 50% 18%; }   /* the world card and Play */
 /* Settings, cropped to the Behaviour card: x 1666 to 2826 and y 708 to 1770 of the 2880 x 1800 shot */
 .frame__crop { aspect-ratio: 1160 / 1062; overflow: hidden; }
@@ -1315,5 +1315,14 @@ html[data-slot="b"] .logo .lg-b { opacity: 1; }
 .safe-grid .panel .i { width: 28px; height: 28px; color: var(--accent-text); }
 .safe-grid .panel h3 { margin: 14px 0 8px; font: 700 1.2rem/1.25 var(--font-display); color: var(--ink); }
 .safe-grid .panel p { margin: 0; color: var(--ink-2); }
+/* the console and the tools: two phones, the second a step lower */
+.twophones { position: relative; display: flex; justify-content: center; align-items: flex-start; padding-block: 2% 8%; }
+.twophones .phone { width: min(46%, 290px); margin: 0; flex: none; }
+.twophones__a { z-index: 2; }
+.twophones__b { z-index: 1; margin: 14% 0 0 -7% !important; }
+.tab-list { list-style: none; margin: 22px 0 0; padding: 0; display: grid; gap: 12px; }
+.tab-list li { position: relative; padding-left: 20px; color: var(--ink-2); }
+.tab-list li::before { content: ""; position: absolute; left: 0; top: .62em; width: 8px; height: 8px; border-radius: 50%; background: var(--accent-text); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent-text) 16%, transparent); }
+.tab-list b { display: block; color: var(--ink); }
 .steps-mini { margin: 18px 0 6px; padding-left: 1.25em; display: grid; gap: 7px; color: var(--ink-2); font-size: .95rem; }
 .steps-mini b { color: var(--ink); }

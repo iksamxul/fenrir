@@ -128,7 +128,7 @@
     <div class="wrap">
       <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Fenrir Connect, for friends</p>
       <h1 class="page-title" id="page-title"><span class="line">Your friend hosts.</span> <span class="line accent">You press Play.</span></h1>
-      <p class="lead">Fenrir Connect installs your host’s modpack into TLauncher, sets the memory for your PC and joins their world as soon as the game loads. Updates take one click.</p>
+      <p class="lead">Fenrir Connect installs your host’s modpack into TLauncher, sets the memory for your PC and joins their world as soon as the game loads. Its Dashboard puts the world first; its Tools page checks the connection and the pack for you.</p>
       <div class="phero__cta">
         <a class="btn btn--teal btn--lg" href="#link">How you get in</a>
         <a class="btn btn--ghost btn--lg" href="download#connect"><svg class="i" aria-hidden="true"><use href="#i-down"/></svg>Download Fenrir Connect</a>
@@ -140,7 +140,7 @@
         <figure class="frame frame--hero" style="max-width:1080px;margin-inline:auto">
           <div class="frame__bar" aria-hidden="true"><i></i><i></i><i></i><b>Fenrir Connect</b></div>
           <div class="frame__view" data-name="Fenrir Connect">
-            <picture><source srcset="assets/shots/connect-light.png" media="(prefers-color-scheme: light)" data-when="light"><img src="assets/shots/connect.png" width="2160" height="1600" alt="Fenrir Connect on a friend's PC: All the Mods 10 online with two players and a Play button, the game night, a note from the host and the You card." fetchpriority="high" decoding="async"></picture>
+            <picture><source srcset="assets/shots/connect-light.png" media="(prefers-color-scheme: light)" data-when="light"><img src="assets/shots/connect.png" width="2160" height="1600" alt="Fenrir Connect's Dashboard on a friend's PC: the sidebar with Dashboard, Chat, Screenshots, You and Tools; All the Mods 10 online with two players and a Play button; the game night, a note from the host and the week in the world." fetchpriority="high" decoding="async"></picture>
           </div>
         </figure>
       </div>
@@ -261,15 +261,15 @@
     </div>
   </section>
 
-  <!-- The You card -->
+  <!-- The You page -->
   <section class="scene scene--deep scene--flip" id="you" aria-labelledby="t-you">
     <div class="wrap scene__grid">
       <div class="scene__copy">
-        <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>The You card</p>
+        <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>The You page</p>
         <h2 class="title" id="t-you"><span class="line">Your name.</span> <span class="line accent">Your week.</span></h2>
-        <p class="copy">The name you join with and whether it is on the whitelist. Your time in the world this week, how your last session went, the hall of records, and your live page on your phone.</p>
+        <p class="copy">The name you join with and whether it is on the whitelist. Your time in the world this week, how your last session went, the hall of records, and your code for Fenrir Link, the phone app.</p>
       </div>
-      <div class="scene__visual mock stage" role="img" aria-label="The You card: Iksamxul, on the whitelist. This week: 4 hours 12 minutes over 3 sessions with 2 deaths. The last session was 1 hour 12 minutes. The hall of records lists the most time, furthest travelled, most deaths and most mobs.">
+      <div class="scene__visual mock stage" role="img" aria-label="The You page: Iksamxul, on the whitelist. This week: 4 hours 12 minutes over 3 sessions with 2 deaths. The last session was 1 hour 12 minutes. The hall of records lists the most time, furthest travelled, most deaths and most mobs.">
         <div class="glow" aria-hidden="true"></div>
         <div class="m-card" style="width:94%">
           <p class="m-kick"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>You <span>· in this world</span></p>
@@ -279,15 +279,39 @@
           <p class="m-sub" style="margin-top:.9em">Last time you played 1 h 12 min, with 2 deaths and 3 advancements.</p>
           <span class="m-label">Hall of records</span>
           <div class="m-tags"><span>Most time <b>ChecoPecko, 12 h 40 min</b></span><span>Furthest travelled <b>Iksamxul, 31.2 km</b></span><span>Most deaths <b>Iksamxul, 9</b></span><span>Most mobs <b>ChecoPecko, 1,204</b></span></div>
-          <p class="m-note-line"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>Scan the code on this card to open your live page on your phone.</p>
+          <p class="m-note-line"><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>Scan your code with Fenrir Link to keep the world on your phone.</p>
         </div>
         <div class="chip stage__c"><span class="dot dot--ok"></span><span><b>The world answers from here</b><small>in 48 ms, checked once a minute</small></span></div>
       </div>
     </div>
   </section>
 
+  <!-- Tools -->
+  <section class="scene" id="tools" aria-labelledby="t-tools">
+    <div class="wrap scene__grid">
+      <div class="scene__copy">
+        <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>The Tools page</p>
+        <h2 class="title" id="t-tools"><span class="line">Something off?</span> <span class="line accent">Tools has it.</span></h2>
+        <p class="copy">For the evening the game will not start, the world will not answer or your host asks what is wrong. Every tool answers right where you pressed it.</p>
+        <ul class="tab-list">
+          <li><b>Test the connection</b>Whether your host’s Fenrir and the world answer from this PC, how fast, and who can fix it when they do not.</li>
+          <li><b>What’s in the pack</b>Every mod of the world with its size, and any mods of your own that were set aside.</li>
+          <li><b>A summary for your host</b>This PC, your pack and the last error in one message to paste. Your key is never in it.</li>
+          <li><b>Check and repair</b>Every file against your host’s, fixing whatever differs; the game, logs and screenshots folders one click away.</li>
+        </ul>
+      </div>
+      <div class="scene__visual scene__visual--bleed stage">
+        <div class="glow glow--teal" aria-hidden="true"></div>
+        <figure class="frame">
+          <div class="frame__bar" aria-hidden="true"><i></i><i></i><i></i><b>Fenrir Connect · Tools</b></div>
+          <div class="frame__view" data-name="Tools"><picture><source srcset="assets/shots/connect-tools-light.png" media="(prefers-color-scheme: light)" data-when="light"><img src="assets/shots/connect-tools.png" width="2160" height="1600" alt="Fenrir Connect's Tools page: open TLauncher, the game, screenshots and logs folders, send the game log to your host, then check and repair the pack, what is in the pack and remove the pack." loading="lazy" decoding="async"></picture></div>
+        </figure>
+      </div>
+    </div>
+  </section>
+
   <!-- SmartScreen -->
-  <section class="scene" id="smartscreen" aria-labelledby="t-smart">
+  <section class="scene scene--deep scene--flip" id="smartscreen" aria-labelledby="t-smart">
     <div class="wrap scene__grid">
       <div class="scene__copy">
         <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>A note on Windows</p>

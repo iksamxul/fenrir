@@ -3,29 +3,29 @@
   "releasesPage": "https://github.com/iksamxul/fenrir/releases",
   "released": "2026-10-01",
   "fenrir": {
-    "version": "1.35.0",
+    "version": "1.36.0",
     "file": "FenrirSetup.exe",
-    "size": 62480353,
-    "sha256": "6355666a764c8c208d180b6815085f2576f576c50e117dabf59414a095bff581"
+    "size": 62514451,
+    "sha256": "153a53e32b1efa50da6b3189f5712734f2ff60dbabff56832236ae209fe99bd9"
   },
   "connect": {
-    "version": "1.35.0",
+    "version": "1.36.0",
     "file": "FenrirConnect.exe",
-    "size": 20622289,
-    "sha256": "7bdf1494a755ae90f863d1a110c9864eb151c60c1fd65d7e973fd6ddf0dc88ad"
+    "size": 20646477,
+    "sha256": "53ab0d9c3c7a7247eeba7ab17e6f7f26e286537df2e263687e6faf2ade51e3ae"
   },
   "portable": {
     "file": "Fenrir-portable.zip",
-    "size": 21352591,
-    "sha256": "98c3da630c6abd3e6065e500d94df96b33e23b109e69a084ee1506f7e318ec63"
+    "size": 21361642,
+    "sha256": "2ec04010b99c7af371442afe12a8b3db49634686a54f32db78bd6cec6ff9cf03"
   },
   "notes": [
-    "Fenrir Link puts your server on your phone: scan the code in the Fenrir Link card on the Dashboard. Friends scan theirs in Fenrir Connect.",
-    "Fenrir Setup no longer freezes on a new PC, and says plainly what went wrong if a step fails.",
-    "Friends keep their own mods and game settings, and an unfinished file list can never empty an installed pack.",
-    "Backups of Paper worlds include the Nether and the End, a failed backup waits before it tries again, and only one copy of the server can start.",
-    "Saved settings stay saved, Server settings keeps your edits until you press Save, and every page follows a world switch.",
-    "Harder to fool: look-alike web pages, hostile pack zips and guessed keys get nowhere."
+    "Fenrir Link opens your server on four tabs: a Dashboard with TPS, tick, memory and a chart of the last half hour, Players with the whitelist, the whole Console live, and Tools.",
+    "From the phone: answer friends who need a hand, let in a friend who cannot get in, set the note to friends and notify them, choose who can start the world.",
+    "A friend's world in Fenrir Link: the world, the chat, your week, asking your host for a hand, the screenshots and sharing a picture.",
+    "Fenrir Connect is a proper app: a sidebar with a Dashboard, the chat, screenshots, You, Tools and Settings.",
+    "Fenrir Connect's Tools test the connection, list what is in the pack and copy a summary for your host, without your key.",
+    "Home in Fenrir Link sums up every world you linked and what waits on you."
   ],
   "linkAndroid": {
     "file": "FenrirLink.apk",
