@@ -3,29 +3,27 @@
   "releasesPage": "https://github.com/iksamxul/fenrir/releases",
   "released": "2026-10-01",
   "fenrir": {
-    "version": "1.36.0",
+    "version": "1.37.0",
     "file": "FenrirSetup.exe",
-    "size": 62514451,
-    "sha256": "153a53e32b1efa50da6b3189f5712734f2ff60dbabff56832236ae209fe99bd9"
+    "size": 62770098,
+    "sha256": "932a83ab6cec4095e6b03b5dd9d63ac7cbb3e9922f397e0bcfa5749eb3ce7082"
   },
   "connect": {
     "version": "1.36.0",
     "file": "FenrirConnect.exe",
-    "size": 20646477,
-    "sha256": "53ab0d9c3c7a7247eeba7ab17e6f7f26e286537df2e263687e6faf2ade51e3ae"
+    "size": 20645669,
+    "sha256": "f18952a96cbba4e1cd102fd7dbaba0864de309d3ba184c17990f7ce1e56f7258"
   },
   "portable": {
     "file": "Fenrir-portable.zip",
-    "size": 21361642,
-    "sha256": "2ec04010b99c7af371442afe12a8b3db49634686a54f32db78bd6cec6ff9cf03"
+    "size": 21617043,
+    "sha256": "bdc4ba09d8817cc76167c04ed140695c8800e3c8ba2625d6a8e9f21b47de2d52"
   },
   "notes": [
-    "Fenrir Link opens your server on four tabs: a Dashboard with TPS, tick, memory and a chart of the last half hour, Players with the whitelist, the whole Console live, and Tools.",
-    "From the phone: answer friends who need a hand, let in a friend who cannot get in, set the note to friends and notify them, choose who can start the world.",
-    "A friend's world in Fenrir Link: the world, the chat, your week, asking your host for a hand, the screenshots and sharing a picture.",
-    "Fenrir Connect is a proper app: a sidebar with a Dashboard, the chat, screenshots, You, Tools and Settings.",
-    "Fenrir Connect's Tools test the connection, list what is in the pack and copy a summary for your host, without your key.",
-    "Home in Fenrir Link sums up every world you linked and what waits on you."
+    "Fenrir Link on any iPhone: point the Camera at your code, then Share and Add to Home Screen. It opens like an app, with no App Store and no computer.",
+    "The address a Fenrir Link code opens now shows Fenrir Link's own screens in any phone's browser, for hosts and friends alike, kept up to date by Fenrir.",
+    "Chrome on Android offers Install app on the same page; the Android app is still a direct download.",
+    "The page is locked down like the phone remote and answers only over a secure address."
   ],
   "linkAndroid": {
     "file": "FenrirLink.apk",
