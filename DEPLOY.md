@@ -8,6 +8,7 @@ site/
   404.html               the page for a missing address (GitHub Pages serves it with a 404)
   sitemap.xml  robots.txt  the five pages for search engines (robots.txt only counts at a domain's root)
   versions.json          file names, sizes, SHA-256, release date and notes, download base (the pages show no version numbers; the release tag uses the one kept here)
+  update-feed.json       versions.json with an Ed25519 signature: what every installed Fenrir reads to update itself (made by fenrir/build/sign_feed.py)
   assets/site.css        tokens, both themes, every component
   assets/site.js         theme toggle, menu, versions.json, FAQ, download chooser, copy buttons
   assets/motion.js       scroll reveals, counters, the magnetic button, frame tilt
@@ -70,6 +71,10 @@ In `versions.json`, set `releaseBase` to `https://github.com/OWNER/REPO/releases
 (Get-FileHash .\app\FenrirSetup.exe -Algorithm SHA256).Hash.ToLower()
 ```
 
+Then sign it: `python fenrir\build\sign_feed.py` writes `update-feed.json` next to it. Every installed Fenrir reads that file
+to update itself and refuses one its key did not sign, so a `versions.json` change without signing leaves them where they are.
+The key lives in `fenrir\build\keys\` on the publishing PC only; never commit or upload it.
+
 Commit and push. Nothing else needs editing.
 
 ### 5. Link previews (optional)
@@ -84,7 +89,7 @@ Needs [git](https://git-scm.com) and [gh](https://cli.github.com), signed in onc
 powershell -ExecutionPolicy Bypass -File .\site\deploy.ps1 -Owner your-github-name -Repo fenrir
 ```
 
-It never runs on its own: it needs `-Owner` and `-Repo`, prints its plan and waits for you to type `YES` (or pass `-Yes`). It then zips the portable Fenrir (from a copy, so it works while Fenrir is running), fills in `versions.json` (addresses, sizes, SHA-256) and the preview address, commits the site, creates the repository, pushes, turns on Pages and publishes release `v<version>` with the three files. Run it again after a new build and it updates the same repository and release.
+It never runs on its own: it needs `-Owner` and `-Repo`, prints its plan and waits for you to type `YES` (or pass `-Yes`). It then zips the portable Fenrir (from a copy, so it works while Fenrir is running), fills in `versions.json` (addresses, sizes, SHA-256) and the preview address, signs `update-feed.json`, commits the site, creates the repository the first time, publishes release `v<version>` with the three files, and only then pushes the site and turns on Pages, so the signed feed never names files that are not there yet. Run it again after a new build and it updates the same repository and release.
 
 The same thing by hand, from inside `site`, once the zip exists:
 
