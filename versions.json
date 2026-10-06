@@ -1,29 +1,29 @@
 {
   "releaseBase": "https://github.com/iksamxul/fenrir/releases/latest/download/",
   "releasesPage": "https://github.com/iksamxul/fenrir/releases",
-  "released": "2026-10-01",
+  "released": "2026-10-06",
   "fenrir": {
-    "version": "1.37.0",
+    "version": "1.38.0",
     "file": "FenrirSetup.exe",
-    "size": 62770098,
-    "sha256": "932a83ab6cec4095e6b03b5dd9d63ac7cbb3e9922f397e0bcfa5749eb3ce7082"
+    "size": 62835421,
+    "sha256": "a345cd8dfe6e7938ad97f6f7526df6549d09649f3f200dec3b5b6b844b94b449"
   },
   "connect": {
     "version": "1.36.0",
     "file": "FenrirConnect.exe",
-    "size": 20645669,
-    "sha256": "f18952a96cbba4e1cd102fd7dbaba0864de309d3ba184c17990f7ce1e56f7258"
+    "size": 20647242,
+    "sha256": "ab8089dddd91854b53108eeac4c0dd92e3ea5457c77a78bee4167654ed8de353"
   },
   "portable": {
     "file": "Fenrir-portable.zip",
-    "size": 21617043,
-    "sha256": "bdc4ba09d8817cc76167c04ed140695c8800e3c8ba2625d6a8e9f21b47de2d52"
+    "size": 21682535,
+    "sha256": "9ed3f4f3824690a260bb45cf546bfd69732a83b1e27044449a815c674327932c"
   },
   "notes": [
-    "Fenrir Link on any iPhone: point the Camera at your code, then Share and Add to Home Screen. It opens like an app, with no App Store and no computer.",
-    "The address a Fenrir Link code opens now shows Fenrir Link's own screens in any phone's browser, for hosts and friends alike, kept up to date by Fenrir.",
-    "Chrome on Android offers Install app on the same page; the Android app is still a direct download.",
-    "The page is locked down like the phone remote and answers only over a secure address."
+    "Fenrir updates itself: once a day it gets a new build ready in the background, and Update now puts it in place in a few seconds while the world keeps running.",
+    "Every update is signed by Fenrir's publisher and checked before anything changes; if a new Fenrir does not start properly, the one you had comes back by itself.",
+    "Friends' download links and their app updates now work however Fenrir was installed, with Fenrir Setup or from the portable zip.",
+    "Fenrir opens several seconds faster."
   ],
   "linkAndroid": {
     "file": "FenrirLink.apk",

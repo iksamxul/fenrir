@@ -9,10 +9,13 @@
     2. zips app\Fenrir.exe with app\_internal into Fenrir-portable.zip, in site\.release (ignored by git)
     3. writes releaseBase, releasesPage and each file's size and SHA-256 into versions.json, and the site's
        own address into the pages' og:image tags, so link previews work everywhere
-    4. commits the site folder, creates the GitHub repository and pushes it (git push)
-    5. turns on GitHub Pages for that branch
+    4. signs versions.json into update-feed.json with the update key (fenrir\build\sign_feed.py): every Fenrir
+       reads that feed to update itself and refuses one the key did not sign, so nothing is published without it
+    5. commits the site folder (and creates the GitHub repository the first time)
     6. creates the release v<version> with FenrirSetup.exe, FenrirConnect.exe and Fenrir-portable.zip,
        or replaces those three files when the release already exists
+    7. pushes the site (git push) and turns on GitHub Pages: after the release, so the signed feed never
+       names files that are not there yet
   Run it again after a new build: it refreshes versions.json, pushes, and uploads the new files.
 
 .PARAMETER Owner
@@ -124,7 +127,8 @@ Write-Host "  Release:      $tag with FenrirSetup.exe, FenrirConnect.exe and Fen
 if ((Test-Path -LiteralPath $linkApk) -or (Test-Path -LiteralPath $linkIpa)) { Write-Host '                and Fenrir Link for phones (FenrirLink.apk, FenrirLink.ipa)' }
 Write-Host ''
 Write-Host 'It zips the portable Fenrir, fills in versions.json and the link-preview address in the pages,'
-Write-Host 'commits and pushes the site folder, turns on GitHub Pages and uploads the release files.'
+Write-Host 'signs the update feed, commits the site folder, uploads the release files, then pushes the site'
+Write-Host 'and turns on GitHub Pages.'
 if (-not $Yes) {
   $answer = Read-Host 'Type YES to go ahead'
   if ($answer -cne 'YES') { Write-Host 'Nothing was changed.'; exit 0 }
@@ -166,6 +170,12 @@ foreach ($f in $files) {
 try { $null = $text | ConvertFrom-Json } catch { Fail 'versions.json would stop being valid JSON, so it was left as it was.' }
 [System.IO.File]::WriteAllText($Versions, $text, $Utf8)
 
+Say 'Signing the update feed (update-feed.json)'
+$signer = Join-Path (Split-Path -Parent $Site) 'fenrir\build\sign_feed.py'
+if ((Invoke-Tool 'python' @($signer)) -ne 0) {
+  Fail 'The update feed could not be signed, so nothing was published: every Fenrir refuses a feed its key did not sign. See fenrir\build\sign_feed.py.'
+}
+
 Say 'Pointing the link previews at the site address'
 Get-ChildItem -LiteralPath $Site -Filter '*.html' | ForEach-Object {
   $html = [System.IO.File]::ReadAllText($_.FullName)
@@ -186,17 +196,13 @@ try {
   $branch = (& git rev-parse --abbrev-ref HEAD | Out-String).Trim()
 
   $remotes = @(& git remote)
-  if ($remotes -notcontains 'origin') {
+  $fresh = $remotes -notcontains 'origin'
+  if ($fresh) {
     Say "Creating github.com/$Slug"
     Run 'gh' @('repo', 'create', $Slug, '--public', '--source', '.', '--remote', 'origin', '--description', 'Fenrir: host a modded Minecraft world for your friends from one Windows PC')
+    Say 'Pushing the site (git push)'
+    Run 'git' @('push', '-u', 'origin', $branch)  # a release needs a repository with a commit in it
   }
-
-  Say 'Pushing the site (git push)'
-  Run 'git' @('push', '-u', 'origin', $branch)
-
-  Say 'Turning on GitHub Pages'
-  $code = Invoke-Tool 'gh' @('api', '-X', 'POST', "repos/$Slug/pages", '-f', "source[branch]=$branch", '-f', 'source[path]=/') -Quiet
-  if ($code -ne 0) { Write-Host '  Pages was already on, or GitHub needs a moment. If the site does not appear, check Settings -> Pages.' -ForegroundColor Yellow }
 
   Say "Publishing the release $tag"
   $notesFile = Join-Path $Work 'notes.md'
@@ -210,6 +216,15 @@ try {
   } else {
     Run 'gh' (@('release', 'create', $tag) + $assets + @('--repo', $Slug, '--title', "Fenrir $version", '--notes-file', $notesFile))
   }
+
+  if (-not $fresh) {
+    Say 'Pushing the site (git push)'
+    Run 'git' @('push', '-u', 'origin', $branch)
+  }
+
+  Say 'Turning on GitHub Pages'
+  $code = Invoke-Tool 'gh' @('api', '-X', 'POST', "repos/$Slug/pages", '-f', "source[branch]=$branch", '-f', 'source[path]=/') -Quiet
+  if ($code -ne 0) { Write-Host '  Pages was already on, or GitHub needs a moment. If the site does not appear, check Settings -> Pages.' -ForegroundColor Yellow }
 } finally {
   Pop-Location
 }
