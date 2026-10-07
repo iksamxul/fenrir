@@ -199,7 +199,7 @@ try {
   $fresh = $remotes -notcontains 'origin'
   if ($fresh) {
     Say "Creating github.com/$Slug"
-    Run 'gh' @('repo', 'create', $Slug, '--public', '--source', '.', '--remote', 'origin', '--description', 'Fenrir: host a modded Minecraft world for your friends from one Windows PC')
+    Run 'gh' @('repo', 'create', $Slug, '--public', '--source', '.', '--remote', 'origin', '--description', 'Fenrir: every game modded, hosted and mashed up from one Windows PC')
     Say 'Pushing the site (git push)'
     Run 'git' @('push', '-u', 'origin', $branch)  # a release needs a repository with a commit in it
   }
