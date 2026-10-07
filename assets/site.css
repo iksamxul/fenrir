@@ -1352,3 +1352,10 @@ html[data-slot="b"] .logo .lg-b { opacity: 1; }
 .phone-note p b { color: var(--ink); }
 .phone-note__row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
 .dl__check .cert { display: block; margin-top: 8px; padding: 10px 12px; border-radius: var(--r-sm); background: var(--raise-2); border: 1px solid var(--line); font-size: .75rem; line-height: 1.5; color: var(--ink-2); overflow-wrap: anywhere; }
+/* the hero's line of what is new, each a link to its scene (2.3) */
+.hero__new { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; margin-top: 14px; font-size: var(--fs-xs); }
+.hero__new span { font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--ice-text); margin-right: 2px; }
+.hero__new a { padding: 3px 10px; border-radius: 99em; border: 1px solid var(--line-2); color: var(--ink-2); text-decoration: none; transition: color 160ms ease, border-color 160ms ease; }
+.hero__new a:hover { color: var(--ink); border-color: rgb(var(--ice-rgb) / .5); }
+.hero__new { animation: fade-up 700ms var(--ease-out) 520ms both; }
+@media (prefers-reduced-motion: reduce) { .hero__new { animation-name: fade; } }
