@@ -1108,7 +1108,7 @@ main:has(> .cta:last-child) + .foot { background: var(--veil); }   /* after the 
 .dl__check summary:hover { color: var(--ink); }
 .dl__check[open] summary { margin-bottom: 10px; }
 .quick-dl { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 22px; }  /* both downloads on the first screen */
-.quick-dl__size { font-weight: 500; opacity: .72; }
+.quick-dl__size { font-weight: 500; }  /* full strength: inside the primary button, dimmed text fell below AA */
 .quick-dl__size:empty { display: none; }
 .copy-btn { position: relative; isolation: isolate; display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: var(--r-pill); border: 1px solid var(--line-2); background: transparent; font-size: .8125rem; font-weight: 600; color: var(--ink-2); cursor: pointer; transition: transform var(--dur-press) var(--ease-out); }
 .copy-btn::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: var(--hover); opacity: 0; transition: opacity 160ms ease; }
