@@ -3,26 +3,26 @@
   "releasesPage": "https://github.com/iksamxul/fenrir/releases",
   "released": "2026-10-07",
   "fenrir": {
-    "version": "1.41.0",
+    "version": "1.42.0",
     "file": "FenrirSetup.exe",
-    "size": 63250813,
-    "sha256": "ccdcd2904e12f48fec47a5b91ba812fa60fe135c30e62ed986e09bbc426e81e4"
+    "size": 63386552,
+    "sha256": "5fce8f3cb07a63984b59ad0732de416cb1c4730b8a558d8a8b1a9e4c3f2c1f46"
   },
   "connect": {
-    "version": "1.41.0",
+    "version": "1.42.0",
     "file": "FenrirConnect.exe",
-    "size": 20811550,
-    "sha256": "7f5d066a365208b8b7e960d482c921d7380a4f034bc7b5177d92a5925a9b1f0d"
+    "size": 20838936,
+    "sha256": "58f9db0e5617c8561ee687e106fd4086cfa0e9c09617ea55f28c5f4bdb86dc5c"
   },
   "portable": {
     "file": "Fenrir-portable.zip",
-    "size": 21934768,
-    "sha256": "0e78782ccbc22819706fd29c6293f8969ad38fe5fec714dfb0e21553667f8863"
+    "size": 22042651,
+    "sha256": "3a46cc7d11f3d1840f9019181f1f54f4ac6ab6bdb307185405efe6f7b06ad187"
   },
   "notes": [
-    "Invite links for games: one link for one friend opens that game in their Fenrir Connect, ready for Get ready and Join.",
-    "Mods that travel: GameBanana mods reach friends from GameBanana itself, and a mod you made goes from your PC when you say so.",
-    "Discover: the most popular mods for each of your games, on the Games page, one press to install where the site allows it."
+    "Mashups: games played inside other games. SkyCraft puts a Minecraft player into Skyrim, and Skate Warfare joins MW2, Skate 3 and a Minecraft world.",
+    "Mash up any two of your games: Fenrir sets up the project, and its builder builds it with the AI you choose: LM Studio's models on your PC, Ollama, or OpenRouter, Anthropic, OpenAI or Gemini with your own key.",
+    "Every game gets a plugin slot: Fenrir reads what each game is made with and offers the loader that fits."
   ],
   "linkAndroid": {
     "file": "FenrirLink.apk",
