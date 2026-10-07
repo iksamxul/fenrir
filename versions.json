@@ -3,27 +3,26 @@
   "releasesPage": "https://github.com/iksamxul/fenrir/releases",
   "released": "2026-10-07",
   "fenrir": {
-    "version": "1.40.0",
+    "version": "1.41.0",
     "file": "FenrirSetup.exe",
-    "size": 63208751,
-    "sha256": "1422fde199649447ef50d83feca567ef2dcff2a2fcbf34e4267dcb26d94d601e"
+    "size": 63250813,
+    "sha256": "ccdcd2904e12f48fec47a5b91ba812fa60fe135c30e62ed986e09bbc426e81e4"
   },
   "connect": {
-    "version": "1.40.0",
+    "version": "1.41.0",
     "file": "FenrirConnect.exe",
-    "size": 20798130,
-    "sha256": "cc02a9c7371a1945b932223a19f0286450a2435fa002b45c547138034409b3a4"
+    "size": 20811550,
+    "sha256": "7f5d066a365208b8b7e960d482c921d7380a4f034bc7b5177d92a5925a9b1f0d"
   },
   "portable": {
     "file": "Fenrir-portable.zip",
-    "size": 21904791,
-    "sha256": "0dfaeea0309212934e80f4a3b5dfb3fe5d79628db108245779e4352fe1161eb7"
+    "size": 21934768,
+    "sha256": "0e78782ccbc22819706fd29c6293f8969ad38fe5fec714dfb0e21553667f8863"
   },
   "notes": [
-    "Servers for modded games: Valheim, Palworld, 7 Days to Die, Terraria, GTA V through FiveM and Skyrim Together, each with the same mods as your game.",
-    "Share a game with friends: their Fenrir Connect gets their own copy ready with the same mods, from where they are published, and joins your server.",
-    "Valheim gives friends a join code: no router ports, no VPN.",
-    "Fenrir Link starts and stops the game servers from your phone."
+    "Invite links for games: one link for one friend opens that game in their Fenrir Connect, ready for Get ready and Join.",
+    "Mods that travel: GameBanana mods reach friends from GameBanana itself, and a mod you made goes from your PC when you say so.",
+    "Discover: the most popular mods for each of your games, on the Games page, one press to install where the site allows it."
   ],
   "linkAndroid": {
     "file": "FenrirLink.apk",
