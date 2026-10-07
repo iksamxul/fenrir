@@ -3,36 +3,36 @@
   "releasesPage": "https://github.com/iksamxul/fenrir/releases",
   "released": "2026-10-07",
   "fenrir": {
-    "version": "1.39.0",
+    "version": "1.40.0",
     "file": "FenrirSetup.exe",
-    "size": 62985795,
-    "sha256": "3fc90f9d2ba1b786276f886b5392492f17aa8d80d635e9bd3fcf90a5f23610f6"
+    "size": 63208751,
+    "sha256": "1422fde199649447ef50d83feca567ef2dcff2a2fcbf34e4267dcb26d94d601e"
   },
   "connect": {
-    "version": "1.36.0",
+    "version": "1.40.0",
     "file": "FenrirConnect.exe",
-    "size": 20647081,
-    "sha256": "487c6aaa6214e3de2e8309b90f70939252978fc1c2180172beabc59010993c19"
+    "size": 20798130,
+    "sha256": "cc02a9c7371a1945b932223a19f0286450a2435fa002b45c547138034409b3a4"
   },
   "portable": {
     "file": "Fenrir-portable.zip",
-    "size": 21831196,
-    "sha256": "689993e1b150382d6dd88566ae5770897a8b31245d8847470526e817fa3ddd89"
+    "size": 21904791,
+    "sha256": "0dfaeea0309212934e80f4a3b5dfb3fe5d79628db108245779e4352fe1161eb7"
   },
   "notes": [
-    "A Games page finds every game on your PC (Steam, Epic, GOG, Ubisoft, EA, Xbox) and mods it the safe way: removing mods puts every original file back.",
-    "One-click Thunderstore mods for around 300 games, GameBanana for Half-Life 2 and Portal, Nexus Mods from your Downloads, or any .zip, .7z or .rar.",
-    "GTA V mods run in Story Mode only and leave before GTA Online; Elden Ring gets Seamless Co-op with a shared password; Spider-Man goes through Overstrike.",
-    "Games whose anti-cheat bans for changed files, like PUBG, are shown and never touched."
+    "Servers for modded games: Valheim, Palworld, 7 Days to Die, Terraria, GTA V through FiveM and Skyrim Together, each with the same mods as your game.",
+    "Share a game with friends: their Fenrir Connect gets their own copy ready with the same mods, from where they are published, and joins your server.",
+    "Valheim gives friends a join code: no router ports, no VPN.",
+    "Fenrir Link starts and stops the game servers from your phone."
   ],
   "linkAndroid": {
     "file": "FenrirLink.apk",
-    "size": 33562760,
-    "sha256": "7b1c5008acd5917c9a044c7dad2a5e965c2344797cd0e41fc07a857678239839"
+    "size": 33563728,
+    "sha256": "50279ff17df110f6800dc0d7333ebb0d08c141a4114a89a13e107517f4797eb8"
   },
   "linkIphone": {
     "file": "FenrirLink.ipa",
-    "size": 3863315,
-    "sha256": "711007afec0c6f5101295073975cee4554e06cb789536f2216e7f96a73781389"
+    "size": 3864266,
+    "sha256": "37713069c35383e5c04dedf82c3a1636959ab56fcf96e58fdbbc8786cacc0cd3"
   }
 }
