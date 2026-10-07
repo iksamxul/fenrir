@@ -1128,6 +1128,7 @@ main:has(> .cta:last-child) + .foot { background: var(--veil); }   /* after the 
 /* ---------- 20. FAQ ------------------------------------------------------ */
 .faq { display: grid; gap: clamp(40px, 5vw, 64px); }
 .faq__tools { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
+.jump--start { justify-content: flex-start; margin-top: 18px; }  /* the FAQ's topics, under its search */
 .faq__field { position: relative; flex: 1 1 280px; max-width: 520px; }
 .faq__field .i { position: absolute; left: 16px; top: 50%; margin-top: -9px; width: 18px; height: 18px; color: var(--ink-3); pointer-events: none; }
 .faq__field input { width: 100%; min-height: 50px; padding: 0 18px 0 46px; border-radius: var(--r-pill); border: 1px solid var(--line-2); background: var(--raise); color: var(--ink); font: 500 1rem/1.2 var(--font-body); box-shadow: var(--shadow-card); }
