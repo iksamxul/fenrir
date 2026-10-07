@@ -3,26 +3,26 @@
   "releasesPage": "https://github.com/iksamxul/fenrir/releases",
   "released": "2026-10-07",
   "fenrir": {
-    "version": "2.1.0",
+    "version": "2.2.0",
     "file": "FenrirSetup.exe",
-    "size": 64452633,
-    "sha256": "a3174bc857de7e74cd85e34c69241eed0e134feb3c415ff24cb3409cbad60268"
+    "size": 64967548,
+    "sha256": "556565096cefc247183cdcb5bd4148bff33af3ae4a117892491eeaadae4544ef"
   },
   "connect": {
     "version": "2.1.0",
     "file": "FenrirConnect.exe",
-    "size": 20844754,
-    "sha256": "c945b5bfdfccb59382508b97bb0c8ca758be03366a2746ef00d3b77f50f551f1"
+    "size": 20845473,
+    "sha256": "eacb4c9745ece10ae2ea3cd6982d18d3c702e15bdcda38198785d8966a5b0c4b"
   },
   "portable": {
     "file": "Fenrir-portable.zip",
-    "size": 23070111,
-    "sha256": "eae644166a7271b1bce6dc624ba6b4dfe4057d5ec7a65aa6097ad0bf062bda56"
+    "size": 23597773,
+    "sha256": "aa82a5591f847897b2820202c241fb30461618da513ec0429afb9be2191b0d10"
   },
   "notes": [
-    "Every server in one place: Valheim, Palworld, 7 Days to Die, Terraria and the others get the Dashboard, Console, Players, Server settings, Backups and Mods that Minecraft has.",
-    "A fresh coat: Games, Sites & apps and the Doctor open on a headline with their numbers, a game's page shows its own picture, and the sidebar's sections fold.",
-    "Fenrir Connect's Games page says where each game stands, with one button for what comes next, and Fenrir Link lists the sites and apps your PC hosts."
+    "Mashups that know: every project comes with universal-modder's guide for each game's engine and other modders' field notes on those games, and each game takes the lightest way to bring it in.",
+    "A mashup's first Play keeps the game's saves first, with Put back on the game's page.",
+    "Let friends get it looks a mod through first, so the game's own files and your keys never leave this PC."
   ],
   "linkAndroid": {
     "file": "FenrirLink.apk",
