@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Fenrir</title>
-<meta name="description" content="Fenrir turns one Windows PC into a home for every game: mods that come out whole, servers for your friends, mashups of up to four games, and anything you host online. Free.">
+<title>Fenrir · mod any game, host anything</title>
+<meta name="description" content="Fenrir hosts your games for friends from your own Windows PC, mods every game you own and puts every file back, and does what you ask in plain words. Free.">
 <meta name="theme-color" content="#0b0f17">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Fenrir">
@@ -134,7 +134,7 @@
     <div class="hero__copy">
       <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Every game, hosted at home</p>
       <h1 class="hero__title" id="hero-title"><span class="line"><span class="w" style="--i:0">Mod</span> <span class="w" style="--i:1">any</span> <span class="w" style="--i:2">game.</span></span> <span class="line accent"><span class="w" style="--i:3">Host</span> <span class="w" style="--i:4">anything.</span></span></h1>
-      <p class="hero__lead">Fenrir turns one Windows PC into a home for every game you own, even the ones you have not downloaded. It mods them and puts every file back, hosts their servers for friends, mashes up to four games into one, and puts your own websites and apps online.</p>
+      <p class="hero__lead">Your friends play on your PC. Fenrir hosts the game, sends each friend a link of their own, and gets their copy ready with the same mods. It mods every game you own and puts every file back, and you can simply tell it what to do.</p>
       <div class="hero__cta">
         <a class="btn btn--primary btn--lg" href="download#fenrir"><svg class="i" aria-hidden="true"><use href="#i-down"/></svg>Download Fenrir</a>
         <a class="btn btn--ghost btn--lg" href="#games">See what it does</a>
@@ -147,7 +147,7 @@
         <figure class="frame frame--adaptive frame--hero">
           <div class="frame__bar" aria-hidden="true"><i></i><i></i><i></i><b>Fenrir</b></div>
           <div class="frame__view" data-name="Dashboard">
-            <picture><source srcset="assets/shots/dashboard-light.png" media="(prefers-color-scheme: light)" data-when="light"><img src="assets/shots/dashboard.png" width="2880" height="1800" alt="The Fenrir Dashboard. The All the Mods 10 server is stopped and ready on port 25597, three friends are asking for a hand, and the Friends and Activity cards sit below." fetchpriority="high" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="assets/shots/dashboard-light.640.webp 640w, assets/shots/dashboard-light.960.webp 960w, assets/shots/dashboard-light.1600.webp 1600w, assets/shots/dashboard-light.webp 2880w" sizes="(max-width: 599px) 270vw, (max-width: 760px) 92vw, (max-width: 1200px) 60vw, 720px" media="(prefers-color-scheme: light)" data-when="light"><img src="assets/shots/dashboard.webp" srcset="assets/shots/dashboard.640.webp 640w, assets/shots/dashboard.960.webp 960w, assets/shots/dashboard.1600.webp 1600w, assets/shots/dashboard.webp 2880w" sizes="(max-width: 599px) 270vw, (max-width: 760px) 92vw, (max-width: 1200px) 60vw, 720px" width="2880" height="1800" alt="The Fenrir Dashboard. The All the Mods 10 server is stopped and ready on port 25597, three friends are asking for a hand, and the Friends and Activity cards sit below." fetchpriority="high" decoding="async"></picture>
           </div>
         </figure>
       </div>
@@ -192,7 +192,7 @@
       <div class="scene__copy">
         <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Mashups</p>
         <h2 class="title" id="t-mashups"><span class="line">Up to four games.</span> <span class="line accent">Each brings its part.</span></h2>
-        <p class="copy">Pick the game you play in and up to three more, then what each one brings: its world, its weapons, its vehicles, its building, its music. Fenrir sets up the project, and the AI you choose builds it with you. It writes the code, builds it, asks before it plays, and reads the logs to fix what broke. Every project comes with how other modders did it: the guide for each game's engine and field notes from universal-modder, and the lightest way to bring each game in. Mashups that others made, like SkyCraft, install with one click.</p>
+        <p class="copy">Pick the game you play in and up to three more, then what each one brings: its world, its weapons, its vehicles, its building, its music. Fenrir sets up the project, and the AI you choose builds it with you. It writes the code, builds it, asks before it plays, and reads the logs to fix what broke. Each project starts with what other modders learned: a guide for every game's engine, their notes on these games, and the simplest way to bring each one in. Mashups that others made, like SkyCraft, install with one click.</p>
         <a class="more" href="faq#games-mashup-make">How mashups work <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </div>
       <div class="scene__visual mock pair" role="img" aria-label="Mash up games: Skyrim Special Edition is the game you play in and brings its world; Minecraft brings building; Valheim brings enemies and music; Cyberpunk 2077, not installed yet, brings vehicles. Beside it, the builder has built the mod with no errors and asks to play it now, with Yes and Not now.">
@@ -212,6 +212,77 @@
           <div class="m-row"><div><b>Built it</b><span class="m-sub">no errors, 4 files</span></div></div>
           <div class="m-row"><div><b>Play it now?</b><span class="m-sub">then it reads the log</span></div></div>
           <div class="m-actions"><span class="m-btn m-btn--p">Yes</span><span class="m-btn">Not now</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ask Fenrir, and the AI apps that can use it -->
+  <section class="scene" id="ask" aria-labelledby="t-ask">
+    <div class="wrap scene__grid">
+      <div class="scene__copy">
+        <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Ask Fenrir</p>
+        <h2 class="title" id="t-ask"><span class="line">Say what you want.</span> <span class="line accent">It shows you first.</span></h2>
+        <p class="copy">Press Ctrl+K and type it the way you would say it: start Valheim, who is on, a game night on Friday at 8, turn that mod off in Lethal Company. Fenrir understands the everyday ones on its own, and the AI you picked answers the rest. It tells you what it looked at, and every change waits for your Do it.</p>
+        <p class="copy">Claude Code, Claude Desktop and other AI apps on your PC can use Fenrir too, once you switch it on. They look first; with your Allow they start servers, back up and plan game nights. Nothing opens to the Internet, and every change is on the timeline.</p>
+        <ul class="facts">
+          <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Works without any AI</li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Every change shown first</li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Claude Code and Claude Desktop</li>
+        </ul>
+        <a class="more" href="host#ask">Ask Fenrir and AI apps <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="scene__visual mock pair" role="img" aria-label="Ask Fenrir: someone typed plan a game night friday at 8 on valheim. Fenrir read it on its own and lists one ticked step, plan Game night on Friday at 20:00 on the Valheim server, with Do it and Close. Beside it, Claude Code asks to start the Valheim server, with Not now and Allow.">
+        <div class="glow glow--teal" aria-hidden="true"></div>
+        <div class="m-win pair__wide">
+          <div class="m-win__bar"><i></i><i></i><i></i><b>Fenrir · Ask Fenrir</b></div>
+          <div class="m-win__body">
+            <p class="m-kick"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Ask Fenrir <span>· Ctrl+K, then type</span></p>
+            <div class="m-field"><svg class="i" aria-hidden="true"><use href="#i-spark"/></svg><span>plan a game night friday at 8 on valheim</span><span class="m-caret" aria-hidden="true"></span></div>
+            <div class="m-row m-said"><div><b>Here is what Fenrir will do</b><span class="m-sub">Understood by Fenrir itself, no AI needed</span></div></div>
+            <ul class="m-checks"><li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Plan “Game night”, Friday at 20:00, on the Valheim server</li></ul>
+            <div class="m-actions"><span class="m-btn m-btn--p">Do it</span><span class="m-btn">Close</span></div>
+          </div>
+        </div>
+        <div class="m-card m-float pair__top">
+          <p class="m-kick"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Claude Code <span>· asks first</span></p>
+          <div class="m-row"><div><b>Start the Valheim server</b><span class="m-sub">waits for your yes in Fenrir</span></div></div>
+          <div class="m-actions"><span class="m-btn">Not now</span><span class="m-btn m-btn--p">Allow</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- When a mod breaks a game: crash help and mod sets -->
+  <section class="scene scene--deep scene--flip" id="crashes" aria-labelledby="t-crashes">
+    <div class="wrap scene__grid">
+      <div class="scene__copy">
+        <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>When a mod breaks a game</p>
+        <h2 class="title" id="t-crashes"><span class="line">It crashed?</span> <span class="line accent">Fenrir names the mod.</span></h2>
+        <p class="copy">When a modded game closes with an error, Fenrir reads what the game and its mod loader wrote, and names the mod most likely to blame. Take it out and play again in one press. Mod sets keep the mods that work together under a name, and Fenrir remembers the mods each Play used, so the set from Tuesday is one press away.</p>
+        <ul class="facts">
+          <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>BepInEx, MelonLoader, Unity, Unreal</li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Skyrim, GTA V, Terraria</li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Sets for every game</li>
+        </ul>
+        <a class="more" href="host#crashes">Crash help and mod sets <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="scene__visual mock pair" role="img" aria-label="A game's page in Fenrir: Lethal Company closed with an error two minutes ago. BiggerLobby is likely to blame because its file is named in the error, with Take it out and play; MoreEmotes may be, with Take it out. Beside it, Mod sets: Co-op night with 14 mods is in use now, Story run has 9 mods, and the mods played with on Tuesday can come back with Go back.">
+        <div class="glow" aria-hidden="true"></div>
+        <div class="m-win pair__wide">
+          <div class="m-win__bar"><i></i><i></i><i></i><b>Fenrir · Lethal Company</b></div>
+          <div class="m-win__body">
+            <p class="m-kick"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>When it crashes <span>· read 2 min ago</span></p>
+            <div class="m-find m-find--bad"><div><b>It closed with an error</b><span class="m-sub">A mod's code failed as the ship landed.</span></div></div>
+            <div class="m-row"><div><b>BiggerLobby</b><span class="m-sub">likely · its file is named in the error</span></div><span class="m-btn m-btn--p">Take it out and play</span></div>
+            <div class="m-row"><div><b>MoreEmotes</b><span class="m-sub">maybe · named further down</span></div><span class="m-btn">Take it out</span></div>
+          </div>
+        </div>
+        <div class="m-card m-float pair__top">
+          <p class="m-kick"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Mod sets <span>· now: Co-op night</span></p>
+          <div class="m-row"><div><b>Co-op night</b><span class="m-sub">14 mods</span></div><span class="m-pill m-pill--ok">now</span></div>
+          <div class="m-row"><div><b>Story run</b><span class="m-sub">9 mods</span></div><span class="m-btn">Use</span></div>
+          <div class="m-row"><div><b>Played with on Tuesday</b><span class="m-sub">12 mods · 21:40</span></div><span class="m-btn">Go back</span></div>
         </div>
       </div>
     </div>
@@ -257,7 +328,7 @@
       <div class="scene__copy">
         <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Playing together</p>
         <h2 class="title" id="t-together"><span class="line">One PC.</span> <span class="line accent">Everyone’s game.</span></h2>
-        <p class="copy">The server runs on your PC, and a free tunnel gives it an address your friends can reach from anywhere. Each friend gets a link of their own, so you always know who is in, and Fenrir Connect gets their copy of the game ready with the same mods.</p>
+        <p class="copy">The server runs on your PC, and a free tunnel gives it an address your friends can reach from anywhere. Each friend gets a link of their own, so you always know who is in, and Fenrir Connect gets their copy of the game ready with the same mods. You see which friends are ready for each game you share. Plan a game night on any of your servers: Fenrir starts it ahead, tells everyone, and stops it once it has been empty for half an hour.</p>
         <ul class="facts">
           <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>No router changes</li>
           <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>A key per friend</li>
@@ -414,7 +485,7 @@
         <figure class="frame">
           <div class="frame__bar" aria-hidden="true"><i></i><i></i><i></i><b>Fenrir · Layout</b></div>
           <div class="frame__view" data-name="Dashboard">
-            <picture><source srcset="assets/shots/dashboard-light.png" media="(prefers-color-scheme: light)" data-when="light"><img src="assets/shots/dashboard.png" width="2880" height="1800" alt="The Fenrir Dashboard, with its Layout button at the top right of the server card." loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="assets/shots/dashboard-light.640.webp 640w, assets/shots/dashboard-light.960.webp 960w, assets/shots/dashboard-light.1600.webp 1600w, assets/shots/dashboard-light.webp 2880w" sizes="(max-width: 599px) 270vw, (max-width: 760px) 92vw, (max-width: 1200px) 60vw, 720px" media="(prefers-color-scheme: light)" data-when="light"><img src="assets/shots/dashboard.webp" srcset="assets/shots/dashboard.640.webp 640w, assets/shots/dashboard.960.webp 960w, assets/shots/dashboard.1600.webp 1600w, assets/shots/dashboard.webp 2880w" sizes="(max-width: 599px) 270vw, (max-width: 760px) 92vw, (max-width: 1200px) 60vw, 720px" width="2880" height="1800" alt="The Fenrir Dashboard, with its Layout button at the top right of the server card." loading="lazy" decoding="async"></picture>
           </div>
         </figure>
         <div class="arrange__lift"  role="img" aria-label="A Friends card lifted by its handle in Layout mode, set to half width: Iksamxul is in the world, ChecoPecko is installing the pack, Mogwai has the link.">
@@ -445,13 +516,13 @@
         <figure class="frame duo__back">
           <div class="frame__bar" aria-hidden="true"><i></i><i></i><i></i><b>Fenrir · Players</b></div>
           <div class="frame__view" data-name="Players">
-            <picture><source srcset="assets/shots/friends-light.png" media="(prefers-color-scheme: light)" data-when="light"><img src="assets/shots/friends.png" width="2880" height="1800" alt="Fenrir's Players page: the whitelist holds Iksamxul, who arrived through Fenrir Connect, ChecoPecko and Mogwai, with the operators and bans below." loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="assets/shots/friends-light.640.webp 640w, assets/shots/friends-light.960.webp 960w, assets/shots/friends-light.1600.webp 1600w, assets/shots/friends-light.webp 2880w" sizes="(max-width: 599px) 270vw, (max-width: 760px) 92vw, (max-width: 1200px) 60vw, 720px" media="(prefers-color-scheme: light)" data-when="light"><img src="assets/shots/friends.webp" srcset="assets/shots/friends.640.webp 640w, assets/shots/friends.960.webp 960w, assets/shots/friends.1600.webp 1600w, assets/shots/friends.webp 2880w" sizes="(max-width: 599px) 270vw, (max-width: 760px) 92vw, (max-width: 1200px) 60vw, 720px" width="2880" height="1800" alt="Fenrir's Players page: the whitelist holds Iksamxul, who arrived through Fenrir Connect, ChecoPecko and Mogwai, with the operators and bans below." loading="lazy" decoding="async"></picture>
           </div>
         </figure>
         <figure class="frame duo__front">
           <div class="frame__bar" aria-hidden="true"><i></i><i></i><i></i><b>Fenrir Connect</b></div>
           <div class="frame__view" data-name="Fenrir Connect">
-            <picture><source srcset="assets/shots/connect-light.png" media="(prefers-color-scheme: light)" data-when="light"><img class="shot-play" src="assets/shots/connect.png" width="2160" height="1600" alt="Fenrir Connect's Dashboard on a friend's PC: All the Mods 10 online with two players, its Play button and the world's address, with the game night, the host's note and the week below." loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="assets/shots/connect-light.640.webp 640w, assets/shots/connect-light.960.webp 960w, assets/shots/connect-light.1600.webp 1600w, assets/shots/connect-light.webp 2160w" sizes="(max-width: 599px) 270vw, (max-width: 760px) 92vw, (max-width: 1200px) 60vw, 720px" media="(prefers-color-scheme: light)" data-when="light"><img class="shot-play" src="assets/shots/connect.webp" srcset="assets/shots/connect.640.webp 640w, assets/shots/connect.960.webp 960w, assets/shots/connect.1600.webp 1600w, assets/shots/connect.webp 2160w" sizes="(max-width: 599px) 270vw, (max-width: 760px) 92vw, (max-width: 1200px) 60vw, 720px" width="2160" height="1600" alt="Fenrir Connect's Dashboard on a friend's PC: All the Mods 10 online with two players, its Play button and the world's address, with the game night, the host's note and the week below." loading="lazy" decoding="async"></picture>
           </div>
         </figure>
         <div class="chip duo__chip"><svg class="i" aria-hidden="true"><use href="#i-link"/></svg><span><b>About 20 MB</b><small>from your PC for a new friend</small></span></div>
@@ -465,7 +536,7 @@
       <div class="scene__copy">
         <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Safety</p>
         <h2 class="title" id="t-safety"><span class="line">There is always</span> <span class="line accent">a way back.</span></h2>
-        <p class="copy">Set backups to every hour and Fenrir keeps a month of history. Every archive is checked, and a restore is rehearsed each month. If an updated pack will not start, the old version comes back.</p>
+        <p class="copy">Set backups to every hour and Fenrir keeps a month of history. Every archive is checked, a backup that missed a file never pushes out a whole one, and a restore is rehearsed each month. If an updated pack will not start, the old version comes back. And Settings lists everything Fenrir changed on this PC, from files in your games to firewall rules, each with its way back.</p>
       </div>
       <div class="scene__visual safe">
         <div class="glow" aria-hidden="true"></div>
@@ -491,6 +562,7 @@
           <li class="chip chip--static"><span class="dot dot--ok"></span><span><b>Restore drill passed</b><small>The newest archive came back whole</small></span></li>
           <li class="chip chip--static"><span class="dot dot--warn"></span><span><b>An update did not start</b><small>The previous version is back, with the world</small></span></li>
           <li class="chip chip--static"><span class="dot"></span><span><b>Fenrir came back by itself</b><small>Five seconds after it stopped</small></span></li>
+          <li class="chip chip--static"><span class="dot dot--ok"></span><span><b>What Fenrir changed on this PC</b><small>3 games, 2 firewall rules, each with its way back</small></span></li>
         </ol>
       </div>
     </div>
@@ -541,7 +613,7 @@
           <div class="phone__screen">
             <div class="phone__status" aria-hidden="true"><span>21:04</span><span><i style="height:4px"></i><i style="height:6px"></i><i style="height:8px"></i><i style="height:10px"></i></span></div>
             <div class="phone__notch" aria-hidden="true"></div>
-            <picture><source srcset="assets/shots/link-host-light.png" media="(prefers-color-scheme: light)" data-when="light"><img src="assets/shots/link-host.png" width="860" height="1800" alt="Fenrir Link on a phone: the dashboard of your server, online with three players, TPS, tick time and memory, Restart and Stop, and a friend asking to be let in." loading="lazy" decoding="async"></picture>
+            <picture><source type="image/webp" srcset="assets/shots/link-host-light.640.webp 640w, assets/shots/link-host-light.webp 860w" sizes="(max-width: 760px) 64vw, 320px" media="(prefers-color-scheme: light)" data-when="light"><img src="assets/shots/link-host.webp" srcset="assets/shots/link-host.640.webp 640w, assets/shots/link-host.webp 860w" sizes="(max-width: 760px) 64vw, 320px" width="860" height="1800" alt="Fenrir Link on a phone: the dashboard of your server, online with three players, TPS, tick time and memory, Restart and Stop, and a friend asking to be let in." loading="lazy" decoding="async"></picture>
           </div>
         </div>
         <div class="chip pocket__ask"><span class="m-av m-av--sm" aria-hidden="true">I</span><span><b>Iksamxul wants to play</b><small>Start the world · Not now</small></span></div>
@@ -626,7 +698,7 @@
 <footer class="foot">
   <div class="wrap foot__grid">
     <div class="foot__brand"><span class="logo" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 64 64" focusable="false"><use href="#fenrir-mark-a"/></svg><span class="lg-b"><svg width="40" height="40" viewBox="0 0 64 64" focusable="false"><use href="#fenrir-mark-b"/></svg></span></span><div><b>Fenrir</b><span>Every game, modded and hosted on your own PC.</span></div></div>
-    <nav class="foot__nav" aria-label="Footer"><a href="host">Fenrir</a><a href="connect">Fenrir Connect</a><a href="link">Fenrir Link</a><a href="download">Download</a><a href="faq">FAQ</a></nav>
+    <nav class="foot__nav" aria-label="Footer"><a href="host">Fenrir</a><a href="connect">Fenrir Connect</a><a href="link">Fenrir Link</a><a href="download">Download</a><a href="faq">FAQ</a><a href="https://github.com/iksamxul/fenrir">GitHub</a></nav>
     <p class="foot__builds"><span data-vt="Current build, released {released}">Current build</span></p>
   </div>
   <div class="wrap foot__fine">

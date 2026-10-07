@@ -488,7 +488,7 @@ kbd {
   .nav__links a[aria-current="page"] { background: rgb(var(--ink-rgb) / .07); }
   .nav__pill { display: none; }
 }
-@media (max-width: 380px) { .nav__end { gap: 4px; } .nav__end .btn--sm { padding: 0 13px; } .nav__brand span { display: none; } }
+@media (max-width: 380px) { .nav__end { gap: 4px; } .nav__end .btn--sm { padding: 0 13px; } .nav__brand > span:last-child { display: none; } }  /* the name goes, the wolf stays */
 
 /* ---------- 6. Night sky: stars and aurora ------------------------------- */
 .sky { position: relative; isolation: isolate; overflow-x: clip; }   /* sideways only: the aurora and glows fade out on their own, never on a cut line */
@@ -633,6 +633,14 @@ kbd {
 .frame__crop { aspect-ratio: 1160 / 1062; overflow: hidden; }
 .frame__crop img { position: absolute; left: -143.62%; top: -66.67%; width: 248.28%; max-width: none; height: auto; }
 @media (max-width: 599px) { .frame { border-radius: 12px; } .frame__bar { height: 26px; gap: 5px; padding: 0 10px; } .frame__bar i { width: 7px; height: 7px; } .frame__bar b { font-size: 10px; margin-left: 6px; } }
+/* a whole window shrinks to unreadable text on a phone: there it shows its upper part, past the sidebar, at a size that reads */
+@media (max-width: 599px) {
+  :root { --scene-pad: 48px; }
+  .scene__grid { gap: 32px; }
+  .frame__view:not(.frame__crop):has(img[width="2880"]), .frame__view:not(.frame__crop):has(img[width="2160"]) { aspect-ratio: 1; overflow: hidden; }
+  .frame__view:not(.frame__crop):has(img[width="2880"]) img { position: absolute; left: -42%; top: 0; width: 290%; max-width: none; }  /* Fenrir: its main column, past the sidebar, text at about 0.7 */
+  .frame__view:not(.frame__crop):has(img[width="2160"]) img { position: absolute; left: -10%; top: 0; width: 230%; max-width: none; }  /* Fenrir Connect */
+}
 
 /* phone */
 .phone {
@@ -1095,6 +1103,13 @@ main:has(> .cta:last-child) + .foot { background: var(--veil); }   /* after the 
 .dl__row { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
 .dl__row .fine { font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
 .dl__actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: auto; }
+.dl__actions--top { margin-top: 0; }  /* the button right under the app's name: the first thing on the card */
+.dl__check summary { cursor: pointer; width: fit-content; font-size: var(--fs-sm); font-weight: 600; color: var(--ink-2); }
+.dl__check summary:hover { color: var(--ink); }
+.dl__check[open] summary { margin-bottom: 10px; }
+.quick-dl { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 22px; }  /* both downloads on the first screen */
+.quick-dl__size { font-weight: 500; opacity: .72; }
+.quick-dl__size:empty { display: none; }
 .copy-btn { position: relative; isolation: isolate; display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: var(--r-pill); border: 1px solid var(--line-2); background: transparent; font-size: .8125rem; font-weight: 600; color: var(--ink-2); cursor: pointer; transition: transform var(--dur-press) var(--ease-out); }
 .copy-btn::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: var(--hover); opacity: 0; transition: opacity 160ms ease; }
 .copy-btn:active { transform: scale(.96); }
@@ -1330,3 +1345,10 @@ html[data-slot="b"] .logo .lg-b { opacity: 1; }
 .tab-list b { display: block; color: var(--ink); }
 .steps-mini { margin: 18px 0 6px; padding-left: 1.25em; display: grid; gap: 7px; color: var(--ink-2); font-size: .95rem; }
 .steps-mini b { color: var(--ink); }
+
+/* ---------- 21. A phone on a page about Windows apps (2.3): send it to the PC ---------- */
+.phone-note { max-width: 560px; margin: 22px auto 0; padding: 16px 18px; border-radius: var(--r-lg); border: 1px solid rgb(var(--teal-rgb) / .35); background: rgb(var(--teal-rgb) / .08); text-align: left; }
+.phone-note p { color: var(--ink-2); }
+.phone-note p b { color: var(--ink); }
+.phone-note__row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+.dl__check .cert { display: block; margin-top: 8px; padding: 10px 12px; border-radius: var(--r-sm); background: var(--raise-2); border: 1px solid var(--line); font-size: .75rem; line-height: 1.5; color: var(--ink-2); overflow-wrap: anywhere; }
