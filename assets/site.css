@@ -1143,6 +1143,9 @@ main:has(> .cta:last-child) + .foot { background: var(--veil); }   /* after the 
 .qa[open] summary .i { transform: rotate(180deg); color: var(--accent-text); }
 .qa__a { padding: 0 2px 26px; max-width: 46rem; color: var(--ink-2); }
 .qa__a p + p { margin-top: 10px; }
+.qa__a ul { margin: 8px 0 0; padding-left: 1.25em; list-style: disc; }
+.qa__a li + li { margin-top: 4px; }
+.qa__a ul + p { margin-top: 10px; }
 .qa__a b { color: var(--ink); font-weight: 600; }
 .qa[open] .qa__a { animation: open-a 260ms var(--ease-out); }
 .faq__empty { padding: 28px; border-radius: var(--r-lg); border: 1px dashed var(--line-2); color: var(--ink-2); text-align: center; }
