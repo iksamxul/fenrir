@@ -1,29 +1,29 @@
 {
   "releaseBase": "https://github.com/iksamxul/fenrir/releases/latest/download/",
   "releasesPage": "https://github.com/iksamxul/fenrir/releases",
-  "released": "2026-10-07",
+  "released": "2026-10-08",
   "fenrir": {
-    "version": "2.3.0",
+    "version": "2.4.0",
     "file": "FenrirSetup.exe",
-    "size": 65239646,
-    "sha256": "d746f835fdde8c0a25e6efdeed0bfde88ff377169208a189d8de6167fe9ed112"
+    "size": 65312261,
+    "sha256": "6c83d5fa2c57e5879cee0d9e2a35141ad624602562b754f085067a517db7f0ab"
   },
   "connect": {
     "version": "2.3.0",
     "file": "FenrirConnect.exe",
-    "size": 20855586,
-    "sha256": "6c27af3aab9492b46d3cc810978e57dd0191705f615c4794da891d856b341659"
+    "size": 20857843,
+    "sha256": "d0ff06240448fcdcc7e535c78ad323b378b549d4ed23815fd2a457e09b6472a7"
   },
   "portable": {
     "file": "Fenrir-portable.zip",
-    "size": 23858489,
-    "sha256": "ae9296422090fd98d9f677283ef9d5ab769ee195affd4566f2060c563fd2de1f"
+    "size": 23929102,
+    "sha256": "9fd3cfb66b4fec8d9eefb12caa5547c218382c67c2cf943570cdcd762a62111b"
   },
   "notes": [
-    "Ask Fenrir: type what you want into the command palette (Ctrl+K). Fenrir does the everyday things itself and nothing changes until you press Do it; AI apps such as Claude Code can use Fenrir too, each change with your Yes in Fenrir's own window.",
-    "Game servers look after themselves: back after a crash or a restart, a daily restart, backups while their world changes, a stop when nobody is on, and how hard they work.",
-    "When a modded game crashes, its page names the mod most likely to blame; mod sets and Thunderstore updates keep the mods that work together.",
-    "Settings shows everything Fenrir changed on this PC, each with its way back."
+    "A Friends page: everyone you play with, whether they are around, which games they have ready and their link, in one place.",
+    "Tonight on Games: a game night near starts with one press and tells your friends, under a row of things to do.",
+    "The sidebar fits any window, Settings save the moment you change them, and everyday changes come with Undo.",
+    "What this PC can run, Fenrir's icon in the system tray, and Network & Cloud says in one line how friends reach you."
   ],
   "linkAndroid": {
     "file": "FenrirLink.apk",
