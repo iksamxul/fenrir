@@ -27,6 +27,7 @@
 <script>(function(r){r.classList.add('js');try{var t=localStorage.getItem('fenrir-theme');if(t==='light'||t==='dark')r.setAttribute('data-theme',t)}catch(e){}var m=window.matchMedia;if(!(m&&m('(prefers-reduced-motion: reduce)').matches)){var p=['fenrir','midnight','sakura','ember','yggdrasil','aurora','snow','graphite'][Math.floor(Date.now()/3140)%8];r.setAttribute('data-palette',p);r.setAttribute('data-pa',p);r.setAttribute('data-pb',p);r.setAttribute('data-slot','a')}})(document.documentElement)</script>
 <script src="assets/site.js" defer></script>
 <script src="assets/motion.js" defer></script>
+<script src="assets/ask-demo.js" defer></script>
 </head>
 <body>
 <div class="atmos" aria-hidden="true"><i class="atmos__a"></i><i class="atmos__b"></i></div>
@@ -235,7 +236,7 @@
       </div>
       <div class="scene__visual mock pair" role="img" aria-label="Ask Fenrir: someone typed plan a game night friday at 8 on valheim. Fenrir read it on its own and lists one ticked step, plan Game night on Friday at 20:00 on the Valheim server, with Do it and Close. Beside it, Claude Code asks to start the Valheim server, with Not now and Allow.">
         <div class="glow glow--teal" aria-hidden="true"></div>
-        <div class="m-win pair__wide">
+        <div class="m-win pair__wide" data-ask-demo>
           <div class="m-win__bar"><i></i><i></i><i></i><b>Fenrir · Ask Fenrir</b></div>
           <div class="m-win__body">
             <p class="m-kick"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Ask Fenrir <span>· Ctrl+K, then type</span></p>

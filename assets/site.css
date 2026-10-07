@@ -1359,3 +1359,19 @@ html[data-slot="b"] .logo .lg-b { opacity: 1; }
 .hero__new a:hover { color: var(--ink); border-color: rgb(var(--ice-rgb) / .5); }
 .hero__new { animation: fade-up 700ms var(--ease-out) 520ms both; }
 @media (prefers-reduced-motion: reduce) { .hero__new { animation-name: fade; } }
+/* Ask Fenrir to try on the home page (2.3, assets/ask-demo.js): the picture's field takes typing */
+.m-field--live { cursor: text; }
+.m-field--live:focus-within { border-color: rgb(var(--ice-rgb) / .6); box-shadow: 0 0 0 3px rgb(var(--ice-rgb) / .18); }
+.m-input { flex: 1; min-width: 0; border: 0; outline: 0; padding: 0; background: transparent; color: var(--ink); font: inherit; }
+.m-input::placeholder { color: var(--ink-3); }
+.m-hints { display: flex; flex-wrap: wrap; gap: .4em; margin-top: .7em; }
+.m-hints[hidden] { display: none; }
+.m-hints button { padding: .32em .8em; border-radius: 99em; border: 1px solid var(--line-2); background: rgb(var(--ink-rgb) / .04); color: var(--ink-2); font: inherit; font-size: .8em; cursor: pointer; transition: color 160ms ease, border-color 160ms ease; }
+.m-hints button:hover, .m-hints button:focus-visible { color: var(--ink); border-color: rgb(var(--ice-rgb) / .5); }
+.m-checks li .i { transition: color 200ms ease, transform 200ms var(--ease-out); }
+.m-checks li.is-done { color: var(--ink); }
+.m-checks li.is-done .i { transform: scale(1.15); }
+.m-checks[hidden], .m-actions .m-btn[hidden] { display: none; }
+.m-actions button.m-btn { font: inherit; cursor: pointer; }
+.m-actions button.m-btn:disabled { opacity: .55; cursor: default; }
+[data-ask-demo] .m-said b { white-space: normal; overflow: visible; text-overflow: clip; line-height: 1.35; }  /* the answer is a sentence: it wraps */
