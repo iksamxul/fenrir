@@ -28,6 +28,10 @@
   Go ahead without asking.
 .PARAMETER Trailer
   A line added at the end of the site's commit message, for example a Co-Authored-By line.
+.PARAMETER Replace
+  Replace the files of a release of this version that already has other ones. Without it, a release that exists keeps
+  its files: the same ones are left, missing ones are added, and a different one stops the run (two builds never share
+  a version number).
 
 .EXAMPLE
   powershell -ExecutionPolicy Bypass -File .\site\deploy.ps1 -Owner your-name -Repo fenrir
@@ -38,7 +42,8 @@ param(
   [Parameter(Mandatory = $true)][ValidatePattern('^[A-Za-z0-9._-]+$')][string] $Repo,
   [string] $AppDir = '',
   [switch] $Yes,
-  [string] $Trailer = ''
+  [string] $Trailer = '',
+  [switch] $Replace
 )
 
 $ErrorActionPreference = 'Stop'
@@ -172,7 +177,7 @@ try { $null = $text | ConvertFrom-Json } catch { Fail 'versions.json would stop 
 
 Say 'Signing the update feed (update-feed.json)'
 $signer = Join-Path (Split-Path -Parent $Site) 'fenrir\build\sign_feed.py'
-if ((Invoke-Tool 'python' @($signer)) -ne 0) {
+if ((Invoke-Tool 'python' @($signer, '--app', $AppDir)) -ne 0) {  # it signs only for the files app\build.json names
   Fail 'The update feed could not be signed, so nothing was published: every Fenrir refuses a feed its key did not sign. See fenrir\build\sign_feed.py.'
 }
 
@@ -212,7 +217,25 @@ try {
   $assets = @($setup, $connect, $zip)
   foreach ($phone in @($linkApk, $linkIpa)) { if (Test-Path -LiteralPath $phone) { $assets += $phone } }
   if ((Invoke-Tool 'gh' @('release', 'view', $tag, '--repo', $Slug) -Quiet) -eq 0) {
-    Run 'gh' (@('release', 'upload', $tag) + $assets + @('--repo', $Slug, '--clobber'))
+    # a release of this version exists: the same files stay, missing ones are added, and a different one stops the run
+    $have = @{}
+    $saved = $ErrorActionPreference
+    $ErrorActionPreference = 'Continue'
+    try { $json = & gh api "repos/$Slug/releases/tags/$tag" 2>$null; $apiOk = ($LASTEXITCODE -eq 0) } finally { $ErrorActionPreference = $saved }
+    if (-not $apiOk) { Fail "GitHub did not list the files of the release $tag, so nothing was uploaded." }
+    foreach ($a in (($json | Out-String) | ConvertFrom-Json).assets) { $have[[string] $a.name] = [string] $a.digest }
+    $missing = @()
+    foreach ($f in $assets) {
+      $name = Split-Path -Leaf $f
+      if (-not $have.ContainsKey($name)) { $missing += $f; continue }
+      $sha = 'sha256:' + (Get-FileHash -LiteralPath $f -Algorithm SHA256).Hash.ToLowerInvariant()
+      if ($have[$name] -ne $sha -and -not $Replace) {
+        Fail "The release $tag already has a different $name. A new build needs a new version (fenrir\connect\__init__.py); -Replace replaces the files on purpose."
+      }
+    }
+    if ($Replace) { Run 'gh' (@('release', 'upload', $tag) + $assets + @('--repo', $Slug, '--clobber')) }
+    elseif ($missing.Count) { Run 'gh' (@('release', 'upload', $tag) + $missing + @('--repo', $Slug)) }
+    else { Write-Host '  The release already has these files, the same ones.' }
   } else {
     Run 'gh' (@('release', 'create', $tag) + $assets + @('--repo', $Slug, '--title', "Fenrir $version", '--notes-file', $notesFile))
   }
