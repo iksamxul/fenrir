@@ -15,7 +15,7 @@ site/
   assets/fenrir.svg      assets/connect.svg      assets/wolf.png      assets/wolf-connect.png
   assets/social.jpg  assets/social-connect.jpg  assets/social-link.jpg   the 1200x630 link previews (Open Graph and Twitter cards)
   assets/link.svg  assets/link-qr.svg   Fenrir Link's mark, and a real QR code that opens the Link page
-  assets/shots/          your screenshots go here (see below)
+  assets/shots/          the screenshots, as WebP (see below)
   deploy.ps1             optional: publish everything with the gh CLI
 ```
 
@@ -111,11 +111,11 @@ Keep the executables on GitHub Releases either way (Cloudflare Pages takes files
 
 ## Screenshots
 
-Drop PNGs into `assets/shots/` with these names, 16:10 and dark, about 1600 × 1000:
+`fenrir\build\shots.py` takes PNGs of both apps into `assets/shots/` (`dashboard.png`, `dashboard-light.png`, `friends.png`, `settings.png`, `connect.png`, `connect-tools.png`, the Fenrir Link shots), each with a `-light` twin. The PNGs stay on this PC (`.gitignore`): the pages show WebP.
 
-`dashboard.png`, `dashboard-light.png` (the Dashboard in light mode, shown when the page is light), `friends.png`, `settings.png`, `connect.png`, `remote.png`.
+Then run `python fenrir\build\site_images.py`. It writes `<name>.webp` at full width and `<name>.640.webp`, `<name>.960.webp` and `<name>.1600.webp`, which the pages list in `srcset`, so a phone fetches a small picture (the home page's pictures went from 1.35 MB to about 150 KB on a phone). On a phone, a whole window is shown as a crop of its main column at a size that reads (`assets/site.css`, section 4).
 
-Until a file exists, its frame shows the screen's name over a grid instead of a broken image. If `dashboard-light.png` is missing, light mode shows `dashboard.png`.
+Until a file exists, its frame shows the screen's name over a grid instead of a broken image. If a `-light` twin is missing, light mode shows the dark one.
 
 ## A new build
 
