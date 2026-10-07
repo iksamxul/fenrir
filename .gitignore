@@ -1,2 +1,5 @@
 # deploy.ps1 builds the portable zip and the release notes here, then removes the folder
 .release/
+
+# screenshot sources: fenrir/build/site_images.py publishes them as WebP
+assets/shots/*.png

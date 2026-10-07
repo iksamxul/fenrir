@@ -136,6 +136,14 @@
         <button class="choose__btn" type="button" data-choose="fenrir" aria-pressed="false"><img src="assets/fenrir.svg" width="48" height="48" alt=""><b>I host the world</b><span>Get Fenrir Setup and tick Fenrir.</span></button>
         <button class="choose__btn" type="button" data-choose="connect" aria-pressed="false"><img src="assets/connect.svg" width="48" height="48" alt=""><b>A friend invited me</b><span>Open their link, or get Fenrir Connect here.</span></button>
       </div>
+      <div class="phone-note" data-phone-only hidden>
+        <p><b>On your phone?</b> Each of these runs on a Windows PC. Send this page to your PC and open it there.</p>
+        <div class="phone-note__row"><button class="btn btn--teal" type="button" data-share-page><span data-label>Send it to my PC</span></button><a class="btn btn--ghost" href="link">Fenrir Link for this phone</a></div>
+      </div>
+      <div class="quick-dl">
+        <a class="btn btn--primary btn--lg" data-v-href="fenrir" role="link" aria-disabled="true"><svg class="i" aria-hidden="true"><use href="#i-down"/></svg>Fenrir Setup <span class="quick-dl__size" data-vt="{fenrir.size}"></span></a>
+        <a class="btn btn--ghost btn--lg" data-v-href="connect" role="link" aria-disabled="true"><svg class="i" aria-hidden="true"><use href="#i-down"/></svg>Fenrir Connect <span class="quick-dl__size" data-vt="{connect.size}"></span></a>
+      </div>
       <p class="notice" data-if-unpublished hidden><svg class="i" aria-hidden="true"><use href="#i-info"/></svg><span>The downloads are not published yet. The buttons below come alive as soon as the first release is up.</span></p>
       <p class="notice" data-v-fail hidden><svg class="i" aria-hidden="true"><use href="#i-warn"/></svg><span>The download details come from versions.json, and a browser will not read it from a file on disk. Open this page from its web address.</span></p>
     </div>
@@ -147,36 +155,42 @@
       <div class="dl-grid">
         <article class="dl" id="fenrir" data-card="fenrir" aria-labelledby="t-fenrir">
           <div class="dl__head"><img src="assets/fenrir.svg" width="56" height="56" alt=""><div><h2 id="t-fenrir">Fenrir Setup</h2><p>For the PC that hosts the world. Tick Fenrir; it can add Fenrir Connect too.</p></div></div>
+          <div class="dl__actions dl__actions--top">
+            <a class="btn btn--primary btn--lg" data-v-href="fenrir" role="link" aria-disabled="true"><svg class="i" aria-hidden="true"><use href="#i-down"/></svg>Download Fenrir Setup</a>
+            <a class="more" data-v-page style="margin-top:0" href="download">Every release <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
           <dl class="dl__facts">
             <div><dt>File</dt><dd data-vt="{fenrir.file}">FenrirSetup.exe</dd></div>
             <div><dt>Size</dt><dd data-vt="{fenrir.size}">See versions.json</dd></div>
             <div><dt>Released</dt><dd data-vt="{released}">The current build</dd></div>
             <div><dt>Installs</dt><dd>Fenrir, Fenrir Connect or both</dd></div>
           </dl>
+          <details class="dl__check">
+            <summary>Check the file (SHA-256)</summary>
           <div class="dl__sha">
             <div class="dl__row"><span class="fine">SHA-256</span><button class="copy-btn" type="button" data-copy="#sha-fenrir"><svg class="i" aria-hidden="true"><use href="#i-copy"/></svg><span data-label aria-live="polite">Copy</span></button></div>
             <code id="sha-fenrir" data-v-sha="fenrir">Loads from versions.json</code>
           </div>
-          <div class="dl__actions">
-            <a class="btn btn--primary btn--lg" data-v-href="fenrir" role="link" aria-disabled="true"><svg class="i" aria-hidden="true"><use href="#i-down"/></svg>Download Fenrir Setup</a>
-            <a class="more" data-v-page style="margin-top:0" href="download">Every release <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-          </div>
+          </details>
         </article>
         <article class="dl dl--connect" id="connect" data-card="connect" aria-labelledby="t-connect">
           <div class="dl__head"><img src="assets/connect.svg" width="56" height="56" alt=""><div><h2 id="t-connect">Fenrir Connect</h2><p>For friends. On its own, it asks for the key your host gave you.</p></div></div>
+          <div class="dl__actions dl__actions--top">
+            <a class="btn btn--teal btn--lg" data-v-href="connect" role="link" aria-disabled="true"><svg class="i" aria-hidden="true"><use href="#i-down"/></svg>Download Fenrir Connect</a>
+          </div>
           <dl class="dl__facts">
             <div><dt>File</dt><dd data-vt="{connect.file}">FenrirConnect.exe</dd></div>
             <div><dt>Size</dt><dd data-vt="{connect.size}">See versions.json</dd></div>
             <div><dt>Released</dt><dd data-vt="{released}">The current build</dd></div>
             <div><dt>Updates</dt><dd>By itself, from your host</dd></div>
           </dl>
+          <details class="dl__check">
+            <summary>Check the file (SHA-256)</summary>
           <div class="dl__sha">
             <div class="dl__row"><span class="fine">SHA-256</span><button class="copy-btn" type="button" data-copy="#sha-connect"><svg class="i" aria-hidden="true"><use href="#i-copy"/></svg><span data-label aria-live="polite">Copy</span></button></div>
             <code id="sha-connect" data-v-sha="connect">Loads from versions.json</code>
           </div>
-          <div class="dl__actions">
-            <a class="btn btn--teal btn--lg" data-v-href="connect" role="link" aria-disabled="true"><svg class="i" aria-hidden="true"><use href="#i-down"/></svg>Download Fenrir Connect</a>
-          </div>
+          </details>
         </article>
       </div>
       <article class="dl dl--wide" id="link-app" aria-labelledby="t-link-app">
@@ -190,6 +204,37 @@
       <div class="portable" data-v-row="portable" hidden>
         <p><b>Fenrir, portable.</b> Fenrir.exe with its folder in one zip, for a PC where you would rather not install. <span class="mono" data-vt="{portable.size}"></span></p>
         <a class="btn btn--ghost" data-v-href="portable" role="link" aria-disabled="true"><svg class="i" aria-hidden="true"><use href="#i-zip"/></svg>Download the zip</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="safe" aria-labelledby="t-safe">
+    <div class="wrap">
+      <div class="section__head">
+        <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Safe to run</p>
+        <h2 class="title" id="t-safe"><span class="line">What Fenrir does</span> <span class="line accent">to your PC.</span></h2>
+      </div>
+      <div class="req">
+        <div class="req__col">
+          <h3>On this PC</h3>
+          <ul>
+            <li><svg class="i" aria-hidden="true"><use href="#i-pc"/></svg><span><b>For your account only.</b> Fenrir installs in your own user folder, with no administrator prompt.</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-shield"/></svg><span><b>Windows asks only when you choose.</b> Letting friends through the firewall is a button you press, and Windows asks you then.</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span><b>Every original file comes back.</b> Removing mods puts each game's own files back. Games whose anti-cheat bans for changed files are never touched.</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-key"/></svg><span><b>Everything it changed, listed.</b> Settings shows its files in your games, the firewall rules and router ports it added, what is online and what starts with Windows, each with its way back.</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-disk"/></svg><span><b>Removing it.</b> Use Apps in Windows Settings, then delete its folder. Your worlds and servers stay where they are.</span></li>
+          </ul>
+        </div>
+        <div class="req__col" style="--accent-text:var(--teal-text)">
+          <h3>What leaves your PC</h3>
+          <ul>
+            <li><svg class="i" aria-hidden="true"><use href="#i-globe"/></svg><span><b>Update checks with GitHub,</b> where the releases are, each update signed by Fenrir's publisher.</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-down"/></svg><span><b>The mod sites you install from:</b> CurseForge, Modrinth, Thunderstore, GameBanana and Nexus Mods.</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-link"/></svg><span><b>The tunnels and addresses you switch on,</b> for friends and for what you host. Nothing is online until you say so.</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-plus"/></svg><span><b>The AI provider you choose,</b> if you choose one for the mashup builder or Ask Fenrir.</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span><b>No analytics, no account, no ads.</b></span></li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -259,7 +304,7 @@
 <footer class="foot">
   <div class="wrap foot__grid">
     <div class="foot__brand"><span class="logo" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 64 64" focusable="false"><use href="#fenrir-mark-a"/></svg><span class="lg-b"><svg width="40" height="40" viewBox="0 0 64 64" focusable="false"><use href="#fenrir-mark-b"/></svg></span></span><div><b>Fenrir</b><span>Every game, modded and hosted on your own PC.</span></div></div>
-    <nav class="foot__nav" aria-label="Footer"><a href="host">Fenrir</a><a href="connect">Fenrir Connect</a><a href="link">Fenrir Link</a><a href="download">Download</a><a href="faq">FAQ</a></nav>
+    <nav class="foot__nav" aria-label="Footer"><a href="host">Fenrir</a><a href="connect">Fenrir Connect</a><a href="link">Fenrir Link</a><a href="download">Download</a><a href="faq">FAQ</a><a href="https://github.com/iksamxul/fenrir">GitHub</a></nav>
     <p class="foot__builds"><span data-vt="Current build, released {released}">Current build</span></p>
   </div>
   <div class="wrap foot__fine">

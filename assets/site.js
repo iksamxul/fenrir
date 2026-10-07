@@ -255,12 +255,16 @@
     upMax = Math.max(1, doc.documentElement.scrollHeight - window.innerHeight);
     upShow = Math.min(640, window.innerHeight * 0.75);
   }
+  var narrow = window.matchMedia ? window.matchMedia('(max-width: 760px)') : null;
+  var upLast = 0, upBack = 0;  // on a phone it shows only while the reader scrolls back up, never over the words being read
   function upDraw() {
     upQueued = false;
     var y = window.pageYOffset || 0;
     var max = upMax;
     up.style.setProperty('--p', Math.min(1, y / max).toFixed(4));
-    up.classList.toggle('is-on', y > upShow);
+    upBack = y < upLast ? upBack + (upLast - y) : 0;
+    upLast = y;
+    up.classList.toggle('is-on', y > upShow && (!(narrow && narrow.matches) || upBack > 80));
   }
   function upQueue() { if (!upQueued) { upQueued = true; requestAnimationFrame(upDraw); } }
   window.addEventListener('scroll', upQueue, { passive: true });
@@ -446,4 +450,18 @@
   }
   openFromHash();
   window.addEventListener('hashchange', openFromHash);
+
+  /* ---------- a phone on a page about Windows apps: send the page to the PC instead (2.3) ---------- */
+  var ua = navigator.userAgent || '';
+  var phone = /Android|iPhone|iPad|iPod|Mobile/i.test(ua) || (navigator.maxTouchPoints > 1 && /Macintosh/.test(ua));  // iPadOS says Macintosh
+  each('[data-phone-only]', function (el) { el.hidden = !phone; });
+  each('[data-share-page]', function (b) {
+    var label = b.querySelector('[data-label]') || b;
+    b.addEventListener('click', function () {
+      var url = location.href.split('#')[0];
+      if (navigator.share) { navigator.share({ title: doc.title, url: url }).catch(function () { /* closed */ }); return; }
+      var done = function () { var was = label.textContent; label.textContent = 'Link copied: paste it on your PC'; setTimeout(function () { label.textContent = was; }, 2600); };
+      if (navigator.clipboard) navigator.clipboard.writeText(url).then(done, function () { /* blocked */ });
+    });
+  });
 })();
