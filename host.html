@@ -4,17 +4,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Fenrir for hosts</title>
-<meta name="description" content="Fenrir, page by page: the Dashboard, the console, players, checked backups, safe pack updates, the Doctor, tunnels, game nights and settings.">
+<meta name="description" content="Fenrir, page by page: every game you own and its mods, mashups of up to four games, game servers, your own sites and apps online, and a Minecraft world with its console, players, checked backups, safe pack updates and the Doctor.">
 <meta name="theme-color" content="#0b0f17">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Fenrir">
 <meta property="og:title" content="Fenrir for hosts">
-<meta property="og:description" content="The app on the PC that hosts: it runs the world, watches it, shares the pack and fixes what breaks.">
+<meta property="og:description" content="The app on the PC that hosts: every game modded and put back whole, game servers and mashups, your own sites online, and a Minecraft world it runs, watches and fixes.">
 <meta property="og:url" content="https://iksamxul.github.io/fenrir/host">
 <meta property="og:image" content="https://iksamxul.github.io/fenrir/assets/social.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Fenrir: host your world, send one link. Beside it, the Fenrir Dashboard.">
+<meta property="og:image:alt" content="Fenrir: mod any game, host anything. Beside it, the Fenrir Dashboard.">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://iksamxul.github.io/fenrir/host">
 <link rel="icon" href="assets/fenrir.svg" type="image/svg+xml">
@@ -59,6 +59,7 @@
 <symbol id="i-cal" viewBox="0 0 24 24"><rect x="4" y="5.5" width="16" height="14.5" rx="2.5"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/></symbol>
 <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3.5v2.5M12 18v2.5M3.5 12H6M18 12h2.5M6 6l1.8 1.8M16.2 16.2L18 18M6 18l1.8-1.8M16.2 7.8L18 6"/></symbol>
 <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 18.5h10a4 4 0 0 0 .6-7.95A6 6 0 0 0 6.2 10.1 4.2 4.2 0 0 0 7 18.5z"/></symbol>
+<symbol id="i-link" viewBox="0 0 24 24"><path d="M10.5 13.5a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66L12.4 5.9M13.5 10.5a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1.1-1.06"/></symbol>
 <symbol id="i-wolf" viewBox="0 0 64 64"><path d="M14 6L25 23Q32 19.5 39 23L50 6L52 24L59 40L44 49L37 57L32 60.5L27 57L20 49L5 40L12 24Z"/><path d="M14 32.5L27.6 36.2L28.6 38.2L15 35ZM50 32.5L36.4 36.2L35.4 38.2L49 35ZM27 45.5H37L32 51.5Z" fill="currentColor" stroke="none"/></symbol>
 </svg>
 <svg class="sprite logo-defs" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
@@ -138,11 +139,11 @@
     <div class="aurora" aria-hidden="true"><div class="aurora__haze"></div><div class="aurora__band"></div></div>
     <div class="wrap">
       <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>For the PC that hosts</p>
-      <h1 class="page-title" id="page-title"><span class="line">The whole server.</span> <span class="line accent">In one window.</span></h1>
-      <p class="lead">Fenrir installs the pack, runs and watches the server, puts it on the internet, shares the pack with friends, keeps backups off the PC and fixes what breaks. Here it is, page by page.</p>
+      <h1 class="page-title" id="page-title"><span class="line">Games, servers, sites.</span> <span class="line accent">In one window.</span></h1>
+      <p class="lead">Fenrir finds every game you own and mods it, hosts game servers and a Minecraft world for friends, mashes games together, puts your own websites and apps online, keeps backups off the PC and fixes what breaks. Here it is, page by page.</p>
       <div class="phero__cta">
         <a class="btn btn--primary btn--lg" href="download#fenrir"><svg class="i" aria-hidden="true"><use href="#i-down"/></svg>Download Fenrir</a>
-        <a class="btn btn--ghost btn--lg" href="#pages">All fourteen pages</a>
+        <a class="btn btn--ghost btn--lg" href="#pages">All sixteen pages</a>
       </div>
     </div>
     <div class="hero__stage">
@@ -165,8 +166,133 @@
       </div>
     </div>
     <nav class="wrap jump" aria-label="Pages on this page">
-      <a href="#dashboard">Dashboard</a><a href="#console">Console</a><a href="#players">Players</a><a href="#backups">Backups</a><a href="#mods">Mods and packs</a><a href="#doctor">Doctor</a><a href="#network">Network</a><a href="#nights">Game nights</a><a href="#settings">Settings</a><a href="#keys">Keyboard</a>
+      <a href="#games">Games</a><a href="#mashups">Mashups</a><a href="#hosting">Sites and apps</a><a href="#dashboard">Dashboard</a><a href="#console">Console</a><a href="#players">Players</a><a href="#backups">Backups</a><a href="#mods">Mods and packs</a><a href="#doctor">Doctor</a><a href="#network">Network</a><a href="#nights">Game nights</a><a href="#settings">Settings</a><a href="#keys">Keyboard</a>
     </nav>
+  </section>
+
+  <!-- Games -->
+  <section class="scene" id="games" aria-labelledby="t-games">
+    <div class="wrap scene__grid">
+      <div class="scene__copy">
+        <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Games</p>
+        <h2 class="title" id="t-games"><span class="line">Every game you own.</span> <span class="line accent">Mods that come out whole.</span></h2>
+        <p class="copy">Fenrir finds your games from Steam, Epic, GOG, Ubisoft, EA and Xbox, and the ones you own but have not downloaded: open one for its screenshots, trailer and engine, then install it from its store. Its Discover shelf shows the mods people play most for each game. Thunderstore mods install with one click for around 300 games, GameBanana and Nexus Mods are a search away, and removing mods puts every original file back. Games whose anti-cheat bans for changed files are shown and never touched.</p>
+      </div>
+      <div class="scene__visual mock pair" role="img" aria-label="The Games page: Grand Theft Auto V with Story Mode mods, Elden Ring with Seamless Co-op, Valheim with twelve Thunderstore mods, PUBG left alone because of its anti-cheat, and Hogwarts Legacy, owned but not installed, with a preview to open. Beside it, Remove all from the game took 31 files out and put one of the game's own files back.">
+        <div class="glow" aria-hidden="true"></div>
+        <div class="m-win pair__wide">
+          <div class="m-win__bar"><i></i><i></i><i></i><b>Fenrir · Games</b></div>
+          <div class="m-win__body">
+            <p class="m-kick"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Games <span>· every game you own</span></p>
+            <div class="m-row"><div><b>Grand Theft Auto V</b><span class="m-sub">Story Mode mods · out before GTA Online</span></div><span class="m-btn">Play Story Mode</span></div>
+            <div class="m-row"><div><b>Elden Ring</b><span class="m-sub">Seamless Co-op · one password for everyone</span></div><span class="m-btn">Play Co-op</span></div>
+            <div class="m-row is-hi"><div><b>Valheim</b><span class="m-sub">12 mods from Thunderstore, with BepInEx</span></div><span class="m-btn">Play with mods</span></div>
+            <div class="m-row"><div><b>Hogwarts Legacy</b><span class="m-sub">not installed · see what it is like</span></div><span class="m-btn">Preview</span></div>
+            <div class="m-row"><div><b>PUBG: Battlegrounds</b><span class="m-sub">anti-cheat · shown, never touched</span></div></div>
+          </div>
+        </div>
+        <div class="m-card m-float pair__top">
+          <p class="m-kick"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Remove all from the game</p>
+          <div class="m-row"><div><b>31 files out</b><span class="m-sub">the folder as it was</span></div></div>
+          <div class="m-row"><div><b>1 original back</b><span class="m-sub">winhttp.dll</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Game servers and invites -->
+  <section class="scene scene--deep scene--flip" id="servers" aria-labelledby="t-servers">
+    <div class="wrap scene__grid">
+      <div class="scene__copy">
+        <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Game servers</p>
+        <h2 class="title" id="t-servers"><span class="line">Host the game.</span> <span class="line accent">Friends join with the same mods.</span></h2>
+        <p class="copy">Valheim, Palworld, 7 Days to Die, Terraria, GTA V through FiveM and Skyrim Together: install the server, start it, and it gets the same mods as your game. Share the game, or send one friend a link to it, and their Fenrir Connect gets their own copy ready from where the mods are published (a mod you made comes from your PC), then joins you. Valheim even gives them a join code, with no router ports and no VPN.</p>
+      </div>
+      <div class="scene__visual mock pair" role="img" aria-label="The Valheim server card in Fenrir: running for 45 minutes, two of ten playing, the same 12 mods as your game, Windows Firewall letting friends through, and join code 482193 with Copy for friends. Beside it, a friend’s Fenrir Connect: Valheim ready, 12 of 12 mods, and Join.">
+        <div class="glow" aria-hidden="true"></div>
+        <div class="m-win pair__wide">
+          <div class="m-win__bar"><i></i><i></i><i></i><b>Fenrir · Valheim</b></div>
+          <div class="m-win__body">
+            <p class="m-kick"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Valheim server <span>· running for 45 min · 2 of 10 playing</span></p>
+            <div class="m-row"><div><b>Mods</b><span class="m-sub">the same 12 as your game</span></div></div>
+            <div class="m-row"><div><b>Windows Firewall</b><span class="m-sub">lets friends through</span></div></div>
+            <div class="m-row is-hi"><div><b>Join code 482193</b><span class="m-sub">friends join with it: no ports, no VPN</span></div><span class="m-btn">Copy for friends</span></div>
+          </div>
+        </div>
+        <div class="m-card m-float pair__top">
+          <p class="m-kick"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>A friend’s Fenrir Connect</p>
+          <div class="m-row"><div><b>Valheim · ready</b><span class="m-sub">12 of 12 mods, from Thunderstore</span></div></div>
+          <div class="m-row"><div><b>Join</b><span class="m-sub">straight into your server</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mashups -->
+  <section class="scene" id="mashups" aria-labelledby="t-mashups">
+    <div class="wrap scene__grid">
+      <div class="scene__copy">
+        <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Mashups</p>
+        <h2 class="title" id="t-mashups"><span class="line">Up to four games.</span> <span class="line accent">Built with you.</span></h2>
+        <p class="copy">Mash up games opens one sheet: the game you play in, up to three more, and what each brings, from its world and weapons to its vehicles, building and music. A game you have not downloaded can join too: Fenrir plans it from its engine. The project starts with a brief, a starter that loads into the game and a log the builder reads. The builder is the AI you pick, LM Studio or Ollama on this PC, or OpenRouter, Anthropic, OpenAI or Gemini with your own key, which Windows keeps encrypted. It asks before it builds, puts the mod into the game or plays it, unless you say Always for this project, and Fenrir Link can answer from your phone.</p>
+      </div>
+      <div class="scene__visual mock pair" role="img" aria-label="The Mash up games sheet: Serious Sam 2 is the game you play in and brings its world and rules; Minecraft brings building; a Unity game brings vehicles and music; Cyberpunk 2077, not installed yet, is planned from its engine. Beside it, the builder card: it built the mod and asks to put it into Serious Sam 2, with Yes, Not now and Always for this project.">
+        <div class="glow glow--teal" aria-hidden="true"></div>
+        <div class="m-win pair__wide">
+          <div class="m-win__bar"><i></i><i></i><i></i><b>Fenrir · Mash up games</b></div>
+          <div class="m-win__body">
+            <p class="m-kick"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Mashups <span>· up to four games</span></p>
+            <div class="m-row"><div><b>Serious Sam 2</b><span class="m-sub">you play in it</span></div></div>
+            <div class="m-tags"><span><b>World &amp; maps</b></span><span><b>Rules &amp; modes</b></span><span>Weapons</span><span>Enemies</span></div>
+            <div class="m-row"><div><b>Minecraft</b><span class="m-sub">brings</span></div></div>
+            <div class="m-tags"><span><b>Building &amp; crafting</b></span><span>Look</span><span>Music</span></div>
+            <div class="m-row"><div><b>Cyberpunk 2077</b><span class="m-sub">not installed · planned from its engine</span></div></div>
+            <div class="m-tags"><span><b>Vehicles</b></span><span>Weapons</span><span>Player</span></div>
+          </div>
+        </div>
+        <div class="m-card m-float pair__top">
+          <p class="m-kick"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>The builder <span>· asks first</span></p>
+          <div class="m-row"><div><b>Put it into Serious Sam 2?</b><span class="m-sub">Remove takes every file out again</span></div></div>
+          <div class="m-actions"><span class="m-btn m-btn--p">Yes</span><span class="m-btn">Not now</span></div>
+          <div class="m-row"><div><b>Always for this project</b><span class="m-sub">it asks again when you take it back</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sites and apps -->
+  <section class="scene scene--deep scene--flip" id="hosting" aria-labelledby="t-hosting">
+    <div class="wrap scene__grid">
+      <div class="scene__copy">
+        <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Sites and apps</p>
+        <h2 class="title" id="t-hosting"><span class="line">Anything on this PC.</span> <span class="line accent">Online with one switch.</span></h2>
+        <p class="copy">Sites &amp; apps hosts three kinds of thing: a folder Fenrir serves as a website, with no folder listings and no hidden files; an app or project Fenrir starts with its own command, with PORT set and its output kept in a log; or a port a program on this PC already serves. Each has its switches: a free public address from Cloudflare, with no account, that changes when it restarts; your home network, with the Windows Firewall rule Windows asks you about; and start with Fenrir. With a domain of your own on Cloudflare, paste its tunnel’s token once and each item answers at its own name. Windows keeps the token encrypted.</p>
+      </div>
+      <div class="scene__visual mock pair" role="img" aria-label="Add an app: its folder on this PC, the command npm start, port 3000 set for it as PORT, and its output kept in a log. Beside it, the game night page's switches: a free public address on, home network off, start with Fenrir on.">
+        <div class="glow" aria-hidden="true"></div>
+        <div class="m-win pair__wide">
+          <div class="m-win__bar"><i></i><i></i><i></i><b>Fenrir · Add an app</b></div>
+          <div class="m-win__body">
+            <p class="m-kick"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Sites &amp; apps <span>· an app or project</span></p>
+            <span class="m-label">Its folder</span>
+            <div class="m-field"><span class="m-mono">D:\Projects\game-night</span></div>
+            <span class="m-label">The command that starts it</span>
+            <div class="m-field"><span class="m-mono">npm start</span><i class="m-caret" aria-hidden="true"></i></div>
+            <ul class="m-checks">
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>PORT is 3000 for it</li>
+              <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>Its output goes to its log</li>
+            </ul>
+            <div class="m-actions"><span class="m-btn m-btn--p">Add the app</span></div>
+          </div>
+        </div>
+        <div class="m-card m-float pair__top">
+          <p class="m-kick"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Game night page</p>
+          <div class="m-row"><div><b>Free public address</b><span class="m-sub">from Cloudflare, no account</span></div><span class="m-pill m-pill--ok">on</span></div>
+          <div class="m-row"><div><b>Home network</b><span class="m-sub">Windows asks about its firewall</span></div><span class="m-pill m-pill--quiet">off</span></div>
+          <div class="m-row"><div><b>Start with Fenrir</b><span class="m-sub">back when Fenrir is</span></div><span class="m-pill m-pill--ok">on</span></div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- Dashboard -->
@@ -468,83 +594,27 @@
     </div>
   </section>
 
-  <!-- Games -->
-  <section class="scene" id="games" aria-labelledby="t-games">
-    <div class="wrap scene__grid">
-      <div class="scene__copy">
-        <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Games</p>
-        <h2 class="title" id="t-games"><span class="line">Every game on the PC.</span> <span class="line accent">Mods that come out whole.</span></h2>
-        <p class="copy">Fenrir finds your games from Steam, Epic, GOG, Ubisoft, EA and Xbox, and its Discover shelf shows the mods people play most for each of them. Thunderstore mods install with one click for around 300 games, GameBanana and Nexus Mods are a search away, and removing mods puts every original file back. Mashups play one game inside another: SkyCraft and Skate Warfare from their makers, or a project Fenrir sets up for any two of your games and builds with the AI you choose. Games whose anti-cheat bans for changed files are shown and never touched.</p>
-      </div>
-      <div class="scene__visual mock pair" role="img" aria-label="The Games page: Grand Theft Auto V with Story Mode mods, Elden Ring with Seamless Co-op, Valheim with twelve Thunderstore mods, and PUBG left alone because of its anti-cheat. Beside it, Remove all from the game took 31 files out and put one of the game's own files back.">
-        <div class="glow" aria-hidden="true"></div>
-        <div class="m-win pair__wide">
-          <div class="m-win__bar"><i></i><i></i><i></i><b>Fenrir · Games</b></div>
-          <div class="m-win__body">
-            <p class="m-kick"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Games <span>· every game on this PC</span></p>
-            <div class="m-row"><div><b>Grand Theft Auto V</b><span class="m-sub">Story Mode mods · out before GTA Online</span></div><span class="m-btn">Play Story Mode</span></div>
-            <div class="m-row"><div><b>Elden Ring</b><span class="m-sub">Seamless Co-op · one password for everyone</span></div><span class="m-btn">Play Co-op</span></div>
-            <div class="m-row is-hi"><div><b>Valheim</b><span class="m-sub">12 mods from Thunderstore, with BepInEx</span></div><span class="m-btn">Play with mods</span></div>
-            <div class="m-row"><div><b>PUBG: Battlegrounds</b><span class="m-sub">anti-cheat · shown, never touched</span></div></div>
-          </div>
-        </div>
-        <div class="m-card m-float pair__top">
-          <p class="m-kick"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Remove all from the game</p>
-          <div class="m-row"><div><b>31 files out</b><span class="m-sub">the folder as it was</span></div></div>
-          <div class="m-row"><div><b>1 original back</b><span class="m-sub">winhttp.dll</span></div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Game servers and invites -->
-  <section class="scene scene--deep scene--flip" id="servers" aria-labelledby="t-servers">
-    <div class="wrap scene__grid">
-      <div class="scene__copy">
-        <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Game servers</p>
-        <h2 class="title" id="t-servers"><span class="line">Host the game.</span> <span class="line accent">Friends join with the same mods.</span></h2>
-        <p class="copy">Valheim, Palworld, 7 Days to Die, Terraria, GTA V through FiveM and Skyrim Together: install the server, start it, and it gets the same mods as your game. Share the game, or send one friend a link to it, and their Fenrir Connect gets their own copy ready from where the mods are published (a mod you made comes from your PC), then joins you. Valheim even gives them a join code, with no router ports and no VPN.</p>
-      </div>
-      <div class="scene__visual mock pair" role="img" aria-label="The Valheim server card in Fenrir: running for 45 minutes, two of ten playing, the same 12 mods as your game, Windows Firewall letting friends through, and join code 482193 with Copy for friends. Beside it, a friend’s Fenrir Connect: Valheim ready, 12 of 12 mods, and Join.">
-        <div class="glow" aria-hidden="true"></div>
-        <div class="m-win pair__wide">
-          <div class="m-win__bar"><i></i><i></i><i></i><b>Fenrir · Valheim</b></div>
-          <div class="m-win__body">
-            <p class="m-kick"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Valheim server <span>· running for 45 min · 2 of 10 playing</span></p>
-            <div class="m-row"><div><b>Mods</b><span class="m-sub">the same 12 as your game</span></div></div>
-            <div class="m-row"><div><b>Windows Firewall</b><span class="m-sub">lets friends through</span></div></div>
-            <div class="m-row is-hi"><div><b>Join code 482193</b><span class="m-sub">friends join with it: no ports, no VPN</span></div><span class="m-btn">Copy for friends</span></div>
-          </div>
-        </div>
-        <div class="m-card m-float pair__top">
-          <p class="m-kick"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>A friend’s Fenrir Connect</p>
-          <div class="m-row"><div><b>Valheim · ready</b><span class="m-sub">12 of 12 mods, from Thunderstore</span></div></div>
-          <div class="m-row"><div><b>Join</b><span class="m-sub">straight into your server</span></div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Every page -->
   <section class="section" id="pages" aria-labelledby="t-pages">
     <div class="wrap">
       <div class="section__head">
         <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Every page</p>
-        <h2 class="title" id="t-pages"><span class="line">Fifteen pages.</span> <span class="line accent">One job each.</span></h2>
+        <h2 class="title" id="t-pages"><span class="line">Sixteen pages.</span> <span class="line accent">One job each.</span></h2>
       </div>
       <ul class="pages">
-        <li><svg class="i" aria-hidden="true"><use href="#i-dash"/></svg><div><b>Dashboard</b><span>Status, friends, asks, the timeline, charts, automation, in the layout you choose.</span></div></li>
+        <li><svg class="i" aria-hidden="true"><use href="#i-power"/></svg><div><b>Games</b><span>Every game you own, even not downloaded: previews, mods put back whole, servers and mashups.</span></div></li>
+        <li><svg class="i" aria-hidden="true"><use href="#i-dash"/></svg><div><b>Dashboard</b><span>The Minecraft world: status, friends, asks, the timeline, charts, in the layout you choose.</span></div></li>
         <li><svg class="i" aria-hidden="true"><use href="#i-term"/></svg><div><b>Console</b><span>The live log with filters, search, report links and commands.</span></div></li>
         <li><svg class="i" aria-hidden="true"><use href="#i-users"/></svg><div><b>Players</b><span>Whitelist, operators, bans, stats, records and when people play.</span></div></li>
         <li><svg class="i" aria-hidden="true"><use href="#i-sliders"/></svg><div><b>Server settings</b><span>37 server.properties keys by topic, game rules applied live.</span></div></li>
         <li><svg class="i" aria-hidden="true"><use href="#i-history"/></svg><div><b>Backups</b><span>Checked archives, restore, one player back, cloud copies, disk use.</span></div></li>
         <li><svg class="i" aria-hidden="true"><use href="#i-globe"/></svg><div><b>World</b><span>World border, Chunky pre-generation, spark, a map of the world.</span></div></li>
-        <li><svg class="i" aria-hidden="true"><use href="#i-power"/></svg><div><b>Games</b><span>Every game on the PC: mods from Thunderstore, GameBanana and Nexus, put back whole.</span></div></li>
         <li><svg class="i" aria-hidden="true"><use href="#i-box"/></svg><div><b>Mods</b><span>Switch mods on and off, drag in jars, update checks, recent changes.</span></div></li>
         <li><svg class="i" aria-hidden="true"><use href="#i-book"/></svg><div><b>Library</b><span>Modrinth and CurseForge search, installed with their dependencies.</span></div></li>
         <li><svg class="i" aria-hidden="true"><use href="#i-layers"/></svg><div><b>Server Pack</b><span>Install or update a pack, compare mods, rehearse an update.</span></div></li>
-        <li><svg class="i" aria-hidden="true"><use href="#i-plus"/></svg><div><b>Doctor</b><span>Finds what is wrong and fixes it with one click.</span></div></li>
+        <li><svg class="i" aria-hidden="true"><use href="#i-link"/></svg><div><b>Sites &amp; apps</b><span>Everything you host: websites, apps and ports, with a free address or your own domain.</span></div></li>
         <li><svg class="i" aria-hidden="true"><use href="#i-cloud"/></svg><div><b>Network and Cloud</b><span>Tunnels, Fenrir Connect sharing, keys and cloud backups.</span></div></li>
+        <li><svg class="i" aria-hidden="true"><use href="#i-plus"/></svg><div><b>Doctor</b><span>Finds what is wrong and fixes it with one click.</span></div></li>
         <li><svg class="i" aria-hidden="true"><use href="#i-spark"/></svg><div><b>Guide</b><span>A live setup checklist with a button on every step.</span></div></li>
         <li><svg class="i" aria-hidden="true"><use href="#i-palette"/></svg><div><b>Appearance</b><span>Eight themes, light and dark, accent, density, motion, text size.</span></div></li>
         <li><svg class="i" aria-hidden="true"><use href="#i-gear"/></svg><div><b>Settings</b><span>Worlds, paths, behaviour, Discord, the phone remote and About.</span></div></li>
@@ -572,12 +642,12 @@
 
 <footer class="foot">
   <div class="wrap foot__grid">
-    <div class="foot__brand"><span class="logo" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 64 64" focusable="false"><use href="#fenrir-mark-a"/></svg><span class="lg-b"><svg width="40" height="40" viewBox="0 0 64 64" focusable="false"><use href="#fenrir-mark-b"/></svg></span></span><div><b>Fenrir</b><span>Modded Minecraft for friends, hosted on your own PC.</span></div></div>
+    <div class="foot__brand"><span class="logo" aria-hidden="true"><svg width="40" height="40" viewBox="0 0 64 64" focusable="false"><use href="#fenrir-mark-a"/></svg><span class="lg-b"><svg width="40" height="40" viewBox="0 0 64 64" focusable="false"><use href="#fenrir-mark-b"/></svg></span></span><div><b>Fenrir</b><span>Every game, modded and hosted on your own PC.</span></div></div>
     <nav class="foot__nav" aria-label="Footer"><a href="host">Fenrir</a><a href="connect">Fenrir Connect</a><a href="link">Fenrir Link</a><a href="download">Download</a><a href="faq">FAQ</a></nav>
     <p class="foot__builds"><span data-vt="Current build, released {released}">Current build</span></p>
   </div>
   <div class="wrap foot__fine">
-    <p>Fenrir is an independent project. It is not affiliated with Mojang or Microsoft, and Minecraft is a trademark of Mojang AB.</p>
+    <p>Fenrir is an independent project. It is not affiliated with Mojang, Microsoft, Valve, Epic Games, GOG, Cloudflare or the makers of any game. Minecraft is a trademark of Mojang AB, and every other game’s name belongs to its owner.</p>
   </div>
 </footer>
 </body>
