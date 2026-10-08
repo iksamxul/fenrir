@@ -10,14 +10,14 @@ This repository holds the website and the releases. Fenrir is free for Windows 1
 
 | App | For | What it does |
 | --- | --- | --- |
-| **Fenrir** | the PC that hosts | Your games, their mods and servers, a Minecraft world, mashups of up to four games, and your own sites and apps online |
+| **Fenrir** | the PC that hosts | Every game you own and its mods, game servers and Minecraft worlds, mashups of up to four games, and your own sites and apps online |
 | **Fenrir Connect** | friends | Opens the host's link, gets their copy of the game ready with the same mods, and joins with one button |
 | **Fenrir Link** | your phone | Start, stop and watch your servers from anywhere (Android, or any iPhone straight from Safari) |
 
 ## What it does
 
 - **Every game you own**, from Steam, Epic, GOG, Ubisoft, EA and Xbox, even the ones not downloaded yet. Mods install in one press, and removing them puts every original file back. Games whose anti-cheat bans for changed files are shown and never touched.
-- **Servers for friends**: a Minecraft world with any modpack, and game servers for Valheim, Palworld, 7 Days to Die, Terraria, GTA V (FiveM) and Skyrim Together, each with its dashboard, log, players, settings and backups. A free tunnel gives friends an address, with no router changes.
+- **Servers for friends**: game servers for Valheim, Palworld, 7 Days to Die, Terraria, GTA V (FiveM) and Skyrim Together, and Minecraft worlds with any modpack, each with its dashboard, log, players, settings and backups. Valheim friends join with a code and a Minecraft world gets a free tunnel, with no router changes; for the others Fenrir can ask the router to open the ports.
 - **Ask Fenrir**: press Ctrl+K and say what you want. Fenrir does the everyday things on its own, the AI you pick answers the rest, and every change waits for your Do it.
 - **AI apps**: Claude Code, Claude Desktop and other apps that speak MCP can use Fenrir once you switch it on. They look first; each change waits for your Allow.
 - **Crash help**: when a modded game crashes, Fenrir names the mod most likely to blame, with Take it out and play. Mod sets keep the mods that work together.
