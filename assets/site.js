@@ -421,12 +421,16 @@
   if (doc.querySelector('[data-choose]') && /^#(fenrir|connect)$/.test(location.hash)) choose(location.hash.slice(1), false);
 
   /* ---------- FAQ ---------- */
+  /* the search hides what does not match, each topic on the rail counts what is left in it, and a search with three
+     or fewer answers opens them (closing them again when the search changes). faq?q=word arrives searched. */
   var field = doc.getElementById('faq-q');
   if (field) {
     var items = Array.prototype.slice.call(doc.querySelectorAll('.qa'));
     var groups = Array.prototype.slice.call(doc.querySelectorAll('.faq__group'));
+    var topics = Array.prototype.slice.call(doc.querySelectorAll('[data-topic]'));
     var count = doc.getElementById('faq-count');
     var empty = doc.getElementById('faq-empty');
+    var opened = [];
     var filter = function () {
       var term = field.value.trim().toLowerCase();
       var shown = 0;
@@ -436,10 +440,26 @@
         if (hit) shown++;
       });
       groups.forEach(function (g) { g.hidden = !g.querySelector('.qa:not([hidden])'); });
+      topics.forEach(function (a) {
+        var g = doc.getElementById(a.getAttribute('data-topic'));
+        var n = g ? g.querySelectorAll('.qa:not([hidden])').length : 0;
+        var c = a.querySelector('[data-topic-count]');
+        if (c) c.textContent = n;
+        a.classList.toggle('is-empty', n === 0);
+      });
+      opened.forEach(function (d) { d.open = false; });
+      opened = [];
+      if (term.length >= 3 && shown > 0 && shown <= 3) {
+        items.forEach(function (d) { if (!d.hidden && !d.open) { d.open = true; opened.push(d); } });
+      }
       if (count) count.textContent = term ? shown + ' of ' + items.length + ' questions' : items.length + ' questions';
       if (empty) empty.hidden = shown > 0;
     };
     field.addEventListener('input', filter);
+    try {
+      var asked = new URLSearchParams(location.search).get('q');
+      if (asked) field.value = asked.slice(0, 80);
+    } catch (e) { /* an old browser: no search from the address */ }
     filter();
   }
   function openFromHash() {

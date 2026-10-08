@@ -1664,3 +1664,28 @@ html[data-slot="b"] .logo .lg-b { opacity: 1; }
 .ph--friend .ph__btn--p { background: var(--teal); color: var(--teal-ink); }
 .ph--friend .ph__tabs .is-on { color: var(--teal-text); }
 .phones { text-align: left; }
+/* the FAQ (2.9): the search in the hero, topics on a rail beside the answers, each topic's count following the search */
+.phero--faq .faq__tools { justify-content: center; max-width: 640px; margin: 30px auto 0; }
+.phero--faq .faq__field { flex: 1 1 320px; max-width: 560px; }
+.phero--faq .faq__count { flex-basis: 100%; text-align: center; }
+.faq-band { padding-top: clamp(24px, 3vw, 44px); }
+.faq { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; }
+.faq__nav-h { margin: 0 0 10px; font-size: var(--fs-xs); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); }
+.faq__nav ul { display: flex; flex-wrap: wrap; gap: 8px; }
+.faq__nav a { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 7px 8px 7px 14px; border-radius: var(--r-pill); border: 1px solid var(--line-2); font-size: .9375rem; font-weight: 500; color: var(--ink-2); text-decoration: none; }
+.faq__n { min-width: 2.1em; padding: 1px 8px; border-radius: 99px; background: rgb(var(--ink-rgb) / .07); font-size: .78rem; font-weight: 600; text-align: center; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.faq__nav a.is-empty { color: var(--ink-3); border-style: dashed; }
+.faq__nav a.is-empty .faq__n { background: transparent; color: var(--ink-3); }
+.faq__main { display: grid; gap: clamp(40px, 5vw, 64px); min-width: 0; }
+.faq__group { scroll-margin-top: calc(var(--nav-h) + 40px); }
+.faq__group-h { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 16px; margin-bottom: 14px; }
+.faq__group-h h2 { margin: 0; font-size: clamp(1.5rem, 1.2rem + 1.1vw, 2.125rem); }
+.faq__group-h p { color: var(--ink-3); font-size: var(--fs-sm); }
+@media (min-width: 960px) {
+  .faq { grid-template-columns: 236px minmax(0, 1fr); gap: 56px; align-items: start; }
+  .faq__nav { position: sticky; top: calc(env(safe-area-inset-top, 0px) + var(--nav-h) + 40px); }
+  .faq__nav ul { flex-direction: column; flex-wrap: nowrap; gap: 2px; }
+  .faq__nav a { padding: 9px 10px 9px 12px; border-color: transparent; border-radius: 12px; }
+  .faq__nav a.is-empty { border-color: transparent; }
+}
+@media (hover: hover) and (pointer: fine) { .faq__nav a:hover { background: var(--hover); color: var(--ink); } }
