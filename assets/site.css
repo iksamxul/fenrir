@@ -569,7 +569,7 @@ kbd {
 .phero { padding-top: clamp(36px, 7vh, 96px); padding-bottom: clamp(44px, 6vw, 88px); text-align: center; }
 .phero .lead { margin: 24px auto 0; }
 .phero__cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 32px; }
-.phero--lost { min-height: calc(100svh - 260px); display: grid; align-content: center; }   /* the 404 page: the message sits mid-screen, the footer at the bottom */
+.phero--lost { min-height: calc(100svh - 260px); display: grid; grid-template-columns: minmax(0, 1fr); align-content: center; }   /* the track never grows past the screen */   /* the 404 page: the message sits mid-screen, the footer at the bottom */
 
 /* ---------- 8. Scenes ---------------------------------------------------- */
 .scene { position: relative; isolation: isolate; overflow-x: clip; padding-block: var(--scene-pad); }
@@ -1689,3 +1689,13 @@ html[data-slot="b"] .logo .lg-b { opacity: 1; }
   .faq__nav a.is-empty { border-color: transparent; }
 }
 @media (hover: hover) and (pointer: fine) { .faq__nav a:hover { background: var(--hover); color: var(--ink); } }
+/* the 404 page: a search into the questions, and where to go */
+.lost__find { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; max-width: 560px; margin: 30px auto 0; }
+.lost__find .faq__field { flex: 1 1 260px; }
+.lost__find .btn { min-height: 50px; }
+.lost__go { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 236px), 1fr)); gap: 12px; max-width: 800px; margin: 36px auto 0; text-align: left; }
+.lost__go a { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 2px 12px; align-items: center; height: 100%; padding: 16px 18px; border-radius: var(--r-lg); border: 1px solid var(--line-2); background: var(--raise); text-decoration: none; transition: border-color var(--dur-ui) ease; }
+.lost__go a > .i, .lost__go a > img { grid-row: span 2; width: 28px; height: 28px; color: var(--accent-text); }
+.lost__go b { color: var(--ink); font-weight: 600; }
+.lost__go span { color: var(--ink-2); font-size: var(--fs-sm); }
+@media (hover: hover) and (pointer: fine) { .lost__go a:hover { border-color: rgb(var(--ice-rgb) / .5); } }
