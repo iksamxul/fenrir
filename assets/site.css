@@ -1580,6 +1580,7 @@ html[data-slot="b"] .logo .lg-b { opacity: 1; }
 .pair__hang { position: relative; z-index: 3; width: min(50%, 24em); margin: -2.6em 0 0 auto; box-shadow: var(--shadow-float); }
 .pair__hang.m-card { font-size: clamp(10.5px, 2.7cqi, 15px); }
 .pair--hang { padding-bottom: 0; }
+.pair--hang .pair__wide > .m-win__body:last-child { padding-bottom: 3.4em; }   /* room for the card that hangs over its lower edge */
 .pair--hang .pair__wide { width: 94%; }
 .scene--flip .pair--hang .pair__wide { margin-left: auto; }
 .scene--flip .pair__hang { margin: -2.6em auto 0 0; }
@@ -1619,3 +1620,23 @@ html[data-slot="b"] .logo .lg-b { opacity: 1; }
 .fan > .m-win.fan__side { min-height: 100%; }
 /* centred leads wrap into even lines */
 .phero .lead, .hero__lead, .shead--c .lead, .cta .lead { text-wrap: balance; }
+/* the Fenrir Connect page: the friends' app's window and its Games page */
+.cxshow { position: relative; width: min(100%, 1100px); margin-inline: auto; text-align: left; }
+.cxshow > .aw { width: 90%; margin-left: auto; }
+.cxshow__server { left: 0; bottom: -9%; width: 27%; z-index: 4; box-shadow: var(--shadow-float); }   /* over the sidebar, never the buttons */
+@media (max-width: 859px) { .cxshow > .aw { width: 100%; } .cxshow__server { position: relative; left: auto; bottom: auto; width: min(88%, 380px); margin: -18px 0 0 auto; } }
+.aw--cx .aw__item.is-on { background: rgb(var(--teal-rgb) / .14); }
+.aw--cx .aw__item.is-on .i { color: var(--teal-text); }
+.aw__brand img { width: 1.6em; height: 1.6em; flex: none; }
+.aw__note { margin: -.5em .6em .7em; font-size: .78em; color: var(--ink-3); }
+.cx-games { display: grid; gap: .6em; margin-top: 1em; }
+.cx-game { display: flex; align-items: center; gap: .85em; min-width: 0; padding: .8em .9em; border-radius: .9em; border: 1px solid var(--line-2); background: var(--raise-2); }
+.cx-game > div { flex: 1; min-width: 0; }
+.cx-game b { display: block; font-weight: 600; }
+.cx-game .m-bar { display: block; margin-top: .45em; max-width: 16em; }
+.cx-game .m-bar i { background: var(--teal); }
+.cx-game.is-ready { border-color: rgb(var(--ok-rgb) / .4); background: rgb(var(--ok-rgb) / .06); }
+.page-connect .m-btn--p, .connect-moment .m-btn--p { background: var(--teal); color: var(--teal-ink); box-shadow: 0 .6em 1.6em -.7em rgb(var(--teal-rgb) / .7); }
+.page-connect .m-kick, .connect-moment .m-kick { color: var(--teal-text); }
+.m-find--ok { --sev: var(--ok); }
+.m-world .m-ring { width: 2.6em; height: 2.6em; }
