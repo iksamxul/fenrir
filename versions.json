@@ -3,36 +3,35 @@
   "releasesPage": "https://github.com/iksamxul/fenrir/releases",
   "released": "2026-10-08",
   "fenrir": {
-    "version": "2.4.0",
+    "version": "2.5.0",
     "file": "FenrirSetup.exe",
-    "size": 65312261,
-    "sha256": "6c83d5fa2c57e5879cee0d9e2a35141ad624602562b754f085067a517db7f0ab"
+    "size": 65323452,
+    "sha256": "7f34b13b0bd3d3fe850031d656b25910de08553918a536e2012bd603adf67b1f"
   },
   "connect": {
     "version": "2.3.0",
     "file": "FenrirConnect.exe",
-    "size": 20857843,
-    "sha256": "d0ff06240448fcdcc7e535c78ad323b378b549d4ed23815fd2a457e09b6472a7"
+    "size": 20857389,
+    "sha256": "acca5065264001facf47e2513fd0a7cf513f8610889d754021f492b2a540befb"
   },
   "portable": {
     "file": "Fenrir-portable.zip",
-    "size": 23929102,
-    "sha256": "9fd3cfb66b4fec8d9eefb12caa5547c218382c67c2cf943570cdcd762a62111b"
+    "size": 23941781,
+    "sha256": "fd081044328283b7454332da0f6c656e15a97ab81e80f722591a935c16b571ec"
   },
   "notes": [
-    "A Friends page: everyone you play with, whether they are around, which games they have ready and their link, in one place.",
-    "Tonight on Games: a game night near starts with one press and tells your friends, under a row of things to do.",
-    "The sidebar fits any window, Settings save the moment you change them, and everyday changes come with Undo.",
-    "What this PC can run, Fenrir's icon in the system tray, and Network & Cloud says in one line how friends reach you."
+    "Each server's Dashboard says who can join from where, with the one step that lets friends further away in.",
+    "Host a game's server, guided: its few settings, then one press downloads it, sets it up and starts it.",
+    "Game servers show who is on by name, a friend's page invites them to any game, and Fenrir Link starts tonight's game night from your phone."
   ],
   "linkAndroid": {
     "file": "FenrirLink.apk",
-    "size": 33565084,
-    "sha256": "6f6e3e061ea8bd213da794381cdd6a83b51b8b1361d8532e4c3a5c2dff57ae9d"
+    "size": 33565468,
+    "sha256": "a1f9a6feb079e329ba514ba30b8c1339662bb7bddbdbb5341a7ff856de217aa6"
   },
   "linkIphone": {
     "file": "FenrirLink.ipa",
-    "size": 3865646,
-    "sha256": "dcaadb2ef428fe6d74718fba41a8e84c25fe38890cd29d9e9572b485ff421bba"
+    "size": 3866016,
+    "sha256": "4297ce96bfd0a879052c59d336e87af15de8f0660e9cc0465efb69b99b035dab"
   }
 }
