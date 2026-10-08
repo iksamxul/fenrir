@@ -1,7 +1,8 @@
 /* Ask Fenrir, to try on the page (2.3). The home page's picture of Ask Fenrir takes a sentence and answers the way Fenrir's
-   own reading does, from a made-up evening: the Minecraft world with Sam and Alex on, a Valheim server with Mo on, Palworld
-   off, and Lethal Company's last crash. Nothing leaves the page, and Do it only shows what would happen. Without JavaScript
-   the picture stays as it was drawn. */
+   own reading does, from a made-up evening: the Valheim server with two on, the Minecraft world with Juno on, Palworld off,
+   the game night page online, Friday's game night, and Lethal Company's last crash. Game servers report how many are on,
+   as Fenrir's own answer does; only the Minecraft world names them. Nothing leaves the page, and Do it only shows what would
+   happen. Without JavaScript the picture stays as it was drawn. */
 (function () {
   'use strict';
   var box = document.querySelector('[data-ask-demo]');
@@ -15,7 +16,7 @@
   if (!field || !said || !list || !actions) return;
 
   var SERVERS = { minecraft: 'the Minecraft world', world: 'the Minecraft world', valheim: 'the Valheim server', palworld: 'the Palworld server' };
-  var ON = { minecraft: ['Sam', 'Alex'], valheim: ['Mo'], palworld: null };
+  var ON = { minecraft: ['Juno'], valheim: 2, palworld: null };  // the world names who is on; a game server counts them
   var GAMES = ['Valheim', 'Lethal Company', 'Elden Ring', 'Skyrim Special Edition', 'Palworld', 'Terraria', 'Minecraft'];
   var HINTS = ['Who is on?', 'Start Palworld', 'Why did Lethal Company crash?', 'Game night Friday at 8 on Valheim'];
   var DAYS = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
@@ -97,10 +98,10 @@
     var keep = function (re) { return new RegExp(re.source, 'i').exec(said0); };  // a mod's or a set's name as it was typed
     var m;
     if (/^(who('s|s| is)? (on|online|playing|there)|is anyone (on|online|playing))/.test(s)) {
-      return { title: 'The Minecraft world is running with 2 on: Sam and Alex. The Valheim server has 1 on: Mo.', look: 'what Fenrir is doing now', steps: [] };
+      return { title: 'The Minecraft world is running with 1 on: Juno. The Valheim server is running with 2 on.', look: 'what Fenrir is doing now', steps: [] };
     }
     if (/^(status|what'?s running|what is running|how are (the|my) servers)/.test(s)) {
-      return { title: 'The Minecraft world and the Valheim server are running; Palworld is off. Next game night: Friday at 20:00.', look: 'what Fenrir is doing now', steps: [] };
+      return { title: 'The Minecraft world is running with 1 on: Juno. The Valheim server is running with 2 on. The Palworld server is off. Online: Game night page. Next game night: Game night, Friday at 21:00.', look: 'what Fenrir is doing now', steps: [] };
     }
     if (/^(what'?s wrong|is anything wrong|any problems|check everything)$/.test(s)) {
       return { title: "Fenrir's checks found nothing wrong.", look: "Fenrir's checks", steps: [] };
@@ -141,18 +142,21 @@
     if ((m = /^(?:use|switch to|load) (?:the )?(?:mod ?set )?(.+?) (?:in|for|on) (.+)$/.exec(s)) && game(m[2])) {
       return { title: 'Here is what Fenrir will do.', steps: ['Use the mod set “' + keep(/^(?:use|switch to|load) (?:the )?(?:mod ?set )?(.+?) (?:in|for|on) (.+)$/)[1] + '” in ' + game(m[2])] };
     }
-    if ((m = /^(stop|shut ?down|close|restart|reboot)(?: (?:the )?(.+?))?$/.exec(s))) {
+    if ((m = /^(stop|shut ?down|close|restart|reboot)(?: (?:the )?(.+?))?( even with (?:people|players) on(?: it)?)?$/.exec(s))) {
       var x = server(m[2]);
       if (!x) return { title: 'There is no server called “' + m[2] + '” here. These are: the Minecraft world, Valheim and Palworld.', steps: [] };
       var restart = /^re/.test(m[1]);
-      if (restart && x !== 'minecraft') return { title: 'A game server restarts with a stop and a start: say “stop” with its name, then “start”.', steps: [] };
-      var who = ON[x];
-      return { title: who && who.length ? names(who) + (who.length > 1 ? ' are' : ' is') + ' on ' + SERVERS[x].replace(/^the /, 'the ') + ': Fenrir asks you to confirm, and tells them first.' : 'Here is what Fenrir will do.',
-               steps: [(restart ? 'Restart ' : 'Stop ') + SERVERS[x]] };
+      if (restart && x !== 'minecraft') return { title: 'A game server restarts with a stop and a start: say “stop” with its name, then “start” once it is off.', steps: [] };
+      var on = ON[x], n = typeof on === 'number' ? on : (on ? on.length : 0);
+      if (n && !m[3]) {
+        var who = typeof on === 'number' ? n + (n > 1 ? ' people are' : ' person is') : names(on) + (n > 1 ? ' are' : ' is');
+        return { title: who + ' on ' + SERVERS[x] + '. To ' + (restart ? 'restart' : 'stop') + ' it anyway, add “even with people on it”: they are told first.', steps: [] };
+      }
+      return { title: 'Here is what Fenrir will do.', steps: [(restart ? 'Restart ' : 'Stop ') + SERVERS[x] + (m[3] ? ', even with people on it' : '')] };
     }
     if ((m = /^(?:start|boot|run|turn on|fire up|play|launch)(?: up)?(?: (?:the )?(.+?))?(?: server)?$/.exec(s))) {
       var y = server(m[1]);
-      if (y) return ON[y] ? { title: cap(SERVERS[y]) + ' is running already, with ' + names(ON[y]) + ' on.', steps: [] } : { title: 'Here is what Fenrir will do.', steps: ['Start ' + SERVERS[y]] };
+      if (y) return ON[y] ? { title: cap(SERVERS[y]) + ' is running already, with ' + (typeof ON[y] === 'number' ? ON[y] : names(ON[y])) + ' on.', steps: [] } : { title: 'Here is what Fenrir will do.', steps: ['Start ' + SERVERS[y]] };
       var g2 = game(m[1] || '');
       if (g2) return { title: 'Here is what Fenrir will do.', steps: ['Start ' + g2 + ' with its mods'] };
       return { title: 'There is no server or game called “' + m[1] + '” here.', steps: [] };
