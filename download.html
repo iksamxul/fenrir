@@ -41,6 +41,7 @@
 <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
 <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
 <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8.5" y="8.5" width="11" height="11" rx="2.5"/><path d="M15.5 8.5V7A2.5 2.5 0 0 0 13 4.5H7A2.5 2.5 0 0 0 4.5 7v6A2.5 2.5 0 0 0 7 15.5h1.5"/></symbol>
+<symbol id="i-cube" viewBox="0 0 24 24"><rect x="4.5" y="4.5" width="15" height="15" rx="2"/><path d="M4.5 9.5h15M9.5 9.5v10"/></symbol>
 <symbol id="i-disk" viewBox="0 0 24 24"><rect x="3.5" y="6" width="17" height="12" rx="2.5"/><path d="M10.5 14.5h6M7 14.5h.01"/></symbol>
 <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v11M7 10.5l5 5 5-5M5 19.5h14"/></symbol>
 <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.4 2.3 3.6 5.1 3.6 8.5s-1.2 6.2-3.6 8.5c-2.4-2.3-3.6-5.1-3.6-8.5s1.2-6.2 3.6-8.5z"/></symbol>
@@ -134,9 +135,9 @@
     <div class="wrap">
       <p class="eyebrow"><svg class="rune" aria-hidden="true"><use href="#rune"/></svg>Download</p>
       <h1 class="page-title" id="page-title"><span class="line">Which one</span> <span class="line accent">do I need?</span></h1>
-      <p class="lead">Fenrir Setup installs either app, for your Windows account only, with no administrator prompt. Friends rarely need this page. The one their host’s link opens has everything.</p>
+      <p class="lead">Fenrir Setup installs either app, for your Windows account only, with no administrator prompt. Friends rarely need this page: the one their host’s link opens has everything, with their key inside.</p>
       <div class="choose" role="group" aria-label="Who are you?">
-        <button class="choose__btn" type="button" data-choose="fenrir" aria-pressed="false"><img src="assets/fenrir.svg" width="48" height="48" alt=""><b>I host the world</b><span>Get Fenrir Setup and tick Fenrir.</span></button>
+        <button class="choose__btn" type="button" data-choose="fenrir" aria-pressed="false"><img src="assets/fenrir.svg" width="48" height="48" alt=""><b>I host the games</b><span>Get Fenrir Setup and tick Fenrir.</span></button>
         <button class="choose__btn" type="button" data-choose="connect" aria-pressed="false"><img src="assets/connect.svg" width="48" height="48" alt=""><b>A friend invited me</b><span>Open their link, or get Fenrir Connect here.</span></button>
       </div>
       <div class="phone-note" data-phone-only hidden>
@@ -157,7 +158,7 @@
       <p class="notice notice--teal" data-for="connect" hidden><svg class="i" aria-hidden="true"><use href="#i-link"/></svg><span>Have a link from your host? Open it instead. Its page has Fenrir Setup with your key inside, so nothing needs pasting and the app connects by itself.</span></p>
       <div class="dl-grid">
         <article class="dl" id="fenrir" data-card="fenrir" aria-labelledby="t-fenrir">
-          <div class="dl__head"><img src="assets/fenrir.svg" width="56" height="56" alt=""><div><h2 id="t-fenrir">Fenrir Setup</h2><p>For the PC that hosts the world. Tick Fenrir; it can add Fenrir Connect too.</p></div></div>
+          <div class="dl__head"><img src="assets/fenrir.svg" width="56" height="56" alt=""><div><h2 id="t-fenrir">Fenrir Setup</h2><p>For the PC that hosts your games, servers and sites. Tick Fenrir; it can add Fenrir Connect too.</p></div></div>
           <div class="dl__actions dl__actions--top">
             <a class="btn btn--primary btn--lg" data-v-href="fenrir" role="link" aria-disabled="true"><svg class="i" aria-hidden="true"><use href="#i-down"/></svg>Download Fenrir Setup</a>
             <a class="more" data-v-page style="margin-top:0" href="download">Every release <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
@@ -197,7 +198,7 @@
         </article>
       </div>
       <article class="dl dl--wide" id="link-app" aria-labelledby="t-link-app">
-        <div class="dl__head"><img src="assets/link.svg" width="56" height="56" alt=""><div><h2 id="t-link-app">Fenrir Link</h2><p>For your phone. Scan your code from Fenrir or Fenrir Connect once; the phone keeps it like a passkey.</p></div></div>
+        <div class="dl__head"><img src="assets/link.svg" width="56" height="56" alt=""><div><h2 id="t-link-app">Fenrir Link</h2><p>For your phone: your servers, game night and who is on. Scan your code from Fenrir or Fenrir Connect once; the phone keeps it like a passkey.</p></div></div>
         <div class="dl__actions">
           <a class="btn btn--primary btn--lg" data-v-href="linkAndroid" role="link" aria-disabled="true"><svg class="i" aria-hidden="true"><use href="#i-down"/></svg>Download for Android</a>
           <a class="btn btn--ghost btn--lg" href="link#iphone">iPhone: straight from Safari</a>
@@ -227,7 +228,7 @@
             <li><svg class="i" aria-hidden="true"><use href="#i-check"/></svg><span><b>Every original file comes back.</b> Removing mods puts each game's own files back. Games whose anti-cheat bans for changed files are never touched.</span></li>
             <li><svg class="i" aria-hidden="true"><use href="#i-key"/></svg><span><b>Everything it changed, listed.</b> Settings shows its files in your games, the firewall rules and router ports it added, what is online and what starts with Windows, each with its way back.</span></li>
             <li><svg class="i" aria-hidden="true"><use href="#i-disk"/></svg><span><b>Deleting goes to the Recycle Bin.</b> Anything too big for it is asked about first, since Windows would delete it for good.</span></li>
-            <li><svg class="i" aria-hidden="true"><use href="#i-disk"/></svg><span><b>Removing it.</b> Use Apps in Windows Settings, then delete its folder. Your worlds and servers stay where they are.</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-disk"/></svg><span><b>Removing it.</b> Use Apps in Windows Settings, then delete its folder. Your servers and their worlds stay where they are.</span></li>
           </ul>
         </div>
         <div class="req__col" style="--accent-text:var(--teal-text)">
@@ -254,19 +255,19 @@
         <div class="req__col">
           <h3>The host’s PC</h3>
           <ul>
-            <li><svg class="i" aria-hidden="true"><use href="#i-pc"/></svg><span><b>Windows 10 or 11.</b> Fenrir runs in its own window and can start with Windows.</span></li>
-            <li><svg class="i" aria-hidden="true"><use href="#i-memory"/></svg><span><b>Memory for the pack.</b> The Dashboard’s memory planner shows what fits, with the game too if you play on the same PC.</span></li>
-            <li><svg class="i" aria-hidden="true"><use href="#i-disk"/></svg><span><b>Room for the pack and its backups.</b> About 4 GB for All the Mods 10.</span></li>
-            <li><svg class="i" aria-hidden="true"><use href="#i-plus"/></svg><span><b>Java comes by itself.</b> The Doctor installs the version the pack needs.</span></li>
-            <li><svg class="i" aria-hidden="true"><use href="#i-globe"/></svg><span><b>An internet connection.</b> A free playit tunnel gives the game its address, with no router changes.</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-pc"/></svg><span><b>Windows 10 or 11.</b> Fenrir runs in its own window, waits in the tray when you close it, and can start with Windows.</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-memory"/></svg><span><b>Memory for your servers.</b> What this PC can run shows what fits, with room kept for a game you play on the same PC.</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-disk"/></svg><span><b>Room for servers and backups.</b> A Valheim server is about 1 GB, Palworld about 3 GB, 7 Days to Die about 12 GB, and a big Minecraft pack about 4 GB.</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-plus"/></svg><span><b>What a server needs comes by itself.</b> Valheim’s, Palworld’s and 7 Days to Die’s servers come from Valve with SteamCMD, and the Doctor installs the Java a Minecraft pack needs.</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-globe"/></svg><span><b>An internet connection.</b> Free tunnels and Valheim’s join code need no router changes; for other game servers, Fenrir can ask your router to open the ports.</span></li>
           </ul>
         </div>
         <div class="req__col" style="--accent-text:var(--teal-text)">
           <h3>A friend’s PC</h3>
           <ul>
-            <li><svg class="i" aria-hidden="true"><use href="#i-pc"/></svg><span><b>Windows 10 or 11.</b></span></li>
-            <li><svg class="i" aria-hidden="true"><use href="#i-play"/></svg><span><b>TLauncher.</b> Fenrir Connect sets up its profile and memory.</span></li>
-            <li><svg class="i" aria-hidden="true"><use href="#i-disk"/></svg><span><b>About 1.7 GB</b> the first time for All the Mods 10, mostly straight from CurseForge.</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-pc"/></svg><span><b>Windows 10 or 11.</b> Fenrir Connect installs for their Windows account only.</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-play"/></svg><span><b>Their own copy of the game.</b> Fenrir Connect finds it and puts the same mods in, from where they are published.</span></li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-cube"/></svg><span><b>For a Minecraft pack, TLauncher.</b> Fenrir Connect sets up its profile and memory; a big pack is about 1.7 GB the first time, mostly straight from CurseForge.</span></li>
             <li><svg class="i" aria-hidden="true"><use href="#i-key"/></svg><span><b>The link from the host.</b> It carries the key, so nothing needs pasting.</span></li>
           </ul>
         </div>
