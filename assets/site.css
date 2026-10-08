@@ -1170,7 +1170,7 @@ html[data-slot="b"] .logo .lg-b { opacity: 1; }
 .dl__check .cert { display: block; margin-top: 8px; padding: 10px 12px; border-radius: var(--r-sm); background: var(--raise-2); border: 1px solid var(--line); font-size: .75rem; line-height: 1.5; color: var(--ink-2); overflow-wrap: anywhere; }
 /* Ask Fenrir to try on the home page (2.3, assets/ask-demo.js): the picture's field takes typing */
 .m-field--live { cursor: text; }
-.m-field--live:focus-within { border-color: rgb(var(--ice-rgb) / .6); box-shadow: 0 0 0 3px rgb(var(--ice-rgb) / .18); }
+.m-field--live:focus-within { border-color: rgb(var(--ice-rgb) / .6); box-shadow: 0 0 0 3px rgb(var(--ice-rgb) / .18); outline: 2px solid var(--ice); outline-offset: 2px; }   /* the site's own focus ring, on the field the input sits in */
 .m-input { flex: 1; min-width: 0; border: 0; outline: 0; padding: 0; background: transparent; color: var(--ink); font: inherit; }
 .m-input::placeholder { color: var(--ink-3); }
 .m-hints { display: flex; flex-wrap: wrap; gap: .4em; margin-top: .7em; }
