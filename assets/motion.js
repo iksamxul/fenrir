@@ -69,6 +69,7 @@
       var items = [];
       Array.prototype.forEach.call(vis.children, function (c) {
         if (c.classList.contains('glow')) items.push({ el: c, role: 'glow' });
+        else if (c.classList.contains('pair__hang')) items.push({ el: c, role: isStep ? 'step' : 'stage', side: side });   /* a card hung under its window moves with it, never over its buttons */
         else if (c.matches('.chip, .m-float, .arrange__lift, .safe__log, .collage__side')) items.push({ el: c, role: 'fore' });
         else if (c.classList.contains('duo__back')) items.push({ el: c, role: 'duo', side: -1 });
         else if (c.classList.contains('duo__front')) items.push({ el: c, role: 'duo', side: 1 });
