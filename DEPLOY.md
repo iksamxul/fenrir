@@ -15,7 +15,6 @@ site/
   assets/fenrir.svg      assets/connect.svg      assets/wolf.png      assets/wolf-connect.png
   assets/social.jpg  assets/social-connect.jpg  assets/social-link.jpg   the 1200x630 link previews (Open Graph and Twitter cards)
   assets/link.svg  assets/link-qr.svg   Fenrir Link's mark, and a real QR code that opens the Link page
-  assets/shots/          the screenshots, as WebP (see below)
   deploy.ps1             optional: publish everything with the gh CLI
 ```
 
@@ -109,13 +108,12 @@ git push -u origin main
 
 Keep the executables on GitHub Releases either way (Cloudflare Pages takes files up to 25 MiB, and the Setup is about 60 MB) and point `releaseBase` there.
 
-## Screenshots
+## Pictures
 
-`fenrir\build\shots.py` takes PNGs of both apps into `assets/shots/` (`dashboard.png`, `dashboard-light.png`, `friends.png`, `settings.png`, `connect.png`, `connect-tools.png`, the Fenrir Link shots), each with a `-light` twin. The PNGs stay on this PC (`.gitignore`): the pages show WebP.
-
-Then run `python fenrir\build\site_images.py`. It writes `<name>.webp` at full width and `<name>.640.webp`, `<name>.960.webp` and `<name>.1600.webp`, which the pages list in `srcset`, so a phone fetches a small picture (the home page's pictures went from 1.35 MB to about 150 KB on a phone). On a phone, a whole window is shown as a crop of its main column at a size that reads (`assets/site.css`, section 4).
-
-Until a file exists, its frame shows the screen's name over a grid instead of a broken image. If a `-light` twin is missing, light mode shows the dark one.
+The pages draw their pictures in HTML and CSS (the scenes in `assets/site.css`), with made-up names only: no screenshots of the
+apps are published, so nothing of the PC that builds Fenrir (its name, its games, its friends) can reach the site. A real
+screenshot, if one is ever wanted again, is taken with `fenrir\build\shots.py` from a preview with seeded data, checked for
+real names, and turned into WebP sizes with `fenrir\build\site_images.py`.
 
 ## A new build
 
