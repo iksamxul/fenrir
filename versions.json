@@ -3,26 +3,26 @@
   "releasesPage": "https://github.com/iksamxul/fenrir/releases",
   "released": "2026-10-08",
   "fenrir": {
-    "version": "2.5.0",
+    "version": "2.6.0",
     "file": "FenrirSetup.exe",
-    "size": 65323452,
-    "sha256": "7f34b13b0bd3d3fe850031d656b25910de08553918a536e2012bd603adf67b1f"
+    "size": 65329653,
+    "sha256": "aaf8b35b7b068fb13fe6168a384ddb9e3fc2b110bde6771c80d5a2f3c8924467"
   },
   "connect": {
     "version": "2.3.0",
     "file": "FenrirConnect.exe",
-    "size": 20857389,
-    "sha256": "acca5065264001facf47e2513fd0a7cf513f8610889d754021f492b2a540befb"
+    "size": 20855407,
+    "sha256": "50a9cd6eec4988becc5ededc321c7d34a5e696fdf6ca807eb428511957080b3a"
   },
   "portable": {
     "file": "Fenrir-portable.zip",
-    "size": 23941781,
-    "sha256": "fd081044328283b7454332da0f6c656e15a97ab81e80f722591a935c16b571ec"
+    "size": 23949847,
+    "sha256": "40319fe8d97eb8b5570e3237701c919a3ba3849291e213ee51dc602a2ae03779"
   },
   "notes": [
-    "Each server's Dashboard says who can join from where, with the one step that lets friends further away in.",
-    "Host a game's server, guided: its few settings, then one press downloads it, sets it up and starts it.",
-    "Game servers show who is on by name, a friend's page invites them to any game, and Fenrir Link starts tonight's game night from your phone."
+    "Opening Fenrir while it runs brings its window back, instead of starting a second Fenrir beside it.",
+    "Closed to the tray, Fenrir comes back there after an update, never over your game.",
+    "Turning a friend's link off also changes the private relay their app used to find you, and presets say what they filled."
   ],
   "linkAndroid": {
     "file": "FenrirLink.apk",
