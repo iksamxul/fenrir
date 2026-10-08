@@ -1590,3 +1590,32 @@ html[data-slot="b"] .logo .lg-b { opacity: 1; }
 
 /* text that wraps evenly: no lone word on the last line of a lead */
 .lead, .copy, .hero__lead, .app > p, .tile > p, .how__step > p, .points span, .next p { text-wrap: pretty; }
+/* the Fenrir page: friends at a glance, what this PC can run, the pages by section, the fan drawn in HTML */
+.m-friends { display: grid; grid-template-columns: repeat(auto-fill, minmax(15em, 1fr)); gap: .6em; margin-top: 1em; }
+.m-friend { display: flex; align-items: center; gap: .75em; min-width: 0; padding: .8em .9em; border-radius: .9em; border: 1px solid var(--line-2); background: var(--raise-2); }
+.m-friend > div { flex: 1; min-width: 0; }
+.m-friend b { display: block; font-weight: 600; }
+.m-friend .m-sub { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.gts--sm { grid-template-columns: repeat(auto-fill, minmax(8.5em, 1fr)); margin-top: .5em; }
+.gts--sm .gt__art { font-size: 1.15em; }
+@container (max-width: 640px) { .gts--sm { grid-template-columns: repeat(2, minmax(0, 1fr)); } .gts--sm .gt:nth-child(n + 5) { display: grid; } }
+.gt--owned { border-style: dashed; }
+.gt--owned .gt__art { filter: saturate(.55) brightness(.85); }
+.m-chart--flat { width: 100%; height: 4.2em; margin-top: .9em; }
+.m-meter { display: flex; height: .7em; margin: .5em 0 .8em; border-radius: 99em; overflow: hidden; background: rgb(var(--ink-rgb) / .1); }
+.m-meter i { width: var(--w); height: 100%; }
+.m-meter .is-win { background: rgb(var(--ink-rgb) / .35); }
+.m-meter .is-a { background: var(--ice); }
+.m-meter .is-b { background: var(--teal); }
+.m-dot--warn { color: var(--warn); }
+.m-tonight--flat { margin-top: 0; }
+.pagegroups { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px 56px; }
+@media (min-width: 900px) { .pagegroups { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.pagegroup { min-width: 0; }
+.pagegroup h3 { margin: 22px 0 6px; font-size: var(--fs-xs); font-family: var(--font-body); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-text); }
+.pagegroup .pages { grid-template-columns: minmax(0, 1fr); }
+.fan { text-align: left; }
+.fan > .m-win.fan__main { margin-inline: auto; }
+.fan > .m-win.fan__side { min-height: 100%; }
+/* centred leads wrap into even lines */
+.phero .lead, .hero__lead, .shead--c .lead, .cta .lead { text-wrap: balance; }
