@@ -1699,3 +1699,7 @@ html[data-slot="b"] .logo .lg-b { opacity: 1; }
 .lost__go b { color: var(--ink); font-weight: 600; }
 .lost__go span { color: var(--ink-2); font-size: var(--fs-sm); }
 @media (hover: hover) and (pointer: fine) { .lost__go a:hover { border-color: rgb(var(--ice-rgb) / .5); } }
+/* the coming Servers list, inside the next-build block */
+.next__mock { justify-self: stretch; max-width: 26rem; }
+.next__mock .m-card { box-shadow: var(--shadow-card); }
+@media (min-width: 900px) { .next__mock { justify-self: end; width: 100%; } }
