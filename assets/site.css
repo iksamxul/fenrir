@@ -813,6 +813,9 @@ kbd {
 .fan__side { position: absolute; top: 0; left: 50%; z-index: 1; width: min(100%, 1000px); margin-left: calc(min(100%, 1000px) / -2); transform-origin: 50% 100%; }
 .fan__side--l { transform: translateX(-34%) translateZ(-180px) rotateY(18deg); }
 .fan__side--r { transform: translateX(34%) translateZ(-180px) rotateY(-18deg); }
+/* the side windows reach past the page's edge: their outer parts fade out instead of being cut mid-word */
+.fan__side--l { -webkit-mask-image: linear-gradient(90deg, transparent 6%, #000 40%); mask-image: linear-gradient(90deg, transparent 6%, #000 40%); }
+.fan__side--r { -webkit-mask-image: linear-gradient(270deg, transparent 6%, #000 40%); mask-image: linear-gradient(270deg, transparent 6%, #000 40%); }
 @media (max-width: 959px) { .fan__side { display: none; } }
 
 /* a window with a card beside it */
@@ -1048,8 +1051,6 @@ main:has(> .cta:last-child) + .foot { background: var(--veil); }   /* after the 
 /* reduced motion: fades stay, movement goes */
 @media (prefers-reduced-motion: reduce) {
   .hero .eyebrow, .phero .eyebrow, .hero__title .w, .page-title, .hero__lead, .phero .lead, .hero__cta, .phero__cta, .phero .choose, .hero__stage, .hero__trust { animation-name: fade; }
-  .fan__side--l { transform: translateX(-30%) scale(.92); }
-  .fan__side--r { transform: translateX(30%) scale(.92); }
   .steps__rail i { opacity: .5; }
   .aurora__band, .aurora__haze, .sky__stars::after, .m-caret { animation: none; }
   .btn, .btn:hover, .btn:active, .choose__btn, .choose__btn:hover, .choose__btn:active, .copy-btn, .copy-btn:active { transform: none; transition: none; }
@@ -1400,7 +1401,7 @@ html[data-slot="b"] .logo .lg-b { opacity: 1; }
 .scene--flip .pair__hang { margin: -2.6em auto 0 0; }
 @media (max-width: 599px) { .pair__hang, .scene--flip .pair__hang { width: 88%; margin: -14px 0 0 auto; } .pair--hang .pair__wide { width: 100%; } }
 .pair--hang .pair__chip { left: auto; right: -2%; top: -4%; bottom: auto; }
-.scene--flip .pair--hang .pair__chip { right: auto; left: -2%; }
+.scene--flip .pair--hang .pair__chip { right: -2%; left: auto; }   /* the top right too: a window's title starts at its left */
 @media (max-width: 599px) { .pair--hang .pair__chip, .scene--flip .pair--hang .pair__chip { position: relative; inset: auto; margin: 12px 0 0; } }
 
 /* text that wraps evenly: no lone word on the last line of a lead */
