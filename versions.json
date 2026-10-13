@@ -1,28 +1,28 @@
 {
   "releaseBase": "https://github.com/iksamxul/fenrir/releases/latest/download/",
   "releasesPage": "https://github.com/iksamxul/fenrir/releases",
-  "released": "2026-10-08",
+  "released": "2026-10-13",
   "fenrir": {
-    "version": "2.8.0",
+    "version": "2.9.0",
     "file": "FenrirSetup.exe",
-    "size": 65429559,
-    "sha256": "71dcd721f41027e4df6a1a5911492997772fd59c92c50a89b6b4443264fc9e91"
+    "size": 65610278,
+    "sha256": "34d9e184b9a7344631eb8cb09f7298e5d34eb8dd97a2eef64031970983491321"
   },
   "connect": {
-    "version": "2.7.0",
+    "version": "2.9.0",
     "file": "FenrirConnect.exe",
-    "size": 20868769,
-    "sha256": "7fabb458c84a731a293dc00b870b0eb68badfbe8ea94b0fa4933e05e853ef4c6"
+    "size": 20877021,
+    "sha256": "5655cd2fb94e2562d3ea9457a16afc5ec721ed884dd0fc00a678301d15151efd"
   },
   "portable": {
     "file": "Fenrir-portable.zip",
-    "size": 24028116,
-    "sha256": "89add9d55016ac6d52548b15888efef7b682b59319e7ad7c824b200de9e2f103"
+    "size": 24199066,
+    "sha256": "f11b6939f109779a5eeeac34fb415f34f4f4073f51db2ff0d46bf81def8d74dc"
   },
   "notes": [
-    "Game-night times show in each friend's own time zone, and a second game night in one evening is announced and started.",
-    "Fit memory no longer lowers your server's memory for good, and old copies of the pack's files are cleaned up.",
-    "7 Days to Die's Console shows its lines, Palworld's firewall rule lets friends in, and client-only mods stay in friends' packs."
+    "Run any program as a server of your own: Fenrir keeps its console, starts it again after a crash, backs it up and lets friends in.",
+    "Every server sits in one list, a game's, a Minecraft world or your own, and commands can run on a schedule on any of them.",
+    "Pages read for every game, every button has a name, and friends get a new Fenrir Connect that knows your PC by your Fenrir."
   ],
   "linkAndroid": {
     "file": "FenrirLink.apk",
