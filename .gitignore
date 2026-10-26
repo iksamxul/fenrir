@@ -3,3 +3,8 @@
 
 # screenshot sources: fenrir/build/site_images.py publishes them as WebP
 assets/shots/*.png
+
+# Local assistant instructions: keep them on this PC, never in the repository.
+AGENTS.md
+CLAUDE.md
+.claude/
